@@ -1,0 +1,527 @@
+country;year;date;party_abbr;party_name;parlgov_id;pr_ingov_mean;pr_ingov_lower;pr_ingov_upper;excluding;excluding_parlgov_id
+luxembourg;1947;01.03.1947;CSV;Christian Social People's Party;1234;0,441455;0,359916;0,527835;DP;967
+luxembourg;1947;01.03.1947;CSV;Christian Social People's Party;1234;0,953273;0,932418;0,968141;KPL;151
+luxembourg;1947;01.03.1947;CSV;Christian Social People's Party;1234;0,700162;0,638879;0,753964;LSAP;701
+luxembourg;1947;01.03.1947;CSV;Christian Social People's Party;1234;0,961336;0,94067;0,976127;;
+luxembourg;1947;01.03.1947;DP;Democratic Party;967;0,030875;0,01901;0,046741;CSV;1234
+luxembourg;1947;01.03.1947;DP;Democratic Party;967;0,547372;0,462;0,629393;KPL;151
+luxembourg;1947;01.03.1947;DP;Democratic Party;967;0,434013;0,354921;0,512501;LSAP;701
+luxembourg;1947;01.03.1947;DP;Democratic Party;967;0,550756;0,465127;0,63303;;
+luxembourg;1947;01.03.1947;KPL;Communist Party of Luxembourg;151;0,002384;0,001307;0,003962;CSV;1234
+luxembourg;1947;01.03.1947;KPL;Communist Party of Luxembourg;151;0,007062;0,00421;0,011211;DP;967
+luxembourg;1947;01.03.1947;KPL;Communist Party of Luxembourg;151;0,007433;0,004424;0,011911;LSAP;701
+luxembourg;1947;01.03.1947;KPL;Communist Party of Luxembourg;151;0,010446;0,00646;0,016344;;
+luxembourg;1947;01.03.1947;LSAP;Luxembourg Socialist Workers' Party;701;0,028861;0,017566;0,043784;CSV;1234
+luxembourg;1947;01.03.1947;LSAP;Luxembourg Socialist Workers' Party;701;0,173292;0,134082;0,222245;DP;967
+luxembourg;1947;01.03.1947;LSAP;Luxembourg Socialist Workers' Party;701;0,287022;0,234521;0,347977;KPL;151
+luxembourg;1947;01.03.1947;LSAP;Luxembourg Socialist Workers' Party;701;0,290035;0,237085;0,351661;;
+luxembourg;1948;14.07.1948;CSV;Christian Social People's Party;1234;0,560176;0,416955;0,693607;DP;967
+luxembourg;1948;14.07.1948;CSV;Christian Social People's Party;1234;0,980492;0,970372;0,987997;KPL;151
+luxembourg;1948;14.07.1948;CSV;Christian Social People's Party;1234;0,953886;0,93592;0,968951;LSAP;701
+luxembourg;1948;14.07.1948;CSV;Christian Social People's Party;1234;0,982469;0,972674;0,989591;;
+luxembourg;1948;14.07.1948;DP;Democratic Party;967;0,012501;0,00784;0,018273;CSV;1234
+luxembourg;1948;14.07.1948;DP;Democratic Party;967;0,433384;0,299983;0,576537;KPL;151
+luxembourg;1948;14.07.1948;DP;Democratic Party;967;0,412482;0,284127;0,554266;LSAP;701
+luxembourg;1948;14.07.1948;DP;Democratic Party;967;0,434793;0,300981;0,578227;;
+luxembourg;1948;14.07.1948;KPL;Communist Party of Luxembourg;151;0,002085;0,001098;0,003514;CSV;1234
+luxembourg;1948;14.07.1948;KPL;Communist Party of Luxembourg;151;0,002653;0,001452;0,004393;DP;967
+luxembourg;1948;14.07.1948;KPL;Communist Party of Luxembourg;151;0,002334;0,001334;0,003752;LSAP;701
+luxembourg;1948;14.07.1948;KPL;Communist Party of Luxembourg;151;0,004063;0,002299;0,006571;;
+luxembourg;1948;14.07.1948;LSAP;Luxembourg Socialist Workers' Party;701;0,01269;0,007466;0,019419;CSV;1234
+luxembourg;1948;14.07.1948;LSAP;Luxembourg Socialist Workers' Party;701;0,018962;0,012161;0,027704;DP;967
+luxembourg;1948;14.07.1948;LSAP;Luxembourg Socialist Workers' Party;701;0,039544;0,026566;0,055537;KPL;151
+luxembourg;1948;14.07.1948;LSAP;Luxembourg Socialist Workers' Party;701;0,041273;0,027489;0,057947;;
+luxembourg;1951;03.07.1951;CSV;Christian Social People's Party;1234;0,560176;0,416955;0,693607;DP;967
+luxembourg;1951;03.07.1951;CSV;Christian Social People's Party;1234;0,980492;0,970372;0,987997;KPL;151
+luxembourg;1951;03.07.1951;CSV;Christian Social People's Party;1234;0,953886;0,93592;0,968951;LSAP;701
+luxembourg;1951;03.07.1951;CSV;Christian Social People's Party;1234;0,982469;0,972674;0,989591;;
+luxembourg;1951;03.07.1951;DP;Democratic Party;967;0,012501;0,00784;0,018273;CSV;1234
+luxembourg;1951;03.07.1951;DP;Democratic Party;967;0,433384;0,299983;0,576537;KPL;151
+luxembourg;1951;03.07.1951;DP;Democratic Party;967;0,412482;0,284127;0,554266;LSAP;701
+luxembourg;1951;03.07.1951;DP;Democratic Party;967;0,434793;0,300981;0,578227;;
+luxembourg;1951;03.07.1951;KPL;Communist Party of Luxembourg;151;0,002085;0,001098;0,003514;CSV;1234
+luxembourg;1951;03.07.1951;KPL;Communist Party of Luxembourg;151;0,002653;0,001452;0,004393;DP;967
+luxembourg;1951;03.07.1951;KPL;Communist Party of Luxembourg;151;0,002334;0,001334;0,003752;LSAP;701
+luxembourg;1951;03.07.1951;KPL;Communist Party of Luxembourg;151;0,004063;0,002299;0,006571;;
+luxembourg;1951;03.07.1951;LSAP;Luxembourg Socialist Workers' Party;701;0,01269;0,007466;0,019419;CSV;1234
+luxembourg;1951;03.07.1951;LSAP;Luxembourg Socialist Workers' Party;701;0,018962;0,012161;0,027704;DP;967
+luxembourg;1951;03.07.1951;LSAP;Luxembourg Socialist Workers' Party;701;0,039544;0,026566;0,055537;KPL;151
+luxembourg;1951;03.07.1951;LSAP;Luxembourg Socialist Workers' Party;701;0,041273;0,027489;0,057947;;
+luxembourg;1953;29.12.1953;CSV;Christian Social People's Party;1234;0,927395;0,897632;0,951687;DP;967
+luxembourg;1953;29.12.1953;CSV;Christian Social People's Party;1234;0,976106;0,963698;0,985687;KPL;151
+luxembourg;1953;29.12.1953;CSV;Christian Social People's Party;1234;0,700276;0,572781;0,808445;LSAP;701
+luxembourg;1953;29.12.1953;CSV;Christian Social People's Party;1234;0,978534;0,966473;0,98765;;
+luxembourg;1953;29.12.1953;DP;Democratic Party;967;0,015208;0,009035;0,023241;CSV;1234
+luxembourg;1953;29.12.1953;DP;Democratic Party;967;0,06463;0,043212;0,09219;KPL;151
+luxembourg;1953;29.12.1953;DP;Democratic Party;967;0,038878;0,026102;0,055426;LSAP;701
+luxembourg;1953;29.12.1953;DP;Democratic Party;967;0,066346;0,044255;0,094258;;
+luxembourg;1953;29.12.1953;KPL;Communist Party of Luxembourg;151;0,002562;0,001346;0,004274;CSV;1234
+luxembourg;1953;29.12.1953;KPL;Communist Party of Luxembourg;151;0,003273;0,001853;0,005267;DP;967
+luxembourg;1953;29.12.1953;KPL;Communist Party of Luxembourg;151;0,00285;0,001563;0,004689;LSAP;701
+luxembourg;1953;29.12.1953;KPL;Communist Party of Luxembourg;151;0,00499;0,002807;0,008039;;
+luxembourg;1953;29.12.1953;LSAP;Luxembourg Socialist Workers' Party;701;0,01569;0,00948;0,023723;CSV;1234
+luxembourg;1953;29.12.1953;LSAP;Luxembourg Socialist Workers' Party;701;0,26648;0,168788;0,384709;DP;967
+luxembourg;1953;29.12.1953;LSAP;Luxembourg Socialist Workers' Party;701;0,291809;0,186744;0,416785;KPL;151
+luxembourg;1953;29.12.1953;LSAP;Luxembourg Socialist Workers' Party;701;0,293948;0,188335;0,419432;;
+luxembourg;1954;28.06.1954;CSV;Christian Social People's Party;1234;0,829439;0,77113;0,878824;DP;967
+luxembourg;1954;28.06.1954;CSV;Christian Social People's Party;1234;0,985916;0,978654;0,990984;KPL;151
+luxembourg;1954;28.06.1954;CSV;Christian Social People's Party;1234;0,216163;0,155183;0,28658;LSAP;701
+luxembourg;1954;28.06.1954;CSV;Christian Social People's Party;1234;0,988326;0,981171;0,993397;;
+luxembourg;1954;28.06.1954;DP;Democratic Party;967;0,009313;0,00528;0,015222;CSV;1234
+luxembourg;1954;28.06.1954;DP;Democratic Party;967;0,16719;0,118597;0,225355;KPL;151
+luxembourg;1954;28.06.1954;DP;Democratic Party;967;0,132695;0,091172;0,180996;LSAP;701
+luxembourg;1954;28.06.1954;DP;Democratic Party;967;0,1682;0,11937;0,226575;;
+luxembourg;1954;28.06.1954;KPL;Communist Party of Luxembourg;151;0,000704;0,000379;0,001195;CSV;1234
+luxembourg;1954;28.06.1954;KPL;Communist Party of Luxembourg;151;0,002104;0,001276;0,003323;DP;967
+luxembourg;1954;28.06.1954;KPL;Communist Party of Luxembourg;151;0,002218;0,001323;0,003545;LSAP;701
+luxembourg;1954;28.06.1954;KPL;Communist Party of Luxembourg;151;0,003114;0,001938;0,004843;;
+luxembourg;1954;28.06.1954;LSAP;Luxembourg Socialist Workers' Party;701;0,008713;0,005055;0,013712;CSV;1234
+luxembourg;1954;28.06.1954;LSAP;Luxembourg Socialist Workers' Party;701;0,745371;0,663528;0,8132;DP;967
+luxembourg;1954;28.06.1954;LSAP;Luxembourg Socialist Workers' Party;701;0,779981;0,707253;0,84202;KPL;151
+luxembourg;1954;28.06.1954;LSAP;Luxembourg Socialist Workers' Party;701;0,780877;0,708566;0,842938;;
+luxembourg;1958;29.03.1958;CSV;Christian Social People's Party;1234;0,829439;0,77113;0,878824;DP;967
+luxembourg;1958;29.03.1958;CSV;Christian Social People's Party;1234;0,985916;0,978654;0,990984;KPL;151
+luxembourg;1958;29.03.1958;CSV;Christian Social People's Party;1234;0,216163;0,155183;0,28658;LSAP;701
+luxembourg;1958;29.03.1958;CSV;Christian Social People's Party;1234;0,988326;0,981171;0,993397;;
+luxembourg;1958;29.03.1958;DP;Democratic Party;967;0,009313;0,00528;0,015222;CSV;1234
+luxembourg;1958;29.03.1958;DP;Democratic Party;967;0,16719;0,118597;0,225355;KPL;151
+luxembourg;1958;29.03.1958;DP;Democratic Party;967;0,132695;0,091172;0,180996;LSAP;701
+luxembourg;1958;29.03.1958;DP;Democratic Party;967;0,1682;0,11937;0,226575;;
+luxembourg;1958;29.03.1958;KPL;Communist Party of Luxembourg;151;0,000704;0,000379;0,001195;CSV;1234
+luxembourg;1958;29.03.1958;KPL;Communist Party of Luxembourg;151;0,002104;0,001276;0,003323;DP;967
+luxembourg;1958;29.03.1958;KPL;Communist Party of Luxembourg;151;0,002218;0,001323;0,003545;LSAP;701
+luxembourg;1958;29.03.1958;KPL;Communist Party of Luxembourg;151;0,003114;0,001938;0,004843;;
+luxembourg;1958;29.03.1958;LSAP;Luxembourg Socialist Workers' Party;701;0,008713;0,005055;0,013712;CSV;1234
+luxembourg;1958;29.03.1958;LSAP;Luxembourg Socialist Workers' Party;701;0,745371;0,663528;0,8132;DP;967
+luxembourg;1958;29.03.1958;LSAP;Luxembourg Socialist Workers' Party;701;0,779981;0,707253;0,84202;KPL;151
+luxembourg;1958;29.03.1958;LSAP;Luxembourg Socialist Workers' Party;701;0,780877;0,708566;0,842938;;
+luxembourg;1959;02.03.1959;CSV;Christian Social People's Party;1234;0,632676;0,533858;0,724017;DP;967
+luxembourg;1959;02.03.1959;CSV;Christian Social People's Party;1234;0,872769;0,821366;0,913042;KPL;151
+luxembourg;1959;02.03.1959;CSV;Christian Social People's Party;1234;0,262377;0,192635;0,338502;LSAP;701
+luxembourg;1959;02.03.1959;CSV;Christian Social People's Party;1234;0,874372;0,82286;0,914378;;
+luxembourg;1959;02.03.1959;DP;Democratic Party;967;0,122048;0,082189;0,174018;CSV;1234
+luxembourg;1959;02.03.1959;DP;Democratic Party;967;0,361078;0,27143;0,459693;KPL;151
+luxembourg;1959;02.03.1959;DP;Democratic Party;967;0,206128;0,144794;0,27653;LSAP;701
+luxembourg;1959;02.03.1959;DP;Democratic Party;967;0,363744;0,273133;0,463417;;
+luxembourg;1959;02.03.1959;KPL;Communist Party of Luxembourg;151;0,002194;0,001337;0,00353;CSV;1234
+luxembourg;1959;02.03.1959;KPL;Communist Party of Luxembourg;151;0,001131;0,000675;0,001767;DP;967
+luxembourg;1959;02.03.1959;KPL;Communist Party of Luxembourg;151;0,001926;0,001149;0,003153;LSAP;701
+luxembourg;1959;02.03.1959;KPL;Communist Party of Luxembourg;151;0,003797;0,002389;0,005957;;
+luxembourg;1959;02.03.1959;LSAP;Luxembourg Socialist Workers' Party;701;0,116843;0,079622;0,164874;CSV;1234
+luxembourg;1959;02.03.1959;LSAP;Luxembourg Socialist Workers' Party;701;0,571222;0,465497;0,67342;DP;967
+luxembourg;1959;02.03.1959;LSAP;Luxembourg Socialist Workers' Party;701;0,726967;0,645451;0,801495;KPL;151
+luxembourg;1959;02.03.1959;LSAP;Luxembourg Socialist Workers' Party;701;0,728837;0,647425;0,802957;;
+luxembourg;1964;15.07.1964;CSV;Christian Social People's Party;1234;0,129483;0,084461;0,188639;DP;967
+luxembourg;1964;15.07.1964;CSV;Christian Social People's Party;1234;0,860346;0,804774;0,905201;KPL;151
+luxembourg;1964;15.07.1964;CSV;Christian Social People's Party;1234;0,739086;0,658855;0,812956;LSAP;701
+luxembourg;1964;15.07.1964;CSV;Christian Social People's Party;1234;0,701251;0,616659;0,783188;MIP;1462
+luxembourg;1964;15.07.1964;CSV;Christian Social People's Party;1234;0,8667;0,81282;0,910943;;
+luxembourg;1964;15.07.1964;DP;Democratic Party;967;0,123766;0,082202;0,175452;CSV;1234
+luxembourg;1964;15.07.1964;DP;Democratic Party;967;0,851258;0,787773;0,900952;KPL;151
+luxembourg;1964;15.07.1964;DP;Democratic Party;967;0,690604;0,594165;0,77685;LSAP;701
+luxembourg;1964;15.07.1964;DP;Democratic Party;967;0,621464;0,51429;0,727286;MIP;1462
+luxembourg;1964;15.07.1964;DP;Democratic Party;967;0,860983;0,798874;0,909129;;
+luxembourg;1964;15.07.1964;KPL;Communist Party of Luxembourg;151;0,005628;0,003259;0,009404;CSV;1234
+luxembourg;1964;15.07.1964;KPL;Communist Party of Luxembourg;151;0,002257;0,001192;0,003795;DP;967
+luxembourg;1964;15.07.1964;KPL;Communist Party of Luxembourg;151;0,005553;0,003305;0,008708;LSAP;701
+luxembourg;1964;15.07.1964;KPL;Communist Party of Luxembourg;151;0,009312;0,005668;0,014372;MIP;1462
+luxembourg;1964;15.07.1964;KPL;Communist Party of Luxembourg;151;0,011982;0,007275;0,018419;;
+luxembourg;1964;15.07.1964;LSAP;Luxembourg Socialist Workers' Party;701;0,102011;0,064405;0,150571;CSV;1234
+luxembourg;1964;15.07.1964;LSAP;Luxembourg Socialist Workers' Party;701;0,059246;0,035663;0,08931;DP;967
+luxembourg;1964;15.07.1964;LSAP;Luxembourg Socialist Workers' Party;701;0,223196;0,154424;0,297765;KPL;151
+luxembourg;1964;15.07.1964;LSAP;Luxembourg Socialist Workers' Party;701;0,118635;0,086168;0,155453;MIP;1462
+luxembourg;1964;15.07.1964;LSAP;Luxembourg Socialist Workers' Party;701;0,229625;0,158725;0,30633;;
+luxembourg;1964;15.07.1964;MIP;Popular Independent Movement;1462;0,096449;0,059908;0,143331;CSV;1234
+luxembourg;1964;15.07.1964;MIP;Popular Independent Movement;1462;0,022379;0,013878;0,032943;DP;967
+luxembourg;1964;15.07.1964;MIP;Popular Independent Movement;1462;0,259228;0,183338;0,34038;KPL;151
+luxembourg;1964;15.07.1964;MIP;Popular Independent Movement;1462;0,150908;0,110549;0,195036;LSAP;701
+luxembourg;1964;15.07.1964;MIP;Popular Independent Movement;1462;0,261898;0,185729;0,343557;;
+luxembourg;1969;06.02.1969;CSV;Christian Social People's Party;1234;0,631256;0,53185;0,723727;DP;967
+luxembourg;1969;06.02.1969;CSV;Christian Social People's Party;1234;0,872586;0,821458;0,912259;KPL;151
+luxembourg;1969;06.02.1969;CSV;Christian Social People's Party;1234;0,263667;0,192262;0,341124;LSAP;701
+luxembourg;1969;06.02.1969;CSV;Christian Social People's Party;1234;0,874193;0,823174;0,91355;;
+luxembourg;1969;06.02.1969;DP;Democratic Party;967;0,122246;0,082748;0,173225;CSV;1234
+luxembourg;1969;06.02.1969;DP;Democratic Party;967;0,362509;0,271319;0,461023;KPL;151
+luxembourg;1969;06.02.1969;DP;Democratic Party;967;0,20736;0,146712;0,279055;LSAP;701
+luxembourg;1969;06.02.1969;DP;Democratic Party;967;0,365183;0,272895;0,463949;;
+luxembourg;1969;06.02.1969;KPL;Communist Party of Luxembourg;151;0,002197;0,001341;0,003502;CSV;1234
+luxembourg;1969;06.02.1969;KPL;Communist Party of Luxembourg;151;0,00113;0,000674;0,001763;DP;967
+luxembourg;1969;06.02.1969;KPL;Communist Party of Luxembourg;151;0,001933;0,001157;0,003155;LSAP;701
+luxembourg;1969;06.02.1969;KPL;Communist Party of Luxembourg;151;0,003804;0,002392;0,005974;;
+luxembourg;1969;06.02.1969;LSAP;Luxembourg Socialist Workers' Party;701;0,116965;0,079435;0,164724;CSV;1234
+luxembourg;1969;06.02.1969;LSAP;Luxembourg Socialist Workers' Party;701;0,569669;0,463096;0,671544;DP;967
+luxembourg;1969;06.02.1969;LSAP;Luxembourg Socialist Workers' Party;701;0,725621;0,643309;0,800618;KPL;151
+luxembourg;1969;06.02.1969;LSAP;Luxembourg Socialist Workers' Party;701;0,727492;0,645176;0,802363;;
+luxembourg;1974;15.06.1974;CSV;Christian Social People's Party;1234;0,035516;0,02186;0,05343;DP;967
+luxembourg;1974;15.06.1974;CSV;Christian Social People's Party;1234;0,947127;0,923964;0,96427;KPL;151
+luxembourg;1974;15.06.1974;CSV;Christian Social People's Party;1234;0,912288;0,876032;0,938707;LSAP;701
+luxembourg;1974;15.06.1974;CSV;Christian Social People's Party;1234;0,930005;0,90263;0,950771;SDP;1134
+luxembourg;1974;15.06.1974;CSV;Christian Social People's Party;1234;0,948254;0,925186;0,965339;;
+luxembourg;1974;15.06.1974;DP;Democratic Party;967;0,047965;0,032242;0,069902;CSV;1234
+luxembourg;1974;15.06.1974;DP;Democratic Party;967;0,95907;0,939114;0,974529;KPL;151
+luxembourg;1974;15.06.1974;DP;Democratic Party;967;0,896911;0,856708;0,927737;LSAP;701
+luxembourg;1974;15.06.1974;DP;Democratic Party;967;0,93541;0,909073;0,95655;SDP;1134
+luxembourg;1974;15.06.1974;DP;Democratic Party;967;0,960702;0,940923;0,975939;;
+luxembourg;1974;15.06.1974;KPL;Communist Party of Luxembourg;151;0,001058;0,000594;0,00173;CSV;1234
+luxembourg;1974;15.06.1974;KPL;Communist Party of Luxembourg;151;0,000553;0,000276;0,000963;DP;967
+luxembourg;1974;15.06.1974;KPL;Communist Party of Luxembourg;151;0,000926;0,000548;0,00151;LSAP;701
+luxembourg;1974;15.06.1974;KPL;Communist Party of Luxembourg;151;0,00152;9,00E-04;0,002427;SDP;1134
+luxembourg;1974;15.06.1974;KPL;Communist Party of Luxembourg;151;0,002185;0,001316;0,003447;;
+luxembourg;1974;15.06.1974;LSAP;Luxembourg Socialist Workers' Party;701;0,045551;0,029695;0,067587;CSV;1234
+luxembourg;1974;15.06.1974;LSAP;Luxembourg Socialist Workers' Party;701;0,017725;0,010524;0,026455;DP;967
+luxembourg;1974;15.06.1974;LSAP;Luxembourg Socialist Workers' Party;701;0,080258;0,055839;0,113457;KPL;151
+luxembourg;1974;15.06.1974;LSAP;Luxembourg Socialist Workers' Party;701;0,061377;0,042541;0,086589;SDP;1134
+luxembourg;1974;15.06.1974;LSAP;Luxembourg Socialist Workers' Party;701;0,081517;0,056804;0,115291;;
+luxembourg;1974;15.06.1974;SDP;Social Democratic Party;1134;0,013396;0,008163;0,020854;CSV;1234
+luxembourg;1974;15.06.1974;SDP;Social Democratic Party;1134;0,006353;0,003521;0,010149;DP;967
+luxembourg;1974;15.06.1974;SDP;Social Democratic Party;1134;0,030981;0,021303;0,04456;KPL;151
+luxembourg;1974;15.06.1974;SDP;Social Democratic Party;1134;0,011505;0,008073;0,01626;LSAP;701
+luxembourg;1974;15.06.1974;SDP;Social Democratic Party;1134;0,031645;0,021773;0,045403;;
+luxembourg;1979;16.07.1979;CSV;Christian Social People's Party;1234;0,169073;0,121451;0,227351;DP;967
+luxembourg;1979;16.07.1979;CSV;Christian Social People's Party;1234;0,51549;0,429214;0,607257;KPL;151
+luxembourg;1979;16.07.1979;CSV;Christian Social People's Party;1234;0,285116;0,22055;0,351652;LSAP;701
+luxembourg;1979;16.07.1979;CSV;Christian Social People's Party;1234;0,404976;0,334746;0,480214;SDP;1134
+luxembourg;1979;16.07.1979;CSV;Christian Social People's Party;1234;0,404976;0,334746;0,480214;SI;1339
+luxembourg;1979;16.07.1979;CSV;Christian Social People's Party;1234;0,384867;0,318941;0,45726;Z-EF;202
+luxembourg;1979;16.07.1979;CSV;Christian Social People's Party;1234;0,524034;0,435925;0,617744;;
+luxembourg;1979;16.07.1979;DP;Democratic Party;967;0,437213;0,346077;0,527341;CSV;1234
+luxembourg;1979;16.07.1979;DP;Democratic Party;967;0,780421;0,713139;0,835315;KPL;151
+luxembourg;1979;16.07.1979;DP;Democratic Party;967;0,240814;0,189375;0,297842;LSAP;701
+luxembourg;1979;16.07.1979;DP;Democratic Party;967;0,615742;0,548758;0,676574;SDP;1134
+luxembourg;1979;16.07.1979;DP;Democratic Party;967;0,615742;0,548758;0,676574;SI;1339
+luxembourg;1979;16.07.1979;DP;Democratic Party;967;0,636323;0,56812;0,697701;Z-EF;202
+luxembourg;1979;16.07.1979;DP;Democratic Party;967;0,792175;0,724365;0,846733;;
+luxembourg;1979;16.07.1979;KPL;Communist Party of Luxembourg;151;0,007275;0,004846;0,010893;CSV;1234
+luxembourg;1979;16.07.1979;KPL;Communist Party of Luxembourg;151;0,004066;0,0024;0,006525;DP;967
+luxembourg;1979;16.07.1979;KPL;Communist Party of Luxembourg;151;0,004759;0,002955;0,007363;LSAP;701
+luxembourg;1979;16.07.1979;KPL;Communist Party of Luxembourg;151;0,010676;0,007247;0,015552;SDP;1134
+luxembourg;1979;16.07.1979;KPL;Communist Party of Luxembourg;151;0,010676;0,007247;0,015552;SI;1339
+luxembourg;1979;16.07.1979;KPL;Communist Party of Luxembourg;151;0,011602;0,007886;0,016825;Z-EF;202
+luxembourg;1979;16.07.1979;KPL;Communist Party of Luxembourg;151;0,01582;0,010696;0,022749;;
+luxembourg;1979;16.07.1979;LSAP;Luxembourg Socialist Workers' Party;701;0,434781;0,342502;0,524349;CSV;1234
+luxembourg;1979;16.07.1979;LSAP;Luxembourg Socialist Workers' Party;701;0,122337;0,088154;0,170273;DP;967
+luxembourg;1979;16.07.1979;LSAP;Luxembourg Socialist Workers' Party;701;0,662637;0,593645;0,728027;KPL;151
+luxembourg;1979;16.07.1979;LSAP;Luxembourg Socialist Workers' Party;701;0,506659;0,44319;0,57712;SDP;1134
+luxembourg;1979;16.07.1979;LSAP;Luxembourg Socialist Workers' Party;701;0,506659;0,44319;0,57712;SI;1339
+luxembourg;1979;16.07.1979;LSAP;Luxembourg Socialist Workers' Party;701;0,54728;0,480394;0,616222;Z-EF;202
+luxembourg;1979;16.07.1979;LSAP;Luxembourg Socialist Workers' Party;701;0,673699;0,605588;0,739665;;
+luxembourg;1979;16.07.1979;SDP;Social Democratic Party;1134;0,108411;0,086304;0,134391;CSV;1234
+luxembourg;1979;16.07.1979;SDP;Social Democratic Party;1134;0,051037;0,036392;0,070637;DP;967
+luxembourg;1979;16.07.1979;SDP;Social Democratic Party;1134;0,222325;0,187049;0,258194;KPL;151
+luxembourg;1979;16.07.1979;SDP;Social Democratic Party;1134;0,060429;0,046631;0,076981;LSAP;701
+luxembourg;1979;16.07.1979;SDP;Social Democratic Party;1134;0,155348;0,134796;0,174587;SI;1339
+luxembourg;1979;16.07.1979;SDP;Social Democratic Party;1134;0,168227;0,144815;0,191389;Z-EF;202
+luxembourg;1979;16.07.1979;SDP;Social Democratic Party;1134;0,227469;0,191325;0,263695;;
+luxembourg;1979;16.07.1979;SI;Jean Gremling List -- Independent Socialists;1339;0,108411;0,086304;0,134391;CSV;1234
+luxembourg;1979;16.07.1979;SI;Jean Gremling List -- Independent Socialists;1339;0,051037;0,036392;0,070637;DP;967
+luxembourg;1979;16.07.1979;SI;Jean Gremling List -- Independent Socialists;1339;0,222325;0,187049;0,258194;KPL;151
+luxembourg;1979;16.07.1979;SI;Jean Gremling List -- Independent Socialists;1339;0,060429;0,046631;0,076981;LSAP;701
+luxembourg;1979;16.07.1979;SI;Jean Gremling List -- Independent Socialists;1339;0,155348;0,134796;0,174587;SDP;1134
+luxembourg;1979;16.07.1979;SI;Jean Gremling List -- Independent Socialists;1339;0,168227;0,144815;0,191389;Z-EF;202
+luxembourg;1979;16.07.1979;SI;Jean Gremling List -- Independent Socialists;1339;0,227469;0,191325;0,263695;;
+luxembourg;1979;16.07.1979;Z-EF;Coerced Conscripts;202;0,063779;0,050192;0,08;CSV;1234
+luxembourg;1979;16.07.1979;Z-EF;Coerced Conscripts;202;0,047093;0,03316;0,0656;DP;967
+luxembourg;1979;16.07.1979;Z-EF;Coerced Conscripts;202;0,198728;0,166884;0,230896;KPL;151
+luxembourg;1979;16.07.1979;Z-EF;Coerced Conscripts;202;0,076527;0,060066;0,095384;LSAP;701
+luxembourg;1979;16.07.1979;Z-EF;Coerced Conscripts;202;0,143703;0,123814;0,162876;SDP;1134
+luxembourg;1979;16.07.1979;Z-EF;Coerced Conscripts;202;0,143703;0,123814;0,162876;SI;1339
+luxembourg;1979;16.07.1979;Z-EF;Coerced Conscripts;202;0,202946;0,170631;0,235698;;
+luxembourg;1984;20.07.1984;CSV;Christian Social People's Party;1234;0,033212;0,020297;0,050659;DP;967
+luxembourg;1984;20.07.1984;CSV;Christian Social People's Party;1234;0,956801;0,938247;0,970656;Greng;310
+luxembourg;1984;20.07.1984;CSV;Christian Social People's Party;1234;0,957592;0,938984;0,971282;KPL;151
+luxembourg;1984;20.07.1984;CSV;Christian Social People's Party;1234;0,931238;0,903229;0,95233;LSAP;701
+luxembourg;1984;20.07.1984;CSV;Christian Social People's Party;1234;0,958753;0,939983;0,97217;;
+luxembourg;1984;20.07.1984;DP;Democratic Party;967;0,039679;0,026723;0,058215;CSV;1234
+luxembourg;1984;20.07.1984;DP;Democratic Party;967;0,962443;0,944124;0,976524;Greng;310
+luxembourg;1984;20.07.1984;DP;Democratic Party;967;0,963537;0,945717;0,977369;KPL;151
+luxembourg;1984;20.07.1984;DP;Democratic Party;967;0,913637;0,879536;0,93965;LSAP;701
+luxembourg;1984;20.07.1984;DP;Democratic Party;967;0,965219;0,94712;0,978775;;
+luxembourg;1984;20.07.1984;Greng;The Greens;310;0,001692;0,00095;0,00277;CSV;1234
+luxembourg;1984;20.07.1984;Greng;The Greens;310;0,000869;0,000438;0,00151;DP;967
+luxembourg;1984;20.07.1984;Greng;The Greens;310;0,002912;0,001776;0,004614;KPL;151
+luxembourg;1984;20.07.1984;Greng;The Greens;310;0,001472;0,000882;0,002302;LSAP;701
+luxembourg;1984;20.07.1984;Greng;The Greens;310;0,003644;0,002221;0,005751;;
+luxembourg;1984;20.07.1984;KPL;Communist Party of Luxembourg;151;0,001139;0,000633;0,001866;CSV;1234
+luxembourg;1984;20.07.1984;KPL;Communist Party of Luxembourg;151;0,000617;0,000309;0,001066;DP;967
+luxembourg;1984;20.07.1984;KPL;Communist Party of Luxembourg;151;0,001567;0,000924;0,002513;Greng;310
+luxembourg;1984;20.07.1984;KPL;Communist Party of Luxembourg;151;0,001001;0,000587;0,001609;LSAP;701
+luxembourg;1984;20.07.1984;KPL;Communist Party of Luxembourg;151;0,002299;0,00137;0,003637;;
+luxembourg;1984;20.07.1984;LSAP;Luxembourg Socialist Workers' Party;701;0,037949;0,024725;0,056218;CSV;1234
+luxembourg;1984;20.07.1984;LSAP;Luxembourg Socialist Workers' Party;701;0,013882;0,008168;0,021073;DP;967
+luxembourg;1984;20.07.1984;LSAP;Luxembourg Socialist Workers' Party;701;0,063291;0,043477;0,0898;Greng;310
+luxembourg;1984;20.07.1984;LSAP;Luxembourg Socialist Workers' Party;701;0,064166;0,044063;0,090701;KPL;151
+luxembourg;1984;20.07.1984;LSAP;Luxembourg Socialist Workers' Party;701;0,065464;0,045053;0,092245;;
+luxembourg;1989;14.07.1989;ADR;Alternative Democratic Reform Party;1582;0,006344;0,004046;0,009827;CSV;1234
+luxembourg;1989;14.07.1989;ADR;Alternative Democratic Reform Party;1582;0,003977;0,002529;0,005999;DP;967
+luxembourg;1989;14.07.1989;ADR;Alternative Democratic Reform Party;1582;0,015727;0,010671;0,023093;GAP;310
+luxembourg;1989;14.07.1989;ADR;Alternative Democratic Reform Party;1582;0,015727;0,010671;0,023093;GLEI;1158
+luxembourg;1989;14.07.1989;ADR;Alternative Democratic Reform Party;1582;0,017528;0,011859;0,02539;KPL;151
+luxembourg;1989;14.07.1989;ADR;Alternative Democratic Reform Party;1582;0,009446;0,006003;0,014319;LSAP;701
+luxembourg;1989;14.07.1989;ADR;Alternative Democratic Reform Party;1582;0,020146;0,013591;0,029196;;
+luxembourg;1989;14.07.1989;CSV;Christian Social People's Party;1234;0,892997;0,854782;0,922346;ADR;1582
+luxembourg;1989;14.07.1989;CSV;Christian Social People's Party;1234;0,62422;0,526947;0,717672;DP;967
+luxembourg;1989;14.07.1989;CSV;Christian Social People's Party;1234;0,89302;0,854213;0,922454;GAP;310
+luxembourg;1989;14.07.1989;CSV;Christian Social People's Party;1234;0,868217;0,826119;0,901966;GLEI;1158
+luxembourg;1989;14.07.1989;CSV;Christian Social People's Party;1234;0,898261;0,861953;0,926684;KPL;151
+luxembourg;1989;14.07.1989;CSV;Christian Social People's Party;1234;0,283076;0,207781;0,363791;LSAP;701
+luxembourg;1989;14.07.1989;CSV;Christian Social People's Party;1234;0,906799;0,869872;0,934016;;
+luxembourg;1989;14.07.1989;DP;Democratic Party;967;0,347455;0,258725;0,44061;ADR;1582
+luxembourg;1989;14.07.1989;DP;Democratic Party;967;0,081046;0,055544;0,113631;CSV;1234
+luxembourg;1989;14.07.1989;DP;Democratic Party;967;0,34227;0,254871;0,434752;GAP;310
+luxembourg;1989;14.07.1989;DP;Democratic Party;967;0,291358;0,212093;0,376777;GLEI;1158
+luxembourg;1989;14.07.1989;DP;Democratic Party;967;0,352957;0,262748;0,447811;KPL;151
+luxembourg;1989;14.07.1989;DP;Democratic Party;967;0,23274;0,163722;0,307863;LSAP;701
+luxembourg;1989;14.07.1989;DP;Democratic Party;967;0,363624;0,271727;0,460962;;
+luxembourg;1989;14.07.1989;GAP;The Greens;310;0,022597;0,015492;0,032487;ADR;1582
+luxembourg;1989;14.07.1989;GAP;The Greens;310;0,013237;0,008486;0,020064;CSV;1234
+luxembourg;1989;14.07.1989;GAP;The Greens;310;0,005662;0,003544;0,008844;DP;967
+luxembourg;1989;14.07.1989;GAP;The Greens;310;0,018077;0,012458;0,026267;GLEI;1158
+luxembourg;1989;14.07.1989;GAP;The Greens;310;0,021548;0,014868;0,030846;KPL;151
+luxembourg;1989;14.07.1989;GAP;The Greens;310;0,009605;0,006145;0,0148;LSAP;701
+luxembourg;1989;14.07.1989;GAP;The Greens;310;0,027016;0,018491;0,038812;;
+luxembourg;1989;14.07.1989;GLEI;Green Left Ecological Initiative;1158;0,082423;0,062686;0,108115;ADR;1582
+luxembourg;1989;14.07.1989;GLEI;Green Left Ecological Initiative;1158;0,04826;0,033806;0,067153;CSV;1234
+luxembourg;1989;14.07.1989;GLEI;Green Left Ecological Initiative;1158;0,014575;0,01035;0,019866;DP;967
+luxembourg;1989;14.07.1989;GLEI;Green Left Ecological Initiative;1158;0,077903;0,058852;0,102527;GAP;310
+luxembourg;1989;14.07.1989;GLEI;Green Left Ecological Initiative;1158;0,081374;0,061633;0,106707;KPL;151
+luxembourg;1989;14.07.1989;GLEI;Green Left Ecological Initiative;1158;0,025697;0,01755;0,035702;LSAP;701
+luxembourg;1989;14.07.1989;GLEI;Green Left Ecological Initiative;1158;0,086841;0,066094;0,11334;;
+luxembourg;1989;14.07.1989;KPL;Communist Party of Luxembourg;151;0,011692;0,007842;0,017166;ADR;1582
+luxembourg;1989;14.07.1989;KPL;Communist Party of Luxembourg;151;0,005772;0,003639;0,008752;CSV;1234
+luxembourg;1989;14.07.1989;KPL;Communist Party of Luxembourg;151;0,003643;0,002267;0,005636;DP;967
+luxembourg;1989;14.07.1989;KPL;Communist Party of Luxembourg;151;0,008842;0,005831;0,013256;GAP;310
+luxembourg;1989;14.07.1989;KPL;Communist Party of Luxembourg;151;0,008842;0,005831;0,013256;GLEI;1158
+luxembourg;1989;14.07.1989;KPL;Communist Party of Luxembourg;151;0,006146;0,003862;0,009624;LSAP;701
+luxembourg;1989;14.07.1989;KPL;Communist Party of Luxembourg;151;0,01431;0,009551;0,021079;;
+luxembourg;1989;14.07.1989;LSAP;Luxembourg Socialist Workers' Party;701;0,685832;0,599158;0,768399;ADR;1582
+luxembourg;1989;14.07.1989;LSAP;Luxembourg Socialist Workers' Party;701;0,072809;0,051035;0,100649;CSV;1234
+luxembourg;1989;14.07.1989;LSAP;Luxembourg Socialist Workers' Party;701;0,565647;0,463175;0,667485;DP;967
+luxembourg;1989;14.07.1989;LSAP;Luxembourg Socialist Workers' Party;701;0,679121;0,591608;0,762793;GAP;310
+luxembourg;1989;14.07.1989;LSAP;Luxembourg Socialist Workers' Party;701;0,635387;0,545889;0,723451;GLEI;1158
+luxembourg;1989;14.07.1989;LSAP;Luxembourg Socialist Workers' Party;701;0,688368;0,601845;0,770835;KPL;151
+luxembourg;1989;14.07.1989;LSAP;Luxembourg Socialist Workers' Party;701;0,696531;0,611443;0,777442;;
+luxembourg;1994;13.07.1994;ADR;Alternative Democratic Reform Party;1582;0,004928;0,003121;0,007549;CSV;1234
+luxembourg;1994;13.07.1994;ADR;Alternative Democratic Reform Party;1582;0,003126;0,001965;0,004858;DP;967
+luxembourg;1994;13.07.1994;ADR;Alternative Democratic Reform Party;1582;0,01238;0,00829;0,018647;Greng;310
+luxembourg;1994;13.07.1994;ADR;Alternative Democratic Reform Party;1582;0,007468;0,004642;0,011453;LSAP;701
+luxembourg;1994;13.07.1994;ADR;Alternative Democratic Reform Party;1582;0,014311;0,009579;0,021309;;
+luxembourg;1994;13.07.1994;CSV;Christian Social People's Party;1234;0,91108;0,878153;0,935946;ADR;1582
+luxembourg;1994;13.07.1994;CSV;Christian Social People's Party;1234;0,643723;0,54819;0,734006;DP;967
+luxembourg;1994;13.07.1994;CSV;Christian Social People's Party;1234;0,888017;0,850092;0,918448;Greng;310
+luxembourg;1994;13.07.1994;CSV;Christian Social People's Party;1234;0,28527;0,208122;0,367511;LSAP;701
+luxembourg;1994;13.07.1994;CSV;Christian Social People's Party;1234;0,920463;0,888547;0,944866;;
+luxembourg;1994;13.07.1994;DP;Democratic Party;967;0,336474;0,248034;0,430441;ADR;1582
+luxembourg;1994;13.07.1994;DP;Democratic Party;967;0,070919;0,048464;0,099789;CSV;1234
+luxembourg;1994;13.07.1994;DP;Democratic Party;967;0,282731;0,203423;0,369964;Greng;310
+luxembourg;1994;13.07.1994;DP;Democratic Party;967;0,231078;0,16036;0,306966;LSAP;701
+luxembourg;1994;13.07.1994;DP;Democratic Party;967;0,34766;0,256848;0,445539;;
+luxembourg;1994;13.07.1994;Greng;The Greens;310;0,075023;0,055783;0,100507;ADR;1582
+luxembourg;1994;13.07.1994;Greng;The Greens;310;0,044507;0,030792;0,063143;CSV;1234
+luxembourg;1994;13.07.1994;Greng;The Greens;310;0,012025;0,008531;0,016574;DP;967
+luxembourg;1994;13.07.1994;Greng;The Greens;310;0,021494;0,014265;0,030393;LSAP;701
+luxembourg;1994;13.07.1994;Greng;The Greens;310;0,076954;0,057595;0,102399;;
+luxembourg;1994;13.07.1994;LSAP;Luxembourg Socialist Workers' Party;701;0,691702;0,603551;0,774525;ADR;1582
+luxembourg;1994;13.07.1994;LSAP;Luxembourg Socialist Workers' Party;701;0,063352;0,0442;0,089169;CSV;1234
+luxembourg;1994;13.07.1994;LSAP;Luxembourg Socialist Workers' Party;701;0,581964;0,476971;0,683452;DP;967
+luxembourg;1994;13.07.1994;LSAP;Luxembourg Socialist Workers' Party;701;0,643086;0,551676;0,731536;Greng;310
+luxembourg;1994;13.07.1994;LSAP;Luxembourg Socialist Workers' Party;701;0,698546;0,611743;0,780666;;
+luxembourg;1995;20.01.1995;ADR;Alternative Democratic Reform Party;1582;0,004928;0,003121;0,007549;CSV;1234
+luxembourg;1995;20.01.1995;ADR;Alternative Democratic Reform Party;1582;0,003126;0,001965;0,004858;DP;967
+luxembourg;1995;20.01.1995;ADR;Alternative Democratic Reform Party;1582;0,01238;0,00829;0,018647;Greng;310
+luxembourg;1995;20.01.1995;ADR;Alternative Democratic Reform Party;1582;0,007468;0,004642;0,011453;LSAP;701
+luxembourg;1995;20.01.1995;ADR;Alternative Democratic Reform Party;1582;0,014311;0,009579;0,021309;;
+luxembourg;1995;20.01.1995;CSV;Christian Social People's Party;1234;0,91108;0,878153;0,935946;ADR;1582
+luxembourg;1995;20.01.1995;CSV;Christian Social People's Party;1234;0,643723;0,54819;0,734006;DP;967
+luxembourg;1995;20.01.1995;CSV;Christian Social People's Party;1234;0,888017;0,850092;0,918448;Greng;310
+luxembourg;1995;20.01.1995;CSV;Christian Social People's Party;1234;0,28527;0,208122;0,367511;LSAP;701
+luxembourg;1995;20.01.1995;CSV;Christian Social People's Party;1234;0,920463;0,888547;0,944866;;
+luxembourg;1995;20.01.1995;DP;Democratic Party;967;0,336474;0,248034;0,430441;ADR;1582
+luxembourg;1995;20.01.1995;DP;Democratic Party;967;0,070919;0,048464;0,099789;CSV;1234
+luxembourg;1995;20.01.1995;DP;Democratic Party;967;0,282731;0,203423;0,369964;Greng;310
+luxembourg;1995;20.01.1995;DP;Democratic Party;967;0,231078;0,16036;0,306966;LSAP;701
+luxembourg;1995;20.01.1995;DP;Democratic Party;967;0,34766;0,256848;0,445539;;
+luxembourg;1995;20.01.1995;Greng;The Greens;310;0,075023;0,055783;0,100507;ADR;1582
+luxembourg;1995;20.01.1995;Greng;The Greens;310;0,044507;0,030792;0,063143;CSV;1234
+luxembourg;1995;20.01.1995;Greng;The Greens;310;0,012025;0,008531;0,016574;DP;967
+luxembourg;1995;20.01.1995;Greng;The Greens;310;0,021494;0,014265;0,030393;LSAP;701
+luxembourg;1995;20.01.1995;Greng;The Greens;310;0,076954;0,057595;0,102399;;
+luxembourg;1995;20.01.1995;LSAP;Luxembourg Socialist Workers' Party;701;0,691702;0,603551;0,774525;ADR;1582
+luxembourg;1995;20.01.1995;LSAP;Luxembourg Socialist Workers' Party;701;0,063352;0,0442;0,089169;CSV;1234
+luxembourg;1995;20.01.1995;LSAP;Luxembourg Socialist Workers' Party;701;0,581964;0,476971;0,683452;DP;967
+luxembourg;1995;20.01.1995;LSAP;Luxembourg Socialist Workers' Party;701;0,643086;0,551676;0,731536;Greng;310
+luxembourg;1995;20.01.1995;LSAP;Luxembourg Socialist Workers' Party;701;0,698546;0,611743;0,780666;;
+luxembourg;1999;07.08.1999;ADR;Alternative Democratic Reform Party;1582;0,004539;0,002701;0,007136;CSV;1234
+luxembourg;1999;07.08.1999;ADR;Alternative Democratic Reform Party;1582;0,012174;0,007896;0,018523;DL;457
+luxembourg;1999;07.08.1999;ADR;Alternative Democratic Reform Party;1582;0,003464;0,002205;0,005287;DP;967
+luxembourg;1999;07.08.1999;ADR;Alternative Democratic Reform Party;1582;0,010936;0,007032;0,016705;Greng;310
+luxembourg;1999;07.08.1999;ADR;Alternative Democratic Reform Party;1582;0,005795;0,003454;0,009088;LSAP;701
+luxembourg;1999;07.08.1999;ADR;Alternative Democratic Reform Party;1582;0,013516;0,008698;0,020608;;
+luxembourg;1999;07.08.1999;CSV;Christian Social People's Party;1234;0,919867;0,887385;0,944687;ADR;1582
+luxembourg;1999;07.08.1999;CSV;Christian Social People's Party;1234;0,924273;0,892113;0,948086;DL;457
+luxembourg;1999;07.08.1999;CSV;Christian Social People's Party;1234;0,732402;0,63663;0,807325;DP;967
+luxembourg;1999;07.08.1999;CSV;Christian Social People's Party;1234;0,899856;0,861619;0,929086;Greng;310
+luxembourg;1999;07.08.1999;CSV;Christian Social People's Party;1234;0,201653;0,13978;0,268185;LSAP;701
+luxembourg;1999;07.08.1999;CSV;Christian Social People's Party;1234;0,928844;0,897293;0,95155;;
+luxembourg;1999;07.08.1999;DL;The Left;457;0,00623;0,003985;0,009583;ADR;1582
+luxembourg;1999;07.08.1999;DL;The Left;457;0,003001;0,001793;0,00486;CSV;1234
+luxembourg;1999;07.08.1999;DL;The Left;457;0,002418;0,00151;0,003754;DP;967
+luxembourg;1999;07.08.1999;DL;The Left;457;0,004621;0,002924;0,007222;Greng;310
+luxembourg;1999;07.08.1999;DL;The Left;457;0,002796;0,001592;0,0046;LSAP;701
+luxembourg;1999;07.08.1999;DL;The Left;457;0,007571;0,004821;0,011497;;
+luxembourg;1999;07.08.1999;DP;Democratic Party;967;0,246835;0,176543;0,337906;ADR;1582
+luxembourg;1999;07.08.1999;DP;Democratic Party;967;0,060446;0,039813;0,088629;CSV;1234
+luxembourg;1999;07.08.1999;DP;Democratic Party;967;0,251734;0,180751;0,344284;DL;457
+luxembourg;1999;07.08.1999;DP;Democratic Party;967;0,201717;0,14165;0,276946;Greng;310
+luxembourg;1999;07.08.1999;DP;Democratic Party;967;0,151556;0,103802;0,214053;LSAP;701
+luxembourg;1999;07.08.1999;DP;Democratic Party;967;0,256887;0,184462;0,350391;;
+luxembourg;1999;07.08.1999;Greng;The Greens;310;0,066494;0,048268;0,091593;ADR;1582
+luxembourg;1999;07.08.1999;Greng;The Greens;310;0,040085;0,027157;0,058028;CSV;1234
+luxembourg;1999;07.08.1999;Greng;The Greens;310;0,066123;0,048016;0,09104;DL;457
+luxembourg;1999;07.08.1999;Greng;The Greens;310;0,013903;0,010041;0,01905;DP;967
+luxembourg;1999;07.08.1999;Greng;The Greens;310;0,01591;0,010252;0,02329;LSAP;701
+luxembourg;1999;07.08.1999;Greng;The Greens;310;0,069073;0,050305;0,094429;;
+luxembourg;1999;07.08.1999;LSAP;Luxembourg Socialist Workers' Party;701;0,778625;0,707337;0,844743;ADR;1582
+luxembourg;1999;07.08.1999;LSAP;Luxembourg Socialist Workers' Party;701;0,059155;0,04057;0,085316;CSV;1234
+luxembourg;1999;07.08.1999;LSAP;Luxembourg Socialist Workers' Party;701;0,78157;0,710396;0,84694;DL;457
+luxembourg;1999;07.08.1999;LSAP;Luxembourg Socialist Workers' Party;701;0,681015;0,581741;0,770775;DP;967
+luxembourg;1999;07.08.1999;LSAP;Luxembourg Socialist Workers' Party;701;0,733182;0,652689;0,806777;Greng;310
+luxembourg;1999;07.08.1999;LSAP;Luxembourg Socialist Workers' Party;701;0,786345;0,715397;0,850079;;
+luxembourg;2004;31.07.2004;ADR;Alternative Democratic Reform Party;1582;0,000771;0,000427;0,0013;CSV;1234
+luxembourg;2004;31.07.2004;ADR;Alternative Democratic Reform Party;1582;0,000909;0,000464;0,001561;DP;967
+luxembourg;2004;31.07.2004;ADR;Alternative Democratic Reform Party;1582;0,003146;0,001942;0,004871;Greng;310
+luxembourg;2004;31.07.2004;ADR;Alternative Democratic Reform Party;1582;0,00227;0,001383;0,003493;LSAP;701
+luxembourg;2004;31.07.2004;ADR;Alternative Democratic Reform Party;1582;0,003662;0,002256;0,005675;;
+luxembourg;2004;31.07.2004;CSV;Christian Social People's Party;1234;0,984105;0,976078;0,989881;ADR;1582
+luxembourg;2004;31.07.2004;CSV;Christian Social People's Party;1234;0,035103;0,021564;0,053799;DP;967
+luxembourg;2004;31.07.2004;CSV;Christian Social People's Party;1234;0,984482;0,976688;0,990073;Greng;310
+luxembourg;2004;31.07.2004;CSV;Christian Social People's Party;1234;0,958223;0,940872;0,97143;LSAP;701
+luxembourg;2004;31.07.2004;CSV;Christian Social People's Party;1234;0,986997;0,979966;0,992056;;
+luxembourg;2004;31.07.2004;DP;Democratic Party;967;0,960711;0,941548;0,975579;ADR;1582
+luxembourg;2004;31.07.2004;DP;Democratic Party;967;0,011571;0,007112;0,017741;CSV;1234
+luxembourg;2004;31.07.2004;DP;Democratic Party;967;0,959608;0,939953;0,974802;Greng;310
+luxembourg;2004;31.07.2004;DP;Democratic Party;967;0,939393;0,91258;0,960475;LSAP;701
+luxembourg;2004;31.07.2004;DP;Democratic Party;967;0,963465;0,944448;0,977783;;
+luxembourg;2004;31.07.2004;Greng;The Greens;310;0,004612;0,002836;0,007169;ADR;1582
+luxembourg;2004;31.07.2004;Greng;The Greens;310;0,002613;0,001537;0,004258;CSV;1234
+luxembourg;2004;31.07.2004;Greng;The Greens;310;0,001271;0,000651;0,002162;DP;967
+luxembourg;2004;31.07.2004;Greng;The Greens;310;0,001894;0,00112;0,00302;LSAP;701
+luxembourg;2004;31.07.2004;Greng;The Greens;310;0,005128;0,00318;0,007996;;
+luxembourg;2004;31.07.2004;LSAP;Luxembourg Socialist Workers' Party;701;0,036994;0,024702;0,052784;ADR;1582
+luxembourg;2004;31.07.2004;LSAP;Luxembourg Socialist Workers' Party;701;0,009611;0,005728;0,015361;CSV;1234
+luxembourg;2004;31.07.2004;LSAP;Luxembourg Socialist Workers' Party;701;0,014314;0,008429;0,021977;DP;967
+luxembourg;2004;31.07.2004;LSAP;Luxembourg Socialist Workers' Party;701;0,035152;0,023346;0,050572;Greng;310
+luxembourg;2004;31.07.2004;LSAP;Luxembourg Socialist Workers' Party;701;0,038386;0,025625;0,054796;;
+luxembourg;2009;23.07.2009;ADR;Alternative Democratic Reform Party;1582;0,003551;0,002166;0,005695;CSV;1234
+luxembourg;2009;23.07.2009;ADR;Alternative Democratic Reform Party;1582;0,01347;0,00889;0,020181;DL;457
+luxembourg;2009;23.07.2009;ADR;Alternative Democratic Reform Party;1582;0,003604;0,002269;0,005533;DP;967
+luxembourg;2009;23.07.2009;ADR;Alternative Democratic Reform Party;1582;0,011796;0,00781;0,0177;Greng;310
+luxembourg;2009;23.07.2009;ADR;Alternative Democratic Reform Party;1582;0,008619;0,005374;0,01339;LSAP;701
+luxembourg;2009;23.07.2009;ADR;Alternative Democratic Reform Party;1582;0,015323;0,010114;0,02285;;
+luxembourg;2009;23.07.2009;CSV;Christian Social People's Party;1234;0,94487;0,920016;0,963531;ADR;1582
+luxembourg;2009;23.07.2009;CSV;Christian Social People's Party;1234;0,950416;0,927808;0,96795;DL;457
+luxembourg;2009;23.07.2009;CSV;Christian Social People's Party;1234;0,679627;0,582815;0,770592;DP;967
+luxembourg;2009;23.07.2009;CSV;Christian Social People's Party;1234;0,945475;0,92177;0,963441;Greng;310
+luxembourg;2009;23.07.2009;CSV;Christian Social People's Party;1234;0,294967;0,212718;0,382699;LSAP;701
+luxembourg;2009;23.07.2009;CSV;Christian Social People's Party;1234;0,956642;0,935696;0,973415;;
+luxembourg;2009;23.07.2009;DL;The Left;457;0,009082;0,006034;0,013651;ADR;1582
+luxembourg;2009;23.07.2009;DL;The Left;457;0,004709;0,002899;0,007344;CSV;1234
+luxembourg;2009;23.07.2009;DL;The Left;457;0,002818;0,001749;0,004412;DP;967
+luxembourg;2009;23.07.2009;DL;The Left;457;0,005968;0,003858;0,009109;Greng;310
+luxembourg;2009;23.07.2009;DL;The Left;457;0,004577;0,002771;0,007386;LSAP;701
+luxembourg;2009;23.07.2009;DL;The Left;457;0,010935;0,007224;0,016311;;
+luxembourg;2009;23.07.2009;DP;Democratic Party;967;0,302749;0,215963;0,397337;ADR;1582
+luxembourg;2009;23.07.2009;DP;Democratic Party;967;0,037452;0,02271;0,056665;CSV;1234
+luxembourg;2009;23.07.2009;DP;Democratic Party;967;0,306351;0,218572;0,402953;DL;457
+luxembourg;2009;23.07.2009;DP;Democratic Party;967;0,301632;0,214762;0,396693;Greng;310
+luxembourg;2009;23.07.2009;DP;Democratic Party;967;0,233481;0,161602;0,313883;LSAP;701
+luxembourg;2009;23.07.2009;DP;Democratic Party;967;0,314468;0,225609;0,412663;;
+luxembourg;2009;23.07.2009;Greng;The Greens;310;0,014606;0,009875;0,021398;ADR;1582
+luxembourg;2009;23.07.2009;Greng;The Greens;310;0,006966;0,004342;0,010701;CSV;1234
+luxembourg;2009;23.07.2009;Greng;The Greens;310;0,013167;0,008816;0,019221;DL;457
+luxembourg;2009;23.07.2009;Greng;The Greens;310;0,005298;0,003335;0,008117;DP;967
+luxembourg;2009;23.07.2009;Greng;The Greens;310;0,008073;0,005039;0,012604;LSAP;701
+luxembourg;2009;23.07.2009;Greng;The Greens;310;0,018133;0,012254;0,026617;;
+luxembourg;2009;23.07.2009;LSAP;Luxembourg Socialist Workers' Party;701;0,685419;0,592266;0,772272;ADR;1582
+luxembourg;2009;23.07.2009;LSAP;Luxembourg Socialist Workers' Party;701;0,030447;0,019326;0,045042;CSV;1234
+luxembourg;2009;23.07.2009;LSAP;Luxembourg Socialist Workers' Party;701;0,685764;0,593497;0,77249;DL;457
+luxembourg;2009;23.07.2009;LSAP;Luxembourg Socialist Workers' Party;701;0,611136;0,501509;0,71249;DP;967
+luxembourg;2009;23.07.2009;LSAP;Luxembourg Socialist Workers' Party;701;0,682062;0,588844;0,769441;Greng;310
+luxembourg;2009;23.07.2009;LSAP;Luxembourg Socialist Workers' Party;701;0,692122;0,599819;0,778554;;
+luxembourg;2013;04.12.2013;ADR;Alternative Democratic Reform Party;1582;0,002215;0,001276;0,003719;CSV;1234
+luxembourg;2013;04.12.2013;ADR;Alternative Democratic Reform Party;1582;0,009268;0,005918;0,014177;DL;457
+luxembourg;2013;04.12.2013;ADR;Alternative Democratic Reform Party;1582;0,002749;0,001707;0,004255;DP;967
+luxembourg;2013;04.12.2013;ADR;Alternative Democratic Reform Party;1582;0,008453;0,005416;0,012939;Greng;310
+luxembourg;2013;04.12.2013;ADR;Alternative Democratic Reform Party;1582;0,006626;0,004145;0,010217;LSAP;701
+luxembourg;2013;04.12.2013;ADR;Alternative Democratic Reform Party;1582;0,010619;0,006859;0,016204;;
+luxembourg;2013;04.12.2013;CSV;Christian Social People's Party;1234;0,956625;0,937768;0,971753;ADR;1582
+luxembourg;2013;04.12.2013;CSV;Christian Social People's Party;1234;0,950526;0,92953;0,966287;DL;457
+luxembourg;2013;04.12.2013;CSV;Christian Social People's Party;1234;0,741729;0,671467;0,802337;DP;967
+luxembourg;2013;04.12.2013;CSV;Christian Social People's Party;1234;0,957945;0,939588;0,972492;Greng;310
+luxembourg;2013;04.12.2013;CSV;Christian Social People's Party;1234;0,228868;0,172536;0,288632;LSAP;701
+luxembourg;2013;04.12.2013;CSV;Christian Social People's Party;1234;0,965029;0,948378;0,978293;;
+luxembourg;2013;04.12.2013;DL;The Left;457;0,021474;0,014597;0,030515;ADR;1582
+luxembourg;2013;04.12.2013;DL;The Left;457;0,008322;0,005244;0,012812;CSV;1234
+luxembourg;2013;04.12.2013;DL;The Left;457;0,007561;0,005244;0,010762;DP;967
+luxembourg;2013;04.12.2013;DL;The Left;457;0,020097;0,01349;0,028864;Greng;310
+luxembourg;2013;04.12.2013;DL;The Left;457;0,011145;0,007265;0,016494;LSAP;701
+luxembourg;2013;04.12.2013;DL;The Left;457;0,022825;0,015492;0,032214;;
+luxembourg;2013;04.12.2013;DP;Democratic Party;967;0,241876;0,183301;0,308945;ADR;1582
+luxembourg;2013;04.12.2013;DP;Democratic Party;967;0,026446;0,016303;0,039825;CSV;1234
+luxembourg;2013;04.12.2013;DP;Democratic Party;967;0,234482;0,177395;0,30061;DL;457
+luxembourg;2013;04.12.2013;DP;Democratic Party;967;0,240398;0,182013;0,308106;Greng;310
+luxembourg;2013;04.12.2013;DP;Democratic Party;967;0,208247;0,158748;0,266854;LSAP;701
+luxembourg;2013;04.12.2013;DP;Democratic Party;967;0,203893;0,155283;0,261348;"LSAP; Greng";"701; 310"
+luxembourg;2013;04.12.2013;DP;Democratic Party;967;0,249746;0,189419;0,318288;;
+luxembourg;2013;04.12.2013;Greng;The Greens;310;0,010808;0,006971;0,016511;ADR;1582
+luxembourg;2013;04.12.2013;Greng;The Greens;310;0,00589;0,003618;0,009285;CSV;1234
+luxembourg;2013;04.12.2013;Greng;The Greens;310;0,010246;0,006629;0,01559;DL;457
+luxembourg;2013;04.12.2013;Greng;The Greens;310;0,003626;0,002274;0,005593;DP;967
+luxembourg;2013;04.12.2013;Greng;The Greens;310;0,005338;0,003299;0,008319;LSAP;701
+luxembourg;2013;04.12.2013;Greng;The Greens;310;0,000984;0,000501;0,001795;"LSAP; DP";"701; 967"
+luxembourg;2013;04.12.2013;Greng;The Greens;310;0,012974;0,008316;0,019708;;
+luxembourg;2013;04.12.2013;LSAP;Luxembourg Socialist Workers' Party;701;0,75384;0,690605;0,811488;ADR;1582
+luxembourg;2013;04.12.2013;LSAP;Luxembourg Socialist Workers' Party;701;0,021672;0,014415;0,031515;CSV;1234
+luxembourg;2013;04.12.2013;LSAP;Luxembourg Socialist Workers' Party;701;0,746153;0,682095;0,805404;DL;457
+luxembourg;2013;04.12.2013;LSAP;Luxembourg Socialist Workers' Party;701;0,716334;0,642302;0,785209;DP;967
+luxembourg;2013;04.12.2013;LSAP;Luxembourg Socialist Workers' Party;701;0,750197;0,685928;0,80935;Greng;310
+luxembourg;2013;04.12.2013;LSAP;Luxembourg Socialist Workers' Party;701;0,713692;0,640043;0,78257;"Greng; DP";"310; 967"
+luxembourg;2013;04.12.2013;LSAP;Luxembourg Socialist Workers' Party;701;0,757833;0,694879;0,814965;;
+luxembourg;2018;05.12.2018;ADR;Alternative Democratic Reform Party;1582;0,024546;0,013606;0,042136;CSV;1234
+luxembourg;2018;05.12.2018;ADR;Alternative Democratic Reform Party;1582;0,046706;0,031559;0,06897;DL;457
+luxembourg;2018;05.12.2018;ADR;Alternative Democratic Reform Party;1582;0,010025;0,006139;0,015594;DP;967
+luxembourg;2018;05.12.2018;ADR;Alternative Democratic Reform Party;1582;0,042885;0,028615;0,064395;Greng;310
+luxembourg;2018;05.12.2018;ADR;Alternative Democratic Reform Party;1582;0,016567;0,01082;0,024362;LSAP;701
+luxembourg;2018;05.12.2018;ADR;Alternative Democratic Reform Party;1582;0,05031;0,034143;0,073983;;
+luxembourg;2018;05.12.2018;CSV;Christian Social People's Party;1234;0,831056;0,776079;0,873638;ADR;1582
+luxembourg;2018;05.12.2018;CSV;Christian Social People's Party;1234;0,810463;0,758251;0,854702;DL;457
+luxembourg;2018;05.12.2018;CSV;Christian Social People's Party;1234;0,316884;0,247979;0,393948;DP;967
+luxembourg;2018;05.12.2018;CSV;Christian Social People's Party;1234;0,833616;0,779405;0,876378;Greng;310
+luxembourg;2018;05.12.2018;CSV;Christian Social People's Party;1234;0,567045;0,496399;0,634865;LSAP;701
+luxembourg;2018;05.12.2018;CSV;Christian Social People's Party;1234;0,85682;0,808945;0,897767;;
+luxembourg;2018;05.12.2018;DL;The Left;457;0,069813;0,052477;0,089628;ADR;1582
+luxembourg;2018;05.12.2018;DL;The Left;457;0,027061;0,018148;0,038413;CSV;1234
+luxembourg;2018;05.12.2018;DL;The Left;457;0,024798;0,016528;0,035642;DP;967
+luxembourg;2018;05.12.2018;DL;The Left;457;0,063837;0,047318;0,083116;Greng;310
+luxembourg;2018;05.12.2018;DL;The Left;457;0,027732;0,019349;0,038701;LSAP;701
+luxembourg;2018;05.12.2018;DL;The Left;457;0,073418;0,054861;0,093811;;
+luxembourg;2018;05.12.2018;DP;Democratic Party;967;0,616711;0,54104;0,689139;ADR;1582
+luxembourg;2018;05.12.2018;DP;Democratic Party;967;0,117061;0,081953;0,159894;CSV;1234
+luxembourg;2018;05.12.2018;DP;Democratic Party;967;0,608377;0,533419;0,681743;DL;457
+luxembourg;2018;05.12.2018;DP;Democratic Party;967;0,621833;0,543998;0,693088;Greng;310
+luxembourg;2018;05.12.2018;DP;Democratic Party;967;0,411409;0,334491;0,490369;"Greng; LSAP";"310; 701"
+luxembourg;2018;05.12.2018;DP;Democratic Party;967;0,420195;0,343143;0,497995;LSAP;701
+luxembourg;2018;05.12.2018;DP;Democratic Party;967;0,656996;0,575743;0,728485;;
+luxembourg;2018;05.12.2018;Greng;The Greens;310;0,040124;0,027405;0,056892;ADR;1582
+luxembourg;2018;05.12.2018;Greng;The Greens;310;0,024345;0,015644;0,036552;CSV;1234
+luxembourg;2018;05.12.2018;Greng;The Greens;310;0,037969;0,026133;0,053098;DL;457
+luxembourg;2018;05.12.2018;Greng;The Greens;310;0,012386;0,007583;0,019218;DP;967
+luxembourg;2018;05.12.2018;Greng;The Greens;310;0,005143;0,002818;0,008292;"DP; LSAP";"967; 701"
+luxembourg;2018;05.12.2018;Greng;The Greens;310;0,013929;0,008994;0,020493;LSAP;701
+luxembourg;2018;05.12.2018;Greng;The Greens;310;0,047549;0,033017;0,06699;;
+luxembourg;2018;05.12.2018;LSAP;Luxembourg Socialist Workers' Party;701;0,368864;0,304644;0,430435;ADR;1582
+luxembourg;2018;05.12.2018;LSAP;Luxembourg Socialist Workers' Party;701;0,112832;0,077556;0,154318;CSV;1234
+luxembourg;2018;05.12.2018;LSAP;Luxembourg Socialist Workers' Party;701;0,356921;0,295587;0,416642;DL;457
+luxembourg;2018;05.12.2018;LSAP;Luxembourg Socialist Workers' Party;701;0,165805;0,121239;0,22222;DP;967
+luxembourg;2018;05.12.2018;LSAP;Luxembourg Socialist Workers' Party;701;0,158562;0,115942;0,21298;"DP; Greng";"967; 310"
+luxembourg;2018;05.12.2018;LSAP;Luxembourg Socialist Workers' Party;701;0,368987;0,304056;0,433561;Greng;310
+luxembourg;2018;05.12.2018;LSAP;Luxembourg Socialist Workers' Party;701;0,402607;0,331675;0,472034;;

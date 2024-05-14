@@ -1,0 +1,626 @@
+country;year;date;party_abbr;party_name;parlgov_id;pr_ingov_mean;pr_ingov_lower;pr_ingov_upper;excluding;excluding_parlgov_id
+czech republic;1992;02.07.1992;CSSD;Czech Social Democratic Party;789;0,129751;0,088617;0,176985;HSD-SMS;19
+czech republic;1992;02.07.1992;CSSD;Czech Social Democratic Party;789;0,098052;0,060356;0,148165;KDS;440
+czech republic;1992;02.07.1992;CSSD;Czech Social Democratic Party;789;0,131638;0,09018;0,178904;KDU-CSL;1245
+czech republic;1992;02.07.1992;CSSD;Czech Social Democratic Party;789;0,201751;0,145894;0,260858;KSCM;1173
+czech republic;1992;02.07.1992;CSSD;Czech Social Democratic Party;789;0,150087;0,109893;0,193196;LSU;1218
+czech republic;1992;02.07.1992;CSSD;Czech Social Democratic Party;789;0,150087;0,109893;0,193196;ODA;1123
+czech republic;1992;02.07.1992;CSSD;Czech Social Democratic Party;789;0,057044;0,033415;0,088448;ODS;829
+czech republic;1992;02.07.1992;CSSD;Czech Social Democratic Party;789;0,178801;0,132934;0,226917;SPR-RSC;872
+czech republic;1992;02.07.1992;CSSD;Czech Social Democratic Party;789;0,238001;0,175158;0,30543;;
+czech republic;1992;02.07.1992;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,497839;0,401662;0,60203;CSSD;789
+czech republic;1992;02.07.1992;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,147346;0,103207;0,20051;KDS;440
+czech republic;1992;02.07.1992;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,197789;0,164664;0,226635;KDU-CSL;1245
+czech republic;1992;02.07.1992;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,566483;0,474757;0,66156;KSCM;1173
+czech republic;1992;02.07.1992;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,463996;0,361795;0,572017;LSU;1218
+czech republic;1992;02.07.1992;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,479322;0,386899;0,573627;ODA;1123
+czech republic;1992;02.07.1992;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,08548;0,052179;0,133784;ODS;829
+czech republic;1992;02.07.1992;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,521487;0,430983;0,614705;SPR-RSC;872
+czech republic;1992;02.07.1992;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,60609;0,523804;0,690221;;
+czech republic;1992;02.07.1992;KDS;Christian Democratic Party;440;0,582251;0,461851;0,687671;CSSD;789
+czech republic;1992;02.07.1992;KDS;Christian Democratic Party;440;0,263457;0,208599;0,319541;HSD-SMS;19
+czech republic;1992;02.07.1992;KDS;Christian Democratic Party;440;0,250308;0,196398;0,30541;KDU-CSL;1245
+czech republic;1992;02.07.1992;KDS;Christian Democratic Party;440;0,034049;0,017364;0,060322;"KDU-CSL; ODA; ODS";"1245; 1123; 829"
+czech republic;1992;02.07.1992;KDS;Christian Democratic Party;440;0,673861;0,558642;0,774071;KSCM;1173
+czech republic;1992;02.07.1992;KDS;Christian Democratic Party;440;0,538244;0,418086;0,650929;LSU;1218
+czech republic;1992;02.07.1992;KDS;Christian Democratic Party;440;0,557828;0,4528;0,656052;ODA;1123
+czech republic;1992;02.07.1992;KDS;Christian Democratic Party;440;0,106776;0,060688;0,17396;ODS;829
+czech republic;1992;02.07.1992;KDS;Christian Democratic Party;440;0,60124;0,492429;0,693648;SPR-RSC;872
+czech republic;1992;02.07.1992;KDS;Christian Democratic Party;440;0,722201;0,602136;0,815395;;
+czech republic;1992;02.07.1992;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,511711;0,410369;0,618331;CSSD;789
+czech republic;1992;02.07.1992;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,209774;0,176432;0,237783;HSD-SMS;19
+czech republic;1992;02.07.1992;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,146182;0,102124;0,198189;KDS;440
+czech republic;1992;02.07.1992;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,019623;0,010325;0,032524;"KDS; ODA; ODS";"440; 1123; 829"
+czech republic;1992;02.07.1992;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,579329;0,483341;0,67347;KSCM;1173
+czech republic;1992;02.07.1992;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,478392;0,375151;0,588354;LSU;1218
+czech republic;1992;02.07.1992;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,493498;0,400712;0,590816;ODA;1123
+czech republic;1992;02.07.1992;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,084284;0,050764;0,133199;ODS;829
+czech republic;1992;02.07.1992;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,525545;0,433026;0,619361;SPR-RSC;872
+czech republic;1992;02.07.1992;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,618075;0,532925;0,704112;;
+czech republic;1992;02.07.1992;KSCM;Communist Party of Bohemia and Moravia;1173;0,041371;0,018904;0,082386;CSSD;789
+czech republic;1992;02.07.1992;KSCM;Communist Party of Bohemia and Moravia;1173;0,038014;0,016754;0,07526;HSD-SMS;19
+czech republic;1992;02.07.1992;KSCM;Communist Party of Bohemia and Moravia;1173;0,029281;0,012684;0,059713;KDS;440
+czech republic;1992;02.07.1992;KSCM;Communist Party of Bohemia and Moravia;1173;0,038876;0,017187;0,076438;KDU-CSL;1245
+czech republic;1992;02.07.1992;KSCM;Communist Party of Bohemia and Moravia;1173;0,041527;0,019006;0,082481;LSU;1218
+czech republic;1992;02.07.1992;KSCM;Communist Party of Bohemia and Moravia;1173;0,043778;0,019805;0,085576;ODA;1123
+czech republic;1992;02.07.1992;KSCM;Communist Party of Bohemia and Moravia;1173;0,032457;0,013459;0,064354;ODS;829
+czech republic;1992;02.07.1992;KSCM;Communist Party of Bohemia and Moravia;1173;0,054778;0,026752;0,102133;SPR-RSC;872
+czech republic;1992;02.07.1992;KSCM;Communist Party of Bohemia and Moravia;1173;0,077621;0,036581;0,150134;;
+czech republic;1992;02.07.1992;LSU;Liberal Social Union;1218;0,221984;0,163845;0,282636;CSSD;789
+czech republic;1992;02.07.1992;LSU;Liberal Social Union;1218;0,167805;0,116396;0,2231;HSD-SMS;19
+czech republic;1992;02.07.1992;LSU;Liberal Social Union;1218;0,125941;0,077693;0,187985;KDS;440
+czech republic;1992;02.07.1992;LSU;Liberal Social Union;1218;0,170216;0,117835;0,225391;KDU-CSL;1245
+czech republic;1992;02.07.1992;LSU;Liberal Social Union;1218;0,273805;0,198804;0,352978;KSCM;1173
+czech republic;1992;02.07.1992;LSU;Liberal Social Union;1218;0,195334;0,14521;0,245009;ODA;1123
+czech republic;1992;02.07.1992;LSU;Liberal Social Union;1218;0,069565;0,041598;0,106351;ODS;829
+czech republic;1992;02.07.1992;LSU;Liberal Social Union;1218;0,23293;0,170415;0,297712;SPR-RSC;872
+czech republic;1992;02.07.1992;LSU;Liberal Social Union;1218;0,309898;0,227866;0,393781;;
+czech republic;1992;02.07.1992;ODA;Civic Democratic Alliance;1123;0,191581;0,158526;0,226719;CSSD;789
+czech republic;1992;02.07.1992;ODA;Civic Democratic Alliance;1123;0,152727;0,116865;0,191472;HSD-SMS;19
+czech republic;1992;02.07.1992;ODA;Civic Democratic Alliance;1123;0,115122;0,073861;0,164593;KDS;440
+czech republic;1992;02.07.1992;ODA;Civic Democratic Alliance;1123;0,012925;0,006877;0,021846;"KDS; KDU-CSL; ODS";"440; 1245; 829"
+czech republic;1992;02.07.1992;ODA;Civic Democratic Alliance;1123;0,154918;0,118378;0,193985;KDU-CSL;1245
+czech republic;1992;02.07.1992;ODA;Civic Democratic Alliance;1123;0,245653;0,195823;0,298805;KSCM;1173
+czech republic;1992;02.07.1992;ODA;Civic Democratic Alliance;1123;0,164931;0,138133;0,191505;LSU;1218
+czech republic;1992;02.07.1992;ODA;Civic Democratic Alliance;1123;0,063881;0,039651;0,095257;ODS;829
+czech republic;1992;02.07.1992;ODA;Civic Democratic Alliance;1123;0,210679;0,17244;0,249732;SPR-RSC;872
+czech republic;1992;02.07.1992;ODA;Civic Democratic Alliance;1123;0,279495;0,222185;0,336805;;
+czech republic;1992;02.07.1992;ODS;Civic Democratic Party;829;0,647892;0,559676;0,735197;CSSD;789
+czech republic;1992;02.07.1992;ODS;Civic Democratic Party;829;0,30824;0,236828;0,38589;HSD-SMS;19
+czech republic;1992;02.07.1992;ODS;Civic Democratic Party;829;0,213424;0,135822;0,312382;KDS;440
+czech republic;1992;02.07.1992;ODS;Civic Democratic Party;829;0,051938;0,029275;0,086522;"KDS; KDU-CSL; ODA";"440; 1245; 1123"
+czech republic;1992;02.07.1992;ODS;Civic Democratic Party;829;0,295059;0,225056;0,372631;KDU-CSL;1245
+czech republic;1992;02.07.1992;ODS;Civic Democratic Party;829;0,783685;0,680986;0,86026;KSCM;1173
+czech republic;1992;02.07.1992;ODS;Civic Democratic Party;829;0,588516;0,491599;0,68458;LSU;1218
+czech republic;1992;02.07.1992;ODS;Civic Democratic Party;829;0,613235;0,535499;0,690603;ODA;1123
+czech republic;1992;02.07.1992;ODS;Civic Democratic Party;829;0,660526;0,585133;0,733095;SPR-RSC;872
+czech republic;1992;02.07.1992;ODS;Civic Democratic Party;829;0,828849;0,743001;0,89544;;
+czech republic;1992;02.07.1992;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,144691;0,119659;0,170078;CSSD;789
+czech republic;1992;02.07.1992;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,119289;0,092571;0,150858;HSD-SMS;19
+czech republic;1992;02.07.1992;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,08293;0,053526;0,12028;KDS;440
+czech republic;1992;02.07.1992;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,111362;0,084457;0,144139;KDU-CSL;1245
+czech republic;1992;02.07.1992;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,181048;0,144522;0,221551;KSCM;1173
+czech republic;1992;02.07.1992;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,126923;0,102827;0,153516;LSU;1218
+czech republic;1992;02.07.1992;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,135075;0,11072;0,161159;ODA;1123
+czech republic;1992;02.07.1992;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,035567;0,020733;0,055891;ODS;829
+czech republic;1992;02.07.1992;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,203891;0,162;0,249375;;
+czech republic;1993;01.01.1993;CSSD;Czech Social Democratic Party;789;0,144244;0,104697;0,188619;HSD-SMS;19
+czech republic;1993;01.01.1993;CSSD;Czech Social Democratic Party;789;0,096575;0,059053;0,147593;KDS;440
+czech republic;1993;01.01.1993;CSSD;Czech Social Democratic Party;789;0,129315;0,087697;0,177436;KDU-CSL;1245
+czech republic;1993;01.01.1993;CSSD;Czech Social Democratic Party;789;0,197751;0,140776;0,257141;KSCM;1173
+czech republic;1993;01.01.1993;CSSD;Czech Social Democratic Party;789;0,147275;0,107239;0,190789;LSU;1218
+czech republic;1993;01.01.1993;CSSD;Czech Social Democratic Party;789;0,131363;0,090513;0,177902;ODA;1123
+czech republic;1993;01.01.1993;CSSD;Czech Social Democratic Party;789;0,044255;0,024413;0,074324;ODS;829
+czech republic;1993;01.01.1993;CSSD;Czech Social Democratic Party;789;0,17362;0,128335;0,221387;SPR-RSC;872
+czech republic;1993;01.01.1993;CSSD;Czech Social Democratic Party;789;0,229671;0,166753;0,298017;;
+czech republic;1993;01.01.1993;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,196777;0,165961;0,230162;CSSD;789
+czech republic;1993;01.01.1993;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,11876;0,077688;0,16797;KDS;440
+czech republic;1993;01.01.1993;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,159359;0,125498;0,196109;KDU-CSL;1245
+czech republic;1993;01.01.1993;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,251654;0,205921;0,302529;KSCM;1173
+czech republic;1993;01.01.1993;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,169743;0,144684;0,19571;LSU;1218
+czech republic;1993;01.01.1993;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,162002;0,129746;0,196052;ODA;1123
+czech republic;1993;01.01.1993;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,051785;0,030646;0,082034;ODS;829
+czech republic;1993;01.01.1993;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,214383;0,177143;0,251814;SPR-RSC;872
+czech republic;1993;01.01.1993;HSD-SMS;Movement for Self-Governing Democracy -- Society for Moravia and Silesia;19;0,282205;0,227937;0,337827;;
+czech republic;1993;01.01.1993;KDS;Christian Democratic Party;440;0,57803;0,457372;0,683323;CSSD;789
+czech republic;1993;01.01.1993;KDS;Christian Democratic Party;440;0,547682;0,445467;0,642951;HSD-SMS;19
+czech republic;1993;01.01.1993;KDS;Christian Democratic Party;440;0,250805;0,198128;0,3064;KDU-CSL;1245
+czech republic;1993;01.01.1993;KDS;Christian Democratic Party;440;0,022249;0,011684;0,036655;"KDU-CSL; ODA; ODS";"1245; 1123; 829"
+czech republic;1993;01.01.1993;KDS;Christian Democratic Party;440;0,668292;0,552556;0,772104;KSCM;1173
+czech republic;1993;01.01.1993;KDS;Christian Democratic Party;440;0,534718;0,414963;0,647183;LSU;1218
+czech republic;1993;01.01.1993;KDS;Christian Democratic Party;440;0,271739;0,218782;0,327918;ODA;1123
+czech republic;1993;01.01.1993;KDS;Christian Democratic Party;440;0,081744;0,048223;0,127522;ODS;829
+czech republic;1993;01.01.1993;KDS;Christian Democratic Party;440;0,594009;0,489228;0,686169;SPR-RSC;872
+czech republic;1993;01.01.1993;KDS;Christian Democratic Party;440;0,711127;0,594316;0,804914;;
+czech republic;1993;01.01.1993;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,506403;0,40898;0,614017;CSSD;789
+czech republic;1993;01.01.1993;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,483914;0,396002;0,580174;HSD-SMS;19
+czech republic;1993;01.01.1993;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,146437;0,103253;0,198287;KDS;440
+czech republic;1993;01.01.1993;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,012789;0,007208;0,020086;"KDS; ODA; ODS";"440; 1123; 829"
+czech republic;1993;01.01.1993;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,572643;0,480586;0,666028;KSCM;1173
+czech republic;1993;01.01.1993;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,473796;0,371386;0,583797;LSU;1218
+czech republic;1993;01.01.1993;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,214928;0,182328;0,244005;ODA;1123
+czech republic;1993;01.01.1993;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,064482;0,039931;0,097135;ODS;829
+czech republic;1993;01.01.1993;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,517727;0,430239;0,611009;SPR-RSC;872
+czech republic;1993;01.01.1993;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,606759;0,52528;0,693275;;
+czech republic;1993;01.01.1993;KSCM;Communist Party of Bohemia and Moravia;1173;0,038595;0,01733;0,076391;CSSD;789
+czech republic;1993;01.01.1993;KSCM;Communist Party of Bohemia and Moravia;1173;0,039964;0,017703;0,079707;HSD-SMS;19
+czech republic;1993;01.01.1993;KSCM;Communist Party of Bohemia and Moravia;1173;0,027681;0,011909;0,056596;KDS;440
+czech republic;1993;01.01.1993;KSCM;Communist Party of Bohemia and Moravia;1173;0,036399;0,015485;0,072858;KDU-CSL;1245
+czech republic;1993;01.01.1993;KSCM;Communist Party of Bohemia and Moravia;1173;0,03872;0,017358;0,076551;LSU;1218
+czech republic;1993;01.01.1993;KSCM;Communist Party of Bohemia and Moravia;1173;0,036617;0,015772;0,073204;ODA;1123
+czech republic;1993;01.01.1993;KSCM;Communist Party of Bohemia and Moravia;1173;0,02518;0,010426;0,052258;ODS;829
+czech republic;1993;01.01.1993;KSCM;Communist Party of Bohemia and Moravia;1173;0,05019;0,023253;0,096319;SPR-RSC;872
+czech republic;1993;01.01.1993;KSCM;Communist Party of Bohemia and Moravia;1173;0,070515;0,03219;0,136761;;
+czech republic;1993;01.01.1993;LSU;Liberal Social Union;1218;0,218926;0,161125;0,278402;CSSD;789
+czech republic;1993;01.01.1993;LSU;Liberal Social Union;1218;0,188861;0,140079;0,237953;HSD-SMS;19
+czech republic;1993;01.01.1993;LSU;Liberal Social Union;1218;0,124915;0,076708;0,18661;KDS;440
+czech republic;1993;01.01.1993;LSU;Liberal Social Union;1218;0,16836;0,115838;0,224392;KDU-CSL;1245
+czech republic;1993;01.01.1993;LSU;Liberal Social Union;1218;0,269528;0,195617;0,348649;KSCM;1173
+czech republic;1993;01.01.1993;LSU;Liberal Social Union;1218;0,171286;0,121044;0,223822;ODA;1123
+czech republic;1993;01.01.1993;LSU;Liberal Social Union;1218;0,053915;0,030152;0,087825;ODS;829
+czech republic;1993;01.01.1993;LSU;Liberal Social Union;1218;0,22782;0,166371;0,291026;SPR-RSC;872
+czech republic;1993;01.01.1993;LSU;Liberal Social Union;1218;0,301323;0,219764;0,383957;;
+czech republic;1993;01.01.1993;ODA;Civic Democratic Alliance;1123;0,480755;0,389755;0,586043;CSSD;789
+czech republic;1993;01.01.1993;ODA;Civic Democratic Alliance;1123;0,458861;0,37668;0,552961;HSD-SMS;19
+czech republic;1993;01.01.1993;ODA;Civic Democratic Alliance;1123;0,139675;0,097433;0,190628;KDS;440
+czech republic;1993;01.01.1993;ODA;Civic Democratic Alliance;1123;0,014265;0,007874;0,02336;"KDS; KDU-CSL; ODS";"440; 1245; 829"
+czech republic;1993;01.01.1993;ODA;Civic Democratic Alliance;1123;0,187232;0,156714;0,214575;KDU-CSL;1245
+czech republic;1993;01.01.1993;ODA;Civic Democratic Alliance;1123;0,545165;0,460828;0,638939;KSCM;1173
+czech republic;1993;01.01.1993;ODA;Civic Democratic Alliance;1123;0,449026;0,351901;0,557384;LSU;1218
+czech republic;1993;01.01.1993;ODA;Civic Democratic Alliance;1123;0,062226;0,038322;0,093894;ODS;829
+czech republic;1993;01.01.1993;ODA;Civic Democratic Alliance;1123;0,501037;0,419481;0,592404;SPR-RSC;872
+czech republic;1993;01.01.1993;ODA;Civic Democratic Alliance;1123;0,579063;0,504102;0,663116;;
+czech republic;1993;01.01.1993;ODS;Civic Democratic Party;829;0,683838;0,594448;0,763695;CSSD;789
+czech republic;1993;01.01.1993;ODS;Civic Democratic Party;829;0,638835;0,565051;0,711214;HSD-SMS;19
+czech republic;1993;01.01.1993;ODS;Civic Democratic Party;829;0,239872;0,163786;0,339648;KDS;440
+czech republic;1993;01.01.1993;ODS;Civic Democratic Party;829;0,058668;0,033806;0,092942;"KDS; KDU-CSL; ODA";"440; 1245; 1123"
+czech republic;1993;01.01.1993;ODS;Civic Democratic Party;829;0,326977;0,262074;0,394365;KDU-CSL;1245
+czech republic;1993;01.01.1993;ODS;Civic Democratic Party;829;0,823919;0,738153;0,88975;KSCM;1173
+czech republic;1993;01.01.1993;ODS;Civic Democratic Party;829;0,621847;0,525337;0,712039;LSU;1218
+czech republic;1993;01.01.1993;ODS;Civic Democratic Party;829;0,352417;0,286308;0,417471;ODA;1123
+czech republic;1993;01.01.1993;ODS;Civic Democratic Party;829;0,695914;0,620519;0,762974;SPR-RSC;872
+czech republic;1993;01.01.1993;ODS;Civic Democratic Party;829;0,869254;0,802599;0,921571;;
+czech republic;1993;01.01.1993;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,144877;0,120619;0,170085;CSSD;789
+czech republic;1993;01.01.1993;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,133107;0,10936;0,158686;HSD-SMS;19
+czech republic;1993;01.01.1993;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,083811;0,054398;0,120468;KDS;440
+czech republic;1993;01.01.1993;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,111896;0,085596;0,143926;KDU-CSL;1245
+czech republic;1993;01.01.1993;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,180603;0,144658;0,220302;KSCM;1173
+czech republic;1993;01.01.1993;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,127426;0,10411;0,153908;LSU;1218
+czech republic;1993;01.01.1993;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,122902;0,097426;0,151771;ODA;1123
+czech republic;1993;01.01.1993;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,027588;0,015177;0,046769;ODS;829
+czech republic;1993;01.01.1993;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,200929;0,160607;0,245813;;
+czech republic;1996;02.07.1996;CSSD;Czech Social Democratic Party;789;0,070543;0,033013;0,127873;KDU-CSL;1245
+czech republic;1996;02.07.1996;CSSD;Czech Social Democratic Party;789;0,111511;0,062609;0,17255;KSCM;1173
+czech republic;1996;02.07.1996;CSSD;Czech Social Democratic Party;789;0,087826;0,04559;0,148856;ODA;1123
+czech republic;1996;02.07.1996;CSSD;Czech Social Democratic Party;789;0,040956;0,020713;0,076766;ODS;829
+czech republic;1996;02.07.1996;CSSD;Czech Social Democratic Party;789;0,108485;0,060357;0,171524;SPR-RSC;872
+czech republic;1996;02.07.1996;CSSD;Czech Social Democratic Party;789;0,138616;0,077348;0,216022;;
+czech republic;1996;02.07.1996;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,680355;0,555085;0,784093;CSSD;789
+czech republic;1996;02.07.1996;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,688102;0,56113;0,789231;KSCM;1173
+czech republic;1996;02.07.1996;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,280445;0,213546;0,351815;ODA;1123
+czech republic;1996;02.07.1996;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,053971;0,029589;0,08666;"ODA; ODS";"1123; 829"
+czech republic;1996;02.07.1996;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,08715;0,049907;0,133646;ODS;829
+czech republic;1996;02.07.1996;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,605203;0,483299;0,713545;SPR-RSC;872
+czech republic;1996;02.07.1996;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,748429;0,631534;0,837647;;
+czech republic;1996;02.07.1996;KSCM;Communist Party of Bohemia and Moravia;1173;0,078339;0,034977;0,146898;CSSD;789
+czech republic;1996;02.07.1996;KSCM;Communist Party of Bohemia and Moravia;1173;0,045118;0,019366;0,092721;KDU-CSL;1245
+czech republic;1996;02.07.1996;KSCM;Communist Party of Bohemia and Moravia;1173;0,067762;0,03033;0,126446;ODA;1123
+czech republic;1996;02.07.1996;KSCM;Communist Party of Bohemia and Moravia;1173;0,025744;0,01;0,053903;ODS;829
+czech republic;1996;02.07.1996;KSCM;Communist Party of Bohemia and Moravia;1173;0,085697;0,039791;0,153162;SPR-RSC;872
+czech republic;1996;02.07.1996;KSCM;Communist Party of Bohemia and Moravia;1173;0,105445;0,048118;0,193975;;
+czech republic;1996;02.07.1996;ODA;Civic Democratic Alliance;1123;0,504153;0,39001;0,619056;CSSD;789
+czech republic;1996;02.07.1996;ODA;Civic Democratic Alliance;1123;0,08696;0,056655;0,12348;KDU-CSL;1245
+czech republic;1996;02.07.1996;ODA;Civic Democratic Alliance;1123;0,024946;0,014429;0,039242;"KDU-CSL; ODS";"1245; 829"
+czech republic;1996;02.07.1996;ODA;Civic Democratic Alliance;1123;0,517261;0,406999;0,62774;KSCM;1173
+czech republic;1996;02.07.1996;ODA;Civic Democratic Alliance;1123;0,058126;0,036973;0,086766;ODS;829
+czech republic;1996;02.07.1996;ODA;Civic Democratic Alliance;1123;0,510987;0,401247;0,62032;SPR-RSC;872
+czech republic;1996;02.07.1996;ODA;Civic Democratic Alliance;1123;0,554943;0,455023;0,654657;;
+czech republic;1996;02.07.1996;ODS;Civic Democratic Party;829;0,772017;0,671367;0,852182;CSSD;789
+czech republic;1996;02.07.1996;ODS;Civic Democratic Party;829;0,208399;0,133111;0,30633;KDU-CSL;1245
+czech republic;1996;02.07.1996;ODS;Civic Democratic Party;829;0,146386;0,09153;0,21931;"KDU-CSL; ODA";"1245; 1123"
+czech republic;1996;02.07.1996;ODS;Civic Democratic Party;829;0,789976;0,685235;0,867787;KSCM;1173
+czech republic;1996;02.07.1996;ODS;Civic Democratic Party;829;0,37286;0,292211;0,454841;ODA;1123
+czech republic;1996;02.07.1996;ODS;Civic Democratic Party;829;0,698921;0,607713;0,783125;SPR-RSC;872
+czech republic;1996;02.07.1996;ODS;Civic Democratic Party;829;0,869677;0,797462;0,922627;;
+czech republic;1996;02.07.1996;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,167678;0,122226;0,223088;CSSD;789
+czech republic;1996;02.07.1996;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,054584;0,033066;0,086629;KDU-CSL;1245
+czech republic;1996;02.07.1996;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,178062;0,12669;0,238213;KSCM;1173
+czech republic;1996;02.07.1996;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,153854;0,107598;0,207423;ODA;1123
+czech republic;1996;02.07.1996;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,027054;0,014572;0,047464;ODS;829
+czech republic;1996;02.07.1996;SPR-RSC;Rally for the Republic -- Republican Party of Czechoslovakia;872;0,19781;0,141591;0,261771;;
+czech republic;1998;17.07.1998;CSSD;Czech Social Democratic Party;789;0,271299;0,166434;0,395149;KDU-CSL;1245
+czech republic;1998;17.07.1998;CSSD;Czech Social Democratic Party;789;0,407502;0,299024;0,526998;KSCM;1173
+czech republic;1998;17.07.1998;CSSD;Czech Social Democratic Party;789;0,445188;0,336189;0,555579;ODS;829
+czech republic;1998;17.07.1998;CSSD;Czech Social Democratic Party;789;0,200856;0,117147;0,313555;US;688
+czech republic;1998;17.07.1998;CSSD;Czech Social Democratic Party;789;0,554953;0,414191;0,683446;;
+czech republic;1998;17.07.1998;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,365615;0,238989;0,50479;CSSD;789
+czech republic;1998;17.07.1998;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,586515;0,430349;0,710233;KSCM;1173
+czech republic;1998;17.07.1998;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,553661;0,42809;0,663541;ODS;829
+czech republic;1998;17.07.1998;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,143117;0,09416;0,208617;US;688
+czech republic;1998;17.07.1998;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,649268;0,51545;0,761439;;
+czech republic;1998;17.07.1998;KSCM;Communist Party of Bohemia and Moravia;1173;0,037425;0,018266;0,066756;CSSD;789
+czech republic;1998;17.07.1998;KSCM;Communist Party of Bohemia and Moravia;1173;0,122123;0,064499;0,19961;KDU-CSL;1245
+czech republic;1998;17.07.1998;KSCM;Communist Party of Bohemia and Moravia;1173;0,156619;0,084228;0,249012;ODS;829
+czech republic;1998;17.07.1998;KSCM;Communist Party of Bohemia and Moravia;1173;0,078256;0,039912;0,136913;US;688
+czech republic;1998;17.07.1998;KSCM;Communist Party of Bohemia and Moravia;1173;0,184876;0,099397;0,295319;;
+czech republic;1998;17.07.1998;ODS;Civic Democratic Party;829;0,096573;0,061905;0,141552;CSSD;789
+czech republic;1998;17.07.1998;ODS;Civic Democratic Party;829;0,11073;0,063975;0,175576;KDU-CSL;1245
+czech republic;1998;17.07.1998;ODS;Civic Democratic Party;829;0,178081;0,114332;0,254405;KSCM;1173
+czech republic;1998;17.07.1998;ODS;Civic Democratic Party;829;0,106391;0,058603;0,171611;US;688
+czech republic;1998;17.07.1998;ODS;Civic Democratic Party;829;0,206338;0,134857;0,291195;;
+czech republic;1998;17.07.1998;US;Freedom Union;688;0,358328;0,236107;0,490692;CSSD;789
+czech republic;1998;17.07.1998;US;Freedom Union;688;0,206273;0,151389;0,269492;KDU-CSL;1245
+czech republic;1998;17.07.1998;US;Freedom Union;688;0,605803;0,464908;0,724327;KSCM;1173
+czech republic;1998;17.07.1998;US;Freedom Union;688;0,612477;0,4934;0,717262;ODS;829
+czech republic;1998;17.07.1998;US;Freedom Union;688;0,712424;0,588947;0,807561;;
+czech republic;2002;15.07.2002;CSSD;Czech Social Democratic Party;789;0,850865;0,781942;0,906057;KDU-CSL;1245
+czech republic;2002;15.07.2002;CSSD;Czech Social Democratic Party;789;0,811495;0,729464;0,878381;"KDU-CSL; US";"1245; 688"
+czech republic;2002;15.07.2002;CSSD;Czech Social Democratic Party;789;0,870853;0,795642;0,926462;KSCM;1173
+czech republic;2002;15.07.2002;CSSD;Czech Social Democratic Party;789;0,876137;0,80446;0,929171;ODS;829
+czech republic;2002;15.07.2002;CSSD;Czech Social Democratic Party;789;0,85074;0,781297;0,904468;US;688
+czech republic;2002;15.07.2002;CSSD;Czech Social Democratic Party;789;0,959877;0,92747;0,980281;;
+czech republic;2002;15.07.2002;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,020755;0,009963;0,037846;CSSD;789
+czech republic;2002;15.07.2002;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,015129;0,007108;0,028066;"CSSD; US";"789; 688"
+czech republic;2002;15.07.2002;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,114783;0,070747;0,171513;KSCM;1173
+czech republic;2002;15.07.2002;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,104206;0,063895;0,154132;ODS;829
+czech republic;2002;15.07.2002;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,054374;0,032716;0,079902;US;688
+czech republic;2002;15.07.2002;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,129767;0,080724;0,191729;;
+czech republic;2002;15.07.2002;KSCM;Communist Party of Bohemia and Moravia;1173;0,010934;0,004232;0,023928;CSSD;789
+czech republic;2002;15.07.2002;KSCM;Communist Party of Bohemia and Moravia;1173;0,084974;0,040873;0,145884;KDU-CSL;1245
+czech republic;2002;15.07.2002;KSCM;Communist Party of Bohemia and Moravia;1173;0,087542;0,042849;0,151353;ODS;829
+czech republic;2002;15.07.2002;KSCM;Communist Party of Bohemia and Moravia;1173;0,08484;0,040455;0,147116;US;688
+czech republic;2002;15.07.2002;KSCM;Communist Party of Bohemia and Moravia;1173;0,099958;0,048735;0,172497;;
+czech republic;2002;15.07.2002;ODS;Civic Democratic Party;829;0,018364;0,008119;0,036166;CSSD;789
+czech republic;2002;15.07.2002;ODS;Civic Democratic Party;829;0,076542;0,041666;0,128509;KDU-CSL;1245
+czech republic;2002;15.07.2002;ODS;Civic Democratic Party;829;0,089687;0,049299;0,144897;KSCM;1173
+czech republic;2002;15.07.2002;ODS;Civic Democratic Party;829;0,081578;0,043907;0,133987;US;688
+czech republic;2002;15.07.2002;ODS;Civic Democratic Party;829;0,102104;0,05551;0,170201;;
+czech republic;2002;15.07.2002;US;Freedom Union;688;0,013852;0,006844;0,025793;CSSD;789
+czech republic;2002;15.07.2002;US;Freedom Union;688;0,008227;0,004017;0,015439;"CSSD; KDU-CSL";"789; 1245"
+czech republic;2002;15.07.2002;US;Freedom Union;688;0,047596;0,032455;0,066381;KDU-CSL;1245
+czech republic;2002;15.07.2002;US;Freedom Union;688;0,10787;0,067283;0,159293;KSCM;1173
+czech republic;2002;15.07.2002;US;Freedom Union;688;0,102464;0,065644;0,150523;ODS;829
+czech republic;2002;15.07.2002;US;Freedom Union;688;0,122989;0,079808;0,178409;;
+czech republic;2004;04.08.2004;CSSD;Czech Social Democratic Party;789;0,331539;0,249732;0,420452;KDU-CSL;1245
+czech republic;2004;04.08.2004;CSSD;Czech Social Democratic Party;789;0,263572;0,192642;0,348788;"KDU-CSL; US";"1245; 688"
+czech republic;2004;04.08.2004;CSSD;Czech Social Democratic Party;789;0,795898;0,691688;0,873422;KSCM;1173
+czech republic;2004;04.08.2004;CSSD;Czech Social Democratic Party;789;0,802202;0,719355;0,870264;ODS;829
+czech republic;2004;04.08.2004;CSSD;Czech Social Democratic Party;789;0,724708;0,633302;0,802478;US;688
+czech republic;2004;04.08.2004;CSSD;Czech Social Democratic Party;789;0,925373;0,874118;0,959505;;
+czech republic;2004;04.08.2004;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,042652;0,020712;0,07585;CSSD;789
+czech republic;2004;04.08.2004;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,03088;0,014509;0,055813;"CSSD; US";"789; 688"
+czech republic;2004;04.08.2004;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,611528;0,500307;0,710542;KSCM;1173
+czech republic;2004;04.08.2004;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,593123;0,48723;0,690705;ODS;829
+czech republic;2004;04.08.2004;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,492016;0,377218;0,605667;US;688
+czech republic;2004;04.08.2004;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,636486;0,53093;0,72827;;
+czech republic;2004;04.08.2004;KSCM;Communist Party of Bohemia and Moravia;1173;0,017216;0,006891;0,035774;CSSD;789
+czech republic;2004;04.08.2004;KSCM;Communist Party of Bohemia and Moravia;1173;0,121732;0,061193;0,212658;KDU-CSL;1245
+czech republic;2004;04.08.2004;KSCM;Communist Party of Bohemia and Moravia;1173;0,127735;0,064267;0,220686;ODS;829
+czech republic;2004;04.08.2004;KSCM;Communist Party of Bohemia and Moravia;1173;0,121332;0,061119;0,210301;US;688
+czech republic;2004;04.08.2004;KSCM;Communist Party of Bohemia and Moravia;1173;0,14669;0,075691;0,253314;;
+czech republic;2004;04.08.2004;ODS;Civic Democratic Party;829;0,029575;0,014511;0,05273;CSSD;789
+czech republic;2004;04.08.2004;ODS;Civic Democratic Party;829;0,109383;0,06485;0,163076;KDU-CSL;1245
+czech republic;2004;04.08.2004;ODS;Civic Democratic Party;829;0,133791;0,082105;0,198077;KSCM;1173
+czech republic;2004;04.08.2004;ODS;Civic Democratic Party;829;0,117788;0,071923;0,174052;US;688
+czech republic;2004;04.08.2004;ODS;Civic Democratic Party;829;0,152746;0,095721;0,221789;;
+czech republic;2004;04.08.2004;US;Freedom Union;688;0,027983;0,015345;0,04625;CSSD;789
+czech republic;2004;04.08.2004;US;Freedom Union;688;0,016211;0,008812;0,026843;"CSSD; KDU-CSL";"789; 1245"
+czech republic;2004;04.08.2004;US;Freedom Union;688;0,084178;0,063671;0,105225;KDU-CSL;1245
+czech republic;2004;04.08.2004;US;Freedom Union;688;0,203289;0,143614;0,273487;KSCM;1173
+czech republic;2004;04.08.2004;US;Freedom Union;688;0,193689;0,139029;0,257438;ODS;829
+czech republic;2004;04.08.2004;US;Freedom Union;688;0,228648;0,1658;0,295771;;
+czech republic;2005;25.04.2005;CSSD;Czech Social Democratic Party;789;0,196398;0,118444;0,291746;KDU-CSL;1245
+czech republic;2005;25.04.2005;CSSD;Czech Social Democratic Party;789;0,155966;0,092255;0,236324;"KDU-CSL; US";"1245; 688"
+czech republic;2005;25.04.2005;CSSD;Czech Social Democratic Party;789;0,879337;0,800701;0,934311;KSCM;1173
+czech republic;2005;25.04.2005;CSSD;Czech Social Democratic Party;789;0,883051;0,815553;0,934263;ODS;829
+czech republic;2005;25.04.2005;CSSD;Czech Social Democratic Party;789;0,196152;0,116712;0,294236;US;688
+czech republic;2005;25.04.2005;CSSD;Czech Social Democratic Party;789;0,955784;0,920928;0,979333;;
+czech republic;2005;25.04.2005;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,025297;0,011014;0,048266;CSSD;789
+czech republic;2005;25.04.2005;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,018337;0,007694;0,035365;"CSSD; US";"789; 688"
+czech republic;2005;25.04.2005;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,76979;0,656766;0,862084;KSCM;1173
+czech republic;2005;25.04.2005;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,758981;0,639328;0,854055;ODS;829
+czech republic;2005;25.04.2005;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,058523;0,031349;0,096408;US;688
+czech republic;2005;25.04.2005;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,784684;0,677963;0,869692;;
+czech republic;2005;25.04.2005;KSCM;Communist Party of Bohemia and Moravia;1173;0,010229;0,003859;0,022606;CSSD;789
+czech republic;2005;25.04.2005;KSCM;Communist Party of Bohemia and Moravia;1173;0,071782;0,033248;0,127347;KDU-CSL;1245
+czech republic;2005;25.04.2005;KSCM;Communist Party of Bohemia and Moravia;1173;0,075335;0,034964;0,136391;ODS;829
+czech republic;2005;25.04.2005;KSCM;Communist Party of Bohemia and Moravia;1173;0,071604;0,033117;0,127976;US;688
+czech republic;2005;25.04.2005;KSCM;Communist Party of Bohemia and Moravia;1173;0,086675;0,04081;0,156906;;
+czech republic;2005;25.04.2005;ODS;Civic Democratic Party;829;0,017541;0,007468;0,035414;CSSD;789
+czech republic;2005;25.04.2005;ODS;Civic Democratic Party;829;0,064572;0,034793;0,109717;KDU-CSL;1245
+czech republic;2005;25.04.2005;ODS;Civic Democratic Party;829;0,078934;0,043715;0,130532;KSCM;1173
+czech republic;2005;25.04.2005;ODS;Civic Democratic Party;829;0,069602;0,03773;0,118075;US;688
+czech republic;2005;25.04.2005;ODS;Civic Democratic Party;829;0,090275;0,0499;0,15227;;
+czech republic;2005;25.04.2005;US;Freedom Union;688;0,016522;0,007979;0,029195;CSSD;789
+czech republic;2005;25.04.2005;US;Freedom Union;688;0,009561;0,004544;0,017351;"CSSD; KDU-CSL";"789; 1245"
+czech republic;2005;25.04.2005;US;Freedom Union;688;0,049993;0,029562;0,073669;KDU-CSL;1245
+czech republic;2005;25.04.2005;US;Freedom Union;688;0,761083;0,644095;0,857868;KSCM;1173
+czech republic;2005;25.04.2005;US;Freedom Union;688;0,755482;0,637143;0,854366;ODS;829
+czech republic;2005;25.04.2005;US;Freedom Union;688;0,776154;0,666553;0,865845;;
+czech republic;2006;16.08.2006;CSSD;Czech Social Democratic Party;789;0,326225;0,246982;0,409274;KDU-CSL;1245
+czech republic;2006;16.08.2006;CSSD;Czech Social Democratic Party;789;0,542659;0,421165;0,660012;KSCM;1173
+czech republic;2006;16.08.2006;CSSD;Czech Social Democratic Party;789;0,366422;0,256592;0,497652;ODS;829
+czech republic;2006;16.08.2006;CSSD;Czech Social Democratic Party;789;0,542038;0,420712;0,654157;SZ;196
+czech republic;2006;16.08.2006;CSSD;Czech Social Democratic Party;789;0,642325;0,504073;0,765493;;
+czech republic;2006;16.08.2006;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,166594;0,09764;0,250797;CSSD;789
+czech republic;2006;16.08.2006;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,429719;0,329556;0,528964;KSCM;1173
+czech republic;2006;16.08.2006;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,313987;0,216704;0,42503;ODS;829
+czech republic;2006;16.08.2006;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,430884;0,336779;0,526539;SZ;196
+czech republic;2006;16.08.2006;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,482694;0,388334;0,57757;;
+czech republic;2006;16.08.2006;KSCM;Communist Party of Bohemia and Moravia;1173;0,07709;0,036938;0,143512;CSSD;789
+czech republic;2006;16.08.2006;KSCM;Communist Party of Bohemia and Moravia;1173;0,123782;0,066457;0,208143;KDU-CSL;1245
+czech republic;2006;16.08.2006;KSCM;Communist Party of Bohemia and Moravia;1173;0,09931;0,050131;0,16771;ODS;829
+czech republic;2006;16.08.2006;KSCM;Communist Party of Bohemia and Moravia;1173;0,11208;0,059564;0,186005;SZ;196
+czech republic;2006;16.08.2006;KSCM;Communist Party of Bohemia and Moravia;1173;0,176757;0,094969;0,28842;;
+czech republic;2006;16.08.2006;ODS;Civic Democratic Party;829;0,264628;0,165323;0,384347;CSSD;789
+czech republic;2006;16.08.2006;ODS;Civic Democratic Party;829;0,371823;0,278123;0,462071;KDU-CSL;1245
+czech republic;2006;16.08.2006;ODS;Civic Democratic Party;829;0,463083;0,34386;0,581416;KSCM;1173
+czech republic;2006;16.08.2006;ODS;Civic Democratic Party;829;0,468312;0,361627;0,572291;SZ;196
+czech republic;2006;16.08.2006;ODS;Civic Democratic Party;829;0,54053;0,415378;0,657159;;
+czech republic;2006;16.08.2006;SZ;Green Party;196;0,06321;0,040005;0,093519;CSSD;789
+czech republic;2006;16.08.2006;SZ;Green Party;196;0,111687;0,078912;0,156258;KDU-CSL;1245
+czech republic;2006;16.08.2006;SZ;Green Party;196;0,09882;0,074511;0,127705;KSCM;1173
+czech republic;2006;16.08.2006;SZ;Green Party;196;0,091279;0,060226;0,135168;ODS;829
+czech republic;2006;16.08.2006;SZ;Green Party;196;0,163497;0,126184;0,209021;;
+czech republic;2007;09.01.2007;CSSD;Czech Social Democratic Party;789;0,142352;0,073501;0,241395;KDU-CSL;1245
+czech republic;2007;09.01.2007;CSSD;Czech Social Democratic Party;789;0,145175;0,075202;0,24533;KSCM;1173
+czech republic;2007;09.01.2007;CSSD;Czech Social Democratic Party;789;0,061587;0,028109;0,118301;ODS;829
+czech republic;2007;09.01.2007;CSSD;Czech Social Democratic Party;789;0,144459;0,073909;0,246588;SZ;196
+czech republic;2007;09.01.2007;CSSD;Czech Social Democratic Party;789;0,187045;0,097668;0,321638;;
+czech republic;2007;09.01.2007;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,068047;0,041497;0,102414;CSSD;789
+czech republic;2007;09.01.2007;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,090921;0,056116;0,137092;KSCM;1173
+czech republic;2007;09.01.2007;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,038908;0,019586;0,067845;ODS;829
+czech republic;2007;09.01.2007;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,031736;0,016111;0,055198;"ODS; SZ";"829; 196"
+czech republic;2007;09.01.2007;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,090828;0,055826;0,135024;SZ;196
+czech republic;2007;09.01.2007;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,11274;0,068687;0,168497;;
+czech republic;2007;09.01.2007;KSCM;Communist Party of Bohemia and Moravia;1173;0,037751;0,016079;0,074753;CSSD;789
+czech republic;2007;09.01.2007;KSCM;Communist Party of Bohemia and Moravia;1173;0,057802;0,025149;0,108112;KDU-CSL;1245
+czech republic;2007;09.01.2007;KSCM;Communist Party of Bohemia and Moravia;1173;0,04136;0,015821;0,081082;ODS;829
+czech republic;2007;09.01.2007;KSCM;Communist Party of Bohemia and Moravia;1173;0,051226;0,022243;0,097422;SZ;196
+czech republic;2007;09.01.2007;KSCM;Communist Party of Bohemia and Moravia;1173;0,079621;0,03526;0,150017;;
+czech republic;2007;09.01.2007;ODS;Civic Democratic Party;829;0,777765;0,635223;0,876195;CSSD;789
+czech republic;2007;09.01.2007;ODS;Civic Democratic Party;829;0,82939;0,739943;0,895162;KDU-CSL;1245
+czech republic;2007;09.01.2007;ODS;Civic Democratic Party;829;0,810427;0,715841;0,88307;"KDU-CSL; SZ";"1245; 196"
+czech republic;2007;09.01.2007;ODS;Civic Democratic Party;829;0,864962;0,770718;0,930286;KSCM;1173
+czech republic;2007;09.01.2007;ODS;Civic Democratic Party;829;0,869519;0,785951;0,927236;SZ;196
+czech republic;2007;09.01.2007;ODS;Civic Democratic Party;829;0,903223;0,829038;0,951214;;
+czech republic;2007;09.01.2007;SZ;Green Party;196;0,029331;0,017748;0,045102;CSSD;789
+czech republic;2007;09.01.2007;SZ;Green Party;196;0,050005;0,026959;0,084292;KDU-CSL;1245
+czech republic;2007;09.01.2007;SZ;Green Party;196;0,031041;0,014019;0,05957;"KDU-CSL; ODS";"1245; 829"
+czech republic;2007;09.01.2007;SZ;Green Party;196;0,043522;0,025881;0,069482;KSCM;1173
+czech republic;2007;09.01.2007;SZ;Green Party;196;0,038213;0,017891;0,071781;ODS;829
+czech republic;2007;09.01.2007;SZ;Green Party;196;0,071917;0,041013;0,115953;;
+czech republic;2010;28.06.2010;CSSD;Czech Social Democratic Party;789;0,571883;0,490165;0,657385;KSCM;1173
+czech republic;2010;28.06.2010;CSSD;Czech Social Democratic Party;789;0,525691;0,424139;0,617977;ODS;829
+czech republic;2010;28.06.2010;CSSD;Czech Social Democratic Party;789;0,592326;0,509592;0,670177;STAN;2024
+czech republic;2010;28.06.2010;CSSD;Czech Social Democratic Party;789;0,50163;0,408907;0,592701;TOP09;2
+czech republic;2010;28.06.2010;CSSD;Czech Social Democratic Party;789;0,372419;0,264018;0,503299;VV;336
+czech republic;2010;28.06.2010;CSSD;Czech Social Democratic Party;789;0,760625;0,66675;0,836328;;
+czech republic;2010;28.06.2010;KSCM;Communist Party of Bohemia and Moravia;1173;0,045251;0,027492;0,069194;CSSD;789
+czech republic;2010;28.06.2010;KSCM;Communist Party of Bohemia and Moravia;1173;0,182338;0,133297;0,238778;ODS;829
+czech republic;2010;28.06.2010;KSCM;Communist Party of Bohemia and Moravia;1173;0,188379;0,141775;0,241439;STAN;2024
+czech republic;2010;28.06.2010;KSCM;Communist Party of Bohemia and Moravia;1173;0,166493;0,119437;0,218963;TOP09;2
+czech republic;2010;28.06.2010;KSCM;Communist Party of Bohemia and Moravia;1173;0,098427;0,072692;0,131497;VV;336
+czech republic;2010;28.06.2010;KSCM;Communist Party of Bohemia and Moravia;1173;0,233994;0,177272;0,301678;;
+czech republic;2010;28.06.2010;ODS;Civic Democratic Party;829;0,13452;0,08773;0,194035;CSSD;789
+czech republic;2010;28.06.2010;ODS;Civic Democratic Party;829;0,317798;0,228594;0,421689;KSCM;1173
+czech republic;2010;28.06.2010;ODS;Civic Democratic Party;829;0,27655;0,192473;0,379908;STAN;2024
+czech republic;2010;28.06.2010;ODS;Civic Democratic Party;829;0,22602;0,147917;0,316448;TOP09;2
+czech republic;2010;28.06.2010;ODS;Civic Democratic Party;829;0,158567;0,087812;0,25139;"TOP09; VV";"2; 336"
+czech republic;2010;28.06.2010;ODS;Civic Democratic Party;829;0,221538;0,137945;0,326613;VV;336
+czech republic;2010;28.06.2010;ODS;Civic Democratic Party;829;0,369454;0,269981;0,48514;;
+czech republic;2010;28.06.2010;STAN;Mayors and Independents;2024;0,075033;0,049545;0,104087;CSSD;789
+czech republic;2010;28.06.2010;STAN;Mayors and Independents;2024;0,197718;0,15581;0,240068;KSCM;1173
+czech republic;2010;28.06.2010;STAN;Mayors and Independents;2024;0,150429;0,112505;0,192122;ODS;829
+czech republic;2010;28.06.2010;STAN;Mayors and Independents;2024;0,144785;0,108307;0,185038;TOP09;2
+czech republic;2010;28.06.2010;STAN;Mayors and Independents;2024;0,116654;0,087429;0,15319;VV;336
+czech republic;2010;28.06.2010;STAN;Mayors and Independents;2024;0,243333;0,192892;0,294546;;
+czech republic;2010;28.06.2010;TOP09;Tradition Responsibility Prosperity 09;2;0,117115;0,074383;0,175351;CSSD;789
+czech republic;2010;28.06.2010;TOP09;Tradition Responsibility Prosperity 09;2;0,308611;0,23705;0,383769;KSCM;1173
+czech republic;2010;28.06.2010;TOP09;Tradition Responsibility Prosperity 09;2;0,232677;0,167345;0,302785;ODS;829
+czech republic;2010;28.06.2010;TOP09;Tradition Responsibility Prosperity 09;2;0,086667;0,058532;0,12316;"ODS; VV";"829; 336"
+czech republic;2010;28.06.2010;TOP09;Tradition Responsibility Prosperity 09;2;0,277564;0,208738;0,354624;STAN;2024
+czech republic;2010;28.06.2010;TOP09;Tradition Responsibility Prosperity 09;2;0,149638;0,103092;0,206941;VV;336
+czech republic;2010;28.06.2010;TOP09;Tradition Responsibility Prosperity 09;2;0,376111;0,288517;0,469101;;
+czech republic;2010;28.06.2010;VV;Public Affairs;336;0,123118;0,074508;0,182811;CSSD;789
+czech republic;2010;28.06.2010;VV;Public Affairs;336;0,375758;0,283386;0,464037;KSCM;1173
+czech republic;2010;28.06.2010;VV;Public Affairs;336;0,363409;0,260838;0,473969;ODS;829
+czech republic;2010;28.06.2010;VV;Public Affairs;336;0,217399;0,141118;0,295525;"ODS; TOP09";"829; 2"
+czech republic;2010;28.06.2010;VV;Public Affairs;336;0,384646;0,285016;0,475828;STAN;2024
+czech republic;2010;28.06.2010;VV;Public Affairs;336;0,284852;0,19801;0,376247;TOP09;2
+czech republic;2010;28.06.2010;VV;Public Affairs;336;0,511325;0,378724;0,62999;;
+czech republic;2012;27.04.2012;CNSP;Czech National Socialist Party;29;0,06715;0,048018;0,091955;CSSD;789
+czech republic;2012;27.04.2012;CNSP;Czech National Socialist Party;29;0,163851;0,131253;0,196207;KSCM;1173
+czech republic;2012;27.04.2012;CNSP;Czech National Socialist Party;29;0,096269;0,073325;0,122445;LIDEM;2042
+czech republic;2012;27.04.2012;CNSP;Czech National Socialist Party;29;0,110935;0,076937;0,151187;ODS;829
+czech republic;2012;27.04.2012;CNSP;Czech National Socialist Party;29;0,118443;0,09525;0,142605;STAN;2024
+czech republic;2012;27.04.2012;CNSP;Czech National Socialist Party;29;0,112267;0,076452;0,150515;TOP09;2
+czech republic;2012;27.04.2012;CNSP;Czech National Socialist Party;29;0,123481;0,096554;0,153883;VV;336
+czech republic;2012;27.04.2012;CNSP;Czech National Socialist Party;29;0,204217;0,157636;0,254077;;
+czech republic;2012;27.04.2012;CSSD;Czech Social Democratic Party;789;0,512903;0,420922;0,592153;CNSP;29
+czech republic;2012;27.04.2012;CSSD;Czech Social Democratic Party;789;0,505536;0,404533;0,597284;KSCM;1173
+czech republic;2012;27.04.2012;CSSD;Czech Social Democratic Party;789;0,311358;0,229351;0,409235;LIDEM;2042
+czech republic;2012;27.04.2012;CSSD;Czech Social Democratic Party;789;0,425267;0,321398;0,524757;ODS;829
+czech republic;2012;27.04.2012;CSSD;Czech Social Democratic Party;789;0,449832;0,367307;0,524216;STAN;2024
+czech republic;2012;27.04.2012;CSSD;Czech Social Democratic Party;789;0,395347;0,285034;0,499062;TOP09;2
+czech republic;2012;27.04.2012;CSSD;Czech Social Democratic Party;789;0,396627;0,308613;0,494801;VV;336
+czech republic;2012;27.04.2012;CSSD;Czech Social Democratic Party;789;0,649971;0,52686;0,754108;;
+czech republic;2012;27.04.2012;KSCM;Communist Party of Bohemia and Moravia;1173;0,141958;0,106972;0,179631;CNSP;29
+czech republic;2012;27.04.2012;KSCM;Communist Party of Bohemia and Moravia;1173;0,037889;0,0229;0,058557;CSSD;789
+czech republic;2012;27.04.2012;KSCM;Communist Party of Bohemia and Moravia;1173;0,078729;0,055087;0,109;LIDEM;2042
+czech republic;2012;27.04.2012;KSCM;Communist Party of Bohemia and Moravia;1173;0,123634;0,085574;0,16891;ODS;829
+czech republic;2012;27.04.2012;KSCM;Communist Party of Bohemia and Moravia;1173;0,124036;0,091806;0,160604;STAN;2024
+czech republic;2012;27.04.2012;KSCM;Communist Party of Bohemia and Moravia;1173;0,115375;0,078569;0,158021;TOP09;2
+czech republic;2012;27.04.2012;KSCM;Communist Party of Bohemia and Moravia;1173;0,096315;0,068109;0,129855;VV;336
+czech republic;2012;27.04.2012;KSCM;Communist Party of Bohemia and Moravia;1173;0,182324;0,131289;0,241844;;
+czech republic;2012;27.04.2012;LIDEM;LIDEM -- Liberal Democrats;2042;0,351525;0,261768;0,437399;CNSP;29
+czech republic;2012;27.04.2012;LIDEM;LIDEM -- Liberal Democrats;2042;0,120861;0,075948;0,174227;CSSD;789
+czech republic;2012;27.04.2012;LIDEM;LIDEM -- Liberal Democrats;2042;0,355879;0,264165;0,441553;KSCM;1173
+czech republic;2012;27.04.2012;LIDEM;LIDEM -- Liberal Democrats;2042;0,296312;0,200607;0,398668;ODS;829
+czech republic;2012;27.04.2012;LIDEM;LIDEM -- Liberal Democrats;2042;0,184071;0,112416;0,264516;"ODS; TOP09";"829; 2"
+czech republic;2012;27.04.2012;LIDEM;LIDEM -- Liberal Democrats;2042;0,30228;0,226025;0,370981;STAN;2024
+czech republic;2012;27.04.2012;LIDEM;LIDEM -- Liberal Democrats;2042;0,266287;0,176206;0,358652;TOP09;2
+czech republic;2012;27.04.2012;LIDEM;LIDEM -- Liberal Democrats;2042;0,271837;0,20379;0,345223;VV;336
+czech republic;2012;27.04.2012;LIDEM;LIDEM -- Liberal Democrats;2042;0,459473;0,335081;0,573705;;
+czech republic;2012;27.04.2012;ODS;Civic Democratic Party;829;0,362125;0,260589;0,477316;CNSP;29
+czech republic;2012;27.04.2012;ODS;Civic Democratic Party;829;0,230702;0,144452;0,346568;CSSD;789
+czech republic;2012;27.04.2012;ODS;Civic Democratic Party;829;0,396716;0,290507;0,513484;KSCM;1173
+czech republic;2012;27.04.2012;ODS;Civic Democratic Party;829;0,292245;0,195383;0,414567;LIDEM;2042
+czech republic;2012;27.04.2012;ODS;Civic Democratic Party;829;0,114808;0,068774;0,17585;"LIDEM; TOP09";"2042; 2"
+czech republic;2012;27.04.2012;ODS;Civic Democratic Party;829;0,336267;0,242826;0,449997;STAN;2024
+czech republic;2012;27.04.2012;ODS;Civic Democratic Party;829;0,197025;0,133877;0,27299;TOP09;2
+czech republic;2012;27.04.2012;ODS;Civic Democratic Party;829;0,230977;0,168156;0,305506;VV;336
+czech republic;2012;27.04.2012;ODS;Civic Democratic Party;829;0,455407;0,33974;0,573586;;
+czech republic;2012;27.04.2012;STAN;Mayors and Independents;2024;0,199934;0,163317;0,232991;CNSP;29
+czech republic;2012;27.04.2012;STAN;Mayors and Independents;2024;0,08557;0,060306;0,11595;CSSD;789
+czech republic;2012;27.04.2012;STAN;Mayors and Independents;2024;0,22742;0,179048;0,275675;KSCM;1173
+czech republic;2012;27.04.2012;STAN;Mayors and Independents;2024;0,128515;0,100117;0,161521;LIDEM;2042
+czech republic;2012;27.04.2012;STAN;Mayors and Independents;2024;0,166569;0,121211;0,214993;ODS;829
+czech republic;2012;27.04.2012;STAN;Mayors and Independents;2024;0,168299;0,121293;0,220246;TOP09;2
+czech republic;2012;27.04.2012;STAN;Mayors and Independents;2024;0,168311;0,132009;0,20635;VV;336
+czech republic;2012;27.04.2012;STAN;Mayors and Independents;2024;0,285708;0,226402;0,345501;;
+czech republic;2012;27.04.2012;TOP09;Tradition Responsibility Prosperity 09;2;0,380602;0,277634;0,499777;CNSP;29
+czech republic;2012;27.04.2012;TOP09;Tradition Responsibility Prosperity 09;2;0,217928;0,132283;0,343912;CSSD;789
+czech republic;2012;27.04.2012;TOP09;Tradition Responsibility Prosperity 09;2;0,405603;0,298114;0,52513;KSCM;1173
+czech republic;2012;27.04.2012;TOP09;Tradition Responsibility Prosperity 09;2;0,279366;0,185403;0,402707;LIDEM;2042
+czech republic;2012;27.04.2012;TOP09;Tradition Responsibility Prosperity 09;2;0,101929;0,071229;0,143657;"LIDEM; ODS";"2042; 829"
+czech republic;2012;27.04.2012;TOP09;Tradition Responsibility Prosperity 09;2;0,21417;0,155461;0,279759;ODS;829
+czech republic;2012;27.04.2012;TOP09;Tradition Responsibility Prosperity 09;2;0,355143;0,253342;0,47441;STAN;2024
+czech republic;2012;27.04.2012;TOP09;Tradition Responsibility Prosperity 09;2;0,224693;0,174726;0,276725;VV;336
+czech republic;2012;27.04.2012;TOP09;Tradition Responsibility Prosperity 09;2;0,472552;0,354507;0,593486;;
+czech republic;2012;27.04.2012;VV;Public Affairs;336;0,3664;0,287064;0,455922;CNSP;29
+czech republic;2012;27.04.2012;VV;Public Affairs;336;0,193792;0,119313;0,299419;CSSD;789
+czech republic;2012;27.04.2012;VV;Public Affairs;336;0,361127;0,281603;0,448977;KSCM;1173
+czech republic;2012;27.04.2012;VV;Public Affairs;336;0,2595;0,180978;0,364571;LIDEM;2042
+czech republic;2012;27.04.2012;VV;Public Affairs;336;0,222706;0,163545;0,28468;ODS;829
+czech republic;2012;27.04.2012;VV;Public Affairs;336;0,329739;0,254297;0,419589;STAN;2024
+czech republic;2012;27.04.2012;VV;Public Affairs;336;0,199277;0,142132;0,266751;TOP09;2
+czech republic;2012;27.04.2012;VV;Public Affairs;336;0,447136;0,355172;0,532396;;
+czech republic;2014;17.01.2014;ANO;Action of Dissatisfied Citizens;2263;0,128302;0,082331;0,189834;CSSD;789
+czech republic;2014;17.01.2014;ANO;Action of Dissatisfied Citizens;2263;0,060012;0,035966;0,09213;"CSSD; KDU-CSL";"789; 1245"
+czech republic;2014;17.01.2014;ANO;Action of Dissatisfied Citizens;2263;0,322986;0,235747;0,416978;KDU-CSL;1245
+czech republic;2014;17.01.2014;ANO;Action of Dissatisfied Citizens;2263;0,424014;0,315336;0,535016;KSCM;1173
+czech republic;2014;17.01.2014;ANO;Action of Dissatisfied Citizens;2263;0,363289;0,267259;0,45912;ODS;829
+czech republic;2014;17.01.2014;ANO;Action of Dissatisfied Citizens;2263;0,359912;0,268907;0,452275;STAN;2024
+czech republic;2014;17.01.2014;ANO;Action of Dissatisfied Citizens;2263;0,377509;0,282321;0,475892;TOP09;2
+czech republic;2014;17.01.2014;ANO;Action of Dissatisfied Citizens;2263;0,382006;0,28569;0,481369;UPD;2262
+czech republic;2014;17.01.2014;ANO;Action of Dissatisfied Citizens;2263;0,54787;0,413453;0,672745;;
+czech republic;2014;17.01.2014;CSSD;Czech Social Democratic Party;789;0,327372;0,22269;0,441927;ANO;2263
+czech republic;2014;17.01.2014;CSSD;Czech Social Democratic Party;789;0,171352;0,118939;0,234994;"ANO; KDU-CSL";"2263; 1245"
+czech republic;2014;17.01.2014;CSSD;Czech Social Democratic Party;789;0,434326;0,361963;0,50768;KDU-CSL;1245
+czech republic;2014;17.01.2014;CSSD;Czech Social Democratic Party;789;0,544955;0,463777;0,618392;KSCM;1173
+czech republic;2014;17.01.2014;CSSD;Czech Social Democratic Party;789;0,490137;0,421167;0,560454;ODS;829
+czech republic;2014;17.01.2014;CSSD;Czech Social Democratic Party;789;0,499007;0,429183;0,566896;STAN;2024
+czech republic;2014;17.01.2014;CSSD;Czech Social Democratic Party;789;0,517144;0,443377;0,589026;TOP09;2
+czech republic;2014;17.01.2014;CSSD;Czech Social Democratic Party;789;0,520135;0,450675;0,588591;UPD;2262
+czech republic;2014;17.01.2014;CSSD;Czech Social Democratic Party;789;0,74694;0,657113;0,821495;;
+czech republic;2014;17.01.2014;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,219715;0,144751;0,297905;ANO;2263
+czech republic;2014;17.01.2014;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,063695;0,036538;0,100998;"ANO; CSSD";"2263; 789"
+czech republic;2014;17.01.2014;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,131985;0,089383;0,18556;CSSD;789
+czech republic;2014;17.01.2014;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,342973;0,273786;0,414902;KSCM;1173
+czech republic;2014;17.01.2014;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,275049;0,245192;0,301954;ODS;829
+czech republic;2014;17.01.2014;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,28169;0,240486;0,324441;STAN;2024
+czech republic;2014;17.01.2014;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,284615;0,246575;0,323675;TOP09;2
+czech republic;2014;17.01.2014;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,295212;0,252901;0,338236;UPD;2262
+czech republic;2014;17.01.2014;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,444599;0,377471;0,513604;;
+czech republic;2014;17.01.2014;KSCM;Communist Party of Bohemia and Moravia;1173;0,126645;0,079972;0,192058;ANO;2263
+czech republic;2014;17.01.2014;KSCM;Communist Party of Bohemia and Moravia;1173;0,048516;0,029478;0,07838;CSSD;789
+czech republic;2014;17.01.2014;KSCM;Communist Party of Bohemia and Moravia;1173;0,148876;0,102378;0,207749;KDU-CSL;1245
+czech republic;2014;17.01.2014;KSCM;Communist Party of Bohemia and Moravia;1173;0,161623;0,113337;0,220194;ODS;829
+czech republic;2014;17.01.2014;KSCM;Communist Party of Bohemia and Moravia;1173;0,163332;0,113296;0,225876;STAN;2024
+czech republic;2014;17.01.2014;KSCM;Communist Party of Bohemia and Moravia;1173;0,184443;0,130643;0,251411;TOP09;2
+czech republic;2014;17.01.2014;KSCM;Communist Party of Bohemia and Moravia;1173;0,170555;0,121091;0,230716;UPD;2262
+czech republic;2014;17.01.2014;KSCM;Communist Party of Bohemia and Moravia;1173;0,250501;0,177056;0,337299;;
+czech republic;2014;17.01.2014;ODS;Civic Democratic Party;829;0,19314;0,131419;0,261301;ANO;2263
+czech republic;2014;17.01.2014;ODS;Civic Democratic Party;829;0,120918;0,083038;0,168057;CSSD;789
+czech republic;2014;17.01.2014;ODS;Civic Democratic Party;829;0,208171;0,193582;0,220624;KDU-CSL;1245
+czech republic;2014;17.01.2014;ODS;Civic Democratic Party;829;0,288843;0,236919;0,347067;KSCM;1173
+czech republic;2014;17.01.2014;ODS;Civic Democratic Party;829;0,245327;0,216886;0,274165;STAN;2024
+czech republic;2014;17.01.2014;ODS;Civic Democratic Party;829;0,22033;0,195476;0,243548;TOP09;2
+czech republic;2014;17.01.2014;ODS;Civic Democratic Party;829;0,231693;0,205452;0,257942;UPD;2262
+czech republic;2014;17.01.2014;ODS;Civic Democratic Party;829;0,377721;0,322879;0,432513;;
+czech republic;2014;17.01.2014;STAN;Mayors and Independents;2024;0,162429;0,112771;0,215466;ANO;2263
+czech republic;2014;17.01.2014;STAN;Mayors and Independents;2024;0,102454;0,067314;0,145092;CSSD;789
+czech republic;2014;17.01.2014;STAN;Mayors and Independents;2024;0,187478;0,164918;0,210847;KDU-CSL;1245
+czech republic;2014;17.01.2014;STAN;Mayors and Independents;2024;0,263217;0,209739;0,317348;KSCM;1173
+czech republic;2014;17.01.2014;STAN;Mayors and Independents;2024;0,217993;0,195544;0,23866;ODS;829
+czech republic;2014;17.01.2014;STAN;Mayors and Independents;2024;0,22049;0,202617;0,23546;TOP09;2
+czech republic;2014;17.01.2014;STAN;Mayors and Independents;2024;0,220411;0,202398;0,234689;UPD;2262
+czech republic;2014;17.01.2014;STAN;Mayors and Independents;2024;0,350387;0,300697;0,40472;;
+czech republic;2014;17.01.2014;TOP09;Tradition Responsibility Prosperity 09;2;0,166157;0,115322;0,226027;ANO;2263
+czech republic;2014;17.01.2014;TOP09;Tradition Responsibility Prosperity 09;2;0,106721;0,069826;0,15129;CSSD;789
+czech republic;2014;17.01.2014;TOP09;Tradition Responsibility Prosperity 09;2;0,176534;0,155829;0,199678;KDU-CSL;1245
+czech republic;2014;17.01.2014;TOP09;Tradition Responsibility Prosperity 09;2;0,270459;0,216809;0,332144;KSCM;1173
+czech republic;2014;17.01.2014;TOP09;Tradition Responsibility Prosperity 09;2;0,179126;0,160266;0,19726;ODS;829
+czech republic;2014;17.01.2014;TOP09;Tradition Responsibility Prosperity 09;2;0,206621;0,185114;0,228279;STAN;2024
+czech republic;2014;17.01.2014;TOP09;Tradition Responsibility Prosperity 09;2;0,193352;0,174468;0,211606;UPD;2262
+czech republic;2014;17.01.2014;TOP09;Tradition Responsibility Prosperity 09;2;0,336518;0,28223;0,395183;;
+czech republic;2014;17.01.2014;UPD;Dawn of Direct Democracy;2262;0,163484;0,113229;0,218851;ANO;2263
+czech republic;2014;17.01.2014;UPD;Dawn of Direct Democracy;2262;0,102543;0,067627;0,144836;CSSD;789
+czech republic;2014;17.01.2014;UPD;Dawn of Direct Democracy;2262;0,179961;0,157996;0,202551;KDU-CSL;1245
+czech republic;2014;17.01.2014;UPD;Dawn of Direct Democracy;2262;0,249401;0,199671;0,30358;KSCM;1173
+czech republic;2014;17.01.2014;UPD;Dawn of Direct Democracy;2262;0,183319;0,162118;0,203024;ODS;829
+czech republic;2014;17.01.2014;UPD;Dawn of Direct Democracy;2262;0,199372;0,17936;0,217397;STAN;2024
+czech republic;2014;17.01.2014;UPD;Dawn of Direct Democracy;2262;0,186183;0,167121;0,204972;TOP09;2
+czech republic;2014;17.01.2014;UPD;Dawn of Direct Democracy;2262;0,329348;0,278793;0,383396;;
+czech republic;2018;27.06.2018;ANO;Action of Dissatisfied Citizens;2263;0,639348;0,559609;0,723967;CSSD;789
+czech republic;2018;27.06.2018;ANO;Action of Dissatisfied Citizens;2263;0,55654;0,459899;0,666632;KDU-CSL;1245
+czech republic;2018;27.06.2018;ANO;Action of Dissatisfied Citizens;2263;0,754526;0,674572;0,825178;KSCM;1173
+czech republic;2018;27.06.2018;ANO;Action of Dissatisfied Citizens;2263;0,662404;0,546991;0,760188;ODS;829
+czech republic;2018;27.06.2018;ANO;Action of Dissatisfied Citizens;2263;0,552228;0,454597;0,651392;Pi;2261
+czech republic;2018;27.06.2018;ANO;Action of Dissatisfied Citizens;2263;0,67419;0,587041;0,756415;SPD;2654
+czech republic;2018;27.06.2018;ANO;Action of Dissatisfied Citizens;2263;0,619485;0,537537;0,7061;STAN;2024
+czech republic;2018;27.06.2018;ANO;Action of Dissatisfied Citizens;2263;0,646113;0,562299;0,728225;TOP09;2
+czech republic;2018;27.06.2018;ANO;Action of Dissatisfied Citizens;2263;0,872012;0,801076;0,929183;;
+czech republic;2018;27.06.2018;CSSD;Czech Social Democratic Party;789;0,037822;0,019774;0,063122;ANO;2263
+czech republic;2018;27.06.2018;CSSD;Czech Social Democratic Party;789;0,152353;0,126246;0,173809;KDU-CSL;1245
+czech republic;2018;27.06.2018;CSSD;Czech Social Democratic Party;789;0,212531;0,167486;0,248526;KSCM;1173
+czech republic;2018;27.06.2018;CSSD;Czech Social Democratic Party;789;0,185145;0,143408;0,225706;ODS;829
+czech republic;2018;27.06.2018;CSSD;Czech Social Democratic Party;789;0,158512;0,120638;0,198155;Pi;2261
+czech republic;2018;27.06.2018;CSSD;Czech Social Democratic Party;789;0,198121;0,156819;0,235296;SPD;2654
+czech republic;2018;27.06.2018;CSSD;Czech Social Democratic Party;789;0,178195;0,142271;0,209748;STAN;2024
+czech republic;2018;27.06.2018;CSSD;Czech Social Democratic Party;789;0,185181;0,147994;0,215757;TOP09;2
+czech republic;2018;27.06.2018;CSSD;Czech Social Democratic Party;789;0,270487;0,208433;0,326562;;
+czech republic;2018;27.06.2018;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,064879;0,033457;0,10713;ANO;2263
+czech republic;2018;27.06.2018;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,262218;0,200835;0,315865;CSSD;789
+czech republic;2018;27.06.2018;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,322202;0,241008;0,400085;KSCM;1173
+czech republic;2018;27.06.2018;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,261081;0,195829;0,3278;ODS;829
+czech republic;2018;27.06.2018;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,214004;0,158027;0,272332;Pi;2261
+czech republic;2018;27.06.2018;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,276305;0,207195;0,343356;SPD;2654
+czech republic;2018;27.06.2018;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,248142;0,188065;0,304984;STAN;2024
+czech republic;2018;27.06.2018;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,258383;0,196567;0,316409;TOP09;2
+czech republic;2018;27.06.2018;KDU-CSL;Christian Democratic Union -- People's Party;1245;0,380351;0,285041;0,471615;;
+czech republic;2018;27.06.2018;KSCM;Communist Party of Bohemia and Moravia;1173;0,019259;0,009653;0,034532;ANO;2263
+czech republic;2018;27.06.2018;KSCM;Communist Party of Bohemia and Moravia;1173;0,078789;0,054201;0,108493;CSSD;789
+czech republic;2018;27.06.2018;KSCM;Communist Party of Bohemia and Moravia;1173;0,078595;0,055936;0,106268;KDU-CSL;1245
+czech republic;2018;27.06.2018;KSCM;Communist Party of Bohemia and Moravia;1173;0,091729;0,061996;0,128733;ODS;829
+czech republic;2018;27.06.2018;KSCM;Communist Party of Bohemia and Moravia;1173;0,080861;0,054282;0,112961;Pi;2261
+czech republic;2018;27.06.2018;KSCM;Communist Party of Bohemia and Moravia;1173;0,099415;0,071993;0,131236;SPD;2654
+czech republic;2018;27.06.2018;KSCM;Communist Party of Bohemia and Moravia;1173;0,088999;0,062267;0,120005;STAN;2024
+czech republic;2018;27.06.2018;KSCM;Communist Party of Bohemia and Moravia;1173;0,092609;0,065699;0,123107;TOP09;2
+czech republic;2018;27.06.2018;KSCM;Communist Party of Bohemia and Moravia;1173;0,136744;0,094851;0,186388;;
+czech republic;2018;27.06.2018;ODS;Civic Democratic Party;829;0,057906;0,027696;0,101276;ANO;2263
+czech republic;2018;27.06.2018;ODS;Civic Democratic Party;829;0,182173;0,125836;0,24924;CSSD;789
+czech republic;2018;27.06.2018;ODS;Civic Democratic Party;829;0,148244;0,105764;0,200718;KDU-CSL;1245
+czech republic;2018;27.06.2018;ODS;Civic Democratic Party;829;0,222499;0,151908;0,306414;KSCM;1173
+czech republic;2018;27.06.2018;ODS;Civic Democratic Party;829;0,15359;0,105959;0,20849;Pi;2261
+czech republic;2018;27.06.2018;ODS;Civic Democratic Party;829;0,179393;0,124889;0,243233;SPD;2654
+czech republic;2018;27.06.2018;ODS;Civic Democratic Party;829;0,165505;0,114696;0,225028;STAN;2024
+czech republic;2018;27.06.2018;ODS;Civic Democratic Party;829;0,162787;0,113051;0,221177;TOP09;2
+czech republic;2018;27.06.2018;ODS;Civic Democratic Party;829;0,267514;0,180618;0,375305;;
+czech republic;2018;27.06.2018;Pi;Czech Pirate Party;2261;0,056516;0,029529;0,094533;ANO;2263
+czech republic;2018;27.06.2018;Pi;Czech Pirate Party;2261;0,264326;0,208733;0,320202;CSSD;789
+czech republic;2018;27.06.2018;Pi;Czech Pirate Party;2261;0,209953;0,169143;0,252374;KDU-CSL;1245
+czech republic;2018;27.06.2018;Pi;Czech Pirate Party;2261;0,320417;0,246517;0,394757;KSCM;1173
+czech republic;2018;27.06.2018;Pi;Czech Pirate Party;2261;0,262377;0,204041;0,326872;ODS;829
+czech republic;2018;27.06.2018;Pi;Czech Pirate Party;2261;0,286861;0,223795;0,350005;SPD;2654
+czech republic;2018;27.06.2018;Pi;Czech Pirate Party;2261;0,239522;0,190826;0,287636;STAN;2024
+czech republic;2018;27.06.2018;Pi;Czech Pirate Party;2261;0,257633;0,202303;0,310189;TOP09;2
+czech republic;2018;27.06.2018;Pi;Czech Pirate Party;2261;0,376301;0,293058;0,458002;;
+czech republic;2018;27.06.2018;SPD;Freedom and Direct Democracy Tomio Okamura;2654;0,042206;0,021616;0,072845;ANO;2263
+czech republic;2018;27.06.2018;SPD;Freedom and Direct Democracy Tomio Okamura;2654;0,167663;0,132101;0,20683;CSSD;789
+czech republic;2018;27.06.2018;SPD;Freedom and Direct Democracy Tomio Okamura;2654;0,135982;0,104218;0,173614;KDU-CSL;1245
+czech republic;2018;27.06.2018;SPD;Freedom and Direct Democracy Tomio Okamura;2654;0,202699;0,156154;0,248793;KSCM;1173
+czech republic;2018;27.06.2018;SPD;Freedom and Direct Democracy Tomio Okamura;2654;0,151907;0,113144;0,19745;ODS;829
+czech republic;2018;27.06.2018;SPD;Freedom and Direct Democracy Tomio Okamura;2654;0,150589;0,116964;0,190566;Pi;2261
+czech republic;2018;27.06.2018;SPD;Freedom and Direct Democracy Tomio Okamura;2654;0,15296;0,117678;0,194176;STAN;2024
+czech republic;2018;27.06.2018;SPD;Freedom and Direct Democracy Tomio Okamura;2654;0,150559;0,11583;0,190485;TOP09;2
+czech republic;2018;27.06.2018;SPD;Freedom and Direct Democracy Tomio Okamura;2654;0,240028;0,179698;0,30438;;
+czech republic;2018;27.06.2018;STAN;Mayors and Independents;2024;0,046892;0,025767;0,075782;ANO;2263
+czech republic;2018;27.06.2018;STAN;Mayors and Independents;2024;0,207128;0,171142;0,238269;CSSD;789
+czech republic;2018;27.06.2018;STAN;Mayors and Independents;2024;0,16721;0,142908;0,189116;KDU-CSL;1245
+czech republic;2018;27.06.2018;STAN;Mayors and Independents;2024;0,251675;0,200418;0,299515;KSCM;1173
+czech republic;2018;27.06.2018;STAN;Mayors and Independents;2024;0,197411;0,158752;0,236454;ODS;829
+czech republic;2018;27.06.2018;STAN;Mayors and Independents;2024;0,162641;0,130331;0,196346;Pi;2261
+czech republic;2018;27.06.2018;STAN;Mayors and Independents;2024;0,212351;0,172753;0,251598;SPD;2654
+czech republic;2018;27.06.2018;STAN;Mayors and Independents;2024;0,180915;0,151607;0,204903;TOP09;2
+czech republic;2018;27.06.2018;STAN;Mayors and Independents;2024;0,29942;0,235298;0,356932;;
+czech republic;2018;27.06.2018;TOP09;Tradition Responsibility Prosperity 09;2;0,04606;0,024916;0,074618;ANO;2263
+czech republic;2018;27.06.2018;TOP09;Tradition Responsibility Prosperity 09;2;0,186654;0,153267;0,21399;CSSD;789
+czech republic;2018;27.06.2018;TOP09;Tradition Responsibility Prosperity 09;2;0,149991;0,126781;0,17277;KDU-CSL;1245
+czech republic;2018;27.06.2018;TOP09;Tradition Responsibility Prosperity 09;2;0,227824;0,180495;0,270768;KSCM;1173
+czech republic;2018;27.06.2018;TOP09;Tradition Responsibility Prosperity 09;2;0,167232;0,131629;0,202156;ODS;829
+czech republic;2018;27.06.2018;TOP09;Tradition Responsibility Prosperity 09;2;0,153292;0,122705;0,184654;Pi;2261
+czech republic;2018;27.06.2018;TOP09;Tradition Responsibility Prosperity 09;2;0,18249;0,146158;0,217397;SPD;2654
+czech republic;2018;27.06.2018;TOP09;Tradition Responsibility Prosperity 09;2;0,153454;0,126388;0,17789;STAN;2024
+czech republic;2018;27.06.2018;TOP09;Tradition Responsibility Prosperity 09;2;0,271959;0,211868;0,32758;;
