@@ -417,6 +417,9 @@ oecd_merged <- oecd %>%
             by = c("iso3c", "time_period" = "year")) %>%
   zap_labels()
 
+## remove some unncessary columns
+vars_to_remove <- names(oecd_merged)[grepl(".x.x|.y.y", names(oecd_merged))]
+oecd_merged <- oecd_merged %>% select(-vars_to_remove)
 
 
 # create two separate datasets for adoption and stringency
@@ -449,14 +452,12 @@ finnegan_merged <- finnegan %>%
             by = c("iso3c", "year"))
 
 
-
 ## save these data 
 write_csv_arrow(oecd_merged, paste0(here(), "/03 Cleaned data/oecd_merged.csv"))
 write_parquet(oecd_merged, paste0(here(), "/03 Cleaned data/oecd_merged.parquet"))
 write_rds(oecd_merged, paste0(here(), "/03 Cleaned data/oecd_merged.rds"))
 write_csv_arrow(finnegan_merged, paste0(here(), "/03 Cleaned data/finnegan_merged.csv"))
 write_rds(finnegan_merged, paste0(here(), "/03 Cleaned data/finnegan_merged.rds"))
-
 
 
 ### save the different levels of stringency and adoption
