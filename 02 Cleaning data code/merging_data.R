@@ -7,17 +7,15 @@
 # load packages 
 library(tidyverse)
 library(data.table)
-library(WDI)
 library(countrycode)
-library(democracyData)
+library(tidylog)
 library(readxl)
 library(openxlsx)
-library(owidR)
 library(here)
 library(janitor)
 library(arrow)
-library(readxl)
-library(PolicyPortfolios)
+library(furrr)
+library(WDI)
 library(modelsummary)
 library(OECD)
 library(eurostat)
@@ -76,14 +74,31 @@ cip_dynamic <- list.files(paste0(here(), "/01 Raw data/Controls and other/CIP/CI
 kayser_rehmert <- readRDS(paste0(here(), "/01 Raw data/Controls and other/data_eps_kayser_rehmert.RDS"))
 
 
+## gallup data 
+control_folder <- list.files(paste0(here(), "/01 Raw data/Controls and other"))
+gallup_list <- control_folder[grepl("^GallupAnalytics", control_folder)]
+
+gallup <- map(gallup_list,
+              ~read_xlsx(paste0(here(), "/01 Raw Data/Controls and other/", .x),
+                         skip = 6) %>%
+                clean_names() %>%
+                remove_empty(which = c("rows", "cols")) %>%
+                select(-contains("demographic")))
+
+
+gallup_merged <- gallup[[1]] %>%
+  left_join(gallup[[2]], by = c("geography", "time"),
+            suffix = c("env", "confgov")) %>%
+  left_join(gallup[[3]], by = c("geography", "time"),
+            suffix = c("confgov", "corrupt"))
+
+
+
 #################################
 # Data wrangling
 #################################
 
 ### To Do: prune the data more radically. Make sure that only relevant columns are kept.
-### Create multiple merged versions
-#### The OECD data are not readable. What do the columns mean?
-
 
 ## 1. CAPMF data
 oecd <- oecd %>% mutate(obs_value1 = obs_value)
@@ -117,25 +132,6 @@ oecd <- oecd %>%
                                  time_period >= 2015 & time_period < 2020 ~ "2015-2019",
                                  time_period >= 2020 & time_period <= 2022 ~ "2020-2022",
                                  TRUE ~ NA))
-
-# # create two separate datasets for adoption and stringency
-# oecd_stringency <- oecd %>% filter(grepl("Policy stringency", measure_2))
-# oecd_adoption <- oecd %>% filter(grepl("Adopted", measure_2))
-# 
-# ## create separate datasets for different levels
-# # list
-# oecd_adoption_list <- list()
-# oecd_stringency_list <- list()
-# 
-# # loop
-# for(k in c("LEV1", "LEV2", "LEV3", "LEV4")){
-#   # prune adoption data
-#   oecd_adoption_list[[k]] <- oecd_adoption %>%
-#     filter(grepl(paste0("^", k), clim_act_pol))
-#   # prune stringency data
-#   oecd_stringency_list[[k]] <- oecd_stringency %>%
-#     filter(grepl(paste0("^", k), clim_act_pol))
-# }
 
 
 ## 2. Corporatism data
@@ -369,6 +365,20 @@ kayser_rehmert <- kayser_rehmert %>%
 ictwsspost90 <- ictwss %>% filter(year > 1990)
 
 
+## 16. Gallup data
+gallup_overall <- gallup_merged %>%
+  rename("country" = geography, 
+         "year" = time, 
+         "happy_with_env_preserv" = satisfied, 
+         "unhappy_with_env_preserv" = dissatisfied) %>%
+  mutate(iso3c = countrycode(country, "country.name.en", "iso3c"), 
+         year = as.numeric(as.character(year))) %>%
+  select(country, iso3c, year, everything()) %>%
+  arrange(year, country)
+
+
+
+
 #################################
 # Merging and saving data
 #################################
@@ -403,6 +413,8 @@ oecd_merged <- oecd %>%
             by = c("iso3c", "time_period" = "year")) %>%
   left_join(kayser_rehmert, 
             by = c("iso3c" = "iso3", "time_period" = "year")) %>%
+  left_join(gallup_overall, 
+            by = c("iso3c", "time_period" = "year")) %>%
   zap_labels()
 
 
@@ -440,6 +452,7 @@ finnegan_merged <- finnegan %>%
 
 ## save these data 
 write_csv_arrow(oecd_merged, paste0(here(), "/03 Cleaned data/oecd_merged.csv"))
+write_parquet(oecd_merged, paste0(here(), "/03 Cleaned data/oecd_merged.parquet"))
 write_rds(oecd_merged, paste0(here(), "/03 Cleaned data/oecd_merged.rds"))
 write_csv_arrow(finnegan_merged, paste0(here(), "/03 Cleaned data/finnegan_merged.csv"))
 write_rds(finnegan_merged, paste0(here(), "/03 Cleaned data/finnegan_merged.rds"))
@@ -449,8 +462,10 @@ write_rds(finnegan_merged, paste0(here(), "/03 Cleaned data/finnegan_merged.rds"
 ### save the different levels of stringency and adoption
 map(c("LEV1", "LEV2", "LEV3", "LEV4"), ~{
   write_csv_arrow(oecd_adoption_list[[.x]], paste0(here(), "/03 Cleaned data/oecd_adoption_", .x, ".csv"))
+  write_parquet(oecd_adoption_list[[.x]], paste0(here(), "/03 Cleaned data/oecd_adoption_", .x, ".parquet"))
   write_rds(oecd_adoption_list[[.x]], paste0(here(), "/03 Cleaned data/oecd_adoption_", .x, ".rds"))
   write_csv_arrow(oecd_stringency_list[[.x]], paste0(here(), "/03 Cleaned data/oecd_stringency_", .x, ".csv"))
+  write_parquet(oecd_stringency_list[[.x]], paste0(here(), "/03 Cleaned data/oecd_stringency_", .x, ".parquet"))
   write_rds(oecd_stringency_list[[.x]], paste0(here(), "/03 Cleaned data/oecd_stringency_", .x, ".rds"))
 })
 
