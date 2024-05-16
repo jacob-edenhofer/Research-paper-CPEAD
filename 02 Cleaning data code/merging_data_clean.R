@@ -391,7 +391,9 @@ finnegan_merged <- finnegan %>%
   left_join(corporatismusall, 
             by = c("iso3c", "year")) %>%
   left_join(corporatismus_core,
-            by = c("iso3c", "year"))
+            by = c("iso3c", "year")) %>%
+  left_join(cpds, 
+            by = c("iso3c", "year")) 
 
 
 # 3. save data
@@ -429,7 +431,7 @@ save_data(oecd_merged, "oecd_merged")
 ## save adoption and stringency data
 map(c("adoption", "stringency"), function(x){
   if(grepl("adoption", x)){
-    map(c("LEV1", "LEV2", "LEV3"), function(y){
+    map(c("LEV1", "LEV2"), function(y){
       save_data(get(paste0("oecd_", x, "_list"))[[y]], paste0("oecd_", x, "_", y))
     })
   } else {
