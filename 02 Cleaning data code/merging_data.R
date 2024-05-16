@@ -47,8 +47,8 @@ gva <- read_csv_arrow(paste0(here(), "/01 Raw data/Controls and other/OECD_SNA_T
 fetzer_yotzo <- read_dta(paste0(here(), "/01 Raw data/Controls and other/election_shocks_20230924.dta"))
 WDI_data <- read_csv(paste0(here(), "/01 Raw data/Controls and other/WDI_data.csv")) 
 bmr <- read_csv(paste0(here(), "/01 Raw data/Controls and other/democracy-v4.0.csv"))
-owid_energy <- read_csv_arrow("https://nyc3.digitaloceanspaces.com/owid-public/data/energy/owid-energy-data.csv")
-owid_co2 <- read_csv_arrow("https://nyc3.digitaloceanspaces.com/owid-public/data/co2/owid-co2-data.csv")
+owid_energy <- read_csv(paste0(here(), "/01 Raw data/Controls and other/owid_energy.csv"))
+owid_co2 <- read_csv(paste0(here(), "/01 Raw data/Controls and other/owid_co2.csv"))
 polcon <- read_xlsx(paste0(here(), "/01 Raw data/Controls and other/POLCON_2021_VDEM.xlsx"))
 epu_all_countries <- read_xlsx(paste0(here(), 
                                       "/01 Raw data/Controls and other/All_Country_Data_Policy_Uncertainty.xlsx")) %>%
