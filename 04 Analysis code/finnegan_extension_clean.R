@@ -20,10 +20,10 @@ data_path <- here("03 Cleaned data", "Finnegan extended", "finnegan_merged.rds")
 finnegan_merged <- readRDS(data_path)
 finnegan_merged <- finnegan_merged %>% zap_labels()
 
+
 ################################
 # Helper Functions
 ################################
-
 
 # Function to run models and handle errors
 run_model <- function(formula, data, model_name) {
@@ -34,7 +34,6 @@ run_model <- function(formula, data, model_name) {
     NULL
   })
 }
-
 
 
 ################################
@@ -57,12 +56,15 @@ for (var1 in corporatism) {
       model_name <- paste(dv, var1, var2, sep = "__")
       models_list[[model_name]] <- run_model(formula, data = finnegan_merged, model_name)
       plots_list[[model_name]] <- plot_slopes(models_list[[model_name]], rug = T,
-                                             variables = var2,
-                                             by = var1) +
+                                             variables = var1,
+                                             by = var2) +
         geom_hline(yintercept = 0, linetype = "dashed") +
-        labs(title = paste("Marginal Effect of", var2, "on", dv, "by", var1),
+        labs(title = paste("Marginal Effect of", var1, "on", dv, "by", var2),
              x = var2) +
         theme_minimal()
+      print(plots_list[[model_name]])
+      ggsave(paste0(here(), "/06 Figures and tables/Figures/ME exploratory/", model_name, ".png"), 
+             width = 9, height = 6, unit = "in", dpi = 300)
     }
   }
 }
