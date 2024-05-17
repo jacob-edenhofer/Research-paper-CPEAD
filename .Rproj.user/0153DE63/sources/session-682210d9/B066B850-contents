@@ -45,6 +45,11 @@ variables <- c("openc.x", "ind_valueadd", "elect_comp")
 dvs_v <- c("lambda_mean_wghtd", "lambda_mean_wghtd_con", "lambda_mean_wghtd_prod", "lambda_mean_wghtd_comp")
 corporatism <- c("ri", "corp_all", "corp_allsm", "corp_core", "corp_cor_esm", "corpo_f_cor_esm", "bc", "tc", "ud", "nec_fs", "nuc_fs", "adj_cov_hist")
 
+# Factorise some of the corporatism variables
+finnegan_merged <- finnegan_merged %>%
+  mutate(bc = factor(bc), 
+         tc = factor(tc))
+
 # Loop to run models and generate plots
 models_list <- list()
 plots_list <- list()
@@ -68,7 +73,6 @@ for (var1 in corporatism) {
     }
   }
 }
-
 
 # Output models and plots
 lapply(models_list, summary)
