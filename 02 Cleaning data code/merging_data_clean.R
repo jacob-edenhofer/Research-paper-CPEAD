@@ -145,7 +145,7 @@ bmr_post90 <- bmr %>%
 
 ## 5. Polcon data 
 polcon_pruned <- polcon_2021_vdem %>%
-  select(-grep("^(party|p1[0-5]|p[1-9]|p[1-9][0-9]|executive|prime|align|tsu|tsl|polity|leg|cyear|ccode|cnts|icrg|ctry|country_text_id)", 
+  select(-grep("^(party|j|f|l[1-2]|p1[0-5]|p[1-9]|p[1-9][0-9]|laworder|executive|prime|align|tsu|tsl|leg|cyear|ccode|cnts|icrg|ctry|country_text_id)", 
                names(polcon_2021_vdem))) %>%
   mutate(iso3c = countrycode(country_name, "country.name", "iso3c")) %>%
   select(country_name, iso3c, year, everything())
