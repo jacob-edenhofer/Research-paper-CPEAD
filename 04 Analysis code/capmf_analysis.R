@@ -3,28 +3,26 @@
 # Preliminaries
 ################################
 
-# load packages 
-library(tidyverse)
-library(data.table)
-library(countrycode)
-library(tidylog)
-library(readxl)
-library(openxlsx)
-library(here)
-library(janitor)
-library(arrow)
-library(furrr)
-library(WDI)
-library(modelsummary)
-library(OECD)
-library(eurostat)
-library(fixest)
-library(fwlplot)
-library(marginaleffects)
-library(kableExtra)
-library(haven)
-library(scales)
-library(patchwork)
+# Load packages
+library(tidyverse)  # includes dplyr, ggplot2, tidyr, readr, purrr, tibble, stringr, forcats
+library(readxl)     # For reading Excel files
+library(data.table) # For fast data manipulation
+library(countrycode) # For converting country names to codes
+library(tidylog)    # For enhanced error messages
+library(arrow)      # Efficient data reading and writing
+library(janitor)    # For clean_names()
+library(here)       # For constructing paths
+library(fixest)     # For fast fixed effects estimations models
+library(fwlplot)    # For fixest plots
+library(kableExtra) # For enhanced table output
+library(patchwork)  # For combining plots
+library(modelsummary) # For model output
+library(marginaleffects) # For marginal effects plots
+library(kableExtra) # For enhanced table output
+library(scales)    # For formatting axes
+library(patchwork) # For combining plots
+library(haven)     # For reading Stata files
+
 
 
 # import data 
@@ -51,19 +49,43 @@ import_data <- function(file_path) {
   })
 }
 
+
 ## specify folder of interest and apply function to all files in folder
 data_folder <- list.files(file.path(here(), "/03 Cleaned data/OECD CAPMF/"), full.names = TRUE)
 map(list.files(data_folder, full.names = T), ~import_data(.x))
-
 
 
 ################################
 # Descriptive results 
 ################################
 
+## Summary statistics of key dependent and independent variables 
+oecd_merged %>%
+  mutate(eu = ifelse(eu == 1, "EU", "Non-EU")) %>%
+  select(happy_with_env_preserv, 
+         obs_value, 
+         obs_value1,
+         corp_all, 
+         corp_core,
+         polconiii, 
+         polconiii_vdem, 
+         polconv, 
+         polconv_vdem,
+         grep("gdp|trade|fossil|co2|coal|eco_cip", names(.)),
+         starts_with("corp"), 
+         openc, 
+         realgdpgr, 
+         netu_ipol, 
+         ag_lnd_totl_k2, 
+         gc_tax_totl_gd_zs, 
+         population_x, 
+         concert, 
+         environ_worry_interpolated,
+         eu) %>%
+  datasummary_skim(histogram = F, fmt = 3, by = "eu") 
 
 
-
+## Check that ranges of variables make sense; where they do not, adjust merge_data_clean.R script accordingly
 
 
 

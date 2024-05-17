@@ -28,6 +28,10 @@ import_data <- function(folder_path){
     if(grepl("lprdata_", folder_path)){
       data <- read_delim(folder_path, delim = ";") %>%
         clean_names()
+    } else if(grepl("ICTWSS", folder_path)){
+      data <- read_csv(folder_path, na = c("-99", "-88", "Missing", "NA")) %>%
+        remove_empty(which = c("cols", "rows")) %>%
+        clean_names() 
     } else {
     data <- read_csv_arrow(folder_path) %>%
       clean_names()
@@ -296,7 +300,14 @@ kayser_rehmert <- kayser_rehmert %>%
 
 
 ## 14. ICTWSS
-ictwsspost90 <- oecd_aias_ictwss_csv_v1 %>% filter(year > 1990)
+
+### somw wrangling
+oecd_aias_ictwss_csv_v1_pruned <- oecd_aias_ictwss_csv_v1 %>%
+  select(country, iso3c, year, tc, bc, concert, nec_fs, ed, e_dpriv, nuc_fs, tum,  
+         grep("num|ud|um|cov", names(.)))
+
+### post 1990 version 
+ictwsspost90 <- oecd_aias_ictwss_csv_v1_pruned %>% filter(year > 1990)
 
 
 ## 15. Gallup data
@@ -393,6 +404,8 @@ finnegan_merged <- finnegan %>%
   left_join(corporatismus_core,
             by = c("iso3c", "year")) %>%
   left_join(cpds, 
+            by = c("iso3c", "year")) %>%
+  left_join(oecd_aias_ictwss_csv_v1_pruned, 
             by = c("iso3c", "year")) 
 
 
