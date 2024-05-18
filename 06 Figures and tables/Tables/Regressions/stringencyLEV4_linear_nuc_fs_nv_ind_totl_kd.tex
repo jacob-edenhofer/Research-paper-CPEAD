@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                        & (1)     & (2)            & (3)            & (4)            & (5)            & (6)\\  
+                                                                 &  OLS    & OLS            & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   nuc\_fs                                                       & -0.087  & -0.084$^{*}$   & -0.082         & -0.016         & -0.027         & -0.035\\   
+                                                                 & (0.056) & (0.050)        & (0.050)        & (0.056)        & (0.058)        & (0.063)\\   
+   Industry value added (constant 2015 US\$)                     & 0.000   & 0.000          & 0.000          & 0.000          & 0.000$^{*}$    & 0.000$^{**}$\\   
+                                                                 & (0.000) & (0.000)        & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   nuc\_fs $\times$ Industry value added (constant 2015 US\$)    & 0.000   & 0.000          & 0.000          & 0.000          & 0.000          & 0.000\\   
+                                                                 & (0.000) & (0.000)        & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   CO2 emissions per capita                                      &         & -0.115$^{***}$ & -0.118$^{***}$ & -0.108$^{***}$ & -0.112$^{***}$ & -0.112$^{***}$\\   
+                                                                 &         & (0.035)        & (0.034)        & (0.033)        & (0.034)        & (0.033)\\   
+   GDP per capita (constant 2015 US\$)                           &         &                & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$\\   
+                                                                 &         &                & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                                  &         &                &                & -0.031$^{**}$  & -0.034$^{***}$ & -0.030$^{**}$\\   
+                                                                 &         &                &                & (0.011)        & (0.013)        & (0.012)\\   
+   Tax revenue (\% of GDP)                                       &         &                &                &                & -0.016         & -0.016\\   
+                                                                 &         &                &                &                & (0.011)        & (0.011)\\   
+   Population total                                              &         &                &                &                &                & 0.000\\   
+                                                                 &         &                &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                       & x       & x              & x              & x              & x              & x\\  
+   Half decade                                                   & x       & x              & x              & x              & x              & x\\  
+   Type of climate action/measure                                & x       & x              & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                  & 110,138 & 110,138        & 110,138        & 87,651         & 79,533         & 79,533\\  
+   R$^2$                                                         & 0.553   & 0.553          & 0.554          & 0.549          & 0.556          & 0.556\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

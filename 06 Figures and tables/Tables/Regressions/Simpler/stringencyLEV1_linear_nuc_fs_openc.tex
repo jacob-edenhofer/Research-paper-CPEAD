@@ -1,0 +1,36 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                     & (1)            & (2)            & (3)            & (4)           & (5)           & (6)\\  
+                                                              &  OLS           & OLS            & OLS            & OLS           & OLS           & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Number of union confederations $\times$ Openness to trade  & -0.001$^{***}$ & -0.001$^{***}$ & -0.001$^{***}$ & -0.001$^{**}$ & -0.001$^{**}$ & 0.000\\   
+                                                              & (0.000)        & (0.000)        & (0.000)        & (0.000)       & (0.000)       & (0.000)\\   
+   CO2 emissions per capita                                   &                & -0.099$^{**}$  & -0.098$^{**}$  & -0.062$^{**}$ & -0.058$^{*}$  & -0.053$^{*}$\\   
+                                                              &                & (0.044)        & (0.043)        & (0.029)       & (0.030)       & (0.027)\\   
+   GDP per capita (constant 2015 US\$)                        &                &                & 0.000$^{***}$  & 0.000$^{**}$  & 0.000$^{**}$  & 0.000$^{**}$\\   
+                                                              &                &                & (0.000)        & (0.000)       & (0.000)       & (0.000)\\   
+   Polity score                                               &                &                &                & -0.054        & -0.071$^{*}$  & -0.012\\   
+                                                              &                &                &                & (0.038)       & (0.039)       & (0.030)\\   
+   Tax revenue (\% of GDP)                                    &                &                &                &               & -0.006        & -0.003\\   
+                                                              &                &                &                &               & (0.007)       & (0.007)\\   
+   Population total                                           &                &                &                &               &               & 0.000$^{***}$\\   
+                                                              &                &                &                &               &               & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                    & x              & x              & x              & x             & x             & x\\  
+   Half decade                                                & x              & x              & x              & x             & x             & x\\  
+   Type of climate action/measure                             & x              & x              & x              & x             & x             & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                               & 2,886          & 2,886          & 2,838          & 2,295         & 2,109         & 2,109\\  
+   R$^2$                                                      & 0.781          & 0.786          & 0.786          & 0.713         & 0.712         & 0.720\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

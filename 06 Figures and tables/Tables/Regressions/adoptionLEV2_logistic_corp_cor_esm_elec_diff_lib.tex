@@ -1,0 +1,39 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                    & (1)           & (2)           & (3)            & (4)           & (5)           & (6)\\  
+                                                             &  Logit        & Logit         & Logit          & Logit         & Logit         & Logit\\  
+   \midrule
+   \emph{Variables}\\
+   corp\_cor\_esm                                            & -1.234$^{**}$ & -1.294$^{**}$ & -1.167$^{**}$  & -1.519$^{**}$ & -1.594$^{**}$ & -1.815$^{**}$\\   
+                                                             & (0.489)       & (0.509)       & (0.564)        & (0.626)       & (0.691)       & (0.852)\\   
+   Absolute avg pro-liberal shock                            & 0.107         & 0.106         & 0.271$^{***}$  & 0.200$^{***}$ & 0.207$^{***}$ & 0.202$^{***}$\\   
+                                                             & (0.112)       & (0.109)       & (0.066)        & (0.068)       & (0.073)       & (0.075)\\   
+   corp\_cor\_esm $\times$ Absolute avg pro-liberal shock    & 0.239         & 0.246         & 0.448$^{**}$   & 0.444$^{**}$  & 0.519$^{**}$  & 0.417$^{*}$\\   
+                                                             & (0.240)       & (0.223)       & (0.186)        & (0.188)       & (0.213)       & (0.243)\\   
+   CO2 emissions per capita                                  &               & -0.067        & -0.525$^{***}$ & -0.244$^{**}$ & -0.279        & -0.155\\   
+                                                             &               & (0.283)       & (0.154)        & (0.103)       & (0.198)       & (0.282)\\   
+   GDP per capita (constant 2015 US\$)                       &               &               & 0.000$^{***}$  & 0.000$^{***}$ & 0.000$^{***}$ & 0.000\\   
+                                                             &               &               & (0.000)        & (0.000)       & (0.000)       & (0.000)\\   
+   Polity score                                              &               &               &                & 0.746$^{***}$ & 0.794$^{***}$ & 0.724$^{**}$\\   
+                                                             &               &               &                & (0.159)       & (0.279)       & (0.357)\\   
+   Tax revenue (\% of GDP)                                   &               &               &                &               & 0.047         & -0.020\\   
+                                                             &               &               &                &               & (0.120)       & (0.133)\\   
+   Population total                                          &               &               &                &               &               & 0.000\\   
+                                                             &               &               &                &               &               & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                   & x             & x             & x              & x             & x             & x\\  
+   Half decade                                               & x             & x             & x              & x             & x             & x\\  
+   Type of climate action/measure                            & x             & x             & x              & x             & x             & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                              & 1,430         & 1,430         & 1,430          & 1,001         & 924           & 924\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

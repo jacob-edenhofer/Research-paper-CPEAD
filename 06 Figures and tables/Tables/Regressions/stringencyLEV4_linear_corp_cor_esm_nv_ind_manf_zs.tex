@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                            & (1)           & (2)            & (3)            & (4)            & (5)            & (6)\\  
+                                                                     &  OLS          & OLS            & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   corp\_cor\_esm                                                    & 0.250         & 0.131          & 0.036          & -0.012         & -0.138         & 0.128\\   
+                                                                     & (0.267)       & (0.248)        & (0.245)        & (0.288)        & (0.248)        & (0.208)\\   
+   Manufacturing value added (\% of GDP)                             & -0.031$^{**}$ & -0.016         & -0.023$^{**}$  & -0.021$^{*}$   & -0.023$^{*}$   & -0.003\\   
+                                                                     & (0.013)       & (0.012)        & (0.010)        & (0.012)        & (0.012)        & (0.011)\\   
+   corp\_cor\_esm $\times$ Manufacturing value added (\% of GDP)     & -0.007        & 0.002          & 0.009          & 0.006          & 0.011          & -0.005\\   
+                                                                     & (0.016)       & (0.015)        & (0.015)        & (0.018)        & (0.015)        & (0.012)\\   
+   CO2 emissions per capita                                          &               & -0.095$^{***}$ & -0.106$^{***}$ & -0.097$^{***}$ & -0.099$^{***}$ & -0.123$^{***}$\\   
+                                                                     &               & (0.028)        & (0.026)        & (0.026)        & (0.025)        & (0.022)\\   
+   GDP per capita (constant 2015 US\$)                               &               &                & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$\\   
+                                                                     &               &                & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                                      &               &                &                & 0.112$^{***}$  & 0.115$^{***}$  & 0.086$^{**}$\\   
+                                                                     &               &                &                & (0.037)        & (0.035)        & (0.040)\\   
+   Tax revenue (\% of GDP)                                           &               &                &                &                & 0.006          & 0.007\\   
+                                                                     &               &                &                &                & (0.009)        & (0.008)\\   
+   Population total                                                  &               &                &                &                &                & 0.000$^{***}$\\   
+                                                                     &               &                &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                           & x             & x              & x              & x              & x              & x\\  
+   Half decade                                                       & x             & x              & x              & x              & x              & x\\  
+   Type of climate action/measure                                    & x             & x              & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                      & 66,469        & 66,469         & 66,469         & 56,971         & 52,388         & 52,388\\  
+   R$^2$                                                             & 0.592         & 0.592          & 0.593          & 0.587          & 0.591          & 0.592\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

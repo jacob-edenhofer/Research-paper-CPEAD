@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{obs\_value1}\\
+   Model:                                               & (1)           & (2)            & (3)            & (4)            & (5)            & (6)\\  
+                                                        &  OLS          & OLS            & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   corp\_core                                           & 0.457         & 0.483$^{*}$    & 0.519$^{*}$    & 0.408          & 0.427$^{*}$    & 0.356\\   
+                                                        & (0.261)       & (0.258)        & (0.238)        & (0.235)        & (0.226)        & (0.250)\\   
+   environ\_worry\_interpolated                         & 0.007$^{***}$ & 0.008$^{**}$   & 0.005$^{*}$    & 0.005$^{*}$    & 0.006$^{**}$   & 0.006$^{**}$\\   
+                                                        & (0.002)       & (0.003)        & (0.003)        & (0.002)        & (0.002)        & (0.002)\\   
+   corp\_core $\times$ environ\_worry\_interpolated     & -0.007$^{*}$  & -0.005         & -0.006$^{**}$  & -0.005$^{*}$   & -0.005$^{*}$   & -0.004\\   
+                                                        & (0.003)       & (0.003)        & (0.003)        & (0.003)        & (0.002)        & (0.003)\\   
+   co2\_per\_capita                                     &               & -0.101$^{***}$ & -0.112$^{***}$ & -0.107$^{***}$ & -0.124$^{***}$ & -0.126$^{***}$\\   
+                                                        &               & (0.021)        & (0.027)        & (0.025)        & (0.029)        & (0.028)\\   
+   ny\_gdp\_pcap\_kd                                    &               &                & 0.000$^{**}$   & 0.000$^{**}$   & 0.000$^{*}$    & 0.000$^{**}$\\   
+                                                        &               &                & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   polityfrompolity                                     &               &                &                & -0.141$^{***}$ & -0.142$^{***}$ & -0.168$^{***}$\\   
+                                                        &               &                &                & (0.032)        & (0.034)        & (0.035)\\   
+   gc\_tax\_totl\_gd\_zs                                &               &                &                &                & -0.015         & -0.010\\   
+                                                        &               &                &                &                & (0.014)        & (0.013)\\   
+   sp\_pop\_totl                                        &               &                &                &                &                & 0.000\\   
+                                                        &               &                &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   iso3c                                                & x             & x              & x              & x              & x              & x\\  
+   half\_decade                                         & x             & x              & x              & x              & x              & x\\  
+   clim\_act\_pol                                       & x             & x              & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                         & 486           & 486            & 486            & 486            & 435            & 435\\  
+   R$^2$                                                & 0.747         & 0.752          & 0.752          & 0.753          & 0.751          & 0.752\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (iso3c) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

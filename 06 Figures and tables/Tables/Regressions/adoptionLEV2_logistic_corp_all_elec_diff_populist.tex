@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                  & (1)     & (2)            & (3)            & (4)            & (5)                & (6)\\  
+                                                           &  Logit  & Logit          & Logit          & Logit          & Logit              & Logit\\  
+   \midrule
+   \emph{Variables}\\
+   Corporatism (all)                                       & 1.107   & 2.552$^{**}$   & 2.357$^{*}$    & 4.309$^{***}$  & 1,945.257$^{***}$  & 14,113.397$^{**}$\\   
+                                                           & (1.297) & (1.084)        & (1.226)        & (0.869)        & (681.788)          & (6,090.782)\\   
+   Absolute avg populist shock                             & -0.010  & 0.037          & 0.043          & 0.238$^{***}$  & 106.383$^{***}$    & 3,656.229$^{*}$\\   
+                                                           & (0.068) & (0.071)        & (0.070)        & (0.066)        & (37.220)           & (1,878.251)\\   
+   Corporatism (all) $\times$ Absolute avg populist shock  & -0.010  & 0.050          & 0.045          & 0.194$^{**}$   & -13.055            & 4,450.192$^{*}$\\   
+                                                           & (0.122) & (0.134)        & (0.136)        & (0.098)        & (71.938)           & (2,444.466)\\   
+   CO2 emissions per capita                                &         & -1.184$^{***}$ & -1.335$^{***}$ & -1.720$^{***}$ & -186.466           & 1,827.480\\   
+                                                           &         & (0.350)        & (0.423)        & (0.409)        & (160.260)          & (1,148.629)\\   
+   GDP per capita (constant 2015 US\$)                     &         &                & 0.000          & 0.000$^{*}$    & -0.536$^{***}$     & -1.347$^{**}$\\   
+                                                           &         &                & (0.000)        & (0.000)        & (0.049)            & (0.635)\\   
+   Polity score                                            &         &                &                & 1.586$^{*}$    & -1,142.001$^{***}$ & -108,862.797$^{*}$\\   
+                                                           &         &                &                & (0.859)        & (350.975)          & (58,582.273)\\   
+   Tax revenue (\% of GDP)                                 &         &                &                &                & 681.097$^{***}$    & 2,665.944$^{*}$\\   
+                                                           &         &                &                &                & (68.280)           & (1,528.222)\\   
+   Population total                                        &         &                &                &                &                    & -0.030$^{*}$\\   
+                                                           &         &                &                &                &                    & (0.017)\\   
+   \emph{Fixed effects}\\
+   Country                                                 & x       & x              & x              & x              & x                  & x\\  
+   Half decade                                             & x       & x              & x              & x              & x                  & x\\  
+   Type of climate action/measure                          & x       & x              & x              & x              & x                  & x\\  
+   \midrule \emph{Fit statistics}\\
+   Convergence                                             &TRUE     & TRUE           & TRUE           & FALSE          & FALSE              & FALSE\\  
+   Observations                                            & 792     & 792            & 792            & 594            & 594                & 594\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

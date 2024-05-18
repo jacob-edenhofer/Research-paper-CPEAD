@@ -1,0 +1,36 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                              & (1)     & (2)     & (3)            & (4)            & (5)            & (6)\\  
+                                                       &  OLS    & OLS     & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   corpo\_f\_cor\_esm $\times$ Mean elec incumbent     & -0.005  & -0.006  & -0.019         & -0.026$^{*}$   & -0.034$^{**}$  & -0.029$^{**}$\\   
+                                                       & (0.015) & (0.015) & (0.012)        & (0.013)        & (0.012)        & (0.011)\\   
+   CO2 emissions per capita                            &         & -0.083  & -0.230$^{***}$ & -0.237$^{***}$ & -0.273$^{***}$ & -0.247$^{***}$\\   
+                                                       &         & (0.072) & (0.051)        & (0.055)        & (0.049)        & (0.056)\\   
+   GDP per capita (constant 2015 US\$)                 &         &         & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$\\   
+                                                       &         &         & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                        &         &         &                & -0.056         & 0.138$^{***}$  & 0.132$^{***}$\\   
+                                                       &         &         &                & (0.108)        & (0.033)        & (0.044)\\   
+   Tax revenue (\% of GDP)                             &         &         &                &                & 0.045$^{***}$  & 0.040$^{***}$\\   
+                                                       &         &         &                &                & (0.015)        & (0.013)\\   
+   Population total                                    &         &         &                &                &                & 0.000$^{**}$\\   
+                                                       &         &         &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                             & x       & x       & x              & x              & x              & x\\  
+   Half decade                                         & x       & x       & x              & x              & x              & x\\  
+   Type of climate action/measure                      & x       & x       & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                        & 321     & 321     & 321            & 264            & 243            & 243\\  
+   R$^2$                                               & 0.826   & 0.827   & 0.842          & 0.791          & 0.790          & 0.790\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

@@ -1,0 +1,36 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                          & (1)     & (2)     & (3)            & (4)            & (5)            & (6)\\  
+                                                                   &  OLS    & OLS     & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   corp\_cor\_esm $\times$ Absolute avg poll error last 10 days    & 0.077   & 0.041   & -0.047         & -0.112$^{*}$   & -0.102$^{*}$   & -0.109$^{*}$\\   
+                                                                   & (0.112) & (0.106) & (0.087)        & (0.061)        & (0.053)        & (0.055)\\   
+   CO2 emissions per capita                                        &         & -0.090  & -0.241$^{***}$ & -0.254$^{***}$ & -0.273$^{***}$ & -0.237$^{***}$\\   
+                                                                   &         & (0.074) & (0.051)        & (0.053)        & (0.046)        & (0.058)\\   
+   GDP per capita (constant 2015 US\$)                             &         &         & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$\\   
+                                                                   &         &         & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                                    &         &         &                & 0.037          & 0.151$^{**}$   & 0.135$^{***}$\\   
+                                                                   &         &         &                & (0.105)        & (0.072)        & (0.035)\\   
+   Tax revenue (\% of GDP)                                         &         &         &                &                & 0.043$^{***}$  & 0.034$^{**}$\\   
+                                                                   &         &         &                &                & (0.014)        & (0.015)\\   
+   Population total                                                &         &         &                &                &                & 0.000$^{*}$\\   
+                                                                   &         &         &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                         & x       & x       & x              & x              & x              & x\\  
+   Half decade                                                     & x       & x       & x              & x              & x              & x\\  
+   Type of climate action/measure                                  & x       & x       & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                    & 336     & 336     & 336            & 276            & 255            & 255\\  
+   R$^2$                                                           & 0.819   & 0.820   & 0.837          & 0.786          & 0.783          & 0.784\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

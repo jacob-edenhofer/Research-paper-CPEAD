@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                            & (1)     & (2)     & (3)            & (4)            & (5)            & (6)\\  
+                                                                     &  OLS    & OLS     & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Corporatism (core)                                                & 0.174   & 0.198   & 0.235          & 0.129          & 0.291          & 0.314\\   
+                                                                     & (0.307) & (0.350) & (0.289)        & (0.273)        & (0.263)        & (0.258)\\   
+   Absolute avg poll error last 10 days                              & -0.011  & -0.007  & -0.039         & -0.036         & -0.017         & -0.005\\   
+                                                                     & (0.052) & (0.048) & (0.050)        & (0.063)        & (0.060)        & (0.059)\\   
+   Corporatism (core) $\times$ Absolute avg poll error last 10 days  & -0.001  & -0.015  & -0.138         & -0.145$^{*}$   & -0.165$^{**}$  & -0.163$^{**}$\\   
+                                                                     & (0.132) & (0.115) & (0.097)        & (0.079)        & (0.065)        & (0.062)\\   
+   CO2 emissions per capita                                          &         & -0.066  & -0.213$^{***}$ & -0.244$^{***}$ & -0.273$^{***}$ & -0.236$^{***}$\\   
+                                                                     &         & (0.070) & (0.045)        & (0.048)        & (0.040)        & (0.058)\\   
+   GDP per capita (constant 2015 US\$)                               &         &         & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$\\   
+                                                                     &         &         & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                                      &         &         &                & 0.001          & 0.176$^{**}$   & 0.168$^{***}$\\   
+                                                                     &         &         &                & (0.110)        & (0.084)        & (0.045)\\   
+   Tax revenue (\% of GDP)                                           &         &         &                &                & 0.047$^{***}$  & 0.039$^{**}$\\   
+                                                                     &         &         &                &                & (0.014)        & (0.015)\\   
+   Population total                                                  &         &         &                &                &                & 0.000$^{*}$\\   
+                                                                     &         &         &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                           & x       & x       & x              & x              & x              & x\\  
+   Half decade                                                       & x       & x       & x              & x              & x              & x\\  
+   Type of climate action/measure                                    & x       & x       & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                      & 327     & 327     & 327            & 276            & 255            & 255\\  
+   R$^2$                                                             & 0.816   & 0.817   & 0.831          & 0.786          & 0.784          & 0.785\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

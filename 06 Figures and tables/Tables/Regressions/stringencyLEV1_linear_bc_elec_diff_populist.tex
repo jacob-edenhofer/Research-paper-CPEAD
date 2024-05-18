@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                       & (1)           & (2)            & (3)            & (4)            & (5)            & (6)\\  
+                                                                &  OLS          & OLS            & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Bipartite concertation                                       & 0.141$^{*}$   & 0.061          & 0.005          & -0.122$^{**}$  & -0.116$^{**}$  & -0.103$^{**}$\\   
+                                                                & (0.078)       & (0.073)        & (0.071)        & (0.049)        & (0.055)        & (0.047)\\   
+   Absolute avg populist shock                                  & 0.011         & 0.024          & 0.042$^{*}$    & 0.034$^{*}$    & 0.031$^{*}$    & 0.032$^{*}$\\   
+                                                                & (0.025)       & (0.027)        & (0.022)        & (0.018)        & (0.018)        & (0.016)\\   
+   Bipartite concertation $\times$ Absolute avg populist shock  & -0.159$^{**}$ & -0.178$^{***}$ & -0.149$^{***}$ & -0.034         & -0.030         & -0.022\\   
+                                                                & (0.059)       & (0.050)        & (0.044)        & (0.037)        & (0.039)        & (0.036)\\   
+   CO2 emissions per capita                                     &               & -0.406$^{***}$ & -0.555$^{***}$ & -0.524$^{***}$ & -0.537$^{***}$ & -0.530$^{***}$\\   
+                                                                &               & (0.093)        & (0.075)        & (0.089)        & (0.089)        & (0.072)\\   
+   GDP per capita (constant 2015 US\$)                          &               &                & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$\\   
+                                                                &               &                & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                                 &               &                &                & 0.205          & 0.219          & 0.154\\   
+                                                                &               &                &                & (0.195)        & (0.194)        & (0.128)\\   
+   Tax revenue (\% of GDP)                                      &               &                &                &                & -0.024         & -0.047\\   
+                                                                &               &                &                &                & (0.039)        & (0.047)\\   
+   Population total                                             &               &                &                &                &                & 0.000$^{*}$\\   
+                                                                &               &                &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                      & x             & x              & x              & x              & x              & x\\  
+   Half decade                                                  & x             & x              & x              & x              & x              & x\\  
+   Type of climate action/measure                               & x             & x              & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                 & 225           & 225            & 225            & 162            & 162            & 162\\  
+   R$^2$                                                        & 0.818         & 0.835          & 0.852          & 0.789          & 0.789          & 0.791\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

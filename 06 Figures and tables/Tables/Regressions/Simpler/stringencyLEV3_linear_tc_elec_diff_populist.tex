@@ -1,0 +1,36 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                        & (1)     & (2)            & (3)            & (4)            & (5)            & (6)\\  
+                                                                 &  OLS    & OLS            & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Tripartite concertation $\times$ Absolute avg populist shock  & 0.010   & 0.015          & 0.021$^{*}$    & 0.017$^{*}$    & 0.017$^{*}$    & 0.016$^{**}$\\   
+                                                                 & (0.010) & (0.011)        & (0.010)        & (0.009)        & (0.008)        & (0.008)\\   
+   CO2 emissions per capita                                      &         & -0.263$^{***}$ & -0.354$^{***}$ & -0.487$^{***}$ & -0.496$^{***}$ & -0.506$^{***}$\\   
+                                                                 &         & (0.073)        & (0.060)        & (0.087)        & (0.087)        & (0.069)\\   
+   GDP per capita (constant 2015 US\$)                           &         &                & 0.000$^{**}$   & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$\\   
+                                                                 &         &                & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                                  &         &                &                & 0.216          & 0.228          & 0.176\\   
+                                                                 &         &                &                & (0.248)        & (0.239)        & (0.215)\\   
+   Tax revenue (\% of GDP)                                       &         &                &                &                & -0.015         & -0.048\\   
+                                                                 &         &                &                &                & (0.044)        & (0.051)\\   
+   Population total                                              &         &                &                &                &                & 0.000$^{**}$\\   
+                                                                 &         &                &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                       & x       & x              & x              & x              & x              & x\\  
+   Half decade                                                   & x       & x              & x              & x              & x              & x\\  
+   Type of climate action/measure                                & x       & x              & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                  & 3,559   & 3,559          & 3,559          & 2,471          & 2,471          & 2,471\\  
+   R$^2$                                                         & 0.606   & 0.608          & 0.609          & 0.621          & 0.621          & 0.621\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

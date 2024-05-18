@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                     & (1)     & (2)          & (3)            & (4)            & (5)            & (6)\\  
+                                              &  OLS    & OLS          & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   corp\_allsm                                & 0.106   & -0.071       & 0.121          & -0.191         & 0.009          & 0.016\\   
+                                              & (0.270) & (0.364)      & (0.216)        & (0.206)        & (0.250)        & (0.248)\\   
+   Mean elec incumbent                        & 0.020   & 0.018        & 0.010          & 0.010          & 0.021          & 0.021$^{*}$\\   
+                                              & (0.021) & (0.020)      & (0.015)        & (0.015)        & (0.013)        & (0.012)\\   
+   corp\_allsm $\times$ Mean elec incumbent   & 0.027   & 0.013        & -0.014         & -0.024         & -0.032$^{*}$   & -0.033$^{*}$\\   
+                                              & (0.027) & (0.023)      & (0.018)        & (0.018)        & (0.017)        & (0.020)\\   
+   CO2 emissions per capita                   &         & -0.170$^{*}$ & -0.270$^{***}$ & -0.329$^{***}$ & -0.363$^{***}$ & -0.364$^{***}$\\   
+                                              &         & (0.088)      & (0.067)        & (0.073)        & (0.070)        & (0.072)\\   
+   GDP per capita (constant 2015 US\$)        &         &              & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$\\   
+                                              &         &              & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                               &         &              &                & 0.007          & 0.035          & 0.031\\   
+                                              &         &              &                & (0.046)        & (0.040)        & (0.067)\\   
+   Tax revenue (\% of GDP)                    &         &              &                &                & 0.033$^{*}$    & 0.034$^{**}$\\   
+                                              &         &              &                &                & (0.017)        & (0.016)\\   
+   Population total                           &         &              &                &                &                & 0.000\\   
+                                              &         &              &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                    & x       & x            & x              & x              & x              & x\\  
+   Half decade                                & x       & x            & x              & x              & x              & x\\  
+   Type of climate action/measure             & x       & x            & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                               & 1,899   & 1,899        & 1,899          & 1,530          & 1,397          & 1,397\\  
+   R$^2$                                      & 0.655   & 0.657        & 0.663          & 0.674          & 0.673          & 0.673\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

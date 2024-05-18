@@ -1,0 +1,37 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                                & (1)     & (2)            & (3)            & (4)            & (5)            & (6)\\  
+                                                                         &  Logit  & Logit          & Logit          & Logit          & Logit          & Logit\\  
+   \midrule
+   \emph{Variables}\\
+   Union density (historical data)                                       & 0.063   & 0.063          & 0.152$^{**}$   & 0.817$^{***}$  & 0.842$^{***}$  & 4.601$^{***}$\\   
+                                                                         & (0.120) & (0.091)        & (0.068)        & (0.261)        & (0.257)        & (0.478)\\   
+   Absolute avg populist shock                                           & -0.172  & -0.213         & -0.152         & -2.618$^{***}$ & -2.368$^{***}$ & -13.292$^{***}$\\   
+                                                                         & (0.262) & (0.301)        & (0.263)        & (0.753)        & (0.660)        & (1.189)\\   
+   Union density (historical data) $\times$ Absolute avg populist shock  & -0.005  & -0.001         & -0.002         & 0.079$^{***}$  & 0.073$^{***}$  & 0.275$^{***}$\\   
+                                                                         & (0.006) & (0.008)        & (0.007)        & (0.023)        & (0.019)        & (0.021)\\   
+   CO2 emissions per capita                                              &         & -1.548$^{***}$ & -2.010$^{***}$ & -0.451         & -0.200         & -3.548$^{***}$\\   
+                                                                         &         & (0.456)        & (0.498)        & (0.497)        & (0.413)        & (0.213)\\   
+   GDP per capita (constant 2015 US\$)                                   &         &                & 0.000          & 0.001$^{**}$   & 0.001$^{**}$   & 0.007$^{***}$\\   
+                                                                         &         &                & (0.000)        & (0.001)        & (0.001)        & (0.001)\\   
+   Tax revenue (\% of GDP)                                               &         &                &                &                & 0.515          & -2.648$^{***}$\\   
+                                                                         &         &                &                &                & (0.430)        & (0.209)\\   
+   Population total                                                      &         &                &                &                &                & 0.000$^{***}$\\   
+                                                                         &         &                &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                               & x       & x              & x              & x              & x              & x\\  
+   Half decade                                                           & x       & x              & x              & x              & x              & x\\  
+   Type of climate action/measure                                        & x       & x              & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                          & 605     & 605            & 605            & 351            & 351            & 351\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

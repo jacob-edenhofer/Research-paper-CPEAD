@@ -1,0 +1,38 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                                           & (1)          & (2)             & (3)           & (4)           & (5)           & (6)\\  
+                                                                                    &  Logit       & Logit           & Logit         & Logit         & Logit         & Logit\\  
+   \midrule
+   \emph{Variables}\\
+   Adjusted bargaining coverage (historical data)                                   & -0.043$^{*}$ & -0.190$^{***}$  & -0.022        & -0.035        & -0.035        & -0.036\\   
+                                                                                    & (0.024)      & (0.053)         & (0.028)       & (0.034)       & (0.034)       & (0.032)\\   
+   Green party CIP (Gross)                                                          & 3.136        & -77.037$^{***}$ & 3.076         & 4.407         & 4.405         & 3.519\\   
+                                                                                    & (4.358)      & (14.689)        & (5.195)       & (4.591)       & (4.586)       & (4.296)\\   
+   Adjusted bargaining coverage (historical data) $\times$ Green party CIP (Gross)  & -0.012       & 1.008$^{***}$   & -0.018        & -0.056        & -0.056        & -0.048\\   
+                                                                                    & (0.059)      & (0.112)         & (0.070)       & (0.061)       & (0.062)       & (0.058)\\   
+   CO2 emissions per capita                                                         &              & -0.128          & -0.470$^{**}$ & -0.375$^{**}$ & -0.375$^{**}$ & -0.350$^{**}$\\   
+                                                                                    &              & (0.223)         & (0.197)       & (0.182)       & (0.185)       & (0.165)\\   
+   GDP per capita (constant 2015 US\$)                                              &              &                 & 0.000         & 0.000         & 0.000         & 0.000\\   
+                                                                                    &              &                 & (0.000)       & (0.000)       & (0.000)       & (0.000)\\   
+   Tax revenue (\% of GDP)                                                          &              &                 &               &               & -0.001        & 0.014\\   
+                                                                                    &              &                 &               &               & (0.104)       & (0.100)\\   
+   Population total                                                                 &              &                 &               &               &               & 0.000\\   
+                                                                                    &              &                 &               &               &               & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                                          & x            & x               & x             & x             & x             & x\\  
+   Half decade                                                                      & x            & x               & x             & x             & x             & x\\  
+   Type of climate action/measure                                                   & x            & x               & x             & x             & x             & x\\  
+   \midrule \emph{Fit statistics}\\
+   Convergence                                                                      &TRUE          & FALSE           & TRUE          & TRUE          & TRUE          & TRUE\\  
+   Observations                                                                     & 1,764        & 1,764           & 1,764         & 1,419         & 1,419         & 1,419\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

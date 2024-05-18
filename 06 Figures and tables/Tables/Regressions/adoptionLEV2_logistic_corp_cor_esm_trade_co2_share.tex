@@ -1,0 +1,39 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                     & (1)     & (2)     & (3)           & (4)          & (5)         & (6)\\  
+                                              &  Logit  & Logit   & Logit         & Logit        & Logit       & Logit\\  
+   \midrule
+   \emph{Variables}\\
+   corp\_cor\_esm                             & 0.193   & 0.187   & 0.027         & 0.262        & -0.136      & -0.111\\   
+                                              & (0.562) & (0.562) & (0.483)       & (0.603)      & (0.550)     & (0.526)\\   
+   Trade CO2 share                            & 0.003   & 0.002   & -0.001        & 0.002        & 0.003       & 0.003\\   
+                                              & (0.004) & (0.004) & (0.003)       & (0.005)      & (0.006)     & (0.006)\\   
+   corp\_cor\_esm $\times$ Trade CO2 share    & 0.006   & 0.006   & 0.008         & 0.007        & 0.004       & 0.004\\   
+                                              & (0.007) & (0.006) & (0.006)       & (0.006)      & (0.006)     & (0.007)\\   
+   CO2 emissions per capita                   &         & -0.046  & -0.121$^{*}$  & -0.077       & -0.113      & -0.151\\   
+                                              &         & (0.086) & (0.071)       & (0.091)      & (0.104)     & (0.095)\\   
+   GDP per capita (constant 2015 US\$)        &         &         & 0.000$^{***}$ & 0.000$^{**}$ & 0.000$^{*}$ & 0.000$^{**}$\\   
+                                              &         &         & (0.000)       & (0.000)      & (0.000)     & (0.000)\\   
+   Polity score                               &         &         &               & 0.083        & 0.211       & 0.180\\   
+                                              &         &         &               & (0.190)      & (0.227)     & (0.256)\\   
+   Tax revenue (\% of GDP)                    &         &         &               &              & 0.047       & 0.044\\   
+                                              &         &         &               &              & (0.040)     & (0.039)\\   
+   Population total                           &         &         &               &              &             & 0.000\\   
+                                              &         &         &               &              &             & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                    & x       & x       & x             & x            & x           & x\\  
+   Half decade                                & x       & x       & x             & x            & x           & x\\  
+   Type of climate action/measure             & x       & x       & x             & x            & x           & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                               & 9,607   & 9,607   & 9,529         & 8,463        & 7,605       & 7,605\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

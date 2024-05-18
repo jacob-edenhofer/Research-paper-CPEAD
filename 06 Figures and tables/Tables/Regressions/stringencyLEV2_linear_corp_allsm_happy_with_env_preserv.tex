@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                           & (1)     & (2)           & (3)            & (4)            & (5)            & (6)\\  
+                                                                    &  OLS    & OLS           & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   corp\_allsm                                                      & -0.392  & -0.080        & -0.143         & -0.201         & -0.155         & -0.373\\   
+                                                                    & (0.285) & (0.276)       & (0.270)        & (0.316)        & (0.330)        & (0.283)\\   
+   Happiness with environmental preservation                        & -0.137  & -0.130        & -0.054         & 0.712$^{**}$   & 0.782$^{***}$  & 0.826$^{***}$\\   
+                                                                    & (0.282) & (0.259)       & (0.267)        & (0.262)        & (0.257)        & (0.265)\\   
+   corp\_allsm $\times$ Happiness with environmental preservation   & 0.808   & 0.507         & 0.867$^{*}$    & 0.687          & 0.637          & 0.927$^{**}$\\   
+                                                                    & (0.506) & (0.460)       & (0.448)        & (0.447)        & (0.483)        & (0.413)\\   
+   CO2 emissions per capita                                         &         & -0.164$^{**}$ & -0.188$^{***}$ & -0.209$^{***}$ & -0.222$^{***}$ & -0.220$^{***}$\\   
+                                                                    &         & (0.061)       & (0.061)        & (0.049)        & (0.052)        & (0.051)\\   
+   GDP per capita (constant 2015 US\$)                              &         &               & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$\\   
+                                                                    &         &               & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                                     &         &               &                & 0.028$^{**}$   & 0.030$^{**}$   & 0.072$^{**}$\\   
+                                                                    &         &               &                & (0.012)        & (0.012)        & (0.028)\\   
+   Tax revenue (\% of GDP)                                          &         &               &                &                & -0.002         & -0.009\\   
+                                                                    &         &               &                &                & (0.022)        & (0.022)\\   
+   Population total                                                 &         &               &                &                &                & 0.000\\   
+                                                                    &         &               &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                          & x       & x             & x              & x              & x              & x\\  
+   Half decade                                                      & x       & x             & x              & x              & x              & x\\  
+   Type of climate action/measure                                   & x       & x             & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                     & 6,083   & 6,083         & 6,083          & 4,544          & 4,246          & 4,246\\  
+   R$^2$                                                            & 0.622   & 0.625         & 0.626          & 0.655          & 0.652          & 0.653\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

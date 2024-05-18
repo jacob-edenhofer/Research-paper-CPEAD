@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                                      & (1)          & (2)           & (3)            & (4)            & (5)            & (6)\\  
+                                                                               &  OLS         & OLS           & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Union density (interpolated)                                                & -0.030       & -0.023        & -0.004         & 0.013          & 0.009          & -0.001\\   
+                                                                               & (0.021)      & (0.022)       & (0.019)        & (0.010)        & (0.011)        & (0.014)\\   
+   Absolute avg poll error last 10 days                                        & -0.196$^{*}$ & -0.169$^{*}$  & -0.116         & 0.024          & 0.048          & 0.084\\   
+                                                                               & (0.111)      & (0.094)       & (0.091)        & (0.110)        & (0.122)        & (0.120)\\   
+   Union density (interpolated) $\times$ Absolute avg poll error last 10 days  & 0.004        & 0.005$^{*}$   & 0.004          & -0.002         & -0.002         & -0.004\\   
+                                                                               & (0.004)      & (0.003)       & (0.003)        & (0.004)        & (0.004)        & (0.004)\\   
+   CO2 emissions per capita                                                    &              & -0.219$^{**}$ & -0.303$^{***}$ & -0.236$^{***}$ & -0.249$^{***}$ & -0.197$^{***}$\\   
+                                                                               &              & (0.089)       & (0.043)        & (0.045)        & (0.047)        & (0.070)\\   
+   GDP per capita (constant 2015 US\$)                                         &              &               & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{**}$\\   
+                                                                               &              &               & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                                                &              &               &                & 0.014          & 0.090          & 0.117$^{**}$\\   
+                                                                               &              &               &                & (0.072)        & (0.054)        & (0.048)\\   
+   Tax revenue (\% of GDP)                                                     &              &               &                &                & 0.038$^{**}$   & 0.032$^{**}$\\   
+                                                                               &              &               &                &                & (0.016)        & (0.015)\\   
+   Population total                                                            &              &               &                &                &                & 0.000$^{*}$\\   
+                                                                               &              &               &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                                     & x            & x             & x              & x              & x              & x\\  
+   Half decade                                                                 & x            & x             & x              & x              & x              & x\\  
+   Type of climate action/measure                                              & x            & x             & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                                & 384          & 384           & 384            & 297            & 276            & 276\\  
+   R$^2$                                                                       & 0.793        & 0.799         & 0.814          & 0.770          & 0.765          & 0.767\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

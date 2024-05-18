@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                                 & (1)     & (2)            & (3)            & (4)            & (5)            & (6)\\  
+                                                                          &  OLS    & OLS            & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Tripartite concertation                                                & 0.054   & 0.003          & 0.007          & 0.157          & 0.281          & 0.277\\   
+                                                                          & (0.215) & (0.170)        & (0.162)        & (0.213)        & (0.242)        & (0.234)\\   
+   Absolute avg poll error last 10 days                                   & 0.005   & -0.007         & -0.033         & -0.030         & 0.039          & 0.036\\   
+                                                                          & (0.100) & (0.086)        & (0.079)        & (0.112)        & (0.111)        & (0.107)\\   
+   Tripartite concertation $\times$ Absolute avg poll error last 10 days  & 0.001   & 0.027          & 0.033          & 0.013          & -0.017         & -0.016\\   
+                                                                          & (0.064) & (0.057)        & (0.054)        & (0.068)        & (0.072)        & (0.070)\\   
+   CO2 emissions per capita                                               &         & -0.238$^{***}$ & -0.252$^{***}$ & -0.304$^{***}$ & -0.325$^{***}$ & -0.329$^{***}$\\   
+                                                                          &         & (0.058)        & (0.046)        & (0.072)        & (0.077)        & (0.088)\\   
+   GDP per capita (constant 2015 US\$)                                    &         &                & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$\\   
+                                                                          &         &                & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                                           &         &                &                & 0.012          & 0.043          & 0.040\\   
+                                                                          &         &                &                & (0.056)        & (0.052)        & (0.068)\\   
+   Tax revenue (\% of GDP)                                                &         &                &                &                & 0.038$^{**}$   & 0.039$^{**}$\\   
+                                                                          &         &                &                &                & (0.015)        & (0.016)\\   
+   Population total                                                       &         &                &                &                &                & 0.000\\   
+                                                                          &         &                &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                                & x       & x              & x              & x              & x              & x\\  
+   Half decade                                                            & x       & x              & x              & x              & x              & x\\  
+   Type of climate action/measure                                         & x       & x              & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                           & 7,441   & 7,441          & 7,441          & 5,174          & 4,756          & 4,756\\  
+   R$^2$                                                                  & 0.553   & 0.555          & 0.556          & 0.555          & 0.554          & 0.554\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

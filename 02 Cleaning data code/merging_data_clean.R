@@ -90,7 +90,7 @@ for(i in names(capmf_official)){
 }
 
 
-# create new variables (for fixed effects)
+# create new variables (for fixed effects) 
 capmf_official <- capmf_official %>% 
   # delete values for European Union 
   filter(!grepl("European Union", reference_area)) %>%
@@ -104,7 +104,15 @@ capmf_official <- capmf_official %>%
                                  time_period >= 2010 & time_period < 2015 ~ "2010-2014",
                                  time_period >= 2015 & time_period < 2020 ~ "2015-2019",
                                  time_period >= 2020 & time_period <= 2022 ~ "2020-2022",
-                                 TRUE ~ NA))
+                                 TRUE ~ NA)) %>%
+  # lagged values for dependent variables 
+  group_by(ref_area, clim_act_pol) %>%
+  mutate(obs_value1_lag1 = dplyr::lag(obs_value1, 1, order_by = time_period),
+         obs_value1_lag2 = dplyr::lag(obs_value1, 2, order_by = time_period),
+         obs_value1_lag3 = dplyr::lag(obs_value1, 3, order_by = time_period),
+         obs_value1_lag4 = dplyr::lag(obs_value1, 4, order_by = time_period)) %>%
+  ungroup() 
+    
 
 ## 2. Corporatism data
 corporatismusall <- corporatismusall %>%
@@ -151,7 +159,9 @@ polcon_pruned <- polcon_2021_vdem %>%
   select(country_name, iso3c, year, everything())
 
 polcon_post90 <- polcon_pruned %>%
-  filter(year >= 1990)
+  filter(year >= 1990) %>%
+  mutate(across(.cols = everything(), 
+                .fns = ~ifelse(.x == -88, NA, .x)))
 
 ## 6. CPDS data
 cpds <- cpds_1960_2021_update_2023 %>%

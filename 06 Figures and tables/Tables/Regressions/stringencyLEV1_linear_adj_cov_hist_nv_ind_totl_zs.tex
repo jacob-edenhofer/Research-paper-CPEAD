@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                                                     & (1)     & (2)           & (3)            & (4)            & (5)           & (6)\\  
+                                                                                              &  OLS    & OLS           & OLS            & OLS            & OLS           & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Adjusted bargaining coverage (historical data)                                             & 0.006   & 0.003         & 0.000          & -0.001         & -0.001        & -0.001\\   
+                                                                                              & (0.006) & (0.006)       & (0.005)        & (0.004)        & (0.005)       & (0.004)\\   
+   Industry value added (\% of GDP)                                                           & -0.024  & -0.014        & -0.031         & -0.028         & -0.030        & -0.029\\   
+                                                                                              & (0.024) & (0.019)       & (0.019)        & (0.019)        & (0.020)       & (0.021)\\   
+   Adjusted bargaining coverage (historical data) $\times$ Industry value added (\% of GDP)   & 0.000   & 0.000         & 0.000          & 0.000          & 0.000         & 0.000\\   
+                                                                                              & (0.000) & (0.000)       & (0.000)        & (0.000)        & (0.000)       & (0.000)\\   
+   CO2 emissions per capita                                                                   &         & -0.146$^{**}$ & -0.165$^{***}$ & -0.131$^{***}$ & -0.137$^{**}$ & -0.140$^{**}$\\   
+                                                                                              &         & (0.062)       & (0.049)        & (0.046)        & (0.051)       & (0.056)\\   
+   GDP per capita (constant 2015 US\$)                                                        &         &               & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$ & 0.000$^{***}$\\   
+                                                                                              &         &               & (0.000)        & (0.000)        & (0.000)       & (0.000)\\   
+   Polity score                                                                               &         &               &                & 0.010          & 0.004         & 0.001\\   
+                                                                                              &         &               &                & (0.024)        & (0.027)       & (0.028)\\   
+   Tax revenue (\% of GDP)                                                                    &         &               &                &                & 0.004         & 0.003\\   
+                                                                                              &         &               &                &                & (0.011)       & (0.011)\\   
+   Population total                                                                           &         &               &                &                &               & 0.000\\   
+                                                                                              &         &               &                &                &               & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                                                    & x       & x             & x              & x              & x             & x\\  
+   Half decade                                                                                & x       & x             & x              & x              & x             & x\\  
+   Type of climate action/measure                                                             & x       & x             & x              & x              & x             & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                                               & 2,031   & 2,031         & 2,031          & 1,635          & 1,449         & 1,449\\  
+   R$^2$                                                                                      & 0.777   & 0.784         & 0.790          & 0.726          & 0.725         & 0.725\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

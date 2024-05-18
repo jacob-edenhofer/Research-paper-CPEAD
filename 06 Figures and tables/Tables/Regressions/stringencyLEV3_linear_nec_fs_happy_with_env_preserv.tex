@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                       & (1)     & (2)            & (3)            & (4)            & (5)            & (6)\\  
+                                                                &  OLS    & OLS            & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   nec\_fs                                                      & 0.070   & 0.039          & 0.072          & 0.413$^{**}$   & 0.429$^{***}$  & 0.321$^{*}$\\   
+                                                                & (0.161) & (0.141)        & (0.147)        & (0.152)        & (0.151)        & (0.188)\\   
+   Happiness with environmental preservation                    & -0.702  & -0.704         & -0.486         & 1.512$^{***}$  & 1.544$^{***}$  & 1.439$^{***}$\\   
+                                                                & (0.521) & (0.552)        & (0.591)        & (0.473)        & (0.486)        & (0.469)\\   
+   nec\_fs $\times$ Happiness with environmental preservation   & -0.012  & 0.011          & -0.033         & -0.290$^{***}$ & -0.270$^{***}$ & -0.220$^{**}$\\   
+                                                                & (0.106) & (0.112)        & (0.117)        & (0.098)        & (0.095)        & (0.094)\\   
+   CO2 emissions per capita                                     &         & -0.118$^{***}$ & -0.127$^{***}$ & -0.147$^{***}$ & -0.165$^{***}$ & -0.159$^{***}$\\   
+                                                                &         & (0.033)        & (0.034)        & (0.035)        & (0.037)        & (0.035)\\   
+   GDP per capita (constant 2015 US\$)                          &         &                & 0.000          & 0.000$^{***}$  & 0.000$^{**}$   & 0.000$^{*}$\\   
+                                                                &         &                & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                                 &         &                &                & 0.032$^{**}$   & 0.037$^{***}$  & 0.109$^{***}$\\   
+                                                                &         &                &                & (0.012)        & (0.012)        & (0.029)\\   
+   Tax revenue (\% of GDP)                                      &         &                &                &                & -0.021         & -0.019\\   
+                                                                &         &                &                &                & (0.019)        & (0.020)\\   
+   Population total                                             &         &                &                &                &                & 0.000$^{**}$\\   
+                                                                &         &                &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                      & x       & x              & x              & x              & x              & x\\  
+   Half decade                                                  & x       & x              & x              & x              & x              & x\\  
+   Type of climate action/measure                               & x       & x              & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                 & 21,213  & 21,213         & 21,213         & 13,912         & 13,084         & 13,084\\  
+   R$^2$                                                        & 0.570   & 0.571          & 0.571          & 0.590          & 0.592          & 0.592\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

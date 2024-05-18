@@ -1,0 +1,39 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                                    & (1)           & (2)          & (3)            & (4)            & (5)            & (6)\\  
+                                                                             &  Logit        & Logit        & Logit          & Logit          & Logit          & Logit\\  
+   \midrule
+   \emph{Variables}\\
+   corpo\_f\_cor\_esm                                                        & -1.747        & -1.304       & -1.131         & 0.246          & -0.269         & -1.557\\   
+                                                                             & (1.258)       & (1.227)      & (1.341)        & (1.925)        & (1.775)        & (1.445)\\   
+   Happiness with environmental preservation                                 & -2.370$^{**}$ & -2.039       & -1.669         & 1.164          & 1.765          & 1.698\\   
+                                                                             & (1.205)       & (1.378)      & (1.536)        & (1.513)        & (1.616)        & (1.548)\\   
+   corpo\_f\_cor\_esm $\times$ Happiness with environmental preservation     & 1.015         & 0.775        & 1.736          & 0.769          & 1.677          & 2.803$^{*}$\\   
+                                                                             & (1.325)       & (1.289)      & (1.464)        & (2.149)        & (2.030)        & (1.634)\\   
+   CO2 emissions per capita                                                  &               & -0.356$^{*}$ & -0.556$^{***}$ & -0.873$^{***}$ & -0.985$^{***}$ & -0.920$^{***}$\\   
+                                                                             &               & (0.207)      & (0.185)        & (0.238)        & (0.270)        & (0.249)\\   
+   GDP per capita (constant 2015 US\$)                                       &               &              & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$  & 0.000$^{***}$\\   
+                                                                             &               &              & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                                              &               &              &                & 0.549$^{***}$  & 0.515$^{***}$  & 0.479$^{**}$\\   
+                                                                             &               &              &                & (0.182)        & (0.184)        & (0.193)\\   
+   Tax revenue (\% of GDP)                                                   &               &              &                &                & -0.057         & -0.032\\   
+                                                                             &               &              &                &                & (0.090)        & (0.090)\\   
+   Population total                                                          &               &              &                &                &                & 0.000\\   
+                                                                             &               &              &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                                   & x             & x            & x              & x              & x              & x\\  
+   Half decade                                                               & x             & x            & x              & x              & x              & x\\  
+   Type of climate action/measure                                            & x             & x            & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                              & 2,817         & 2,817        & 2,817          & 2,097          & 1,953          & 1,953\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

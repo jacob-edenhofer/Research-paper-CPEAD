@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                       & (1)     & (2)            & (3)            & (4)            & (5)            & (6)\\  
+                                                                &  OLS    & OLS            & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   nuc\_fs                                                      & 0.023   & 0.090          & 0.084          & 0.128          & 0.116          & 0.132\\   
+                                                                & (0.091) & (0.094)        & (0.096)        & (0.081)        & (0.086)        & (0.086)\\   
+   Happiness with environmental preservation                    & -0.399  & -0.312         & -0.209         & 0.893$^{*}$    & 0.853$^{*}$    & 1.059$^{**}$\\   
+                                                                & (0.619) & (0.595)        & (0.585)        & (0.485)        & (0.471)        & (0.443)\\   
+   nuc\_fs $\times$ Happiness with environmental preservation   & -0.182  & -0.207         & -0.213         & -0.169         & -0.142         & -0.189\\   
+                                                                & (0.154) & (0.147)        & (0.142)        & (0.128)        & (0.129)        & (0.125)\\   
+   CO2 emissions per capita                                     &         & -0.145$^{***}$ & -0.155$^{***}$ & -0.168$^{***}$ & -0.179$^{***}$ & -0.179$^{***}$\\   
+                                                                &         & (0.045)        & (0.046)        & (0.042)        & (0.044)        & (0.043)\\   
+   GDP per capita (constant 2015 US\$)                          &         &                & 0.000$^{**}$   & 0.000$^{**}$   & 0.000          & 0.000\\   
+                                                                &         &                & (0.000)        & (0.000)        & (0.000)        & (0.000)\\   
+   Polity score                                                 &         &                &                & -0.084$^{**}$  & -0.060$^{*}$   & -0.009\\   
+                                                                &         &                &                & (0.031)        & (0.030)        & (0.042)\\   
+   Tax revenue (\% of GDP)                                      &         &                &                &                & -0.019         & -0.022\\   
+                                                                &         &                &                &                & (0.019)        & (0.019)\\   
+   Population total                                             &         &                &                &                &                & 0.000\\   
+                                                                &         &                &                &                &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                      & x       & x              & x              & x              & x              & x\\  
+   Half decade                                                  & x       & x              & x              & x              & x              & x\\  
+   Type of climate action/measure                               & x       & x              & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                 & 48,720  & 48,720         & 48,720         & 31,424         & 29,353         & 29,353\\  
+   R$^2$                                                        & 0.617   & 0.618          & 0.618          & 0.645          & 0.649          & 0.649\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

@@ -1,0 +1,38 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+   Model:                                                       & (1)     & (2)          & (3)          & (4)           & (5)           & (6)\\  
+                                                                &  OLS    & OLS          & OLS          & OLS           & OLS           & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Union density (interpolated)                                 & -0.019  & -0.020$^{*}$ & -0.024       & -0.034$^{*}$  & -0.033$^{*}$  & -0.032$^{*}$\\   
+                                                                & (0.011) & (0.010)      & (0.015)      & (0.016)       & (0.015)       & (0.015)\\   
+   Green party CIP (Net)                                        & 0.118   & 0.324        & 0.286        & 1.183         & 1.134         & 1.149\\   
+                                                                & (0.910) & (0.991)      & (0.866)      & (0.882)       & (0.806)       & (0.725)\\   
+   Union density (interpolated) $\times$ Green party CIP (Net)  & -0.013  & -0.018       & -0.019       & -0.039        & -0.039$^{*}$  & -0.039$^{*}$\\   
+                                                                & (0.020) & (0.021)      & (0.021)      & (0.021)       & (0.020)       & (0.019)\\   
+   CO2 emissions per capita                                     &         & -0.057$^{*}$ & -0.054$^{*}$ & -0.064$^{**}$ & -0.062$^{**}$ & -0.065$^{**}$\\   
+                                                                &         & (0.025)      & (0.024)      & (0.021)       & (0.021)       & (0.020)\\   
+   GDP per capita (constant 2015 US\$)                          &         &              & 0.000        & 0.000         & 0.000         & 0.000\\   
+                                                                &         &              & (0.000)      & (0.000)       & (0.000)       & (0.000)\\   
+   Tax revenue (\% of GDP)                                      &         &              &              &               & 0.017         & 0.016\\   
+                                                                &         &              &              &               & (0.013)       & (0.013)\\   
+   Population total                                             &         &              &              &               &               & 0.000\\   
+                                                                &         &              &              &               &               & (0.000)\\   
+   \emph{Fixed effects}\\
+   Country                                                      & x       & x            & x            & x             & x             & x\\  
+   Half decade                                                  & x       & x            & x            & x             & x             & x\\  
+   Type of climate action/measure                               & x       & x            & x            & x             & x             & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                 & 9,835   & 9,835        & 9,835        & 8,858         & 8,858         & 8,858\\  
+   R$^2$                                                        & 0.595   & 0.595        & 0.595        & 0.596         & 0.596         & 0.596\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

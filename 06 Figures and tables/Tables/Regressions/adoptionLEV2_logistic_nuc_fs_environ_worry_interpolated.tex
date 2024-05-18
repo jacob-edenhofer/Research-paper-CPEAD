@@ -1,0 +1,39 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{6}{c}{obs\_value1}\\
+   Model:                                            & (1)     & (2)     & (3)     & (4)     & (5)            & (6)\\  
+                                                     &  Logit  & Logit   & Logit   & Logit   & Logit          & Logit\\  
+   \midrule
+   \emph{Variables}\\
+   nuc\_fs                                           & -0.971  & -0.879  & -1.166  & -1.134  & 1.029          & -0.145\\   
+                                                     & (1.986) & (2.043) & (2.433) & (2.494) & (3.113)        & (3.683)\\   
+   environ\_worry\_interpolated                      & -0.009  & -0.006  & -0.017  & -0.015  & 0.047          & 0.014\\   
+                                                     & (0.043) & (0.046) & (0.066) & (0.070) & (0.081)        & (0.099)\\   
+   nuc\_fs $\times$ environ\_worry\_interpolated     & 0.008   & 0.006   & 0.011   & 0.010   & -0.024         & -0.003\\   
+                                                     & (0.031) & (0.032) & (0.039) & (0.041) & (0.051)        & (0.061)\\   
+   co2\_per\_capita                                  &         & -0.124  & -0.144  & -0.140  & -0.380$^{***}$ & -0.406$^{***}$\\   
+                                                     &         & (0.225) & (0.230) & (0.229) & (0.108)        & (0.116)\\   
+   ny\_gdp\_pcap\_kd                                 &         &         & 0.000   & 0.000   & 0.000          & 0.000\\   
+                                                     &         &         & (0.000) & (0.000) & (0.000)        & (0.000)\\   
+   polityfrompolity                                  &         &         &         & -0.129  & -0.364         & -0.318\\   
+                                                     &         &         &         & (0.512) & (0.525)        & (0.557)\\   
+   gc\_tax\_totl\_gd\_zs                             &         &         &         &         & 0.072          & 0.082\\   
+                                                     &         &         &         &         & (0.093)        & (0.095)\\   
+   sp\_pop\_totl                                     &         &         &         &         &                & 0.000$^{**}$\\   
+                                                     &         &         &         &         &                & (0.000)\\   
+   \emph{Fixed effects}\\
+   iso3c                                             & x       & x       & x       & x       & x              & x\\  
+   half\_decade                                      & x       & x       & x       & x       & x              & x\\  
+   clim\_act\_pol                                    & x       & x       & x       & x       & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                      & 1,782   & 1,782   & 1,782   & 1,782   & 1,595          & 1,595\\  
+   \midrule
+   \multicolumn{7}{l}{\emph{Clustered (iso3c) standard-errors in parentheses}}\\
+   \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+
