@@ -243,8 +243,8 @@ var_dict <- c(
 corporatism <- c("corp_all", "corp_allsm", "corp_core", "bc", "tc", "nec_fs", "nuc_fs")
 variables <- c("openc", "ne_trd_gnfs_zs", "eco_cip_net", "eco_cip_gross", "happy_with_env_preserv", 
                "elec_diff_abs_last10d", "elec_diff_populist", "elec_diff_market", 
-               "elec_diff_incumbent", "elec_diff_lib", "nv_ind_manf_zs", "nv_ind_totl_zs", 
-               "nv_ind_totl_kd", "trade_co2_share")
+               "elec_diff_incumbent", "elec_diff_lib", "nv_ind_manf_zs", 
+               "nv_ind_totl_zs", "trade_co2_share")
 
 ## modify var_dict to include interaction terms 
 for (k in corporatism){
@@ -253,148 +253,157 @@ for (k in corporatism){
   }
 }
 
+################################
+# Descriptive analysis 
+################################
 
-###########################
-# Regressions
-###########################
-
-
-## extract regressions with significant interaction terms from capmf_analysis_exploratory script
-regs_sign_list <- list.files(here("06 Figures and tables", "Tables", "Regressions", "Simpler"))
-regs_sign_list_relevant <- regs_sign_list[!grepl("adjucov|ud_|corp_cor_esm|corp_f_core", regs_sign_list)]
-modified_strings <- gsub("_linear_", "-", gsub("\\.tex", "", regs_sign_list_relevant))
-
-## create a dataframe with the interaction terms
-exploratory_sum_df <- tibble(id = modified_strings) %>%
-  separate(id, into = c("dataset", "interaction_term"), sep = "-") %>%
-  group_by(interaction_term) %>%
-  mutate(n = n()) %>%
-  arrange(desc(n)) %>%
-  ungroup() %>%
-  # split interaction terms into two using the corporatism and variables vector to match the names
-  mutate(corporatism_var = str_extract(interaction_term, paste(corporatism, collapse = "|")),
-         variable_var = str_extract(interaction_term, paste(variables, collapse = "|"))) %>%
-  filter(!is.na(corporatism_var)) %>%
-  filter(!is.na(variable_var))
+## write descriptive stats function 
+descrip_stats <- function(dataset, var_dict){
+  data_cleaned <- dataset %>%
+    mutate(eu = ifelse(eu == 1, "EU", "Non-EU")) %>%
+    select(all_of(names(var_dict))) %>%
+    rename_with(~ var_dict[.], .cols = everything())
   
-## create list of datasets 
-list_of_datasets <- mget(ls(), envir = globalenv())
-list_of_datasets <- list_of_datasets[sapply(list_of_datasets, is.data.frame)]
-list_oecd <- list_of_datasets[grep("^(?!.*oecd_merged).*oecd.*$", names(list_of_datasets), perl = T)]
-
-
-###### Baseline specifications ######
-
-## Use exploratory_sum_df to run the baseline specifications for the relevant interactions terms 
-## write loop to run the baseline specifications for the relevant interaction terms and datasets
-baseline_models <- list()
-for(i in 1:nrow(exploratory_sum_df)){
-  no_interaction <- exploratory_sum_df$n[i]
-  if(no_interaction <= 1){
-    next
-  } else {
-    var1 <- exploratory_sum_df$corporatism_var[i]
-    var2 <- exploratory_sum_df$variable_var[i]
-    dataset_string <- exploratory_sum_df$dataset[i]
-    formatted_strings <- sub("^(adoption|stringency)(LEV)(\\d+)$", "\\1_\\2\\3", dataset_string)
-    dataset_name <- paste0("oecd_", formatted_strings)
-    # print(dataset_name)
-    dataset <- list_oecd[[dataset_name]]
-    # lag all covariates
-    dataset <- dataset %>%
-      group_by(iso3c, clim_act_pol) %>%
-      # check that this has worked 
-      mutate(across(
-        .cols = c(var1, var2, "co2_per_capita", "ny_gdp_pcap_kd", "polityfrompolity", "gc_tax_totl_gd_zs", "sp_pop_totl"),
-        .fns = ~ lag(.x, 1, order_by = time_period),
-        .names = "{.col}_lag1"  # Names the new columns with a _lag1 suffix
-      )) %>%
-      ungroup()
-    # create regression formulae  
-    formula1 <- as.formula(paste0("obs_value1 ~ ", paste0(var1, "_lag1"), "*", paste0(var2, "_lag1"), " + csw0(co2_per_capita_lag1, ny_gdp_pcap_kd_lag1, polityfrompolity_lag1, gc_tax_totl_gd_zs_lag1, sp_pop_totl_lag1, obs_value1_lag4) | iso3c + half_decade + clim_act_pol"))
-    formula2 <- as.formula(paste0("obs_value1 ~ ", var1, "*clim_act_pol + ", var2, " + csw0(co2_per_capita_lag1, ny_gdp_pcap_kd_lag1, polityfrompolity_lag1, gc_tax_totl_gd_zs_lag1, sp_pop_totl_lag1, obs_value1_lag4) | iso3c + half_decade"))
-    baseline_models[[paste0("row_", i, "V1")]] <-  feols(formula1, vcov = ~iso3c + half_decade, data = dataset)
-    print(modelsummary(baseline_models[[paste0("row_", i, "V1")]], estimate = "{estimate}{stars}"))
-    baseline_models[[paste0("row_", i, "V2")]] <-  feols(formula2, vcov = ~iso3c + half_decade, data = dataset)
-    print(modelsummary(baseline_models[[paste0("row_", i, "V2")]], estimate = "{estimate}{stars}"))
+  # Attempt to handle tinytable conversion here if needed:
+  main_table <- data_cleaned %>%
+    datasummary(All(.) ~ (Mean + SD + Min + P25 + P75 + Max + N + PercentMissing),
+                data = ., output = "data.frame")  # Ensure output as data frame
+  
+  # Save main table using kable and save_kable
+  kable_path <- paste0(here(), "/06 Figures and tables/Tables/Summary statistics/main_table_", deparse(substitute(dataset)), ".tex")
+  save_kable(kable(main_table, format = "latex", longtable = TRUE, booktabs = TRUE), file = kable_path)
+  
+  # create list for splitting tables by dichotomous variables 
+  additional_tables <- list()
+  
+  # Generate specific summaries for binary factors
+  for(i in names(data_cleaned)){
+    no_levels <- nlevels(factor(data_cleaned[[i]]))
+    if(no_levels == 2){
+      formula_string <- sprintf("All(data_cleaned) ~ Factor(`%s`)*(Mean + SD + Min + Max + N + PercentMissing + NUnique)", i)
+      formula <- as.formula(formula_string)
+      table <- datasummary(formula, data = data_cleaned, output = "data.frame")  # Ensure output as data frame
+      additional_tables[[i]] <- table
+      
+      # Saving each table
+      kable_path <- paste0(here(), "/06 Figures and tables/Tables/Summary statistics/table_", i, "_", deparse(substitute(dataset)), ".tex")
+      save_kable(kable(table, format = "latex", longtable = TRUE, booktabs = TRUE), file = kable_path)
+    }
   }
+  
+  return(list(main_table = main_table, additional_tables = additional_tables))
 }
 
+# Filter only data frames for processing
+list_of_datasets <- mget(ls(), envir = globalenv())
+list_of_datasets <- list_of_datasets[sapply(list_of_datasets, is.data.frame)]
 
-## TBD: Save regs (modify var_dict and add adoption regressions)
-
-
-######## Adoption ##############
-
-
-# TBD
-
+# Apply the function safely using purrr::safely to capture and handle errors
+safe_descrip_stats <- purrr::safely(descrip_stats)
+results <- purrr::map(list_of_datasets, ~safe_descrip_stats(.x, var_dict))
 
 
+################################################
+# Regressions (takes a rather long time to run)
+################################################
+
+# models_list <- list()
+# 
+# # Define function to run regressions, now including var_dict for etable
+# reg_capmf <- function(data_type, dataset, var_dict){
+#   if (grepl("adoption", data_type)) {
+#     dataset <- dataset %>% mutate(obs_value1 = ifelse(obs_value1 > 0, 1, 0))
+#     model_function <- feglm
+#     model_type <- "logistic"
+#   } else {
+#     model_function <- feols
+#     model_type <- "linear"
+#   }
+#   
+#   for (j in corporatism) {
+#     for (i in variables) {
+#       formula <- as.formula(paste0("obs_value1 ~ ", j, "*", i, " + csw0(co2_per_capita, ny_gdp_pcap_kd, polityfrompolity, 
+#                                    gc_tax_totl_gd_zs, sp_pop_totl) | iso3c + half_decade + clim_act_pol"))
+#       model_name <- paste(data_type, model_type, j, i, sep = "_")
+#       if (model_type == "logistic") {
+#         models_list[[model_name]] <- model_function(formula, data = dataset, family = "logit")
+#       } else {
+#         models_list[[model_name]] <- model_function(formula, data = dataset)
+#       }
+#       table_path <- file.path(here("06 Figures and tables", "Tables", "Regressions"), paste(model_name, "tex", sep = "."))
+#       etable(models_list[[model_name]], 
+#              tex = T, 
+#              replace = T,
+#              dict = var_dict,
+#              file = table_path)
+#     }
+#   }
+#   return(models_list)
+# }
+# 
+# safe_reg_capmf <- purrr::safely(reg_capmf)
+# list_reg <- list_of_datasets[!grepl("merged", names(list_of_datasets))]
+# safe_reg_capmf("adoptionLEV1", list_reg[[1]], var_dict)
+# safe_reg_capmf("adoptionLEV2", list_reg[[2]], var_dict)
+# safe_reg_capmf("stringencyLEV1", list_reg[[3]], var_dict)
+# safe_reg_capmf("stringencyLEV2", list_reg[[4]], var_dict)
+# safe_reg_capmf("stringencyLEV3", list_reg[[5]], var_dict)
+# safe_reg_capmf("stringencyLEV4", list_reg[[6]], var_dict)
 
 
 ################################
-# Robustness checks 
+# Pruned version of above regs
 ################################
 
+models_list <- list()
 
+reg_capmf <- function(data_type, dataset, var_dict) {
+  if (grepl("adoption", data_type)) {
+    dataset <- dataset %>% mutate(obs_value1 = ifelse(obs_value1 > 0, 1, 0))
+    model_function <- feglm
+    model_type <- "logistic"
+  } else {
+    model_function <- feols
+    model_type <- "linear"
+  }
+  
+  for (j in corporatism) {
+    for (i in variables) {
+      interaction_term <- paste(j, i, sep = ":")
+      formula <- as.formula(paste0("obs_value1 ~ ", interaction_term, " + csw0(co2_per_capita, ny_gdp_pcap_kd, polityfrompolity, 
+                                   gc_tax_totl_gd_zs, sp_pop_totl) | iso3c + half_decade + clim_act_pol"))
+      model_name <- paste(data_type, model_type, j, i, sep = "_")
+      if (model_type == "logistic") {
+        model <- model_function(formula, data = dataset, family = "logit")
+      } else {
+        model <- model_function(formula, data = dataset)
+      }
+      models_list[[model_name]] <- model
+      
+      # Extract summary and check p-value of the interaction term
+      coef_table <- coeftable(models_list[[model_name]]) %>% clean_names()
+      interaction_p_value <- coef_table[coef_table$coefficient == interaction_term, "pr_t"]
+      
+      # potentially, replace with all() condition 
+      if (any(interaction_p_value < 0.1, na.rm = TRUE)) {
+        print(paste("Significant interaction found in model:", model_name))
+        table_path <- file.path(here("06 Figures and tables", "Tables", "Regressions", "Simpler"), paste(model_name, "tex", sep = "."))
+        etable(model, 
+               tex = TRUE, 
+               replace = TRUE, 
+               dict = var_dict, 
+               file = table_path)
+      }
+    }
+  }
+  return(models_list)
+}
 
-# different standard errors for baseline specification 
-
-
-# jacknife procedure (drop countries and then policy areas); produce histogram of estimates 
-
-
-
-
-# different samples (EU members, motivate by common climate policy)
-
-
-
-
-# lagged dependent variables (different lags)
-
-
-# different lags of independent variables 
-
-
-# different covariates (with less theoretical motivation)
-
-
-
-
-# logit vs lmp for adoption regressions 
-
-
-
-
-
-# create variable of relative number of union conferedations vis-a-vis employers 
-## nuc_fs - nuc_fes / nuc_fs + nuc_fes
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+safe_reg_capmf <- purrr::safely(reg_capmf)
+list_reg <- list_of_datasets[!grepl("merged", names(list_of_datasets))]
+safe_reg_capmf("stringencyLEV1", list_reg[[3]], var_dict)
+safe_reg_capmf("stringencyLEV2", list_reg[[4]], var_dict)
+safe_reg_capmf("stringencyLEV3", list_reg[[5]], var_dict)
+safe_reg_capmf("stringencyLEV4", list_reg[[6]], var_dict)
 
 

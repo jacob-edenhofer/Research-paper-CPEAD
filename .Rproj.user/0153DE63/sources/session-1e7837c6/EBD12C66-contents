@@ -322,6 +322,7 @@ for(i in 1:nrow(exploratory_sum_df)){
 
 
 ## TBD: Save regs (modify var_dict and add adoption regressions)
+### Include electoral disproportionality vars in reg?
 
 
 ######## Adoption ##############
