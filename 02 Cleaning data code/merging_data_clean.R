@@ -165,7 +165,7 @@ polcon_post90 <- polcon_pruned %>%
 
 ## 6. CPDS data
 cpds <- cpds_1960_2021_update_2023 %>%
-  select(country, year, eu, emu, grep("^ud|netu|openc|gdp", 
+  select(country, year, eu, emu, grep("^ud|netu|openc|gdp|dis_|rae_|elderly|training", 
                                       names(cpds_1960_2021_update_2023))) %>%
   mutate(iso3c = countrycode(country, "country.name", "iso3c")) %>%
   select(country, iso3c, year, everything())

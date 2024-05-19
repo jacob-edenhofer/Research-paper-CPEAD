@@ -231,6 +231,13 @@ var_dict <- c(
   "nomgdpgr" = "Nominal GDP growth",
   "realgdpgr" = "Real GDP growth",
   "eu" = "EU membership",
+  "elderly" = "Share of population >65",
+  "rae_ele" = "Rae electoral fractionalisation",
+  "rae_leg" = "Rae legislative fractionalisation",
+  "dis_abso" = "Index of absolute disproportionality",
+  "dis_rel" = "Index of relative disproportionality",
+  "dis_gall" = "Gallagher index of disproportionality",
+  "training_pmp" = "Labour market training as % of GDP",
   "happy_with_env_preserv" = "Happiness with environmental preservation",
   "environ_worry_interpolated" = "Environmental worry (interpolated)",
   "half_decade" = "Half decade",
@@ -240,9 +247,9 @@ var_dict <- c(
 )
 
 ## modify var_dict to include the interaction terms between the variables listed below 
-corporatism <- c("corp_all", "corp_allsm", "corp_core", "bc", "tc", "nec_fs", "nuc_fs")
+corporatism <- c("corp_all", "corp_allsm", "bc", "tc", "nec_fs", "nuc_fs")
 variables <- c("openc", "ne_trd_gnfs_zs", "eco_cip_net", "eco_cip_gross", "happy_with_env_preserv", 
-               "elec_diff_abs_last10d", "elec_diff_populist", "elec_diff_market", 
+               "dis_gall", "elec_diff_populist", "elec_diff_market", 
                "elec_diff_incumbent", "elec_diff_lib", "nv_ind_manf_zs", "nv_ind_totl_zs", 
                "nv_ind_totl_kd", "trade_co2_share")
 
@@ -261,7 +268,7 @@ for (k in corporatism){
 
 ## extract regressions with significant interaction terms from capmf_analysis_exploratory script
 regs_sign_list <- list.files(here("06 Figures and tables", "Tables", "Regressions", "Simpler"))
-regs_sign_list_relevant <- regs_sign_list[!grepl("adjucov|ud_|corp_cor_esm|corp_f_core", regs_sign_list)]
+regs_sign_list_relevant <- regs_sign_list[!grepl("adjucov|ud_|corp_cor_esm|corp_f_core|elec_diff", regs_sign_list)]
 modified_strings <- gsub("_linear_", "-", gsub("\\.tex", "", regs_sign_list_relevant))
 
 ## create a dataframe with the interaction terms
@@ -305,31 +312,50 @@ for(i in 1:nrow(exploratory_sum_df)){
       group_by(iso3c, clim_act_pol) %>%
       # check that this has worked 
       mutate(across(
-        .cols = c(var1, var2, "co2_per_capita", "ny_gdp_pcap_kd", "polityfrompolity", "gc_tax_totl_gd_zs", "sp_pop_totl"),
+        .cols = c(var1, var2, "co2_per_capita", "ny_gdp_pcap_kd", "polconiii_vdem", "gc_tax_totl_gd_zs", "sp_pop_totl"),
         .fns = ~ lag(.x, 1, order_by = time_period),
         .names = "{.col}_lag1"  # Names the new columns with a _lag1 suffix
       )) %>%
       ungroup()
+    # check if var1 has at most four levels; if so, turn it into a factor
+    if(length(unique(dataset[[paste0(var1, "_lag1")]])) <= 4){
+      dataset[[paste0(var1, "_lag1")]] <- as.factor(dataset[[paste0(var1, "_lag1")]])
+    }
     # create regression formulae  
-    formula1 <- as.formula(paste0("obs_value1 ~ ", paste0(var1, "_lag1"), "*", paste0(var2, "_lag1"), " + csw0(co2_per_capita_lag1, ny_gdp_pcap_kd_lag1, polityfrompolity_lag1, gc_tax_totl_gd_zs_lag1, sp_pop_totl_lag1, obs_value1_lag4) | iso3c + half_decade + clim_act_pol"))
-    formula2 <- as.formula(paste0("obs_value1 ~ ", var1, "*clim_act_pol + ", var2, " + csw0(co2_per_capita_lag1, ny_gdp_pcap_kd_lag1, polityfrompolity_lag1, gc_tax_totl_gd_zs_lag1, sp_pop_totl_lag1, obs_value1_lag4) | iso3c + half_decade"))
+    formula1 <- as.formula(paste0("obs_value1 ~ ", paste0(var1, "_lag1"), "*", paste0(var2, "_lag1"), " + csw0(co2_per_capita_lag1, ny_gdp_pcap_kd_lag1, gc_tax_totl_gd_zs_lag1, sp_pop_totl_lag1, elderly, polconiii_vdem_lag1, obs_value1_lag4) | iso3c + half_decade + clim_act_pol"))
+    formula2 <- as.formula(paste0("obs_value1 ~ ", var1, "*clim_act_pol + ", var2, " + csw0(co2_per_capita_lag1, ny_gdp_pcap_kd_lag1, gc_tax_totl_gd_zs_lag1, sp_pop_totl_lag1, elderly, polconiii_vdem_lag1, obs_value1_lag4) | iso3c + half_decade"))
     baseline_models[[paste0("row_", i, "V1")]] <-  feols(formula1, vcov = ~iso3c + half_decade, data = dataset)
     print(modelsummary(baseline_models[[paste0("row_", i, "V1")]], estimate = "{estimate}{stars}"))
-    baseline_models[[paste0("row_", i, "V2")]] <-  feols(formula2, vcov = ~iso3c + half_decade, data = dataset)
-    print(modelsummary(baseline_models[[paste0("row_", i, "V2")]], estimate = "{estimate}{stars}"))
+    # baseline_models[[paste0("row_", i, "V2")]] <-  feols(formula2, vcov = ~iso3c + half_decade, data = dataset)
+    # print(modelsummary(baseline_models[[paste0("row_", i, "V2")]], estimate = "{estimate}{stars}"))
   }
 }
 
 
+## baseline models for the relevant interaction terms
+## create lagged variables for the relevant interaction terms
+oecd_stringency_LEV2 <- oecd_stringency_LEV2 %>%
+  mutate(bc = as.factor(bc), 
+         tc = as.factor(tc)) %>%
+  group_by(iso3c, clim_act_pol) %>%
+  mutate(across(
+    .cols = c(corporatism, "nv_ind_totl_zs", "co2_per_capita", "ny_gdp_pcap_kd", "polconiii_vdem", "gc_tax_totl_gd_zs", "elderly", "sp_pop_totl"),
+    .fns = ~ lag(.x, 1, order_by = time_period),
+    .names = "{.col}_lag1"  # Names the new columns with a _lag1 suffix
+  )) %>%
+  ungroup() 
+  
+## save baseline models for the relevant interaction terms
+baseline_models_short <- list(feols(obs_value1 ~ corp_allsm*openc + csw0(co2_per_capita_lag1, ny_gdp_pcap_kd_lag1, gc_tax_totl_gd_zs_lag1, sp_pop_totl_lag1, elderly_lag1, polconiii_vdem_lag1, obs_value1_lag4) | iso3c + half_decade + clim_act_pol, data = oecd_stringency_LEV2),
+                              feols(obs_value1 ~ corp_allsm*nv_ind_manf_zs + csw0(co2_per_capita_lag1, ny_gdp_pcap_kd_lag1, gc_tax_totl_gd_zs_lag1, sp_pop_totl_lag1, elderly_lag1, polconiii_vdem_lag1, obs_value1_lag4) | iso3c + half_decade + clim_act_pol, data = oecd_stringency_LEV2),
+                              feols(obs_value1 ~ corp_allsm*eco_cip_gross + csw0(co2_per_capita_lag1, ny_gdp_pcap_kd_lag1, gc_tax_totl_gd_zs_lag1, sp_pop_totl_lag1, elderly_lag1, polconiii_vdem_lag1, obs_value1_lag4) | iso3c + half_decade + clim_act_pol, data = oecd_stringency_LEV2))
+
+modelsummary(baseline_models_short[[2]], estimate = "{estimate}{stars}")
+
 ## TBD: Save regs (modify var_dict and add adoption regressions)
-
-
-######## Adoption ##############
-
-
-# TBD
-
-
+### Include electoral disproportionality vars in reg?
+### Check lag variables are properly created 
+### Include dummy for period covered by Finnegan's analysis and try to reproduce his results 
 
 
 

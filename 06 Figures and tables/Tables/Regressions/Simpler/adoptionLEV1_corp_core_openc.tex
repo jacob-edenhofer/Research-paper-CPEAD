@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{8}{c}{Stringency value modified}\\
+   Model:                                         & (1)           & (2)           & (3)           & (4)           & (5)     & (6)     & (7)          & (8)\\  
+                                                  &  OLS          & OLS           & OLS           & OLS           & OLS     & OLS     & OLS          & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Corporatism (core) $\times$ Openness to trade  & -0.001$^{**}$ & -0.001$^{**}$ & -0.001$^{**}$ & -0.001$^{**}$ & -0.001  & -0.001  & 0.000        & 0.000\\   
+                                                  & (0.001)       & (0.001)       & (0.001)       & (0.000)       & (0.001) & (0.001) & (0.000)      & (0.000)\\   
+   co2\_per\_capita\_lag1                         &               & -0.002        & -0.004        & -0.002        & 0.000   & -0.001  & -0.004       & -0.004\\   
+                                                  &               & (0.003)       & (0.004)       & (0.004)       & (0.004) & (0.004) & (0.006)      & (0.007)\\   
+   ny\_gdp\_pcap\_kd\_lag1                        &               &               & 0.000         & 0.000         & 0.000   & 0.000   & 0.000        & 0.000\\   
+                                                  &               &               & (0.000)       & (0.000)       & (0.000) & (0.000) & (0.000)      & (0.000)\\   
+   polconiii\_vdem\_lag1                          &               &               &               & 0.083         & 0.103   & 0.089   & -0.167       & -0.182\\   
+                                                  &               &               &               & (0.112)       & (0.120) & (0.125) & (0.157)      & (0.184)\\   
+   gc\_tax\_totl\_gd\_zs\_lag1                    &               &               &               &               & -0.002  & -0.002  & 0.001        & 0.001\\   
+                                                  &               &               &               &               & (0.002) & (0.002) & (0.002)      & (0.002)\\   
+   sp\_pop\_totl\_lag1                            &               &               &               &               &         & 0.000   & 0.000        & 0.000\\   
+                                                  &               &               &               &               &         & (0.000) & (0.000)      & (0.000)\\   
+   elderly\_lag1                                  &               &               &               &               &         &         & 0.020$^{**}$ & 0.020$^{**}$\\   
+                                                  &               &               &               &               &         &         & (0.007)      & (0.007)\\   
+   Stringency value modified, four-year lag       &               &               &               &               &         &         &              & 0.000\\   
+                                                  &               &               &               &               &         &         &              & (0.002)\\   
+   \emph{Fixed effects}\\
+   Country                                        & x             & x             & x             & x             & x       & x       & x            & x\\  
+   Half decade                                    & x             & x             & x             & x             & x       & x       & x            & x\\  
+   Type of climate action/measure                 & x             & x             & x             & x             & x       & x       & x            & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                   & 2,142         & 2,142         & 2,066         & 1,983         & 1,756   & 1,756   & 1,316        & 1,253\\  
+   R$^2$                                          & 0.264         & 0.265         & 0.269         & 0.266         & 0.257   & 0.258   & 0.288        & 0.284\\  
+   \midrule
+   \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

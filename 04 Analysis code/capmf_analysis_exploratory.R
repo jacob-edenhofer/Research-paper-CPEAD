@@ -231,6 +231,13 @@ var_dict <- c(
   "nomgdpgr" = "Nominal GDP growth",
   "realgdpgr" = "Real GDP growth",
   "eu" = "EU membership",
+  "elderly" = "Share of population >65",
+  "rae_ele" = "Rae electoral fractionalisation",
+  "rae_leg" = "Rae legislative fractionalisation",
+  "dis_abso" = "Index of absolute disproportionality",
+  "dis_rel" = "Index of relative disproportionality",
+  "dis_gall" = "Gallagher index of disproportionality",
+  "training_pmp" = "Labour market training as % of GDP",
   "happy_with_env_preserv" = "Happiness with environmental preservation",
   "environ_worry_interpolated" = "Environmental worry (interpolated)",
   "half_decade" = "Half decade",
@@ -239,26 +246,13 @@ var_dict <- c(
   "time_period" = "Year"
 )
 
-## modify var_dict to include the interaction terms between the variables listed below 
-corporatism <- c("corp_all", "corp_allsm", "corp_core", "bc", "tc", "nec_fs", "nuc_fs")
-variables <- c("openc", "ne_trd_gnfs_zs", "eco_cip_net", "eco_cip_gross", "happy_with_env_preserv", 
-               "elec_diff_abs_last10d", "elec_diff_populist", "elec_diff_market", 
-               "elec_diff_incumbent", "elec_diff_lib", "nv_ind_manf_zs", 
-               "nv_ind_totl_zs", "trade_co2_share")
-
-## modify var_dict to include interaction terms 
-for (k in corporatism){
-  for (h in variables){
-    var_dict[paste0(k, "*", h)] <- paste0(var_dict[k], " x ", var_dict[h])
-  }
-}
 
 ################################
 # Descriptive analysis 
 ################################
 
 ## write descriptive stats function 
-descrip_stats <- function(dataset, var_dict){
+descrip_stats <- function(dataset, dataset_name, var_dict){
   data_cleaned <- dataset %>%
     mutate(eu = ifelse(eu == 1, "EU", "Non-EU")) %>%
     select(all_of(names(var_dict))) %>%
@@ -270,7 +264,7 @@ descrip_stats <- function(dataset, var_dict){
                 data = ., output = "data.frame")  # Ensure output as data frame
   
   # Save main table using kable and save_kable
-  kable_path <- paste0(here(), "/06 Figures and tables/Tables/Summary statistics/main_table_", deparse(substitute(dataset)), ".tex")
+  kable_path <- paste0(here(), "/06 Figures and tables/Tables/Summary statistics/main_table_", dataset_name, ".tex")
   save_kable(kable(main_table, format = "latex", longtable = TRUE, booktabs = TRUE), file = kable_path)
   
   # create list for splitting tables by dichotomous variables 
@@ -286,7 +280,7 @@ descrip_stats <- function(dataset, var_dict){
       additional_tables[[i]] <- table
       
       # Saving each table
-      kable_path <- paste0(here(), "/06 Figures and tables/Tables/Summary statistics/table_", i, "_", deparse(substitute(dataset)), ".tex")
+      kable_path <- paste0(here(), "/06 Figures and tables/Tables/Summary statistics/table_", i, "_", dataset_name, ".tex")
       save_kable(kable(table, format = "latex", longtable = TRUE, booktabs = TRUE), file = kable_path)
     }
   }
@@ -299,85 +293,66 @@ list_of_datasets <- mget(ls(), envir = globalenv())
 list_of_datasets <- list_of_datasets[sapply(list_of_datasets, is.data.frame)]
 
 # Apply the function safely using purrr::safely to capture and handle errors
-safe_descrip_stats <- purrr::safely(descrip_stats)
-results <- purrr::map(list_of_datasets, ~safe_descrip_stats(.x, var_dict))
+safe_descrip_stats <- purrr::safely(function(dataset, name) descrip_stats(dataset, name, var_dict))
+
+# Prepare the results using map2 to pass both dataset and dataset names
+results <- purrr::map2(list_of_datasets, names(list_of_datasets), ~safe_descrip_stats(.x, .y))
+
 
 
 ################################################
 # Regressions (takes a rather long time to run)
 ################################################
 
-# models_list <- list()
-# 
-# # Define function to run regressions, now including var_dict for etable
-# reg_capmf <- function(data_type, dataset, var_dict){
-#   if (grepl("adoption", data_type)) {
-#     dataset <- dataset %>% mutate(obs_value1 = ifelse(obs_value1 > 0, 1, 0))
-#     model_function <- feglm
-#     model_type <- "logistic"
-#   } else {
-#     model_function <- feols
-#     model_type <- "linear"
-#   }
-#   
-#   for (j in corporatism) {
-#     for (i in variables) {
-#       formula <- as.formula(paste0("obs_value1 ~ ", j, "*", i, " + csw0(co2_per_capita, ny_gdp_pcap_kd, polityfrompolity, 
-#                                    gc_tax_totl_gd_zs, sp_pop_totl) | iso3c + half_decade + clim_act_pol"))
-#       model_name <- paste(data_type, model_type, j, i, sep = "_")
-#       if (model_type == "logistic") {
-#         models_list[[model_name]] <- model_function(formula, data = dataset, family = "logit")
-#       } else {
-#         models_list[[model_name]] <- model_function(formula, data = dataset)
-#       }
-#       table_path <- file.path(here("06 Figures and tables", "Tables", "Regressions"), paste(model_name, "tex", sep = "."))
-#       etable(models_list[[model_name]], 
-#              tex = T, 
-#              replace = T,
-#              dict = var_dict,
-#              file = table_path)
-#     }
-#   }
-#   return(models_list)
-# }
-# 
-# safe_reg_capmf <- purrr::safely(reg_capmf)
-# list_reg <- list_of_datasets[!grepl("merged", names(list_of_datasets))]
-# safe_reg_capmf("adoptionLEV1", list_reg[[1]], var_dict)
-# safe_reg_capmf("adoptionLEV2", list_reg[[2]], var_dict)
-# safe_reg_capmf("stringencyLEV1", list_reg[[3]], var_dict)
-# safe_reg_capmf("stringencyLEV2", list_reg[[4]], var_dict)
-# safe_reg_capmf("stringencyLEV3", list_reg[[5]], var_dict)
-# safe_reg_capmf("stringencyLEV4", list_reg[[6]], var_dict)
+## modify var_dict to include the interaction terms between the variables listed below 
+corporatism <- c("corp_all", "corp_allsm", "corp_core", "bc", "tc", "nec_fs", "nuc_fs")
+variables <- c("openc", "ne_trd_gnfs_zs", "eco_cip_net", "eco_cip_gross", "happy_with_env_preserv", 
+               "dis_gall", "elec_diff_populist", "elec_diff_market", 
+               "elec_diff_incumbent", "elec_diff_lib", "nv_ind_manf_zs", 
+               "nv_ind_totl_zs", "trade_co2_share")
+
+### loop to combine these
+for (k in corporatism){
+  for (h in variables){
+    var_dict[paste0(k, "*", h)] <- paste0(var_dict[k], " x ", var_dict[h])
+  }
+}
 
 
-################################
-# Pruned version of above regs
-################################
-
+# list to store models 
 models_list <- list()
 
+# define function to run regression 
 reg_capmf <- function(data_type, dataset, var_dict) {
   if (grepl("adoption", data_type)) {
     dataset <- dataset %>% mutate(obs_value1 = ifelse(obs_value1 > 0, 1, 0))
-    model_function <- feglm
-    model_type <- "logistic"
-  } else {
-    model_function <- feols
-    model_type <- "linear"
   }
-  
   for (j in corporatism) {
     for (i in variables) {
-      interaction_term <- paste(j, i, sep = ":")
-      formula <- as.formula(paste0("obs_value1 ~ ", interaction_term, " + csw0(co2_per_capita, ny_gdp_pcap_kd, polityfrompolity, 
-                                   gc_tax_totl_gd_zs, sp_pop_totl) | iso3c + half_decade + clim_act_pol"))
-      model_name <- paste(data_type, model_type, j, i, sep = "_")
-      if (model_type == "logistic") {
-        model <- model_function(formula, data = dataset, family = "logit")
-      } else {
-        model <- model_function(formula, data = dataset)
+      # vector of lagged variables 
+      lagged_cols <- c(j, i, "co2_per_capita", "ny_gdp_pcap_kd", "polconiii_vdem", "gc_tax_totl_gd_zs", "sp_pop_totl", "elderly")
+      # create lagged values 
+      dataset <- dataset %>%
+        mutate(across(
+          .cols = c(j, i, "co2_per_capita", "ny_gdp_pcap_kd", "polconiii_vdem", "gc_tax_totl_gd_zs", "sp_pop_totl", "elderly"),
+          .fns = ~ lag(.x, 1, order_by = time_period),
+          .names = "{.col}_lag1"  # Names the new columns with a _lag1 suffix
+        )) %>%
+        ungroup()
+      
+      # update var_dict 
+      # Update var_dict with new lagged variables
+      for (col in lagged_cols) {
+        new_var_name <- paste0(col, "_lag1")
+        var_dict[new_var_name] <- paste(var_dict[col], "lagged by 1 year")
       }
+      
+      # create interaction term
+      interaction_term <- paste(j, i, sep = ":")
+      formula <- as.formula(paste0("obs_value1 ~ ", interaction_term, " + csw0(co2_per_capita_lag1, ny_gdp_pcap_kd_lag1, polconiii_vdem_lag1, 
+                                   gc_tax_totl_gd_zs_lag1, sp_pop_totl_lag1, elderly_lag1, obs_value1_lag4) | iso3c + half_decade + clim_act_pol"))
+      model_name <- paste(data_type, j, i, sep = "_")
+      model <- feols(formula, data = dataset)
       models_list[[model_name]] <- model
       
       # Extract summary and check p-value of the interaction term
@@ -391,7 +366,7 @@ reg_capmf <- function(data_type, dataset, var_dict) {
         etable(model, 
                tex = TRUE, 
                replace = TRUE, 
-               dict = var_dict, 
+               dict = var_dict,
                file = table_path)
       }
     }
@@ -399,8 +374,13 @@ reg_capmf <- function(data_type, dataset, var_dict) {
   return(models_list)
 }
 
+## define safe reg function 
 safe_reg_capmf <- purrr::safely(reg_capmf)
+## list of datasets to apply function to 
 list_reg <- list_of_datasets[!grepl("merged", names(list_of_datasets))]
+## apply function to datasets
+safe_reg_capmf("adoptionLEV1", list_reg[[1]], var_dict)
+safe_reg_capmf("adoptionLEV2", list_reg[[1]], var_dict)
 safe_reg_capmf("stringencyLEV1", list_reg[[3]], var_dict)
 safe_reg_capmf("stringencyLEV2", list_reg[[4]], var_dict)
 safe_reg_capmf("stringencyLEV3", list_reg[[5]], var_dict)

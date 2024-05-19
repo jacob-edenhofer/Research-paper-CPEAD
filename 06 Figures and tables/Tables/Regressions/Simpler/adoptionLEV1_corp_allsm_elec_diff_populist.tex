@@ -1,0 +1,40 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{8}{c}{Stringency value modified}\\
+   Model:                                                      & (1)           & (2)           & (3)           & (4)          & (5)     & (6)     & (7)          & (8)\\  
+                                                               &  OLS          & OLS           & OLS           & OLS          & OLS     & OLS     & OLS          & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Corporatism (all), sm $\times$ Absolute avg populist shock  & -0.020$^{**}$ & -0.019$^{**}$ & -0.019$^{**}$ & -0.021$^{*}$ & -0.012  & -0.012  & -0.012       & -0.015\\   
+                                                               & (0.009)       & (0.009)       & (0.009)       & (0.011)      & (0.013) & (0.013) & (0.017)      & (0.018)\\   
+   co2\_per\_capita\_lag1                                      &               & -0.005        & -0.006        & -0.001       & -0.007  & -0.008  & -0.020$^{*}$ & -0.019$^{*}$\\   
+                                                               &               & (0.007)       & (0.009)       & (0.011)      & (0.009) & (0.009) & (0.011)      & (0.010)\\   
+   ny\_gdp\_pcap\_kd\_lag1                                     &               &               & 0.000         & 0.000        & 0.000   & 0.000   & 0.000        & 0.000\\   
+                                                               &               &               & (0.000)       & (0.000)      & (0.000) & (0.000) & (0.000)      & (0.000)\\   
+   polconiii\_vdem\_lag1                                       &               &               &               & 0.281        & 0.296   & 0.281   & 0.106        & 0.101\\   
+                                                               &               &               &               & (0.271)      & (0.270) & (0.300) & (0.430)      & (0.406)\\   
+   gc\_tax\_totl\_gd\_zs\_lag1                                 &               &               &               &              & -0.008  & -0.008  & -0.006       & -0.006\\   
+                                                               &               &               &               &              & (0.006) & (0.006) & (0.006)      & (0.006)\\   
+   sp\_pop\_totl\_lag1                                         &               &               &               &              &         & 0.000   & 0.000        & 0.000\\   
+                                                               &               &               &               &              &         & (0.000) & (0.000)      & (0.000)\\   
+   elderly\_lag1                                               &               &               &               &              &         &         & 0.014$^{*}$  & 0.015$^{*}$\\   
+                                                               &               &               &               &              &         &         & (0.008)      & (0.007)\\   
+   Stringency value modified, four-year lag                    &               &               &               &              &         &         &              & 0.005\\   
+                                                               &               &               &               &              &         &         &              & (0.007)\\   
+   \emph{Fixed effects}\\
+   Country                                                     & x             & x             & x             & x            & x       & x       & x            & x\\  
+   Half decade                                                 & x             & x             & x             & x            & x       & x       & x            & x\\  
+   Type of climate action/measure                              & x             & x             & x             & x            & x       & x       & x            & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                & 207           & 207           & 207           & 197          & 186     & 186     & 131          & 131\\  
+   R$^2$                                                       & 0.329         & 0.335         & 0.336         & 0.367        & 0.388   & 0.389   & 0.461        & 0.466\\  
+   \midrule
+   \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+
