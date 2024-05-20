@@ -1,0 +1,44 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{8}{c}{Stringency value modified}\\
+   Model:                                                     & (1)          & (2)          & (3)          & (4)         & (5)           & (6)           & (7)           & (8)\\  
+                                                              &  OLS         & OLS          & OLS          & OLS         & OLS           & OLS           & OLS           & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Corporatism (all), sm                                      & -0.097       & -0.097       & -0.091       & -0.126      & 0.067         & 0.067         & 0.098         & 0.081\\   
+                                                              & (0.137)      & (0.137)      & (0.135)      & (0.128)     & (0.163)       & (0.164)       & (0.161)       & (0.185)\\   
+   Trade CO2 share                                            & -0.001       & -0.001       & -0.001       & 0.000       & 0.001         & 0.001         & 0.002$^{*}$   & 0.002$^{*}$\\   
+                                                              & (0.001)      & (0.001)      & (0.001)      & (0.001)     & (0.001)       & (0.001)       & (0.001)       & (0.001)\\   
+   Corporatism (all), sm $\times$ Trade CO2 share             & 0.003$^{**}$ & 0.003$^{**}$ & 0.002$^{**}$ & 0.002$^{*}$ & 0.006$^{***}$ & 0.006$^{***}$ & 0.007$^{***}$ & 0.008$^{***}$\\   
+                                                              & (0.001)      & (0.001)      & (0.001)      & (0.001)     & (0.002)       & (0.002)       & (0.002)       & (0.002)\\   
+   CO2 emissions per capita lagged by 1 year                  &              & 0.000        & -0.006       & -0.005      & -0.008        & -0.006        & -0.003        & -0.004\\   
+                                                              &              & (0.006)      & (0.007)      & (0.008)     & (0.010)       & (0.011)       & (0.011)       & (0.012)\\   
+   GDP per capita (constant 2015 US\$) lagged by 1 year       &              &              & 0.000        & 0.000       & 0.000         & 0.000         & 0.000         & 0.000$^{*}$\\   
+                                                              &              &              & (0.000)      & (0.000)     & (0.000)       & (0.000)       & (0.000)       & (0.000)\\   
+   Tax revenue (\% of GDP) lagged by 1 year                   &              &              &              & 0.003       & 0.004         & 0.005         & 0.004         & 0.005\\   
+                                                              &              &              &              & (0.004)     & (0.005)       & (0.005)       & (0.006)       & (0.006)\\   
+   Gallagher index of disproportionality lagged by 1 year     &              &              &              &             & -0.002        & -0.002        & -0.001        & -0.001\\   
+                                                              &              &              &              &             & (0.007)       & (0.007)       & (0.007)       & (0.008)\\   
+   Share of population >65 lagged by 1 year                   &              &              &              &             &               & 0.017         & 0.017         & 0.012\\   
+                                                              &              &              &              &             &               & (0.019)       & (0.018)       & (0.020)\\   
+   Political constraints index V (VDEM) lagged by 1 year      &              &              &              &             &               &               & -0.159        & -0.199\\   
+                                                              &              &              &              &             &               &               & (0.495)       & (0.562)\\   
+   Stringency value modified, three-year lag lagged by 1 year &              &              &              &             &               &               &               & -0.020\\   
+                                                              &              &              &              &             &               &               &               & (0.040)\\   
+   \emph{Fixed effects}\\
+   Country                                                    & x            & x            & x            & x           & x             & x             & x             & x\\  
+   Half decade                                                & x            & x            & x            & x           & x             & x             & x             & x\\  
+   Instrument type                                            & x            & x            & x            & x           & x             & x             & x             & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                               & 15,151       & 15,150       & 14,800       & 13,048      & 9,316         & 9,307         & 8,720         & 8,055\\  
+   R$^2$                                                      & 0.589        & 0.589        & 0.590        & 0.593       & 0.602         & 0.603         & 0.611         & 0.612\\  
+   \midrule
+   \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

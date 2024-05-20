@@ -1,0 +1,42 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{8}{c}{Stringency value modified}\\
+   Model:                                                    & (1)          & (2)          & (3)     & (4)           & (5)           & (6)     & (7)     & (8)\\  
+                                                             &  OLS         & OLS          & OLS     & OLS           & OLS           & OLS     & OLS     & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Bipartite concertation                                    & 0.080$^{**}$ & 0.081$^{**}$ & 0.170   & 0.240$^{**}$  & 0.240$^{**}$  & 0.190   & 0.256   & 0.372\\   
+                                                             & (0.033)      & (0.034)      & (0.094) & (0.080)       & (0.080)       & (0.161) & (0.158) & (0.283)\\   
+   Green party CIP (Net)                                     & -0.299       & -0.319       & -0.183  & -0.062        & -0.062        & -0.024  & 0.633   & 0.353\\   
+                                                             & (0.437)      & (0.442)      & (0.463) & (0.424)       & (0.424)       & (0.516) & (0.547) & (0.557)\\   
+   Bipartite concertation $\times$ Green party CIP (Net)     & 0.074        & 0.113        & 0.040   & -0.171        & -0.171        & 0.094   & -0.308  & 0.502\\   
+                                                             & (0.480)      & (0.504)      & (0.522) & (0.523)       & (0.523)       & (0.632) & (0.624) & (0.724)\\   
+   CO2 emissions per capita lagged by 1 year                 &              & 0.009        & 0.012   & 0.005         & 0.005         & 0.017   & 0.033   & 0.047\\   
+                                                             &              & (0.018)      & (0.024) & (0.025)       & (0.025)       & (0.026) & (0.031) & (0.026)\\   
+   GDP per capita (constant 2015 US\$) lagged by 1 year      &              &              & 0.000   & 0.000         & 0.000         & 0.000   & 0.000   & 0.000\\   
+                                                             &              &              & (0.000) & (0.000)       & (0.000)       & (0.000) & (0.000) & (0.000)\\   
+   Tax revenue (\% of GDP) lagged by 1 year                  &              &              &         & -0.020$^{**}$ & -0.020$^{**}$ & -0.019  & 0.002   & -0.034\\   
+                                                             &              &              &         & (0.006)       & (0.006)       & (0.011) & (0.019) & (0.027)\\   
+   Share of population >65 lagged by 1 year                  &              &              &         &               &               & 0.011   & -0.016  & -0.110\\   
+                                                             &              &              &         &               &               & (0.048) & (0.056) & (0.083)\\   
+   Political constraints index V (VDEM) lagged by 1 year     &              &              &         &               &               &         & -0.641  & -2.074\\   
+                                                             &              &              &         &               &               &         & (1.101) & (1.168)\\   
+   Stringency value modified, four-year lag lagged by 1 year &              &              &         &               &               &         &         & 0.228$^{**}$\\   
+                                                             &              &              &         &               &               &         &         & (0.078)\\   
+   \emph{Fixed effects}\\
+   Country                                                   & x            & x            & x       & x             & x             & x       & x       & x\\  
+   Half decade                                               & x            & x            & x       & x             & x             & x       & x       & x\\  
+   Type of climate action/measure                            & x            & x            & x       & x             & x             & x       & x       & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                              & 666          & 666          & 656     & 622           & 622           & 500     & 449     & 390\\  
+   R$^2$                                                     & 0.820        & 0.820        & 0.824   & 0.831         & 0.831         & 0.852   & 0.853   & 0.872\\  
+   \midrule
+   \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

@@ -1,0 +1,43 @@
+
+
+
+
+
+
+
+
+
+
+for(i in 1:nrow(exploratory_sum_df)){
+  no_interaction <- exploratory_sum_df$n[i]
+  if(no_interaction <= 1){
+    next
+  } else {
+    var1 <- exploratory_sum_df$corporatism_var[i]
+    var2 <- exploratory_sum_df$variable_var[i]
+    dataset_string <- exploratory_sum_df$dataset[i]
+    formatted_strings <- sub("^(adoption|stringency)(LEV)(\\d+)$", "\\1_\\2\\3", dataset_string)
+    dataset_name <- paste0("oecd_", formatted_strings)
+    # print(dataset_name)
+    dataset <- list_oecd[[dataset_name]]
+    # lag all covariates
+    dataset <- dataset %>%
+      group_by(iso3c, clim_act_pol) %>%
+      # check that this has worked 
+      mutate(across(
+        .cols = c(var1, var2, "co2_per_capita", "ny_gdp_pcap_kd", "polconiii_vdem", "elderly", "gc_tax_totl_gd_zs", "sp_pop_totl"),
+        .fns = ~ lag(.x, 1, order_by = time_period),
+        .names = "{.col}_lag1"  # Names the new columns with a _lag1 suffix
+      )) %>%
+      ungroup()
+    dataset %>% 
+      select(iso3c, time_period, clim_act_pol, starts_with("obs_value"), var1, var1_lag1, var2, var2_lag1, 
+             co2_per_capita, co2_per_capita_lag1, ny_gdp_pcap_kd, ny_gdp_pcap_kd_lag1, polconiii_vdem, 
+             polconiii_vdem_lag1, elderly, elderly_lag1, gc_tax_totl_gd_zs, gc_tax_totl_gd_zs_lag1) %>%
+      View()
+  }
+}
+
+  
+  
+  

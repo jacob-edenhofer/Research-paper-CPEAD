@@ -1,0 +1,38 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{8}{c}{Stringency value modified}\\
+   Model:                                         & (1)           & (2)           & (3)           & (4)            & (5)            & (6)            & (7)           & (8)\\  
+                                                  &  OLS          & OLS           & OLS           & OLS            & OLS            & OLS            & OLS           & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Corporatism (all) $\times$ Trade (\% of GDP)   & -0.001$^{**}$ & -0.001$^{**}$ & -0.001$^{**}$ & -0.001$^{***}$ & -0.001$^{***}$ & -0.001$^{***}$ & -0.001$^{**}$ & -0.001$^{**}$\\   
+                                                  & (0.000)       & (0.000)       & (0.000)       & (0.000)        & (0.000)        & (0.000)        & (0.000)       & (0.000)\\   
+   CO2 emissions per capita                       &               & 0.016         & 0.014         & 0.017          & 0.017          & 0.002          & 0.003         & 0.009\\   
+                                                  &               & (0.013)       & (0.014)       & (0.015)        & (0.015)        & (0.014)        & (0.014)       & (0.014)\\   
+   GDP per capita (constant 2015 US\$)            &               &               & 0.000         & 0.000          & 0.000          & 0.000          & 0.000         & 0.000\\   
+                                                  &               &               & (0.000)       & (0.000)        & (0.000)        & (0.000)        & (0.000)       & (0.000)\\   
+   Tax revenue (\% of GDP)                        &               &               &               & 0.000          & 0.000          & -0.002         & -0.005        & -0.006\\   
+                                                  &               &               &               & (0.003)        & (0.003)        & (0.002)        & (0.005)       & (0.005)\\   
+   Share of population >65                        &               &               &               &                &                & 0.013          & 0.010         & 0.009\\   
+                                                  &               &               &               &                &                & (0.011)        & (0.011)       & (0.011)\\   
+   Political constraints index V (VDEM)           &               &               &               &                &                &                & -0.031        & 0.006\\   
+                                                  &               &               &               &                &                &                & (0.106)       & (0.104)\\   
+   Stringency value modified, four-year lag       &               &               &               &                &                &                &               & 0.005$^{**}$\\   
+                                                  &               &               &               &                &                &                &               & (0.002)\\   
+   \emph{Fixed effects}\\
+   Country                                        & x             & x             & x             & x              & x              & x              & x             & x\\  
+   Half decade                                    & x             & x             & x             & x              & x              & x              & x             & x\\  
+   Type of climate action/measure                 & x             & x             & x             & x              & x              & x              & x             & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                   & 3,297         & 3,297         & 3,297         & 3,048          & 3,048          & 2,514          & 2,427         & 2,316\\  
+   R$^2$                                          & 0.355         & 0.358         & 0.359         & 0.372          & 0.372          & 0.357          & 0.334         & 0.351\\  
+   \midrule
+   \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

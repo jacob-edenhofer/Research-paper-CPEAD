@@ -1,0 +1,42 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{8}{c}{Stringency value modified}\\
+   Model:                                                                 & (1)     & (2)     & (3)     & (4)          & (5)          & (6)            & (7)            & (8)\\  
+                                                                          &  OLS    & OLS     & OLS     & OLS          & OLS          & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Corporatism (all), sm                                                  & 0.488   & 0.488   & 0.557   & 0.674$^{*}$  & 0.674$^{*}$  & 1.339$^{***}$  & 1.329$^{***}$  & 1.363$^{***}$\\   
+                                                                          & (0.377) & (0.378) & (0.361) & (0.340)      & (0.340)      & (0.399)        & (0.386)        & (0.434)\\   
+   Manufacturing value added (\% of GDP)                                  & 0.009   & 0.009   & 0.008   & 0.004        & 0.004        & -0.013         & -0.019         & -0.015\\   
+                                                                          & (0.016) & (0.016) & (0.016) & (0.016)      & (0.016)      & (0.019)        & (0.019)        & (0.021)\\   
+   Corporatism (all), sm $\times$ Manufacturing value added (\% of GDP)   & -0.028  & -0.028  & -0.029  & -0.033$^{*}$ & -0.033$^{*}$ & -0.060$^{***}$ & -0.060$^{***}$ & -0.058$^{***}$\\   
+                                                                          & (0.019) & (0.019) & (0.019) & (0.019)      & (0.019)      & (0.019)        & (0.019)        & (0.020)\\   
+   CO2 emissions per capita lagged by 1 year                              &         & 0.004   & 0.005   & 0.010        & 0.010        & 0.019          & 0.022          & 0.030\\   
+                                                                          &         & (0.010) & (0.012) & (0.013)      & (0.013)      & (0.019)        & (0.019)        & (0.020)\\   
+   GDP per capita (constant 2015 US\$) lagged by 1 year                   &         &         & 0.000   & 0.000        & 0.000        & 0.000          & 0.000          & 0.000\\   
+                                                                          &         &         & (0.000) & (0.000)      & (0.000)      & (0.000)        & (0.000)        & (0.000)\\   
+   Tax revenue (\% of GDP) lagged by 1 year                               &         &         &         & 0.010        & 0.010        & 0.016$^{**}$   & 0.027$^{***}$  & 0.023$^{**}$\\   
+                                                                          &         &         &         & (0.006)      & (0.006)      & (0.006)        & (0.007)        & (0.009)\\   
+   Share of population >65 lagged by 1 year                               &         &         &         &              &              & 0.056          & 0.047          & 0.047\\   
+                                                                          &         &         &         &              &              & (0.038)        & (0.037)        & (0.039)\\   
+   Political constraints index V (VDEM) lagged by 1 year                  &         &         &         &              &              &                & 0.435          & 0.394\\   
+                                                                          &         &         &         &              &              &                & (0.477)        & (0.537)\\   
+   Stringency value modified, four-year lag lagged by 1 year              &         &         &         &              &              &                &                & 0.048\\   
+                                                                          &         &         &         &              &              &                &                & (0.059)\\   
+   \emph{Fixed effects}\\
+   Country                                                                & x       & x       & x       & x            & x            & x              & x              & x\\  
+   Half decade                                                            & x       & x       & x       & x            & x            & x              & x              & x\\  
+   Type of climate action/measure                                         & x       & x       & x       & x            & x            & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                           & 3,090   & 3,089   & 3,029   & 2,783        & 2,783        & 2,000          & 1,875          & 1,755\\  
+   R$^2$                                                                  & 0.766   & 0.766   & 0.769   & 0.774        & 0.774        & 0.786          & 0.788          & 0.787\\  
+   \midrule
+   \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

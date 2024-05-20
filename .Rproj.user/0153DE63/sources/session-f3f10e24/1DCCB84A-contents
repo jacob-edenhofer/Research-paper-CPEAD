@@ -1,0 +1,42 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{8}{c}{Stringency value modified}\\
+   Model:                                                          & (1)     & (2)     & (3)     & (4)     & (5)     & (6)          & (7)          & (8)\\  
+                                                                   &  OLS    & OLS     & OLS     & OLS     & OLS     & OLS          & OLS          & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Number of employer confederations                               & 0.012   & 0.012   & 0.018   & 0.024   & 0.024   & 0.014        & -0.001       & -0.001\\   
+                                                                   & (0.061) & (0.061) & (0.061) & (0.054) & (0.054) & (0.060)      & (0.064)      & (0.065)\\   
+   Mean elec incumbent                                             & 0.012   & 0.012   & 0.009   & 0.029   & 0.029   & 0.036        & 0.037        & 0.027\\   
+                                                                   & (0.025) & (0.025) & (0.026) & (0.025) & (0.025) & (0.031)      & (0.038)      & (0.039)\\   
+   Number of employer confederations $\times$ Mean elec incumbent  & -0.005  & -0.005  & -0.004  & -0.007  & -0.007  & -0.005       & -0.007       & -0.007\\   
+                                                                   & (0.005) & (0.005) & (0.005) & (0.005) & (0.005) & (0.007)      & (0.008)      & (0.007)\\   
+   CO2 emissions per capita lagged by 1 year                       &         & 0.000   & -0.005  & -0.010  & -0.010  & 0.017        & 0.024        & 0.031\\   
+                                                                   &         & (0.016) & (0.019) & (0.020) & (0.020) & (0.030)      & (0.028)      & (0.029)\\   
+   GDP per capita (constant 2015 US\$) lagged by 1 year            &         &         & 0.000   & 0.000   & 0.000   & 0.000        & 0.000        & 0.000\\   
+                                                                   &         &         & (0.000) & (0.000) & (0.000) & (0.000)      & (0.000)      & (0.000)\\   
+   Tax revenue (\% of GDP) lagged by 1 year                        &         &         &         & -0.005  & -0.005  & 0.009        & 0.031$^{**}$ & 0.027$^{*}$\\   
+                                                                   &         &         &         & (0.009) & (0.009) & (0.008)      & (0.013)      & (0.015)\\   
+   Share of population >65 lagged by 1 year                        &         &         &         &         &         & 0.100$^{**}$ & 0.092$^{**}$ & 0.094$^{*}$\\   
+                                                                   &         &         &         &         &         & (0.044)      & (0.043)      & (0.046)\\   
+   Political constraints index V (VDEM) lagged by 1 year           &         &         &         &         &         &              & 0.597        & 0.608\\   
+                                                                   &         &         &         &         &         &              & (0.503)      & (0.513)\\   
+   Stringency value modified, four-year lag lagged by 1 year       &         &         &         &         &         &              &              & 0.014\\   
+                                                                   &         &         &         &         &         &              &              & (0.062)\\   
+   \emph{Fixed effects}\\
+   Country                                                         & x       & x       & x       & x       & x       & x            & x            & x\\  
+   Half decade                                                     & x       & x       & x       & x       & x       & x            & x            & x\\  
+   Type of climate action/measure                                  & x       & x       & x       & x       & x       & x            & x            & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                    & 417     & 417     & 416     & 398     & 398     & 280          & 260          & 247\\  
+   R$^2$                                                           & 0.796   & 0.796   & 0.796   & 0.799   & 0.799   & 0.843        & 0.842        & 0.842\\  
+   \midrule
+   \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

@@ -1,0 +1,42 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{8}{c}{Stringency value modified}\\
+   Model:                                                     & (1)     & (2)     & (3)     & (4)         & (5)         & (6)     & (7)     & (8)\\  
+                                                              &  OLS    & OLS     & OLS     & OLS         & OLS         & OLS     & OLS     & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Corporatism (all)                                          & -0.057  & -0.057  & -0.057  & -0.064      & -0.064      & -0.045  & -0.053  & -0.068\\   
+                                                              & (0.038) & (0.038) & (0.038) & (0.041)     & (0.041)     & (0.068) & (0.076) & (0.076)\\   
+   unhappy\_with\_env\_preserv                                & 0.043   & 0.043   & 0.043   & -0.008      & -0.008      & -0.007  & -0.003  & -0.055\\   
+                                                              & (0.052) & (0.051) & (0.051) & (0.057)     & (0.057)     & (0.061) & (0.062) & (0.059)\\   
+   Corporatism (all) $\times$ unhappy\_with\_env\_preserv     & 0.057   & 0.057   & 0.057   & 0.074       & 0.074       & 0.043   & 0.079   & 0.107\\   
+                                                              & (0.073) & (0.073) & (0.073) & (0.074)     & (0.074)     & (0.086) & (0.112) & (0.113)\\   
+   CO2 emissions per capita lagged by 1 year                  &         & -0.002  & -0.001  & -0.001      & -0.001      & 0.000   & 0.000   & 0.000\\   
+                                                              &         & (0.001) & (0.001) & (0.002)     & (0.002)     & (0.002) & (0.002) & (0.002)\\   
+   GDP per capita (constant 2015 US\$) lagged by 1 year       &         &         & 0.000   & 0.000       & 0.000       & 0.000   & 0.000   & 0.000\\   
+                                                              &         &         & (0.000) & (0.000)     & (0.000)     & (0.000) & (0.000) & (0.000)\\   
+   Tax revenue (\% of GDP) lagged by 1 year                   &         &         &         & 0.001$^{*}$ & 0.001$^{*}$ & 0.001   & 0.000   & 0.000\\   
+                                                              &         &         &         & (0.001)     & (0.001)     & (0.001) & (0.001) & (0.001)\\   
+   Share of population >65 lagged by 1 year                   &         &         &         &             &             & 0.002   & 0.005   & 0.006$^{*}$\\   
+                                                              &         &         &         &             &             & (0.004) & (0.004) & (0.003)\\   
+   Political constraints index V (VDEM) lagged by 1 year      &         &         &         &             &             &         & -0.078  & -0.092\\   
+                                                              &         &         &         &             &             &         & (0.082) & (0.079)\\   
+   Stringency value modified, four-year lag lagged by 1 year  &         &         &         &             &             &         &         & 0.003\\   
+                                                              &         &         &         &             &             &         &         & (0.004)\\   
+   \emph{Fixed effects}\\
+   Country                                                    & x       & x       & x       & x           & x           & x       & x       & x\\  
+   Half decade                                                & x       & x       & x       & x           & x           & x       & x       & x\\  
+   Type of climate action/measure                             & x       & x       & x       & x           & x           & x       & x       & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                               & 5,964   & 5,964   & 5,964   & 5,631       & 5,631       & 3,885   & 3,647   & 3,512\\  
+   R$^2$                                                      & 0.679   & 0.679   & 0.679   & 0.687       & 0.687       & 0.696   & 0.689   & 0.699\\  
+   \midrule
+   \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

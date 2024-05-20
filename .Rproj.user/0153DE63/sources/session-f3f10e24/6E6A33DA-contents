@@ -1,0 +1,42 @@
+
+\begingroup
+\centering
+\begin{tabular}{lcccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{8}{c}{Stringency value modified}\\
+   Model:                                                    & (1)     & (2)     & (3)     & (4)     & (5)     & (6)     & (7)          & (8)\\  
+                                                             &  OLS    & OLS     & OLS     & OLS     & OLS     & OLS     & OLS          & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Corporatism (all)                                         & -0.053  & -0.053  & -0.053  & -0.061  & -0.061  & -0.064  & -0.096$^{*}$ & -0.053\\   
+                                                             & (0.053) & (0.053) & (0.053) & (0.044) & (0.044) & (0.054) & (0.052)      & (0.070)\\   
+   Absolute avg populist shock                               & -0.001  & -0.001  & -0.001  & -0.001  & -0.001  & 0.000   & 0.000        & 0.000\\   
+                                                             & (0.003) & (0.003) & (0.003) & (0.002) & (0.002) & (0.005) & (0.005)      & (0.005)\\   
+   Corporatism (all) $\times$ Absolute avg populist shock    & 0.000   & 0.000   & 0.000   & -0.002  & -0.002  & 0.006   & 0.009        & 0.012$^{*}$\\   
+                                                             & (0.004) & (0.004) & (0.004) & (0.004) & (0.004) & (0.006) & (0.006)      & (0.007)\\   
+   CO2 emissions per capita lagged by 1 year                 &         & 0.000   & -0.001  & 0.000   & 0.000   & -0.006  & -0.004       & -0.002\\   
+                                                             &         & (0.003) & (0.004) & (0.004) & (0.004) & (0.004) & (0.004)      & (0.003)\\   
+   GDP per capita (constant 2015 US\$) lagged by 1 year      &         &         & 0.000   & 0.000   & 0.000   & 0.000   & 0.000        & 0.000\\   
+                                                             &         &         & (0.000) & (0.000) & (0.000) & (0.000) & (0.000)      & (0.000)\\   
+   Tax revenue (\% of GDP) lagged by 1 year                  &         &         &         & 0.001   & 0.001   & 0.000   & 0.000        & -0.001\\   
+                                                             &         &         &         & (0.001) & (0.001) & (0.001) & (0.002)      & (0.002)\\   
+   Share of population >65 lagged by 1 year                  &         &         &         &         &         & -0.002  & 0.001        & 0.000\\   
+                                                             &         &         &         &         &         & (0.004) & (0.004)      & (0.004)\\   
+   Political constraints index V (VDEM) lagged by 1 year     &         &         &         &         &         &         & -0.168       & -0.138\\   
+                                                             &         &         &         &         &         &         & (0.127)      & (0.123)\\   
+   Stringency value modified, four-year lag lagged by 1 year &         &         &         &         &         &         &              & 0.004\\   
+                                                             &         &         &         &         &         &         &              & (0.007)\\   
+   \emph{Fixed effects}\\
+   Country                                                   & x       & x       & x       & x       & x       & x       & x            & x\\  
+   Half decade                                               & x       & x       & x       & x       & x       & x       & x            & x\\  
+   Type of climate action/measure                            & x       & x       & x       & x       & x       & x       & x            & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                              & 970     & 970     & 970     & 907     & 907     & 612     & 563          & 528\\  
+   R$^2$                                                     & 0.694   & 0.694   & 0.694   & 0.704   & 0.704   & 0.732   & 0.715        & 0.746\\  
+   \midrule
+   \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+
