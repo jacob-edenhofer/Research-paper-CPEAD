@@ -205,6 +205,7 @@ var_dict <- c(
   "coal_elec_per_capita" = "Coal electricity per capita",
   "coal_prod_per_capita" = "Coal production per capita",
   "coal_share_energy" = "Coal share energy",
+  "fossil_energy_per_capita" = "Fossil energy per capita",
   "eco_cip_gross" = "Green party CIP (Gross)",
   "eco_cip_net" = "Green party CIP (Net)",
   "elec_diff_abs" = "Absolute avg poll error",

@@ -1,0 +1,45 @@
+
+\begin{table}[htbp]
+   \caption{Baseline model for tc\_bc\_dummy and unhappy\_with\_env\_preserv}
+   \centering
+   \begin{tabular}{lcccccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{8}{c}{Stringency value modified}\\
+      Model:                                                              & (1)          & (2)           & (3)           & (4)           & (5)          & (6)           & (7)           & (8)\\  
+                                                                          &  OLS         & OLS           & OLS           & OLS           & OLS          & OLS           & OLS           & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      Concertation dummy (TC or BC) , 1-year lag                          & -0.436$^{*}$ & -0.432$^{*}$  & -0.367        & -0.306        & -0.376       & -0.217        & -0.051        & -0.140\\   
+                                                                          & (0.229)      & (0.233)       & (0.234)       & (0.244)       & (0.270)      & (0.210)       & (0.216)       & (0.216)\\   
+      NA, 1-year lag                                                      & 0.816$^{*}$  & 0.784$^{*}$   & 0.901$^{*}$   & 1.131$^{**}$  & 0.871        & 0.950         & 1.084$^{*}$   & 1.144$^{*}$\\   
+                                                                          & (0.476)      & (0.452)       & (0.477)       & (0.486)       & (0.548)      & (0.582)       & (0.618)       & (0.570)\\   
+      Concertation dummy (TC or BC) , 1-year lag $\times$ NA, 1-year lag  & -0.192       & -0.177        & -0.322        & -0.479        & -0.314       & -0.187        & -0.471        & -0.387\\   
+                                                                          & (0.489)      & (0.460)       & (0.482)       & (0.496)       & (0.489)      & (0.493)       & (0.532)       & (0.510)\\   
+      CO2 emissions per capita , 1-year lag                               &              & -0.131$^{**}$ & -0.145$^{**}$ & -0.143$^{**}$ & -0.137$^{*}$ & -0.109$^{**}$ & -0.102$^{**}$ & -0.083$^{*}$\\   
+                                                                          &              & (0.058)       & (0.060)       & (0.063)       & (0.075)      & (0.049)       & (0.049)       & (0.042)\\   
+      GDP per capita (constant 2015 US\$) , 1-year lag                    &              &               & 0.000$^{***}$ & 0.000$^{***}$ & 0.000$^{**}$ & 0.000         & 0.000         & 0.000\\   
+                                                                          &              &               & (0.000)       & (0.000)       & (0.000)      & (0.000)       & (0.000)       & (0.000)\\   
+      Tax revenue (\% of GDP) , 1-year lag                                &              &               &               & 0.024         & 0.015        & -0.013        & -0.010        & -0.012\\   
+                                                                          &              &               &               & (0.022)       & (0.020)      & (0.019)       & (0.029)       & (0.025)\\   
+      Gallagher index of disproportionality , 1-year lag                  &              &               &               &               & -0.006       & -0.018        & -0.012        & -0.013\\   
+                                                                          &              &               &               &               & (0.013)      & (0.012)       & (0.012)       & (0.010)\\   
+      Share of population >65 , 1-year lag                                &              &               &               &               &              & 0.366$^{***}$ & 0.375$^{***}$ & 0.299$^{***}$\\   
+                                                                          &              &               &               &               &              & (0.077)       & (0.075)       & (0.065)\\   
+      Political constraints index V (VDEM) , 1-year lag                   &              &               &               &               &              &               & 1.084         & 1.039$^{*}$\\   
+                                                                          &              &               &               &               &              &               & (0.658)       & (0.591)\\   
+      Stringency value modified, three-year lag , 1-year lag              &              &               &               &               &              &               &               & 0.076$^{***}$\\   
+                                                                          &              &               &               &               &              &               &               & (0.012)\\   
+      \emph{Fixed effects}\\
+      Country                                                             & x            & x             & x             & x             & x            & x             & x             & x\\  
+      Half decade                                                         & x            & x             & x             & x             & x            & x             & x             & x\\  
+      Type of climate action/measure                                      & x            & x             & x             & x             & x            & x             & x             & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                                        & 1,551        & 1,551         & 1,551         & 1,470         & 1,173        & 1,173         & 1,140         & 1,140\\  
+      R$^2$                                                               & 0.754        & 0.758         & 0.761         & 0.755         & 0.740        & 0.754         & 0.763         & 0.779\\  
+      \midrule
+      \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+
