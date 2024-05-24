@@ -1,0 +1,36 @@
+
+\begingroup
+\centering
+\begin{tabular}{lccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{7}{c}{Stringency value modified}\\
+   Model:                                                                                            & (1)         & (2)         & (3)          & (4)          & (5)           & (6)           & (7)\\  
+                                                                                                     &  OLS        & OLS         & OLS          & OLS          & OLS           & OLS           & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Corporatism (all), sm lagged by 1 year                                                            & 0.128$^{*}$ & 0.138$^{*}$ & 0.154$^{**}$ & 0.146$^{**}$ & 0.230$^{***}$ & 0.241$^{***}$ & 0.239$^{***}$\\   
+                                                                                                     & (0.076)     & (0.070)     & (0.069)      & (0.063)      & (0.078)       & (0.082)       & (0.083)\\   
+   Unhappy with environmental preservation lagged by 1 year                                          & 0.000       & 0.041       & -0.011       & -0.054       & -0.017        & -0.042        & 0.002\\   
+                                                                                                     & (0.164)     & (0.153)     & (0.160)      & (0.158)      & (0.155)       & (0.169)       & (0.128)\\   
+   Corporatism (all), sm lagged by 1 year x Unhappy with environmental preservation lagged by 1 year & -0.216      & -0.230      & -0.251       & -0.180       & -0.380$^{**}$ & -0.391$^{**}$ & -0.380$^{**}$\\   
+                                                                                                     & (0.203)     & (0.186)     & (0.185)      & (0.166)      & (0.170)       & (0.178)       & (0.173)\\   
+   CO2 per capita                                                                                    &             & X           & X            & X            & X             & X             & X\\  
+   GDP per capita                                                                                    &             &             & X            & X            & X             & X             & X\\  
+   Total tax revenues as \% of GDP                                                                   &             &             &              & X            & X             & X             & X\\  
+   Share of elderly population                                                                       &             &             &              &              & X             & X             & X\\  
+   Gallagher disproportionality index                                                                &             &             &              &              &               & X             & X\\  
+   Lagged dependent variable                                                                         &             &             &              &              &               &               & X\\  
+   \emph{Fixed effects}\\
+   Country                                                                                           & x           & x           & x            & x            & x             & x             & x\\  
+   Half decade                                                                                       & x           & x           & x            & x            & x             & x             & x\\  
+   Type of climate action/measure                                                                    & x           & x           & x            & x            & x             & x             & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                                                      & 1,213       & 1,213       & 1,213        & 1,144        & 961           & 961           & 922\\  
+   R$^2$                                                                                             & 0.380       & 0.384       & 0.386        & 0.421        & 0.440         & 0.441         & 0.458\\  
+   \midrule
+   \multicolumn{8}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{8}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

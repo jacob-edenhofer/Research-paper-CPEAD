@@ -1,0 +1,36 @@
+
+\begingroup
+\centering
+\begin{tabular}{lccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{7}{c}{Stringency value modified}\\
+   Model:                                                                                    & (1)            & (2)            & (3)            & (4)           & (5)     & (6)     & (7)\\  
+                                                                                             &  OLS           & OLS            & OLS            & OLS           & OLS     & OLS     & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Concertation dummy (TC or BC), 1-year lag                                                 & -0.884$^{***}$ & -0.849$^{***}$ & -0.877$^{***}$ & -0.728$^{**}$ & -0.577  & -0.566  & -0.413\\   
+                                                                                             & (0.263)        & (0.228)        & (0.217)        & (0.283)       & (0.425) & (0.422) & (0.261)\\   
+   Industry value added (\% of GDP), 1-year lag                                              & -0.012         & -0.005         & -0.012         & -0.014        & 0.009   & 0.010   & 0.001\\   
+                                                                                             & (0.012)        & (0.011)        & (0.012)        & (0.012)       & (0.017) & (0.017) & (0.010)\\   
+   Concertation dummy (TC or BC), 1-year lag x Industry value added (\% of GDP), 1-year lag  & 0.026$^{***}$  & 0.026$^{***}$  & 0.027$^{***}$  & 0.022$^{**}$  & 0.016   & 0.015   & 0.012\\   
+                                                                                             & (0.009)        & (0.008)        & (0.007)        & (0.010)       & (0.016) & (0.015) & (0.009)\\   
+   CO2 per capita                                                                            &                & X              & X              & X             & X       & X       & X\\  
+   GDP per capita                                                                            &                &                & X              & X             & X       & X       & X\\  
+   Total tax revenues as \% of GDP                                                           &                &                &                & X             & X       & X       & X\\  
+   Share of elderly population                                                               &                &                &                &               & X       & X       & X\\  
+   Gallagher disproportionality index                                                        &                &                &                &               &         & X       & X\\  
+   Lagged dependent variable                                                                 &                &                &                &               &         &         & X\\  
+   \emph{Fixed effects}\\
+   Country                                                                                   & x              & x              & x              & x             & x       & x       & x\\  
+   Half decade                                                                               & x              & x              & x              & x             & x       & x       & x\\  
+   Type of climate action/measure                                                            & x              & x              & x              & x             & x       & x       & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                                              & 19,405         & 19,405         & 19,405         & 17,789        & 13,045  & 13,045  & 12,557\\  
+   R$^2$                                                                                     & 0.631          & 0.634          & 0.636          & 0.633         & 0.651   & 0.651   & 0.788\\  
+   \midrule
+   \multicolumn{8}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{8}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

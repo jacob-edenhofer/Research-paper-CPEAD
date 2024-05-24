@@ -1,0 +1,451 @@
+---
+title: "Research as a Process"
+author: Thiemo Fetzer
+date: March 22, 2005
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE, eval=TRUE}
+def.chunk.hook  <- knitr::knit_hooks$get("chunk")
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "tiny","\n\n", x, "\n\n \\normalsize")
+})
+knitr::opts_chunk$set(echo = TRUE, size = "footnotesize")
+
+library(knitr)
+knitr::opts_chunk$set(cache = TRUE, warning = FALSE, 
+                      message = FALSE, cache.lazy = FALSE)
+setwd("/Users/thiemo/Dropbox/Teaching/Bootcamp/")
+library(stringr) #string operations
+library(data.table) #efficient data handling
+library(plyr) #join operations
+library(lubridate) #for smooth date handling
+library(foreign)  #loading dbf's (shapefiles) old stata files
+library(operator.tools) #for specific operator tools for set operations
+#library(attempt) #for debugging
+library(zoo)  
+library(openxlsx) #XLSX reading
+library(rgdal) #spatial
+library(rgeos) #spatial
+library(ggplot2)
+```
+
+
+```{r preamble_crime, echo=FALSE,eval=TRUE, cache=TRUE}
+library(plyr)
+library(dplyr)
+library(tidyverse)
+library(openxlsx)
+library(sjmisc)
+library(foreign)
+library(data.table)
+library(janitor)
+library(readr)
+library(stringr)
+library(ggcorrplot)
+library(xtable)
+#install.packages("ggiplot", repos = "https://grantmcdermott.r-universe.dev")
+library(ggiplot)
+library(fixest)
+library(operator.tools)
+library(DescTools)
+
+setwd("/Users/thiemo/Dropbox/Teaching/Bootcamp/Examples/Crime paper/")
+
+
+XW<-data.table(read.csv(file="ONSPD_FEB_2023_UK.csv"))
+
+
+#load the crime data
+load("20230428_street_crime_pan.rdata")
+
+#subset panel
+street_crime_pan<-lapply(street_crime_pan, function(x) x[ym>=201110])
+
+#rerun with percentile
+load("shock_percentile_p1p99_list.rdata")
+shock<-lapply(shock_percentile, function(x) x[p==0.5])
+lapply(shock, function(x) x[, p := NULL])
+
+
+shock<-lapply(shock, function(x)  x[, shock_itt_abs_no_int := spend_act_avgall_10_22-spend_act_avgall_10_21] )
+shock<-lapply(shock, function(x)  x[, shock_itt_abs_epg := spend_act_avgall_epg-spend_act_avgall_10_21] )
+shock<-lapply(shock, function(x)  x[, shock_itt_abs_two_tier := spend_act_avgall_two_tier-spend_act_avgall_10_21] )
+
+load("police_lsoa_mapper.rdata")
+
+
+geographies<-c("oa11cd","lsoa11cd","msoa11cd")
+
+
+#this only merges the shock variable
+street_crime_pan<-lapply(street_crime_pan , function(x) join(x, shock[[names(x[1,1])]][,c(names(x[1,1]), grep("shock",setdiff(names(shock[["msoa11cd"]])[2:ncol(shock[["msoa11cd"]])],grep("wt",names(shock[["msoa11cd"]]),value=TRUE)),value=TRUE)),with=F]  ))
+street_crime_pan<-lapply(street_crime_pan , function(x) join(x, map[[names(x[1,1])]]))
+street_crime_pan<-lapply(street_crime_pan, function(x) x[, falls_within := as.factor(falls_within)])
+
+
+load("covars.rdata")
+street_crime_pan<-lapply(street_crime_pan , function(x) join(x, covars[[names(x[1,1])]]))
+#for heterogenous effects
+load("imd_scores.rdata")
+street_crime_pan<-lapply(street_crime_pan , function(x) join(x, imd[[names(x[1,1])]]))
+
+#subset to England as control variables are not available for Englnad/Wlaes throughout
+street_crime_pan<-lapply(street_crime_pan, function(x) x[substr(lad21cd,1,1)=="E"])
+
+
+#adding different area definitions for time FE
+street_crime_pan[["oa11cd"]] <- join(street_crime_pan[["oa11cd"]],XW[, .N, by=c("oa11","ttwa")][, 1:2][, list(oa11cd=oa11,ttwa=as.factor(ttwa))])
+street_crime_pan[["lsoa11cd"]] <- join(street_crime_pan[["lsoa11cd"]],XW[, .N, by=c("lsoa11","ttwa")][, 1:2][, list(lsoa11cd=lsoa11,ttwa=as.factor(ttwa))])
+street_crime_pan[["msoa11cd"]] <- join(street_crime_pan[["msoa11cd"]],XW[, .N, by=c("msoa11","ttwa")][, 1:2][, list(msoa11cd=msoa11,ttwa=as.factor(ttwa))])
+
+street_crime_pan[["oa11cd"]] <- join(street_crime_pan[["oa11cd"]],XW[, .N, by=c("oa11","lep1")][, 1:2][, list(oa11cd=oa11,lep1=as.factor(lep1))])
+street_crime_pan[["lsoa11cd"]] <- join(street_crime_pan[["lsoa11cd"]],XW[, .N, by=c("lsoa11","lep1")][, 1:2][, list(lsoa11cd=lsoa11,lep1=as.factor(lep1))])
+street_crime_pan[["msoa11cd"]] <- join(street_crime_pan[["msoa11cd"]],XW[, .N, by=c("msoa11","lep1")][, 1:2][, list(msoa11cd=msoa11,lep1=as.factor(lep1))])
+
+street_crime_pan[["oa11cd"]] <- join(street_crime_pan[["oa11cd"]],XW[, .N, by=c("oa11","sicbl")][, 1:2][, list(oa11cd=oa11,sicbl=as.factor(sicbl))])
+street_crime_pan[["lsoa11cd"]] <- join(street_crime_pan[["lsoa11cd"]],XW[, .N, by=c("lsoa11","sicbl")][, 1:2][, list(lsoa11cd=lsoa11,sicbl=as.factor(sicbl))])
+street_crime_pan[["msoa11cd"]] <- join(street_crime_pan[["msoa11cd"]],XW[, .N, by=c("msoa11","sicbl")][, 1:2][, list(msoa11cd=msoa11,sicbl=as.factor(sicbl))])
+
+
+street_crime_pan[["oa11cd"]] <- join(street_crime_pan[["oa11cd"]],  unique(XW[, .N, by=c("oa11","osward")][order(N, decreasing=TRUE)],by="oa11")[oa11!=""][, list(oa11cd=oa11,osward=as.factor(osward))])
+street_crime_pan[["lsoa11cd"]] <- join(street_crime_pan[["lsoa11cd"]], unique(XW[, .N, by=c("lsoa11","osward")][order(N, decreasing=TRUE)],by="lsoa11")[lsoa11!=""][, list(lsoa11cd=lsoa11,osward=as.factor(osward))])
+street_crime_pan[["msoa11cd"]] <- join(street_crime_pan[["msoa11cd"]], unique(XW[, .N, by=c("msoa11","osward")][order(N, decreasing=TRUE)],by="msoa11")[msoa11!=""][, list(msoa11cd=msoa11,osward=as.factor(osward))])
+
+#for re-estiamtion at coarser level
+street_crime_pan[["oa11cd"]]<-join(street_crime_pan[["oa11cd"]],shock[["lsoa11cd"]][, list(lsoa11cd,lsoa11cd_shock_itt_abs_epg=shock_itt_abs_epg)])
+street_crime_pan[["oa11cd"]]<-join(street_crime_pan[["oa11cd"]],shock[["msoa11cd"]][, list(msoa11cd,msoa11cd_shock_itt_abs_epg=shock_itt_abs_epg)])
+street_crime_pan[["lsoa11cd"]]<-join(street_crime_pan[["lsoa11cd"]],shock[["msoa11cd"]][, list(msoa11cd,msoa11cd_shock_itt_abs_epg=shock_itt_abs_epg)])
+
+
+street_crime_pan<-lapply(street_crime_pan, function(x) x[, cons := 1])
+street_crime_pan<-lapply(street_crime_pan, function(x) x[, post := as.numeric(ym>202210)])
+street_crime_pan<-lapply(street_crime_pan, function(x) x[!is.na(falls_within)])
+
+
+street_crime_pan<-lapply(street_crime_pan, function(x) x[, tile_price_paid := ntile(ppd_price_p50,5)])
+street_crime_pan<-lapply(street_crime_pan, function(x) x[, tile_price_paid_iqr := ntile(ppd_price_p90-ppd_price_p10,5)])
+
+street_crime_pan<-lapply(street_crime_pan, function(x) x[, tile_ := ntile(ppd_price_p50,5)])
+street_crime_pan<-lapply(street_crime_pan, function(x) x[, tile_price_paid_iqr := ntile(ppd_price_p90-ppd_price_p10,5)])
+
+
+street_crime_pan<-lapply(street_crime_pan, function(x) x[, tile_main_fuel_gas := ntile(main_fuel_gas,5)])
+
+```
+# Day 4 - Producing research output
+
+## Research as a process
+
+![Feedback loops](Figures/research-flow-feedback.png)
+
+## After data assembly 
+
+- after you assembled a dataset you can carry out research
+- this is the "hard" part, you need to reason with the data, you need to understand what is going on
+- you need to potentially go back to data assembly, add features etc
+- my practice is to be efficient as in: 20% of the work gets 80% of the results
+- this applies to most research and carrying out stuff iteratively is vital
+- why? 
+
+$$E\big[(y - \hat{f})^2\big] = \underbrace{(f - E[\hat{f}])^2}_{\text{Bias}} + \underbrace{Var[\hat{f}]}_{\text{Variance}}   + \underbrace{Var[\epsilon]}_{\text{Irreducible error}} $$
+
+## Research output generation
+I want to showcase some approaches that I take in the energy crisis and crime paper. This set up a quite sophisticated data build pipeline.
+
+Why?
+
+It is quite vectorized through and through.
+
+## Construction of input data $X$
+
+![Property level records](Figures/epc-matching-moments)
+
+## Prediction exercise for FT $\widehat{f}(X)$
+
+![Prediction by location and property attributes](Figures/ft-api){width=100%}
+ 
+
+## Construction of "shock measure" at arbitrary geographic units
+```{r, echo=FALSE, eval=TRUE, cache=TRUE}
+xw23 <-data.table(read.csv(file="Examples/ONSPD_FEB_2023_UK.csv"))
+xw23<-xw23[substr(rgn,1,1)!="S"]
+head(xw23)
+```
+
+
+
+## Spatial Layers or overlays
+![Arbitraryness of space](Figures/spatial layers){width=50%}
+
+## Producing shocks at different granularities
+```{r, echo=TRUE, eval=TRUE}
+createPercentileShock<-function(msoa, areacode="lsoa11cd") { 
+hp_cons_x<- data.table(get(load(paste("Examples/Percentile shock/hp_cons_x_",msoa,".rdata",sep=""),environment())))
+hp_cons_long_spend<- data.table(get(load(paste("Examples/Percentile shock/hp_cons_long_spend_",msoa,".rdata",sep=""),environment())))
+temp<-hp_cons_long_spend[bound=="avgall" & price_date %in% c("10_21","10_22",NA) & price_scenario %in% c("fiscally neutral","EPG","cap") ][, list(spend=mean(spend)), by=c("uprn","cons_type","price_date","price_scenario")]
+#spend_act_needrsc_10_22
+ttt<-dcast(temp, uprn  ~ cons_type+price_scenario+price_date, value.var="spend")
+setnames(ttt, names(ttt), gsub("_cap","", names(ttt)))
+setnames(ttt, names(ttt), gsub("fiscally neutral","two_tier", names(ttt)))
+setnames(ttt, names(ttt), gsub("EPG","epg", names(ttt)))
+setnames(ttt, names(ttt), gsub("_NA","", names(ttt)))
+setnames(ttt, names(ttt)[2:ncol(ttt)], paste("spend_",names(ttt)[2:ncol(ttt)],sep=""))
+setnames(ttt, names(ttt), gsub("_pot_","_pot_avgall_", names(ttt)))
+setnames(ttt, names(ttt), gsub("_act_","_act_avgall_", names(ttt)))
+hp_cons_x<-join(hp_cons_x, ttt, by="uprn")
+hp_cons_x <-hp_cons_x[!is.na(spend_estimates)]
+hp_cons_x[, shock_itt_abs_no_int := spend_act_avgall_10_22-spend_act_avgall_10_21] 
+hp_cons_x[, shock_itt_abs_epg := spend_act_avgall_epg-spend_act_avgall_10_21] 
+hp_cons_x[, shock_itt_abs_two_tier := spend_act_avgall_two_tier-spend_act_avgall_10_21] 
+#probs <- c( 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95)
+probs<-seq(0.05,0.95,0.01)
+quantile_pcon <- hp_cons_x[, lapply(.SD, function(x) quantile(x, probs,na.rm=TRUE)), by = areacode, .SDcols = grep("spend_[act|pot]|shock_",names(hp_cons_x),value=TRUE)]
+quantile_pcon$p <- rep.int(probs,   nrow(quantile_pcon)/length(probs))
+quantile_pcon
+}
+```
+https://osf.io/vhnjz/
+
+
+## Producing shocks at different granularities
+```{r, echo=TRUE, eval=TRUE}
+msoa="E02004936"
+areacode="lsoa11cd"
+hp_cons_x<- data.table(get(load(paste("Examples/Percentile shock/hp_cons_x_",msoa,".rdata",sep=""),environment())))
+hp_cons_long_spend<- data.table(get(load(paste("Examples/Percentile shock/hp_cons_long_spend_",msoa,".rdata",sep=""),environment())))
+temp<-hp_cons_long_spend[bound=="avgall" & price_date %in% c("10_21","10_22",NA) & price_scenario %in% c("fiscally neutral","EPG","cap") ][, list(spend=mean(spend)), by=c("uprn","cons_type","price_date","price_scenario")]
+#spend_act_needrsc_10_22
+ttt<-dcast(temp, uprn  ~ cons_type+price_scenario+price_date, value.var="spend")
+setnames(ttt, names(ttt), gsub("_cap","", names(ttt)))
+setnames(ttt, names(ttt), gsub("fiscally neutral","two_tier", names(ttt)))
+setnames(ttt, names(ttt), gsub("EPG","epg", names(ttt)))
+setnames(ttt, names(ttt), gsub("_NA","", names(ttt)))
+setnames(ttt, names(ttt)[2:ncol(ttt)], paste("spend_",names(ttt)[2:ncol(ttt)],sep=""))
+setnames(ttt, names(ttt), gsub("_pot_","_pot_avgall_", names(ttt)))
+setnames(ttt, names(ttt), gsub("_act_","_act_avgall_", names(ttt)))
+hp_cons_x<-join(hp_cons_x, ttt, by="uprn")
+hp_cons_x <-hp_cons_x[!is.na(spend_estimates)]
+hp_cons_x[, shock_itt_abs_no_int := spend_act_avgall_10_22-spend_act_avgall_10_21] 
+hp_cons_x[, shock_itt_abs_epg := spend_act_avgall_epg-spend_act_avgall_10_21] 
+hp_cons_x[, shock_itt_abs_two_tier := spend_act_avgall_two_tier-spend_act_avgall_10_21] 
+probs<-seq(0.05,0.95,0.01)
+quantile_pcon <- hp_cons_x[, lapply(.SD, function(x) quantile(x, probs,na.rm=TRUE)), 
+                           by = areacode, .SDcols = grep("spend_[act|pot]|shock_",names(hp_cons_x),value=TRUE)]
+
+quantile_pcon$p <- rep.int(probs,   nrow(quantile_pcon)/length(probs))
+quantile_pcon
+```
+https://osf.io/vhnjz/
+
+## Note aside there are tons of issues here
+
+
+- at some point identifiers, actually, all data was sent to lowercase
+- the dataset is carrying out redundant information everywhere
+- given that `areacode` is an argument to this function
+- elegant use of `lapply`, `.SD` and `.SDcols`
+
+
+```{r, echo=TRUE,eval=FALSE}
+probs<-seq(0.05,0.95,0.01)
+quantile_pcon <- hp_cons_x[, lapply(.SD, function(x) quantile(x, probs,na.rm=TRUE)),
+by = areacode, .SDcols = grep("spend_[act|pot]|shock_",names(hp_cons_x),value=TRUE)]
+quantile_pcon$p <- rep.int(probs,   nrow(quantile_pcon)/length(probs))
+quantile_pcon
+```
+
+## How to produce efficient research output
+
+- illustrate some output generation for the recent crime paper 
+- producing saturation tables with FEs 
+- producing saturation tables with features turned FE
+- simple difference-in-differences estimation with DiD plots
+- placebo research design shifting in time
+- I share the whole data and files strictly necessary to reproduce this paper in `Examples/Crime paper` 
+
+
+## Basics of `fixest` package 
+
+-- Laurent Berge developed a really cool package for HD fixed effect estimation
+
+
+
+
+## Fragmentization customisation 
+```{r, echo=TRUE, eval=FALSE}
+fragment_extract = function(x, fragment = TRUE, fixed_effects=FALSE, fit_statistics=FALSE, model_numbers=FALSE){
+    # x: etable, in tex format
+    # fragment:
+    # -  FALSE: nothing is done
+    # -   TRUE: coef + FEs + fit-stats only
+    # - "coef": only the coefs
+
+    if(isFALSE(fragment)){
+        return(x)
+    }
+
+	if(isFALSE(model_numbers)) {
+	i_remove = which.max(grepl("Model", x))
+	x= x[-i_remove]
+	}
+    dreamerr::check_arg_plus(fragment, "logical scalar | match(coef)")
+    # we trim the top of the table - whole table
+    i_start = which.max(grepl("Variables", x))
+    x = x[-(1:i_start)]
+	
+   if(!isFALSE(fixed_effects) & isFALSE(fit_statistics)) {
+           i_start = which.max(grepl("Fixed-effects", x)) 
+		   i_end = min(grep("midrule.+midrule|Fit statistics",x))
+		   x= x[c(1:i_start,i_start:(i_end-1))]
+   }
+      if(!isFALSE(fixed_effects) & !isFALSE(fit_statistics)) {
+           i_start = which.max(grepl("Fixed-effects", x)) 
+		   i_end = min(grep("midrule.+midrule",x))
+		   x= x[c(1:i_start,i_start:(i_end-1))]
+   }
+       if(isFALSE(fixed_effects) & !isFALSE(fit_statistics)) {
+
+           i_end_coef = which.max(grepl("Fixed-effects", x)) 
+           i_start = which.max(grepl("Fit statistics", x)) 
+		   i_end = min(grep("midrule.+midrule",x))
+		   x= x[c(1:(i_end_coef-1),i_start:(i_end-1))]
+   }
+          if(isFALSE(fixed_effects) & isFALSE(fit_statistics)) {
+
+           i_end_coef = which.max(grepl("Fixed-effects", x)) 
+		   x= x[c(1:(i_end_coef-1))]
+   }
+#Fixed-effects   
+	x[grep("midrule",x)]<-"\\\\"
+#    x<- x[grep("midrule",x)]
+    x
+}
+```
+
+
+## Registering this function 
+Telling `etable` function to use the customization in the tex generation
+```{r, echo=TRUE, eval=FALSE}
+setFixest_etable(postprocess.tex = fragment_extract)
+```
+
+## Adding more custom model statistics 
+For example, the number of estimated fixed effects
+```{r, echo=TRUE, eval=FALSE}
+fitted_other_fe = function(est){
+  fixed_effects = sum(est$fixef_sizes)-sum(est$fixef_sizes[1])
+  fixed_effects
+}
+
+fitstat_register("fitted_other_fe", fitted_other_fe, "No. of time FE")
+
+```
+
+
+## Calling `etable` with these modifications
+For example, the number of estimated fixed effects
+```{r, echo=TRUE, eval=FALSE}
+etable(out, tex = TRUE, replace=TRUE, 
+       file=paste("05 Draft/tables/fragment-did-",res,"-",dep,"-",fnform,".tex",sep=""),
+       cluster="falls_within", fragment=TRUE, keep="%post", 
+       fitstat = ~ r2 + fitted_fe + fitted_area_fe + fitted_time_fe + n, 
+       fixed_effects=FALSE, fit_statistics=TRUE,digits = "r3",digits.stats = 3)
+```
+
+
+## Calling `etable` with these modifications
+For example, the number of estimated fixed effects
+
+
+## Three main tables
+
+- illustrate some output generation for the recent crime paper 
+- producing saturation tables with FEs 
+- producing saturation tables with features turned FE
+- I share the whole data and files strictly necessary to reproduce this paper in `Examples/Crime paper` 
+
+
+## How to produce efficient research output
+
+![Abstract](Figures/crime-screenshot){width=70%}
+
+## Iteratively adding more FE
+
+![Table 1](Figures/example-table-crime){width=90%}
+
+
+## Lets have a look at the R code that generate this
+```{r, echo=TRUE, eval=FALSE}
+time_fe<-c("osward","pcon11cd","lad21cd","ttwa","sicbl","lep1","falls_within","rgn11cd")
+for(dep in c("street_burglary","street_anti_social_behaviour")) { 
+for(fn_form in c(dep, paste("log(",dep,"+1)",sep=""),paste("as.numeric(",dep,">0)",sep="") )) {
+for(res in geographies) { 
+dat<-street_crime_pan[[res]]
+dat<-dat[ym>=202203]
+#iterate through the FE  
+out<-NULL
+k=1
+for(fe in time_fe ) {
+
+dat[, space_time_fe := factor(paste(eval(parse(text=fe)), ym)) ]
+
+dat[ , shock := shock_itt_abs_epg/sd(shock_itt_abs_epg,na.rm=TRUE)]
+if(fn_form==dep) {
+dat[, depvar_mean := eval(parse(text=paste(dep,"/mean(",dep,")",sep=""))) ]
+rr<-feols( as.formula(eval(parse(text=paste0("depvar_mean ~ post:shock  | ",res, "+ space_time_fe")))), data=dat)
+} 
+else {
+rr<-feols( as.formula(eval(parse(text=paste0(fn_form, "~ post:shock  | ",res, "+ space_time_fe")))), data=dat)
+}
+out[[k]]<-rr
+k=k+1
+}
+fnform <- "count"
+if(length(grep("log",fn_form))>0) {
+fnform <- "log"
+}
+if(length(grep("numeric",fn_form))>0) {
+fnform <- "any"
+}
+out<-rev(out)
+etable(out, tex = TRUE, replace=TRUE, file=paste("05 Draft/tables/fragment-did-",res,"-",dep,"-",fnform,".tex",sep=""),cluster="falls_within", fragment=TRUE, keep="%post", fitstat = ~ r2 + fitted_fe + fitted_area_fe + fitted_time_fe + n, fixed_effects=FALSE, fit_statistics=TRUE,digits = "r3",digits.stats = 3)
+}
+}
+}
+```
+
+## Interactively adding more FE
+
+![Table 2](Figures/crime-paper-fe-interactively){width=90%}
+
+## Iteratively adding discretized continous measures as FE
+
+![Table 3](Figures/crime-paper-fe-features-interactively){width=90%}
+
+
+## How to produce efficient research output
+
+![Example Table](Figures/crime-did-plot){width=90%}
+
+
+## How to produce efficient research output
+
+![Example Table](Figures/crime-did-placebo-plot){width=90%}
+
+
+## How to produce efficient research output
+
+![Example Table](Figures/example-table-crime-2){width=90%}
+
+
+## Producing shocks at different granularities
+```{r, echo=TRUE, eval=FALSE}
+
+```
+https://osf.io/vhnjz/
+
+
+
+

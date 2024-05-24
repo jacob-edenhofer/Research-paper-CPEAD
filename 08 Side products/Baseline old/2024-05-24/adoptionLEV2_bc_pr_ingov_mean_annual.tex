@@ -1,0 +1,36 @@
+
+\begingroup
+\centering
+\begin{tabular}{lccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{7}{c}{Stringency value modified}\\
+   Model:                                                           & (1)            & (2)            & (3)            & (4)            & (5)            & (6)            & (7)\\  
+                                                                    &  OLS           & OLS            & OLS            & OLS            & OLS            & OLS            & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Bipartite concertation, 1-year lag                               & 0.071$^{**}$   & 0.068$^{*}$    & 0.064          & 0.084$^{*}$    & 0.098$^{**}$   & 0.097$^{**}$   & 0.095$^{**}$\\   
+                                                                    & (0.033)        & (0.037)        & (0.038)        & (0.040)        & (0.037)        & (0.036)        & (0.036)\\   
+   Green party CIP, 1-year lag                                      & 0.283$^{***}$  & 0.287$^{***}$  & 0.263$^{***}$  & 0.286$^{***}$  & 0.314$^{***}$  & 0.307$^{***}$  & 0.379$^{***}$\\   
+                                                                    & (0.055)        & (0.060)        & (0.063)        & (0.047)        & (0.067)        & (0.063)        & (0.081)\\   
+   Bipartite concertation, 1-year lag x Green party CIP, 1-year lag & -0.529$^{***}$ & -0.533$^{***}$ & -0.522$^{***}$ & -0.532$^{***}$ & -0.513$^{***}$ & -0.539$^{***}$ & -0.725$^{***}$\\   
+                                                                    & (0.134)        & (0.127)        & (0.145)        & (0.142)        & (0.142)        & (0.135)        & (0.182)\\   
+   CO2 per capita                                                   &                & X              & X              & X              & X              & X              & X\\  
+   GDP per capita                                                   &                &                & X              & X              & X              & X              & X\\  
+   Total tax revenues as \% of GDP                                  &                &                &                & X              & X              & X              & X\\  
+   Share of elderly population                                      &                &                &                &                & X              & X              & X\\  
+   Gallagher disproportionality index                               &                &                &                &                &                & X              & X\\  
+   Lagged dependent variable                                        &                &                &                &                &                &                & X\\  
+   \emph{Fixed effects}\\
+   Country                                                          & x              & x              & x              & x              & x              & x              & x\\  
+   Half decade                                                      & x              & x              & x              & x              & x              & x              & x\\  
+   Instrument type                                                  & x              & x              & x              & x              & x              & x              & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                     & 3,463          & 3,463          & 3,450          & 3,436          & 3,436          & 3,436          & 3,374\\  
+   R$^2$                                                            & 0.557          & 0.557          & 0.558          & 0.559          & 0.560          & 0.560          & 0.599\\  
+   \midrule
+   \multicolumn{8}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{8}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

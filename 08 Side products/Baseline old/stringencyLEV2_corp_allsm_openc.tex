@@ -1,0 +1,42 @@
+
+\begingroup
+\centering
+\begin{tabular}{lccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{7}{c}{Stringency value modified}\\
+   Model:                                                                      & (1)     & (2)          & (3)           & (4)           & (5)           & (6)           & (7)\\  
+                                                                               &  OLS    & OLS          & OLS           & OLS           & OLS           & OLS           & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Corporatism (all), sm lagged by 1 year                                      & 0.109   & 0.208$^{*}$  & 0.212$^{*}$   & 0.197$^{*}$   & 0.183         & 0.167         & 0.247$^{*}$\\   
+                                                                               & (0.090) & (0.117)      & (0.117)       & (0.114)       & (0.119)       & (0.119)       & (0.131)\\   
+   Openness to trade lagged by 1 year                                          & -0.001  & -0.001       & -0.001        & -0.001$^{*}$  & -0.001$^{*}$  & -0.001$^{*}$  & -0.001\\   
+                                                                               & (0.001) & (0.001)      & (0.001)       & (0.001)       & (0.001)       & (0.001)       & (0.001)\\   
+   Corporatism (all), sm lagged by 1 year x Openness to trade lagged by 1 year & -0.001  & -0.002$^{*}$ & -0.003$^{**}$ & -0.003$^{**}$ & -0.003$^{**}$ & -0.003$^{**}$ & -0.003$^{**}$\\   
+                                                                               & (0.001) & (0.001)      & (0.001)       & (0.001)       & (0.001)       & (0.001)       & (0.001)\\   
+   CO2 emissions per capita lagged by 1 year                                   &         & 0.014        & 0.003         & 0.002         & 0.003         & 0.002         & 0.001\\   
+                                                                               &         & (0.010)      & (0.010)       & (0.011)       & (0.011)       & (0.011)       & (0.012)\\   
+   GDP per capita (constant 2015 US\$) lagged by 1 year                        &         &              & 0.000$^{***}$ & 0.000$^{***}$ & 0.000$^{***}$ & 0.000$^{***}$ & 0.000$^{***}$\\   
+                                                                               &         &              & (0.000)       & (0.000)       & (0.000)       & (0.000)       & (0.000)\\   
+   Tax revenue (\% of GDP) lagged by 1 year                                    &         &              &               & 0.003         & 0.003         & 0.003         & 0.004\\   
+                                                                               &         &              &               & (0.005)       & (0.005)       & (0.005)       & (0.005)\\   
+   Share of population >65 lagged by 1 year                                    &         &              &               &               & 0.007         & 0.008         & 0.005\\   
+                                                                               &         &              &               &               & (0.018)       & (0.018)       & (0.019)\\   
+   Gallagher index of disproportionality lagged by 1 year                      &         &              &               &               &               & -0.004        & 0.000\\   
+                                                                               &         &              &               &               &               & (0.007)       & (0.007)\\   
+   Stringency value modified, three-year lag lagged by 1 year                  &         &              &               &               &               &               & -0.041\\   
+                                                                               &         &              &               &               &               &               & (0.033)\\   
+   \emph{Fixed effects}\\
+   Country                                                                     & x       & x            & x             & x             & x             & x             & x\\  
+   Half decade                                                                 & x       & x            & x             & x             & x             & x             & x\\  
+   Instrument type                                                             & x       & x            & x             & x             & x             & x             & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                                & 12,437  & 12,437       & 12,293        & 11,384        & 11,370        & 11,370        & 10,373\\  
+   R$^2$                                                                       & 0.588   & 0.588        & 0.591         & 0.596         & 0.597         & 0.597         & 0.598\\  
+   \midrule
+   \multicolumn{8}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{8}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

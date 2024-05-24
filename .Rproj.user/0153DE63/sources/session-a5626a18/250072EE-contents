@@ -1,0 +1,26 @@
+
+
+lagged_cols1 <- c(corporatism, variables, covariates)
+oecd_adoption_LEV1_1 <- oecd_adoption_LEV1 %>%
+  mutate(across(
+    .cols = all_of(lagged_cols1),
+    .fns = ~ lag(.x, 1, order_by = time_period),
+    .names = "{.col}_lag1"  # Names the new columns with a _lag1 suffix
+  )) %>%
+  ungroup()
+
+
+baseline <- feols(obs_value1 ~ corp_all_lag1*openc_lag1 + csw0(co2_per_capita_lag1, dis_gall_lag1, elderly_lag1) | iso3c + half_decade + clim_act_pol, 
+                  data = oecd_adoption_LEV1_1)
+
+etable(baseline, 
+       drop = paste(paste0(covariates, "_lag1"), collapse = "|"),
+       dict = var_dict)
+
+# obs_value1 ~ corp_all_lag1 * openc_lag1 + csw0(co2_per_capita_lag1, 
+#                                                ny_gdp_pcap_kd_lag1, gc_tax_totl_gd_zs_lag1, elderly_lag1, 
+#                                                dis_gall_lag1, obs_value1_lag3_lag1) | iso3c + half_decade + 
+#   clim_act_pol
+
+
+

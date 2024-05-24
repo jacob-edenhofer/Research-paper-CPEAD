@@ -1,0 +1,45 @@
+
+\begin{table}[htbp]
+   \caption{Baseline model for Bipartite concertation and Trade CO2 share}
+   \centering
+   \begin{tabular}{lcccccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{8}{c}{Stringency value modified}\\
+      Model:                                                                   & (1)            & (2)            & (3)            & (4)            & (5)            & (6)            & (7)           & (8)\\  
+                                                                               &  OLS           & OLS            & OLS            & OLS            & OLS            & OLS            & OLS           & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      Bipartite concertation, 1-year lag                                       & 1.050$^{***}$  & 1.000$^{***}$  & 0.859$^{***}$  & 0.758$^{**}$   & 0.615$^{***}$  & 0.508$^{**}$   & 0.829$^{***}$ & 0.481$^{*}$\\   
+                                                                               & (0.139)        & (0.162)        & (0.258)        & (0.291)        & (0.203)        & (0.189)        & (0.205)       & (0.284)\\   
+      Trade CO2 share, 1-year lag                                              & -0.005$^{***}$ & -0.006$^{***}$ & -0.007$^{***}$ & -0.006$^{***}$ & -0.006$^{***}$ & -0.006$^{***}$ & 0.000         & -0.001\\   
+                                                                               & (0.002)        & (0.002)        & (0.002)        & (0.002)        & (0.001)        & (0.001)        & (0.003)       & (0.002)\\   
+      Bipartite concertation, 1-year lag $\times$ Trade CO2 share, 1-year lag  & 0.013$^{***}$  & 0.012$^{***}$  & 0.012$^{**}$   & 0.012$^{**}$   & 0.010$^{**}$   & 0.014$^{**}$   & 0.010$^{*}$   & 0.002\\   
+                                                                               & (0.004)        & (0.004)        & (0.005)        & (0.005)        & (0.004)        & (0.006)        & (0.005)       & (0.007)\\   
+      CO2 emissions per capita, 1-year lag                                     &                & -0.059         & -0.018         & -0.024         & 0.060          & 0.034          & 0.033         & 0.173$^{*}$\\   
+                                                                               &                & (0.094)        & (0.106)        & (0.118)        & (0.094)        & (0.083)        & (0.077)       & (0.089)\\   
+      GDP per capita (constant 2015 US\$), 1-year lag                          &                &                & 0.000$^{*}$    & 0.000          & 0.000          & 0.000          & 0.000         & 0.000$^{***}$\\   
+                                                                               &                &                & (0.000)        & (0.000)        & (0.000)        & (0.000)        & (0.000)       & (0.000)\\   
+      Tax revenue (\% of GDP), 1-year lag                                      &                &                &                & 0.014          & 0.024          & 0.032          & -0.030        & -0.057\\   
+                                                                               &                &                &                & (0.029)        & (0.024)        & (0.024)        & (0.039)       & (0.038)\\   
+      Gallagher index of disproportionality, 1-year lag                        &                &                &                &                & -0.020         & -0.017         & -0.013        & 0.029\\   
+                                                                               &                &                &                &                & (0.026)        & (0.027)        & (0.025)       & (0.031)\\   
+      Share of population >65, 1-year lag                                      &                &                &                &                &                & 0.244$^{**}$   & 0.254$^{**}$  & -0.342$^{***}$\\   
+                                                                               &                &                &                &                &                & (0.116)        & (0.120)       & (0.114)\\   
+      Political constraints index V (VDEM), 1-year lag                         &                &                &                &                &                &                & -1.086        & -0.806\\   
+                                                                               &                &                &                &                &                &                & (0.697)       & (0.705)\\   
+      Stringency value modified, three-year lag, 1-year lag                    &                &                &                &                &                &                &               & 3.230$^{***}$\\   
+                                                                               &                &                &                &                &                &                &               & (0.178)\\   
+      \emph{Fixed effects}\\
+      Country                                                                  & x              & x              & x              & x              & x              & x              & x             & x\\  
+      Half decade                                                              & x              & x              & x              & x              & x              & x              & x             & x\\  
+      Type of climate action/measure                                           & x              & x              & x              & x              & x              & x              & x             & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                                             & 3,840          & 3,840          & 3,768          & 3,423          & 2,550          & 2,547          & 2,460         & 2,432\\  
+      R$^2$                                                                    & 0.699          & 0.699          & 0.703          & 0.714          & 0.730          & 0.731          & 0.736         & 0.840\\  
+      \midrule
+      \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+
