@@ -1,0 +1,285 @@
+
+##############################################
+# preliminaries 
+##############################################
+
+# load packages 
+library(tidyverse)
+library(plyr)
+library(haven)
+library(readxl)
+library(scales)
+library(janitor)
+library(fixest)
+library(fwlplot)
+library(modelsummary)
+library(marginaleffects)
+library(here)
+library(kableExtra)
+library(countrycode)
+library(WDI)
+library(patchwork)
+library(arrow)
+
+# import data
+finnegan <- read_dta(paste0(here(), "/Data/Long_Term_Policymaking.dta"))
+cpds <- read_dta(paste0(here(), "/Data/CPDS_1960-2021_Update_2023.dta"))
+oecd <- read_csv(paste0(here(), "/Data/CAPMF_official.csv"))
+oecd <- oecd %>% 
+  mutate(region23 = countrycode(`Reference area`, "country.name", "region23"),
+         half_decade = case_when(TIME_PERIOD >= 1990 & TIME_PERIOD < 1995 ~ "1990-1994",
+                                 TIME_PERIOD >= 1995 & TIME_PERIOD < 2000 ~ "1995-1999",
+                                 TIME_PERIOD >= 2000 & TIME_PERIOD < 2005 ~ "2000-2004",
+                                 TIME_PERIOD >= 2005 & TIME_PERIOD < 2010 ~ "2005-2009",
+                                 TIME_PERIOD >= 2010 & TIME_PERIOD < 2015 ~ "2010-2014",
+                                 TIME_PERIOD >= 2015 & TIME_PERIOD < 2020 ~ "2015-2019",
+                                 TIME_PERIOD >= 2020 & TIME_PERIOD <= 2022 ~ "2020-2022",
+                                 TRUE ~ NA))
+is.na(oecd$OBS_VALUE) <- oecd$OBS_VALUE == 0.000000
+oecd_stringency <- oecd %>% filter(grepl("Policy stringency", Measure))
+corporatism <- read_dta(paste0(here(), "/Data/corporatism_jahn/CorporatismusALL.dta"))
+WDI_trade_climate_ind <- WDIsearch(string = "gdp|population|trade|GHG|CO2")
+indicators <- WDI_trade_climate_ind$indicator
+# WDI_data <- WDI(indicator = c("5.51.01.10.gdp", "6.0.GDP_current", "6.0.GDP_growth", 
+#                               "6.0.GDPpc_constant", "BG.GSR.NFSV.GD.ZS", "CC.ENTX.ENE.ZS", 
+#                               "CC.ENV.TRAD.EX", "CC.GHG.PECA", "CC.SP.EXP.ZS", "EG.USE.COMM.GD.PP.KD",
+#                               "EN.ATM.CO2E.EG.ZS", "EN.ATM.CO2E.FF.KT", "EN.ATM.CO2E.FF.ZS", 
+#                               "EN.ATM.CO2E.PC", "GB.SOE.ECON.GD.ZS", "GB.SOE.ECON.GDP.ZS", 
+#                               "GB.TAX.INTT.CN", "GB.TAX.INTT.RV.ZS", "GB.TAX.INTT.ZS", 
+#                               "GB.TAX.TOTL.GDP.ZS", "NE.TRM.TRAD.XN", "NP.IND.TOTL.ZG", 
+#                               "NV.IND.MANF.ZS", "NV.IND.TOTL.ZS", "NY.GDP.COAL.RT.ZS", 
+#                               "NY.GDP.FRST.RT.ZS", "NY.GDP.MINR.RT.ZS", "NY.GDP.NGAS.RT.ZS", 
+#                               "NY.GDP.PETR.RT.ZS", "NY.GDP.PCAP.CD", "NY.GDP.PCAP.KD", "NY.GDP.PCAP.KD.ZG", 
+#                               "NY.TTF.GNFS.KN", "TG.VAL.TOTL.GG.ZS", "TG.VAL.TOTL.GD.PP.ZS", "TOT"))
+# write_csv_arrow(WDI_data, paste0(here(), "/Data/WDI_data.csv"))
+WDI_data <- read_csv(paste0(here(), "/Data/WDI_data.csv"))
+bmr <- read_csv(paste0(here(), "/Data/democracy-v4.0.csv"))
+
+##############################################
+# Data wrangling 
+##############################################
+
+## Merge oecd_stringency, cpds, WDI_trade_climate, and corporatism 
+
+oecd_stringency1 <- oecd_stringency %>%
+  select(-c(starts_with("STRUCTURE"), ACTION, FREQ, `Frequency of observation`, MEASURE, Measure, UNIT_MEASURE, `Unit of measure`, `Unit multiplier`, UNIT_MULT, DECIMALS, Decimals, `Time period`, `Observation value`))
+
+oecd_stringency_type <- oecd_stringency1 %>%
+  filter(grepl("Market-based instruments|Non market-based instruments", `Climate actions and policies`))
+
+## create iso code variable for bmr 
+bmr <- bmr %>%
+  mutate(iso_code = countrycode(country, "country.name", "iso3c"))
+
+### merge oecd and bmr 
+oecd_bmr <- oecd %>%
+  mutate(iso_code = countrycode(`Reference area`, "country.name", "iso3c")) %>%
+  left_join(bmr %>% filter(!is.na(iso_code)), 
+            by = c("iso_code", "TIME_PERIOD" = "year")) 
+
+
+############################################
+# Descriptive statics 
+############################################
+
+
+
+oecd_adoption <- oecd %>%
+  filter(grepl("Adopted", Measure)) 
+
+oecd_adoption %>%
+  filter(grepl("^LEV1", CLIM_ACT_POL)) %>% 
+  dplyr::group_by(TIME_PERIOD) %>%
+  dplyr::summarise(sum_adopted = sum(OBS_VALUE, na.rm = T)) %>% 
+  mutate(growth_rate = (sum_adopted/lag(sum_adopted, 1) - 1)*100) %>% 
+  pivot_longer(cols = c(sum_adopted, growth_rate), 
+               names_to = "indicator", values_to = "value") %>% 
+  ggplot(aes(x = TIME_PERIOD, y = value)) +
+  geom_line() +
+  geom_smooth(method = "loess", span = 0.5, se = F) +
+  facet_wrap(~indicator, 
+             scales = "free_y",
+             labeller = labeller(indicator = c("growth_rate" = "Annual growth rate adopted policies",
+                                               "sum_adopted" = "Sum of adopted policies"))) +
+  labs(x = "Year", y = "") +
+  theme_bw() +
+  theme(legend.position = "bottom")
+ggsave("oecd_sum_adopted.png", width = 8, height = 6, dpi = 300)
+
+
+oecd_adoption %>%
+  filter(!grepl("INT|LEV1_CROSS_SEC|LEV1_SEC|CROSS", CLIM_ACT_POL)) %>%
+  dplyr::group_by(TIME_PERIOD, `Climate actions and policies`) %>%
+  dplyr::summarise(sum_adopted = sum(OBS_VALUE, na.rm = T)) %>%
+  mutate(growth_rate = (sum_adopted/lag(sum_adopted, 1, order_by = `Climate actions and policies`) - 1)*100) %>%
+  pivot_longer(cols = c(sum_adopted, growth_rate), 
+               names_to = "indicator", values_to = "value") %>%
+  mutate(indicator = factor(indicator, 
+                            levels = c("growth_rate", "sum_adopted"), 
+                            labels = c("Annual growth rate of sum (in %)", "Sum of adopted policies")),
+         `Climate actions and policies` = case_when(grepl("Market-based instruments", `Climate actions and policies`) ~ str_replace_all(`Climate actions and policies`,
+                                                                                                                                        "Market-based instruments", "MBI"),
+                                                    grepl("Non market-based instruments", `Climate actions and policies`) ~ str_replace_all(`Climate actions and policies`,
+                                                                                                                                            "Non market-based instruments", "NBI"),
+                                                    TRUE ~ `Climate actions and policies`)) %>%
+  ggplot(aes(x = TIME_PERIOD, y = value)) +
+  geom_line() +
+  geom_smooth(method = "loess", span = 0.5, se = F) +
+  facet_grid(indicator~`Climate actions and policies`, scales = "free_y") +
+  labs(x = "Year", y = "") +
+  theme_bw() +
+  theme(legend.position = "bottom", 
+        strip.text = element_text(size = 7),
+        axis.text.x = element_text(size = 7, angle = 35))
+ggsave("oecd_overall_growth_rate.png", width = 8, height = 6, dpi = 300)
+
+
+
+###########
+# Do the same for oecd_stringency 
+###########
+
+oecd_stringency %>%
+  filter(grepl("^LEV1", CLIM_ACT_POL)) %>% 
+  dplyr::group_by(TIME_PERIOD) %>%
+  dplyr::summarise(mean_stringency = mean(OBS_VALUE, na.rm = T)) %>%
+  mutate(growth_rate = (mean_stringency/lag(mean_stringency, 1) - 1)*100) %>% 
+  pivot_longer(cols = c(mean_stringency, growth_rate), 
+               names_to = "indicator", values_to = "value") %>% 
+  ggplot(aes(x = TIME_PERIOD, y = value)) +
+  geom_line() +
+  geom_smooth(method = "loess", span = 0.5, se = F) +
+  facet_wrap(~indicator, 
+             labeller = labeller(indicator = c("growth_rate" = "Annual growth rate of mean stringency",
+                                               "mean_stringency" = "Mean stringency")),
+             scales = "free_y") +
+  labs(x = "Year", y ="") +
+  theme_bw()
+ggsave("oecd_mean_stringency_overall.png", width = 8, height = 6, dpi = 300)
+
+
+oecd_stringency_type %>%
+  filter(!grepl("^LEV1", CLIM_ACT_POL)) %>% 
+  dplyr::group_by(TIME_PERIOD, `Climate actions and policies`) %>%
+  dplyr::summarise(mean_stringency = mean(OBS_VALUE, na.rm = T)) %>%
+  mutate(growth_rate = (mean_stringency/lag(mean_stringency, 1, order_by = `Climate actions and policies`) - 1)*100) %>%
+  pivot_longer(cols = c(mean_stringency, growth_rate), 
+               names_to = "indicator", values_to = "value") %>%
+  mutate(indicator = factor(indicator, 
+                            levels = c("growth_rate", "mean_stringency"), 
+                            labels = c("Annual growth rate (in %)", "Mean stringency")),
+         `Climate actions and policies` = case_when(grepl("Market-based instruments", `Climate actions and policies`) ~ str_replace_all(`Climate actions and policies`,
+                                                                                                                                        "Market-based instruments", "MBI"),
+                                                    grepl("Non market-based instruments", `Climate actions and policies`) ~ str_replace_all(`Climate actions and policies`,
+                                                                                                                                              "Non market-based instruments", "NBI"),
+                                                    TRUE ~ `Climate actions and policies`)) %>%
+  ggplot(aes(x = TIME_PERIOD, y = value)) +
+  geom_line() +
+  geom_smooth(method = "loess", span = 0.5, se = F) +
+  facet_grid(indicator~`Climate actions and policies`, scales = "free_y") +
+  labs(x = "Year", y = "") +
+  theme_bw() +
+  theme(legend.position = "bottom", 
+        strip.text = element_text(size = 7),
+        axis.text.x = element_text(size = 9, angle = 35))
+ggsave("oecd_stringency_growth_type.png", width = 8, height = 6, dpi = 300)
+
+
+############
+# Do the same for oecd_bmr
+############
+
+
+oecd_bmr %>%
+  filter(!is.na(democracy), 
+         grepl("Adopted", Measure),
+         grepl("LEV1_INT|LEV1_CROSS_SEC|LEV1_SEC", CLIM_ACT_POL)) %>%
+  dplyr::group_by(TIME_PERIOD, democracy) %>%
+  dplyr::summarise(sum_bmr = sum(OBS_VALUE, na.rm = T)) %>%
+  mutate(growth_rate = (sum_bmr/lag(sum_bmr, 1, order_by = democracy) - 1)*100) %>% 
+  pivot_longer(cols = c(sum_bmr, growth_rate), 
+               names_to = "indicator", values_to = "value") %>%
+  mutate(indicator = factor(indicator, 
+                            levels = c("growth_rate", "sum_bmr"), 
+                            labels = c("Annual growth rate (in %)", "Sum of adopted policies")),
+        democracy = factor(democracy, 
+                           levels = c("0", "1"), 
+                           labels = c("Non-democracy", "Democracy"))) %>%
+  ggplot(aes(x = TIME_PERIOD, y = value)) +
+  geom_line() +
+  geom_smooth(method = "loess", span = 0.5, se = F) +
+  facet_grid(indicator~democracy, scales = "free_y") +
+  labs(x = "Year", y = "") +
+  theme_bw() +
+  theme(legend.position = "bottom")
+ggsave("oecd_bmr_adoption_rate_by_regime.png", width = 8, height = 6, dpi = 300)
+
+
+# oecd_bmr %>%
+#   filter(!is.na(democracy), grepl("Adopted", Measure), 
+#          !grepl("Market-based instruments|Non market-based instruments|governance|data|finance", `Climate actions and policies`)) %>%
+#   dplyr::group_by(TIME_PERIOD, democracy, `Climate actions and policies`) %>%
+#   dplyr::summarise(sum_bmr = sum(OBS_VALUE, na.rm = T)) %>%
+#   arrange(TIME_PERIOD, `Climate actions and policies`) %>% 
+#   mutate(growth_rate = (sum_bmr/dplyr::lag(sum_bmr, 1, order_by = democracy) - 1)*100) %>%
+#   pivot_longer(cols = c(sum_bmr, growth_rate), 
+#                names_to = "indicator", values_to = "value") %>%
+#   mutate(indicator = factor(indicator, 
+#                             levels = c("growth_rate", "sum_bmr"), 
+#                             labels = c("Growth rate (in %)", "Sum of adopted policies")),
+#          democracy = factor(democracy,
+#                             levels = c("0", "1"),
+#                             labels = c("Non-democracy", "Democracy")),
+#          `Climate actions and policies` = case_when(grepl("Market-based instruments", `Climate actions and policies`) ~ str_replace_all(`Climate actions and policies`,
+#                                                                                                                                         "Market-based instruments", "MBI"),
+#                                                     grepl("Non market-based instruments", `Climate actions and policies`) ~ str_replace_all(`Climate actions and policies`,
+#                                                                                                                                             "Non market-based instruments", "NBI"),
+#                                                     TRUE ~ `Climate actions and policies`)) %>%
+#   ggplot(aes(x = TIME_PERIOD, y = value, colour = democracy)) +
+#   geom_line() +
+#   geom_smooth(method = "loess", span = 0.5, se = F) +
+#   scale_colour_brewer("", palette = "Dark2") +
+#   facet_grid(indicator~`Climate actions and policies`, scales = "free_y") +
+#   labs(x = "Year", y = "") +
+#   theme_bw() +
+#   theme(legend.position = "bottom")
+
+
+### write a loop instead 
+
+####
+# Do the same for stringency 
+####
+
+oecd_bmr %>%
+  filter(!is.na(democracy), 
+         grepl("Policy stringency", Measure),
+         grepl("^LEV1", CLIM_ACT_POL)) %>%
+  dplyr::group_by(TIME_PERIOD, democracy) %>%
+  dplyr::summarise(mean_bmr = mean(OBS_VALUE, na.rm = T)) %>%
+  mutate(growth_rate = (mean_bmr/lag(mean_bmr, 1, order_by = democracy) - 1)*100) %>% 
+  pivot_longer(cols = c(mean_bmr, growth_rate), 
+               names_to = "indicator", values_to = "value") %>%
+  mutate(indicator = factor(indicator, 
+                            levels = c("growth_rate", "mean_bmr"), 
+                            labels = c("Annual growth rate (in %)", "Mean stringency")),
+         democracy = factor(democracy, 
+                            levels = c("0", "1"), 
+                            labels = c("Non-democracy", "Democracy"))) %>%
+  ggplot(aes(x = TIME_PERIOD, y = value)) +
+  geom_line() +
+  geom_smooth(method = "loess", span = 0.5, se = F) +
+  facet_grid(indicator~democracy, scales = "free_y") +
+  labs(x = "Year", y = "") +
+  theme_bw() +
+  theme(legend.position = "bottom")
+ggsave("oecd_bmr_stringency_by_regime.png", width = 8, height = 6, dpi = 300)
+
+
+
+############################################
+# Some basic regressions 
+############################################
+
+
+

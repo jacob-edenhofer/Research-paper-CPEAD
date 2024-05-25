@@ -1,0 +1,1149 @@
+---
+title: "Preliminary graphs"
+author: |
+   Jacob Edenhofer
+date: |
+  First edited: 03 November 2023<br>Last edited: `r format(Sys.time(), '%d %B %Y')`
+output: github_document
+pandoc_args: --webtex
+always_allow_html: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = F)
+```
+
+# Preliminaries
+
+```{r prelims, warning=FALSE, message=FALSE}
+# packages
+library(tidyverse)
+library(data.table)
+library(WDI)
+library(countrycode)
+library(democracyData)
+library(readxl)
+library(openxlsx)
+library(owidR)
+library(here)
+library(janitor)
+library(arrow)
+library(readxl)
+library(modelsummary)
+library(fixest)
+library(fwlplot)
+library(marginaleffects)
+library(kableExtra)
+library(haven)
+library(scales)
+
+# import data
+finnegan <- read_dta(paste0(here(), "/Data/Long_Term_Policymaking.dta"))
+cpds <- read_dta(paste0(here(), "/Data/CPDS_1960-2021_Update_2023.dta"))
+oecd <- read_csv(paste0(here(), "/Data/CAPMF_official.csv")) %>% clean_names()
+oecd_unofficial <- read_xlsx(paste0(here(), "/Data/CAPMF_2023_Policy.xlsx"))
+corporatism <- read_dta(paste0(here(), "/Data/corporatism_jahn/CorporatismusALL.dta"))
+WDI_data <- read_csv(paste0(here(), "/Data/WDI_data.csv")) 
+bmr <- read_csv(paste0(here(), "/Data/democracy-v4.0.csv"))
+owid_energy <- read_csv_arrow("https://nyc3.digitaloceanspaces.com/owid-public/data/energy/owid-energy-data.csv")
+owid_co2 <- read_csv_arrow("https://nyc3.digitaloceanspaces.com/owid-public/data/co2/owid-co2-data.csv")
+polcon <- read_xlsx(paste0(here(), "/Data/POLCON_2021_VDEM.xlsx"))
+```
+
+
+# Data wrangling 
+
+## CAPMF data 
+
+```{r data-wrangling-oecd, message=FALSE}
+oecd <- oecd %>% mutate(obs_value1 = obs_value)
+# replace zeroes with missing values 
+is.na(oecd$obs_value) <- oecd$obs_value == 0.000000
+
+
+# select only meaningful columns
+for(i in names(oecd)){
+  levels <- nlevels(factor(oecd[[i]]))
+  if(levels == 1 | sum(is.na(oecd[[i]])) == nrow(oecd)){
+    oecd <<- oecd %>% select(-i)
+  } else{
+    next
+  }
+}
+
+
+# create new variables (for fixed effects)
+oecd <- oecd %>% 
+  # delete values for European Union 
+  filter(!grepl("European Union", reference_area)) %>%
+  mutate(region23 = countrycode(reference_area, "country.name", "region23"),
+         iso3c = countrycode(reference_area, "country.name", "iso3c"),
+         half_decade = case_when(time_period >= 1990 & time_period < 1995 ~ "1990-1994",
+                                 time_period >= 1995 & time_period < 2000 ~ "1995-1999",
+                                 time_period >= 2000 & time_period < 2005 ~ "2000-2004",
+                                 time_period >= 2005 & time_period < 2010 ~ "2005-2009",
+                                 time_period >= 2010 & time_period < 2015 ~ "2010-2014",
+                                 time_period >= 2015 & time_period < 2020 ~ "2015-2019",
+                                 time_period >= 2020 & time_period <= 2022 ~ "2020-2022",
+                                 TRUE ~ NA))
+
+# create two separate datasets for adoption and stringency 
+oecd_stringency <- oecd %>% filter(grepl("Policy stringency", measure_2))
+oecd_adoption <- oecd %>% filter(grepl("Adopted", measure_2))
+
+## create separate datasets for different levels 
+# list 
+oecd_adoption_list <- list()
+oecd_stringency_list <- list()
+
+# loop
+for(k in c("LEV1", "LEV2", "LEV3", "LEV4")){
+  # prune adoption data
+  oecd_adoption_list[[k]] <- oecd_adoption %>%
+    filter(grepl(paste0("^", k), clim_act_pol))
+  # prune stringency data
+  oecd_stringency_list[[k]] <- oecd_stringency %>%
+    filter(grepl(paste0("^", k), clim_act_pol))
+}
+```
+
+
+## OWID
+
+```{r owid-data-wrangling}
+# energy data
+owid_energy_pruned <- owid_energy %>%
+  select(country, year, iso_code, population, gdp, contains("share"), contains("per_capita"))
+
+# co2 data 
+owid_co2_pruned <- owid_co2 %>%
+  select(country, year, iso_code, population, gdp, contains("per_gdp"), contains("per_capita"), contains("share"))
+```
+
+
+## WDI
+
+```{r wdi-data-wrangling, warning=FALSE}
+# to be able to delete pre-classified groups of countries, create new iso3c identifier
+WDI_data <- WDI_data %>%
+  mutate(iso3c_new = countrycode(country, "country.name", "iso3c"))
+
+wdi_post90 <- WDI_data %>%
+  # restrict data to individual countries, rather than pre-classified groups of countries
+  filter(year >= 1990, !is.na(iso3c))
+
+# table with variable definitions 
+wdi_indicators <- c("5.51.01.10.gdp", "6.0.GDP_current", "6.0.GDP_growth",
+                    "6.0.GDPpc_constant", "BG.GSR.NFSV.GD.ZS", "CC.ENTX.ENE.ZS",
+                    "CC.ENV.TRAD.EX", "CC.GHG.PECA", "CC.SP.EXP.ZS",
+                    "EG.USE.COMM.GD.PP.KD", "EN.ATM.CO2E.EG.ZS", "EN.ATM.CO2E.FF.KT",
+                    "EN.ATM.CO2E.FF.ZS", "EN.ATM.CO2E.PC", "GB.SOE.ECON.GD.ZS",
+                    "GB.SOE.ECON.GDP.ZS", "GB.TAX.INTT.CN", "GB.TAX.INTT.RV.ZS",
+                    "GB.TAX.INTT.ZS", "GB.TAX.TOTL.GDP.ZS", "NE.TRM.TRAD.XN",
+                    "NP.IND.TOTL.ZG", "NV.IND.MANF.ZS", "NV.IND.TOTL.ZS",
+                    "NY.GDP.COAL.RT.ZS", "NY.GDP.FRST.RT.ZS", "NY.GDP.MINR.RT.ZS",
+                    "NY.GDP.NGAS.RT.ZS", "NY.GDP.PETR.RT.ZS", "NY.GDP.PCAP.CD",
+                    "NY.GDP.PCAP.KD", "NY.GDP.PCAP.KD.ZG", "NY.TTF.GNFS.KN",
+                    "TG.VAL.TOTL.GG.ZS", "TG.VAL.TOTL.GD.PP.ZS", "TOT")
+WDIcache()[[1]] %>%
+  filter(indicator %in% wdi_indicators) %>%
+  kable(col.names = c("Indicator code", "Name", 
+                      "Description", "Source", "Source organisation")) %>%
+  kable_styling(full_width = T)
+```
+
+
+## BMR
+
+```{r bmr-data-wrangling}
+bmr <- bmr %>%
+  mutate(iso_code = countrycode(country, "country.name", "iso3c"))
+## The usual suspects prove somewhat difficult to assign an iso3 code to.
+bmr_post90 <- bmr %>%
+  filter(year >= 1990, !is.na(iso_code), country != "GERMANY, WEST")
+```
+
+## POLCON
+
+```{r polcon-data-wrangling}
+polcon_pruned <- polcon %>%
+  select(-grep("^(party|p1[0-5]|p[1-9]|p[1-9][0-9]|executive|prime|align|tsu|tsl|polity|leg|cyear|ccode|cnts|icrg|ctry|country_text_id)", names(polcon))) %>%
+  mutate(iso3c = countrycode(country_name, "country.name", "iso3c")) %>%
+  select(country_name, iso3c, year, everything())
+```
+
+## Corporatism 
+
+```{r corporatism-data-wrangling}
+corporatism <- corporatism %>%
+  mutate(iso3c = countrycode(country, "country.name", "iso3c")) %>%
+  select(country, iso3c, year, everything())
+
+## post 90 version 
+corporatism_post90 <- corporatism %>%
+  filter(year >= 1990)
+```
+
+
+## CPDS 
+
+```{r cpds-data-wrangling}
+cpds <- cpds %>%
+  select(country, year, eu, emu, grep("^ud|netu|openc|gdp", names(cpds))) %>%
+  mutate(iso3c = countrycode(country, "country.name", "iso3c")) %>%
+  select(country, iso3c, year, everything())
+
+## post 90 version
+cpds_post90 <- cpds %>%
+  filter(year >= 1990)
+``` 
+
+
+
+## Merging 
+
+
+```{r merging-data}
+# bmr 
+## bmr with owid_energy_pruned 
+bmr_energy <- bmr %>%
+  filter(!is.na(iso_code)) %>%
+  left_join(owid_energy_pruned, by = c("iso_code", "year")) %>%
+  select(-country.y) %>%
+  rename(country = country.x)
+
+## bmr with owid_co2_pruned
+bmr_co2 <- bmr %>%
+  filter(!is.na(iso_code)) %>%
+  left_join(owid_co2_pruned, by = c("iso_code", "year")) %>%
+  select(-country.y) %>%
+  rename(country = country.x)
+
+## bmr with WDI_data
+bmr_wdi <- bmr %>%
+  filter(!is.na(iso_code), year >= 1960) %>%
+  left_join(WDI_data %>% filter(!is.na(iso3c), year <= 2020), 
+            by = c("iso_code" = "iso3c_new", "year")) %>%
+  select(-country.y) %>%
+  rename(country = country.x)
+
+# oecd
+## oecd, wdi_post90, corporatism, cpds_post90, bmr, and polcon_pruned 
+oecd_wdi <- oecd %>%
+  left_join(wdi_post90, by = c("iso3c" = "iso3c_new", "time_period" = "year")) %>%
+  left_join(corporatism, 
+            by = c("iso3c", "time_period" = "year")) %>%
+  left_join(cpds_post90,
+            by = c("iso3c", "time_period" = "year")) %>%
+  left_join(bmr_post90, 
+            by = c("iso3c" = "iso_code", "time_period" = "year")) %>%
+  left_join(polcon_pruned,
+            by = c("iso3c", "time_period" = "year")) 
+
+### create two separate datasets for adoption and stringency 
+oecd_stringency_wdi <- oecd_wdi %>% filter(grepl("Policy stringency", measure_2))
+oecd_adoption_wdi <- oecd_wdi %>% filter(grepl("Adopted", measure_2))
+
+## create separate datasets for different levels 
+# list 
+oecd_adoption_list_wdi <- list()
+oecd_stringency_list_wdi <- list()
+
+# loop
+for(k in c("LEV1", "LEV2", "LEV3", "LEV4")){
+  # prune adoption data
+  oecd_adoption_list_wdi[[k]] <- oecd_adoption_wdi %>%
+    filter(grepl(paste0("^", k), clim_act_pol))
+  # prune stringency data
+  oecd_stringency_list_wdi[[k]] <- oecd_stringency_wdi %>%
+    filter(grepl(paste0("^", k), clim_act_pol))
+}
+```
+
+
+
+# Understanding the CAPMF data
+
+## Different types of climate action 
+
+```{r capmf-climate-action-types}
+oecd_stringency %>%
+  count(clim_act_pol, climate_actions_and_policies) %>%
+  kable(col.names = c("Abbreviation", "Climate actions and policies", "Count"))
+```
+
+
+## Adoption of climate policies
+
+```{r adoption-descriptives}
+# overall adoption 
+oecd_adoption_list[["LEV1"]] %>%
+  group_by(time_period) %>%
+  summarise(sum_adopted = sum(obs_value, na.rm = T)) %>% 
+  ggplot(aes(x = time_period, y = sum_adopted)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  expand_limits(y = 2000) +
+  labs(y = "Number of adopted policies", 
+       title = "Sum of adopted policies, 1990 - 2022") +
+  theme_bw()
+
+## level and growth rate of overall adoption 
+oecd_adoption_list[["LEV1"]] %>%
+  group_by(time_period) %>%
+  summarise(sum_adopted = sum(obs_value, na.rm = T)) %>% 
+  mutate(growth_rate = (sum_adopted/lag(sum_adopted, 1) - 1)*100) %>%
+  pivot_longer(cols = c(sum_adopted, growth_rate), 
+               names_to = "indicator", values_to = "value") %>%
+  ggplot(aes(x = time_period, y = value)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_wrap(~indicator, 
+             labeller = labeller(indicator = c("sum_adopted" = "Sum of adopted policies",
+                                               "growth_rate" = "Growth rate of adopted policies (%)")),
+             scales = "free_y") +
+  labs(y = "Number of adopted policies", 
+       title = "Sum of and growth rate of adopted policies, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom")
+
+# adoption of cross-sectoral policies over time 
+oecd_adoption_list[["LEV2"]] %>% 
+  filter(grepl("^LEV2_CROSS_", clim_act_pol)) %>%
+  group_by(time_period, climate_actions_and_policies) %>%
+  summarise(sum_adopted = sum(obs_value, na.rm = T)) %>% 
+  ggplot(aes(x = time_period, y = sum_adopted, colour = climate_actions_and_policies)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.6) +
+  scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  labs(y = "Number of adopted policies", 
+       title = "Sum of adopted cross-sectoral policies, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom", 
+        legend.text = element_text(size = 8))
+
+## level and growth rate of adoption of cross-sectoral policies
+oecd_adoption_list[["LEV2"]] %>% 
+  filter(grepl("^LEV2_CROSS_", clim_act_pol)) %>%
+  group_by(time_period, climate_actions_and_policies) %>%
+  summarise(sum_adopted = sum(obs_value, na.rm = T)) %>% 
+  ungroup() %>%
+  group_by(climate_actions_and_policies) %>%
+  mutate(lag_value = lag(sum_adopted, 1),
+         lag_value = ifelse(lag_value == 0 & sum_adopted != 0, NA, lag_value),
+         growth_rate = (sum_adopted/lag_value - 1)*100) %>%
+  pivot_longer(cols = c(sum_adopted, growth_rate), 
+               names_to = "indicator", values_to = "value") %>% 
+  filter(!grepl("GHG emission targets", climate_actions_and_policies)) %>%
+  ggplot(aes(x = time_period, y = value)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_grid(indicator~climate_actions_and_policies, 
+             labeller = labeller(indicator = c("sum_adopted" = "Sum of adopted policies",
+                                               "growth_rate" = "Growth rate of adopted policies (%)")),
+             scales = "free_y") +
+  labs(y = "", 
+       title = "Sum of and annual growth rate of adopted cross-sectoral policies, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 90),
+        strip.text = element_text(size = 7))
+
+# adoption of international policies over time 
+oecd_adoption_list[["LEV2"]] %>% 
+  filter(grepl("^LEV2_INT_", clim_act_pol)) %>%
+  group_by(time_period, climate_actions_and_policies) %>%
+  summarise(sum_adopted = sum(obs_value, na.rm = T)) %>% 
+  ggplot(aes(x = time_period, y = sum_adopted, colour = climate_actions_and_policies)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.6) +
+  scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  labs(y = "Number of adopted policies", 
+       title = "Sum of adopted international policies, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom", 
+        legend.text = element_text(size = 8))
+
+# adoption by instrument type at sectoral level
+oecd_adoption_list[["LEV2"]] %>%
+  filter(grepl("^LEV2_SEC_", clim_act_pol)) %>%
+  mutate(sector = str_extract(climate_actions_and_policies, "\\w+"),
+         instrument_type = as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*"))) %>% 
+  group_by(time_period, sector, instrument_type) %>%
+  summarise(sum_adopted = sum(obs_value, na.rm = T)) %>% 
+  ggplot(aes(x = time_period, y = sum_adopted, colour = instrument_type)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_wrap(~sector) +
+  labs(y = "Sum of adopted policies", 
+       title = "Adopted policies by sector and instrument type, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom")
+
+## level and growth rate of adoption of sectoral policies
+oecd_adoption_list[["LEV2"]] %>% 
+  filter(grepl("^LEV2_SEC_", clim_act_pol)) %>%
+  mutate(sector = str_extract(climate_actions_and_policies, "\\w+"),
+         instrument_type = as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*"))) %>% 
+  group_by(time_period, sector, instrument_type) %>%
+  summarise(sum_adopted = sum(obs_value, na.rm = T)) %>% 
+  ungroup() %>%
+  group_by(sector, instrument_type) %>%
+  mutate(lag_value = lag(sum_adopted, 1),
+         lag_value = ifelse(lag_value == 0 & sum_adopted != 0, NA, lag_value),
+         growth_rate = (sum_adopted/lag_value - 1)*100) %>% 
+  pivot_longer(cols = c(sum_adopted, growth_rate), 
+               names_to = "indicator", values_to = "value") %>% 
+  ggplot(aes(x = time_period, y = value, colour = instrument_type)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  scale_colour_brewer("", palette = "Dark2") +
+  facet_grid(indicator~sector, 
+             labeller = labeller(indicator = c("sum_adopted" = "Sum of adopted policies",
+                                               "growth_rate" = "Growth rate of adopted policies (%)")),
+             scales = "free_y") +
+  labs(y = "", 
+       title = "Sum of and annual growth rate of adopted sectoral policies, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 90),
+        strip.text = element_text(size = 7))
+```
+
+
+NOTE: In the version I downloaded, the number of adopted policies is only available for levels one and two. The stringency measure is, however, available for all four levels.
+
+
+## Stringency of climate policies
+
+
+```{r stringency-descriptives, warning=FALSE}
+# overall stringency
+oecd_stringency_list[["LEV1"]] %>%
+  group_by(time_period) %>%
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  # summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>% 
+  ggplot(aes(x = time_period, y = mean_stringency)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  expand_limits(y = 0) +
+  labs(y = "Mean stringency", 
+       title = "Mean stringency, 1990 - 2022") +
+  theme_bw()
+
+## level and growth rate of overall stringency 
+oecd_stringency_list[["LEV1"]] %>%
+  group_by(time_period) %>%
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  # summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>% 
+  mutate(lag_value = lag(mean_stringency, 1),
+         lag_value = ifelse(lag_value == 0 & mean_stringency != 0, NA, lag_value),
+         growth_rate = (mean_stringency/lag_value - 1)*100) %>% 
+  pivot_longer(cols = c(mean_stringency, growth_rate), 
+               names_to = "indicator", values_to = "value") %>% 
+  ggplot(aes(x = time_period, y = value)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_wrap(~indicator, 
+             labeller = labeller(indicator = c("mean_stringency" = "Mean stringency",
+                                               "growth_rate" = "Growth rate of stringency (%)")),
+             scales = "free_y") +
+  labs(y = "", 
+       title = "Mean stringency and annual growth rate of stringency, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 90),
+        strip.text = element_text(size = 7))
+
+# stringency of cross-sectoral policies over time
+oecd_stringency_list[["LEV2"]] %>% 
+  filter(grepl("^LEV2_CROSS_", clim_act_pol)) %>%
+  group_by(time_period, climate_actions_and_policies) %>%
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  # summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>% 
+  ggplot(aes(x = time_period, y = mean_stringency, 
+             colour = climate_actions_and_policies)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.6) +
+  scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  expand_limits(y = c(0, 8)) +
+  labs(y = "Mean stringency", 
+       title = "Mean stringency of cross-sectoral policies, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom", 
+        legend.text = element_text(size = 8))
+
+## level and growth rate of stringency of cross-sectoral policies
+oecd_stringency_list[["LEV2"]] %>% 
+  filter(grepl("^LEV2_CROSS_", clim_act_pol)) %>%
+  group_by(time_period, climate_actions_and_policies) %>%
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  # summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>% 
+  ungroup() %>%
+  group_by(climate_actions_and_policies) %>%
+  mutate(lag_value = lag(mean_stringency, 1),
+         lag_value = ifelse(lag_value == 0 & mean_stringency != 0, NA, lag_value),
+         growth_rate = (mean_stringency/lag_value - 1)*100) %>% 
+  pivot_longer(cols = c(mean_stringency, growth_rate), 
+               names_to = "indicator", values_to = "value") %>% 
+  ggplot(aes(x = time_period, y = value, 
+             colour = climate_actions_and_policies)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.6) +
+  scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_grid(indicator~climate_actions_and_policies, 
+             labeller = labeller(indicator = c("mean_stringency" = "Mean stringency",
+                                               "growth_rate" = "Growth rate of stringency (%)")),
+             scales = "free_y") +
+  labs(y = "", 
+       title = "Mean stringency and annual growth rate of stringency of cross-sectoral policies, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 90),
+        strip.text = element_text(size = 7))
+
+# stringency of international policies over time
+oecd_stringency_list[["LEV2"]] %>% 
+  filter(grepl("^LEV2_INT_", clim_act_pol)) %>%
+  group_by(time_period, climate_actions_and_policies) %>%
+  # summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>% 
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  ggplot(aes(x = time_period, y = mean_stringency, 
+             colour = climate_actions_and_policies)) +
+  geom_line(linewidth = 1) +
+  # geom_smooth(method = "loess", se = F, span = 0.6) +
+  scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  expand_limits(y = c(0, 8)) +
+  labs(y = "Mean stringency", 
+       title = "Mean stringency of international policies, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom", 
+        legend.text = element_text(size = 8))
+
+# stringency by instrument type at sectoral level
+oecd_stringency_list[["LEV2"]] %>%
+  filter(grepl("^LEV2_SEC_", clim_act_pol)) %>%
+  mutate(sector = str_extract(climate_actions_and_policies, "\\w+"),
+         instrument_type = as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*"))) %>% 
+  group_by(time_period, sector, instrument_type) %>%
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  # summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>% 
+  ggplot(aes(x = time_period, y = mean_stringency, colour = instrument_type)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_wrap(~sector) +
+  expand_limits(y = c(0, 8)) +
+  labs(y = "Mean stringency", 
+       title = "Mean stringency of policies by sector and instrument type, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom")
+
+## level and growth rate of stringency by instrument type at sectoral level 
+oecd_stringency_list[["LEV2"]] %>%
+  filter(grepl("^LEV2_SEC_", clim_act_pol)) %>%
+  mutate(sector = str_extract(climate_actions_and_policies, "\\w+"),
+         instrument_type = as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*"))) %>% 
+  group_by(time_period, sector, instrument_type) %>%
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  # summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>% 
+  ungroup() %>%
+  group_by(sector, instrument_type) %>%
+  mutate(lag_value = lag(mean_stringency, 1),
+         lag_value = ifelse(lag_value == 0 & mean_stringency != 0, NA, lag_value),
+         growth_rate = (mean_stringency/lag_value - 1)*100) %>% 
+  pivot_longer(cols = c(mean_stringency, growth_rate), 
+               names_to = "indicator", values_to = "value") %>% 
+  ggplot(aes(x = time_period, y = value, 
+             colour = instrument_type)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_grid(indicator~sector, 
+             labeller = labeller(indicator = c("mean_stringency" = "Mean stringency",
+                                               "growth_rate" = "Growth rate of stringency (%)")),
+             scales = "free_y") +
+  expand_limits(y = c(0, 8)) +
+  labs(y = "", 
+       title = "Mean stringency and annual\ngrowth rate of stringency of policies by sector and instrument type, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 90),
+        strip.text = element_text(size = 7),
+        title = element_text(size = 9))
+
+# stringency by sector for specific instruments 
+oecd_stringency_list[["LEV3"]] %>%
+  mutate(sector = factor(str_trim(as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*")), side = "both")),
+         policy = factor(str_trim(str_extract(climate_actions_and_policies, "^[^-]+"),
+                                  side = "both")),
+         policy = fct_collapse(policy, 
+                               "Fossil fuel subsidies" = c("Fossil Fuel Subsidies",
+                                                           "Fossil fuels subsidies"),
+                               "Carbon tax" = c("Carbon tax", "Carbon Tax"))) %>%
+  filter(grepl("Buildings|Electricity|Transport|Industry", sector)) %>%
+  group_by(time_period, sector, policy) %>%
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  # summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>% 
+  ggplot(aes(x = time_period, y = mean_stringency, colour = policy)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_wrap(~sector) +
+  expand_limits(y = c(0, 8)) +
+  labs(y = "Mean stringency", 
+       title = "Mean stringency of policies by sector and instrument type, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        legend.text = element_text(size = 8))
+
+## level and growth rate of stringency by sector for specific instruments
+oecd_stringency_list[["LEV3"]] %>%
+  mutate(sector = factor(str_trim(as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*")), side = "both")),
+         policy = factor(str_trim(str_extract(climate_actions_and_policies, "^[^-]+"),
+                                  side = "both")),
+         policy = fct_collapse(policy, 
+                               "Fossil fuel subsidies" = c("Fossil Fuel Subsidies",
+                                                           "Fossil fuels subsidies"),
+                               "Carbon tax" = c("Carbon tax", "Carbon Tax"))) %>%
+  filter(grepl("Buildings|Electricity|Transport|Industry", sector)) %>%
+  group_by(time_period, sector, policy) %>%
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  # summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>% 
+  ungroup() %>%
+  group_by(sector, policy) %>%
+  mutate(lag_value = lag(mean_stringency, 1), 
+         lag_value = ifelse(lag_value == 0 & mean_stringency != 0, NA, lag_value),
+         stringency_growth = (mean_stringency/lag_value - 1)*100) %>%
+  pivot_longer(c(mean_stringency, stringency_growth), 
+               names_to = "indicator", values_to = "value") %>%
+  ggplot(aes(x = time_period, y = value, colour = policy)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_grid(indicator~sector, 
+             labeller = labeller(indicator = c("mean_stringency" = "Mean stringency", 
+                                               "stringency_growth" = "Stringency growth rate p.a. (%)")),
+             scale = "free_y") +
+  expand_limits(y = c(0, 8)) +
+  labs(y = "Mean stringency", 
+       title = "Mean stringency of policies by sector and instrument type, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        legend.text = element_text(size = 8),
+        strip.text = element_text(size = 7),
+        axis.text.x = element_text(angle = 90))
+
+
+# stringency by sector for *even more* specific instruments
+lev4_stringency <- oecd_stringency_list[["LEV4"]] %>%
+  mutate(instrument = factor(str_trim(as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*")), side = "both")),
+         sector = factor(str_trim(str_extract(climate_actions_and_policies, "^[^-]+"),
+                                  side = "both"))) %>%
+  group_by(time_period, sector, instrument) %>%
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>% 
+  # summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>% 
+  ungroup()
+
+## loop over sectors 
+for(h in unique(lev4_stringency$sector)){
+  print(lev4_stringency %>%
+    filter(sector == h) %>%
+    ggplot(aes(x = time_period, y = mean_stringency, colour = instrument)) +
+    geom_line(linewidth = 1) +
+    scale_colour_brewer("", palette = "Dark2") +
+    scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+    expand_limits(y = c(0, 8)) +
+    labs(y = "Mean stringency", 
+         title = "Mean stringency by policy area, 1990 - 2022",
+         subtitle = paste("Policy:", h)) +
+    theme_bw() +
+    theme(legend.position = "bottom",
+          legend.text = element_text(size = 8)))
+}
+``` 
+
+
+# Comparing the official and unofficial CAPMF data 
+
+## Adoption 
+
+
+### Overall 
+
+
+```{r compare-offical-unofficial-overall}
+# preliminariesa 
+## adjust outcome variable 
+oecd_unofficial <- oecd_unofficial %>% mutate(valueCAP_Comp1 = valueCAP_Comp)
+is.na(oecd_unofficial$valueCAP_Comp) <- oecd_unofficial$valueCAP_Comp == 0.00000
+
+## delete EU observations 
+oecd_unofficial <- oecd_unofficial %>% filter(!grepl("EUR", ISO))
+
+# overall adoption 
+oecd_unofficial %>%
+  group_by(year) %>%
+  summarise(count = sum(!is.na(valueCAP_Comp))) %>% 
+  ggplot(aes(x = year, y = count)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  labs(y = "Number of countries", 
+       title = "Number of countries adopting climate policies, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom")
+```
+
+
+
+Compare overall adoption data frames:
+
+
+```{r compare-overall-adoption-data-frames}
+ao1 <- oecd_adoption_list[["LEV1"]] %>%
+  group_by(time_period) %>%
+  summarise(sum_adopted = sum(obs_value, na.rm = T)) 
+au1 <- oecd_unofficial %>%
+  group_by(year) %>%
+  summarise(count = sum(!is.na(valueCAP_Comp))) %>%
+  rename(time_period = year, 
+         sum_adopted = count)
+# compare 
+gh <- summary(arsenal::comparedf(ao1, au1, by = "time_period", int.as.num = TRUE))
+gh$diffs.table %>% 
+  mutate(values.x = as.numeric(values.x),
+         values.y = as.numeric(values.y),
+         diff = values.x - values.y) %>%
+  kable() %>%
+  kable_styling(full_width = T) %>%
+  add_footnote("Note, x refers to the official data and y to the unofficial data.",
+               notation = "none")
+```
+
+
+
+The number of adopted policies tends to be **lower** for most years in the *official* data when compared to the *unofficial* data.
+
+
+### Cross-sectoral 
+
+
+```{r compare-cross-sectoral-adop-dfs}
+# data frames 
+## official 
+ao2 <- oecd_adoption_list[["LEV2"]] %>%
+  filter(grepl("^LEV2_CROSS_", clim_act_pol)) %>%
+  group_by(time_period, climate_actions_and_policies) %>%
+  summarise(sum_adopted = sum(obs_value, na.rm = T)) %>%
+  ungroup()
+## unofficial 
+au2 <- oecd_unofficial %>%
+  filter(grepl("Cross_sectoral", PriorityArea)) %>%
+  mutate(Policy = factor(Policy), 
+         Policy = fct_collapse(Policy, 
+                               "Public RD&D expenditure" = c("RDD_CCS",
+                                                               "RDD_EnergyEfficiency",
+                                                               "RDD_Hydrogen",
+                                                               "RDD_Nuclear",
+                                                               "RDD_Otherstorage",
+                                                               "RDD_Renewables")),
+         Policy = as.character(Policy)) %>%
+  group_by(year, Policy) %>%
+  summarise(count = sum(!is.na(valueCAP_Comp))) %>%
+  rename(time_period = year, 
+         sum_adopted = count) %>%
+  ungroup()
+
+# bind together 
+cross_sec <- bind_rows(ao2, au2) %>%
+  mutate(policies = ifelse(is.na(Policy), climate_actions_and_policies, Policy),
+         official = ifelse(is.na(Policy), 1, 0)) 
+
+cross_sec %>%
+  ggplot(aes(x = time_period, y = sum_adopted, colour = policies)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  # scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_wrap(~official,
+             labeller = labeller(official = c("0" = "unoffical", 
+                                              "1" = "official"))) +
+  labs(y = "Number of policies", 
+       title = "Number of cross-sectoral policies, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        legend.text = element_text(size = 7)) +
+  guides(colour = guide_legend(ncol = 2))
+```
+
+
+### International policies over time 
+
+
+```{r compare-international-policies-over-time}
+# data frames 
+## official
+ao3 <- oecd_adoption_list[["LEV2"]] %>% 
+  filter(grepl("^LEV2_INT_", clim_act_pol)) %>%
+  group_by(time_period, climate_actions_and_policies) %>%
+  summarise(sum_adopted = sum(obs_value, na.rm = T)) %>%
+  ungroup()
+
+## unofficial
+au3 <- oecd_unofficial %>%
+  filter(grepl("International", PriorityArea)) %>%
+  group_by(year, Policy) %>%
+  summarise(count = sum(!is.na(valueCAP_Comp))) %>%
+  rename(time_period = year, 
+         sum_adopted = count) %>%
+  ungroup()
+
+# bind together
+int <- bind_rows(ao3, au3) %>%
+  mutate(policies = ifelse(is.na(Policy), climate_actions_and_policies, Policy),
+         official = ifelse(is.na(Policy), 1, 0))
+
+int %>%
+  ggplot(aes(x = time_period, y = sum_adopted, colour = policies)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  # scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_wrap(~official,
+             labeller = labeller(official = c("0" = "unoffical", 
+                                              "1" = "official"))) +
+  labs(y = "Number of policies", 
+       title = "Number of international policies, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        legend.text = element_text(size = 7)) +
+  guides(colour = guide_legend(ncol = 2))
+```
+
+
+
+### Instrument type at sectoral level
+
+```{r compare-instrument-type-at-sectoral-level}
+# data frames
+## official
+ao4 <- oecd_adoption_list[["LEV2"]] %>%
+  filter(grepl("^LEV2_SEC_", clim_act_pol)) %>%
+  mutate(sector = str_extract(climate_actions_and_policies, "\\w+"),
+         instrument_type = as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*"))) %>% 
+  group_by(time_period, sector, instrument_type) %>%
+  summarise(sum_adopted = sum(obs_value, na.rm = T)) %>% 
+  ungroup()
+
+## unofficial
+au4 <- oecd_unofficial %>%
+  filter(!grepl("International|Cross_sectoral", PriorityArea)) %>%
+  group_by(year, PriorityArea, Policytype) %>%
+  summarise(count = sum(!is.na(valueCAP_Comp))) %>%
+  ungroup() %>%
+  mutate(Policytype = ifelse(Policytype == "NMBI", "Non market-based instruments", "Market-based instruments")) %>%
+  rename(time_period = year, 
+         sector = PriorityArea,
+         instrument_type = Policytype,
+         sum_adopted = count) 
+
+# bind together
+sec_inst <- bind_rows(ao4, au4) 
+## identifier for dataset
+sec_inst$official <- NA
+for(r in 1:nrow(sec_inst)){
+  if(r <= 264){
+    sec_inst$official[r] <- 1
+  } else {
+    sec_inst$official[r] <- 0
+  }
+}
+
+# plot 
+sec_inst %>%
+  ggplot(aes(x = time_period, y = sum_adopted, colour = instrument_type)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_colour_brewer("", palette = "Dark2") +
+  scale_x_continuous("", breaks = seq(1990, 2020, 5)) +
+  facet_grid(official~sector,
+             labeller = labeller(official = c("0" = "unoffical", 
+                                              "1" = "official"))) +
+  labs(y = "Number of policies", 
+       title = "Number of policies by instrument type and sector, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        legend.text = element_text(size = 8),
+        axis.text.x = element_text(angle = 90)) 
+```
+
+
+
+## Stringency 
+
+### Overall
+
+
+```{r compare-offical-unofficial-stringency-overall}
+# data frames
+## official
+sto1 <- oecd_stringency_list[["LEV1"]] %>%
+  group_by(time_period) %>%
+  # Note: This is the variables where zeroes are replaced with NAs.
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  ungroup() 
+
+## unofficial
+stu1 <- oecd_unofficial %>%
+  group_by(year) %>%
+  summarise(mean_stringency = mean(valueCAP_Comp, na.rm = T)) %>%
+  ungroup() %>%
+  rename(time_period = year)
+
+# bind together
+sto1$official <- 1
+stu1$official <- 0
+st1 <- bind_rows(sto1, stu1)
+
+# plot
+st1 %>%
+  ggplot(aes(x = time_period, y = mean_stringency, colour = factor(official))) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_colour_brewer("", 
+                      labels = c("0" = "unofficial", 
+                                 "1" = "official"),
+                      palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  labs(y = "Mean stringency", 
+       title = "Mean stringency, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom") 
+```
+
+Let us try to compare this by region (`region23` in the WDI package)
+
+
+```{r compare-offical-unofficial-stringency-by-region}
+# data frames
+## official
+sto1r <- oecd_stringency_list[["LEV2"]] %>%
+  mutate(region23 = countrycode(reference_area, "country.name.en", "region23")) %>%
+  group_by(time_period, region23) %>%
+  # Note: This is the variables where zeroes are replaced with NAs.
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  ungroup()
+
+## unofficial
+stu1r <- oecd_unofficial %>%
+  mutate(region23 = countrycode(ISO, "iso3c", "region23")) %>%
+  group_by(year, region23) %>%
+  summarise(mean_stringency = mean(valueCAP_Comp, na.rm = T)) %>%
+  ungroup() %>%
+  rename(time_period = year)
+
+# bind together
+sto1r$official <- 1
+stu1r$official <- 0
+st1r <- bind_rows(sto1r, stu1r)
+
+# plot
+st1r %>%
+  ggplot(aes(x = time_period, y = mean_stringency, colour = factor(official))) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_colour_brewer("", 
+                      labels = c("0" = "unofficial", 
+                                 "1" = "official"),
+                      palette = "Dark2") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_wrap(~region23, ncol = 5) +
+  labs(y = "Mean stringency", 
+       title = "Mean stringency by region, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 90), 
+        strip.text = element_text(size = 7)) 
+```
+
+
+### Cross-sectoral
+
+```{r compare-offical-unofficial-stringency-cross-sectoral, warning=FALSE}
+# data frames
+## official
+sto2 <- oecd_stringency_list[["LEV2"]] %>%
+  filter(grepl("^LEV2_CROSS_", clim_act_pol)) %>%
+  group_by(time_period, climate_actions_and_policies) %>%
+  # Note: This is the variables where zeroes are replaced with NAs.
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  ungroup() %>%
+  rename(Policy = climate_actions_and_policies)
+
+## unofficial
+stu2 <- oecd_unofficial %>%
+  filter(grepl("Cross_sectoral", PriorityArea)) %>%
+  mutate(Policy = factor(Policy), 
+         Policy = fct_collapse(Policy, 
+                               "Public RD&D expenditure" = c("RDD_CCS",
+                                                               "RDD_EnergyEfficiency",
+                                                               "RDD_Hydrogen",
+                                                               "RDD_Nuclear",
+                                                               "RDD_Otherstorage",
+                                                               "RDD_Renewables")),
+         Policy = as.character(Policy)) %>%
+  group_by(year, Policy) %>%
+  summarise(mean = mean(valueCAP_Comp, na.rm = T)) %>%
+  rename(time_period = year, 
+         mean_stringency = mean) %>%
+  ungroup()
+
+# bind together
+sto2$official <- 1
+stu2$official <- 0
+st2 <- bind_rows(sto2, stu2)
+
+# plot
+st2 %>%
+  ggplot(aes(x = time_period, y = mean_stringency, colour = Policy)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_wrap(~official,
+             labeller = labeller(official = c("0" = "Unofficial", 
+                                              "1" = "Official"))) +
+  labs(y = "Mean stringency", 
+       title = "Mean stringency, 1990 - 2022") +
+  expand_limits(y = c(0, 8)) +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  guides(colour = guide_legend(ncol = 2))
+```
+
+
+
+### International 
+
+```{r compare-offical-unofficial-stringency-international, warnings = FALSE}
+# data frames
+## official
+sto3 <- oecd_stringency_list[["LEV2"]] %>%
+  filter(grepl("^LEV2_INT_", clim_act_pol)) %>%
+  group_by(time_period, climate_actions_and_policies) %>%
+  # Note: This is the variables where zeroes are replaced with NAs.
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  ungroup() %>%
+  rename(Policy = climate_actions_and_policies)
+
+## unofficial
+stu3 <- oecd_unofficial %>%
+  filter(grepl("International", PriorityArea)) %>%
+  group_by(year, Policy) %>%
+  summarise(mean = mean(valueCAP_Comp, na.rm = T)) %>%
+  rename(time_period = year, 
+         mean_stringency = mean) %>%
+  ungroup()
+
+# bind together
+sto3$official <- 1
+stu3$official <- 0
+st3 <- bind_rows(sto3, stu3)
+
+# plot
+st3 %>%
+  ggplot(aes(x = time_period, y = mean_stringency, colour = Policy)) +
+  geom_line(alpha = 1) +
+  # geom_smooth(method = "loess", se = F, span = 0.2) +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_wrap(~official,
+             labeller = labeller(official = c("0" = "Unofficial", 
+                                              "1" = "Official"))) +
+  labs(y = "Mean stringency", 
+       title = "Mean stringency, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  guides(colour = guide_legend(ncol = 2))
+```
+
+
+
+### Instrument type at sectoral level
+
+
+```{r compare-offical-unofficial-stringency-instrument-type-sectoral}
+# data frames
+## official
+sto4 <- oecd_stringency_list[["LEV2"]] %>%
+  filter(grepl("^LEV2_SEC_", clim_act_pol)) %>%
+  mutate(sector = str_extract(climate_actions_and_policies, "\\w+"),
+         instrument_type = as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*"))) %>% 
+  group_by(time_period, sector, instrument_type) %>%
+  # Note: This is the variables where zeroes are replaced with NAs.
+  summarise(mean_stringency = mean(obs_value, na.rm = T)) %>%
+  ungroup() 
+
+## unofficial
+stu4 <- oecd_unofficial %>%
+  filter(!grepl("International|Cross_sectoral", PriorityArea)) %>%
+  group_by(year, PriorityArea, Policytype) %>%
+  summarise(mean_stringency = mean(valueCAP_Comp, na.rm = T)) %>%
+  ungroup() %>%
+  mutate(Policytype = ifelse(Policytype == "NMBI", "Non market-based instruments", "Market-based instruments")) %>%
+  rename(time_period = year, 
+         sector = PriorityArea,
+         instrument_type = Policytype) 
+
+# bind together
+sto4$official <- 1
+stu4$official <- 0
+st4 <- bind_rows(sto4, stu4)
+
+# plot
+st4 %>%
+  ggplot(aes(x = time_period, y = mean_stringency, colour = instrument_type)) +
+  geom_line(alpha = 0.3) +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  scale_colour_brewer("", palette = "Dark2") +
+  facet_grid(official~sector, 
+             labeller = labeller(official = c("0" = "Unofficial", 
+                                              "1" = "Official"))) +
+  expand_limits(y = c(0, 10)) +
+  labs(y = "Mean stringency", 
+       title = "Mean stringency, 1990 - 2022") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 90)) 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
