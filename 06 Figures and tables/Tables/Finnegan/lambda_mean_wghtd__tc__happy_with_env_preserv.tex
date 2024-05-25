@@ -1,0 +1,46 @@
+
+\begin{table}[htbp]
+   \caption{Examining Overall stringency}
+   \centering
+   \begin{tabular}{lcccccccc}
+      \tabularnewline \midrule \midrule
+      Dependent Variable: & \multicolumn{8}{c}{Overall stringency}\\
+      Model:                                                  & (1)            & (2)      & (3)      & (4)           & (5)           & (6)           & (7)           & (8)\\  
+      \midrule
+      \emph{Variables}\\
+      tc1                                                     & 0.0703$^{**}$  &          &          &               &               &               &               &   \\   
+                                                              & (0.0262)       &          &          &               &               &               &               &   \\   
+      tc2                                                     & -0.0567$^{**}$ &          &          &               &               &               &               &   \\   
+                                                              & (0.0231)       &          &          &               &               &               &               &   \\   
+      Happiness with environmental preservation               &                & -0.1690  & -0.1571  & -0.2098       & -0.2080       & -0.1528       & -0.1953       & -0.0821\\   
+                                                              &                & (0.1506) & (0.5240) & (0.4548)      & (0.4598)      & (0.4840)      & (0.4954)      & (0.5377)\\   
+      tc0 $\times$ Happiness with environmental preservation  &                &          & 0.2520   & 0.3646        & 0.3625        & 0.3185        & 0.3220        & 0.2811\\   
+                                                              &                &          & (0.6011) & (0.5361)      & (0.5422)      & (0.5676)      & (0.5994)      & (0.6242)\\   
+      tc1 $\times$ Happiness with environmental preservation  &                &          & -0.1829  & -0.0737       & -0.0669       & -0.1234       & -0.0544       & -0.2073\\   
+                                                              &                &          & (0.5566) & (0.4894)      & (0.4943)      & (0.5402)      & (0.5600)      & (0.6111)\\   
+      Fossil fuel production per capita                       &                &          &          & 0.0578$^{**}$ & 0.0584$^{**}$ & 0.0581$^{**}$ & 0.0552$^{**}$ & 0.0645$^{**}$\\   
+                                                              &                &          &          & (0.0244)      & (0.0236)      & (0.0244)      & (0.0251)      & (0.0252)\\   
+      Real GDP growth                                         &                &          &          &               & -0.0018       & -0.0021       & -0.0021       & $5.27\times 10^{-6}$\\    
+                                                              &                &          &          &               & (0.0046)      & (0.0050)      & (0.0051)      & (0.0053)\\   
+      Unemployment rate                                       &                &          &          &               &               & -0.0023       & -0.0047       & -0.0061\\   
+                                                              &                &          &          &               &               & (0.0062)      & (0.0065)      & (0.0076)\\   
+      Share of >65                                            &                &          &          &               &               &               & -0.0512       & -0.0382\\   
+                                                              &                &          &          &               &               &               & (0.0432)      & (0.0485)\\   
+      Green vs. growth government preferences                 &                &          &          &               &               &               &               & -0.0040\\   
+                                                              &                &          &          &               &               &               &               & (0.0035)\\   
+      \midrule
+      \emph{Fixed-effects}\\
+      Country                                                 & Yes            & Yes      & Yes      & Yes           & Yes           & Yes           & Yes           & Yes\\  
+      Year                                                    & Yes            & Yes      & Yes      & Yes           & Yes           & Yes           & Yes           & Yes\\  
+      \midrule
+      \emph{Fit statistics}\\
+      Observations                                            & 270            & 63       & 63       & 63            & 63            & 63            & 63            & 63\\  
+      R$^2$                                                   & 0.91179        & 0.98622  & 0.98719  & 0.98799       & 0.98802       & 0.98807       & 0.98858       & 0.98885\\  
+      Within R$^2$                                            & 0.02063        & 0.03388  & 0.10205  & 0.15820       & 0.15999       & 0.16362       & 0.19963       & 0.21834\\  
+      \midrule \midrule
+      \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+

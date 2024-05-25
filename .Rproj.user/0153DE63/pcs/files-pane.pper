@@ -1,5 +1,5 @@
 {
-    "path": "~/Comparative_Political_Economy_of_Advanced_Democracies/Research-paper-CPEAD/04 Analysis code",
+    "path": "~/Comparative_Political_Economy_of_Advanced_Democracies/Research-paper-CPEAD/06 Figures and tables",
     "sortOrder": [
         {
             "columnIndex": 2,
@@ -7,7 +7,7 @@
         },
         {
             "columnIndex": 4,
-            "ascending": true
+            "ascending": false
         },
         {
             "columnIndex": 3,

@@ -1,0 +1,42 @@
+
+\begin{table}[htbp]
+   \caption{Examining Costs for producers}
+   \centering
+   \begin{tabular}{lcccccccc}
+      \tabularnewline \midrule \midrule
+      Dependent Variable: & \multicolumn{8}{c}{Costs for producers}\\
+      Model:                                                    & (1)      & (2)      & (3)      & (4)      & (5)      & (6)      & (7)            & (8)\\  
+      \midrule
+      \emph{Variables}\\
+      bc1                                                       & 0.0098   &          &          &          &          &          &                &   \\   
+                                                                & (0.0339) &          &          &          &          &          &                &   \\   
+      Unhappiness with environmental preservation               &          & 0.0634   & 0.3382   & 0.3615   & 0.3679   & 0.3314   & 0.3054         & 0.3351\\   
+                                                                &          & (0.0788) & (0.2212) & (0.2083) & (0.2116) & (0.2035) & (0.2067)       & (0.2279)\\   
+      bc0 $\times$ Unhappiness with environmental preservation  &          &          & -0.3126  & -0.3519  & -0.3922  & -0.3813  & -0.3387        & -0.3701\\   
+                                                                &          &          & (0.2196) & (0.2116) & (0.2292) & (0.2260) & (0.2337)       & (0.2693)\\   
+      Fossil fuel production per capita                         &          &          &          & 0.0205   & 0.0238   & 0.0247   & 0.0187         & 0.0172\\   
+                                                                &          &          &          & (0.0246) & (0.0193) & (0.0200) & (0.0217)       & (0.0212)\\   
+      Real GDP growth                                           &          &          &          &          & -0.0061  & -0.0068  & -0.0064        & -0.0069\\   
+                                                                &          &          &          &          & (0.0042) & (0.0044) & (0.0046)       & (0.0050)\\   
+      Unemployment rate                                         &          &          &          &          &          & -0.0042  & -0.0078$^{*}$  & -0.0076$^{*}$\\   
+                                                                &          &          &          &          &          & (0.0035) & (0.0039)       & (0.0039)\\   
+      Share of >65                                              &          &          &          &          &          &          & -0.0663$^{**}$ & -0.0679$^{**}$\\   
+                                                                &          &          &          &          &          &          & (0.0231)       & (0.0236)\\   
+      Green vs. growth government preferences                   &          &          &          &          &          &          &                & 0.0009\\   
+                                                                &          &          &          &          &          &          &                & (0.0020)\\   
+      \midrule
+      \emph{Fixed-effects}\\
+      Country                                                   & Yes      & Yes      & Yes      & Yes      & Yes      & Yes      & Yes            & Yes\\  
+      Year                                                      & Yes      & Yes      & Yes      & Yes      & Yes      & Yes      & Yes            & Yes\\  
+      \midrule
+      \emph{Fit statistics}\\
+      Observations                                              & 270      & 63       & 63       & 63       & 63       & 63       & 63             & 63\\  
+      R$^2$                                                     & 0.82907  & 0.96791  & 0.96899  & 0.96931  & 0.97020  & 0.97082  & 0.97369        & 0.97373\\  
+      Within R$^2$                                              & 0.00045  & 0.00629  & 0.03966  & 0.04961  & 0.07723  & 0.09653  & 0.18516        & 0.18658\\  
+      \midrule \midrule
+      \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+

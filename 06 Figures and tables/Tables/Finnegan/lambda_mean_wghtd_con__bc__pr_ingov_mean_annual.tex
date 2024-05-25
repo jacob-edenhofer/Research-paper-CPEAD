@@ -1,0 +1,42 @@
+
+\begin{table}[htbp]
+   \caption{Examining Costs for consumers}
+   \centering
+   \begin{tabular}{lcccccccc}
+      \tabularnewline \midrule \midrule
+      Dependent Variable: & \multicolumn{8}{c}{Costs for consumers}\\
+      Model:                                  & (1)      & (2)           & (3)      & (4)      & (5)      & (6)      & (7)            & (8)\\  
+      \midrule
+      \emph{Variables}\\
+      bc1                                     & -0.0179  & -0.0213       & -0.0225  & -0.0232  & -0.0265  & -0.0193  & -0.0348        & -0.0284\\   
+                                              & (0.1613) & (0.1472)      & (0.1410) & (0.1355) & (0.1225) & (0.1225) & (0.1119)       & (0.1112)\\   
+      Green party CIP                         &          & -0.4213$^{*}$ & -0.4152  & -0.4139  & -0.4095  & -0.5194  & -0.6250$^{**}$ & -0.6243$^{**}$\\   
+                                              &          & (0.2129)      & (0.3112) & (0.3190) & (0.3637) & (0.3135) & (0.2186)       & (0.2085)\\   
+      bc0 $\times$ Green party CIP            &          &               & -0.0098  & -0.0087  & -0.1215  & -0.0898  & -0.1018        & -0.0141\\   
+                                              &          &               & (0.4819) & (0.4799) & (0.5081) & (0.4669) & (0.4604)       & (0.4492)\\   
+      Fossil fuel production per capita       &          &               &          & 0.0041   & 0.0103   & 0.0041   & -0.0058        & -0.0067\\   
+                                              &          &               &          & (0.0550) & (0.0475) & (0.0501) & (0.0517)       & (0.0493)\\   
+      Real GDP growth                         &          &               &          &          & -0.0171  & -0.0204  & -0.0157        & -0.0145\\   
+                                              &          &               &          &          & (0.0165) & (0.0132) & (0.0184)       & (0.0184)\\   
+      Unemployment rate                       &          &               &          &          &          & 0.0180   & 0.0206         & 0.0216\\   
+                                              &          &               &          &          &          & (0.0162) & (0.0143)       & (0.0153)\\   
+      Share of >65                            &          &               &          &          &          &          & -0.0247        & -0.0204\\   
+                                              &          &               &          &          &          &          & (0.0465)       & (0.0530)\\   
+      Green vs. growth government preferences &          &               &          &          &          &          &                & -0.0011\\   
+                                              &          &               &          &          &          &          &                & (0.0034)\\   
+      \midrule
+      \emph{Fixed-effects}\\
+      Country                                 & Yes      & Yes           & Yes      & Yes      & Yes      & Yes      & Yes            & Yes\\  
+      Year                                    & Yes      & Yes           & Yes      & Yes      & Yes      & Yes      & Yes            & Yes\\  
+      \midrule
+      \emph{Fit statistics}\\
+      Observations                            & 270      & 97            & 97       & 97       & 97       & 97       & 97             & 97\\  
+      R$^2$                                   & 0.92383  & 0.93166       & 0.93166  & 0.93168  & 0.93468  & 0.93775  & 0.93880        & 0.93898\\  
+      Within R$^2$                            & 0.00058  & 0.07734       & 0.07735  & 0.07757  & 0.11812  & 0.15964  & 0.17370        & 0.17616\\  
+      \midrule \midrule
+      \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+
