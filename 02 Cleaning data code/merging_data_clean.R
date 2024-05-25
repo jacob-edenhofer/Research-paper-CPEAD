@@ -95,9 +95,13 @@ map_dfr(folder_kayser, ~{
 #################################
 
 ## 1. CAPMF data
-capmf_official <- capmf_official %>% mutate(obs_value1 = obs_value)
-# replace zeroes with missing values 
-is.na(capmf_official$obs_value) <- capmf_official$obs_value == 0.000000
+
+## add new column
+capmf_official <- capmf_official %>% 
+  mutate(obs_value1 = ifelse(is.na(obs_value), 0.000000, obs_value))
+
+# # replace zeroes with missing values 
+# is.na(capmf_official$obs_value1) <- capmf_official$obs_value == 0.000000
 
 
 # select only meaningful columns

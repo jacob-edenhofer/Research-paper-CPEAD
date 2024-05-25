@@ -423,7 +423,6 @@ safe_reg_main_effects("stringencyLEV2", list_of_datasets[[5]], var_dict)
 
 ######################## Interaction effects ############################
 
-
 # define function to run regression 
 reg_capmf <- function(data_type, dataset, var_dict) {
   # list to store models 
@@ -487,7 +486,6 @@ reg_capmf <- function(data_type, dataset, var_dict) {
         ## rows to omit 
         rows_to_omit <- paste0("%", covariates, "_lag1")
         
-        
         ## pruned tables 
         etable(model,
                drop = rows_to_omit,
@@ -547,11 +545,6 @@ models_list$stringencyLEV2 <- safe_reg_capmf("stringencyLEV2", list_reg[[4]], va
 
 
 ## Key insight from regs with sector FEs (where variation comes from variation between instruments)
-#### The CO2 share of trade is the only robust correlate. 
-
-## Corporatism and the interactions explain the sectoral variation somewhat (!) better than the variation 
-### between different types of policy instruments. 
-
 ## present regressions without interaction terms in appendix
 
 
@@ -593,6 +586,100 @@ write_csv_arrow(exploratory_sum_df, here("06 Figures and tables", "Tables", "exp
 ### Note: Concertation variables are most predictive at adoption level 2 (sectoral variation).
 
 
+################################################
+# Interaction terms -- Plots 
+################################################
+
+
+map(1:nrow(exploratory_sum_df), function(i) {
+  
+  ## extract dataset
+  dataset <- exploratory_sum_df$dataset[i]
+  dataset <- paste0("oecd_", gsub("(LEV)", "_\\1", dataset))
+  print(dataset)
+  
+  ## extract variable and corporatism measure
+  variable <- exploratory_sum_df$variable_var[i]
+  corporatism <- exploratory_sum_df$corporatism_var[i]
+  
+  ## extract data
+  data <- list_reg[[which(names(list_reg) == dataset)]]
+  
+  ## save lagged cols
+  lagged_cols <- c(corporatism, variable, covariates)
+  
+  ## create lagged variables
+  data <- data %>%
+    # group by country and climate policy area and use order_by to incorporate time dimensions
+    group_by(iso3c, clim_act_pol) %>%
+    mutate(across(
+      .cols = c(lagged_cols),
+      .fns = ~ dplyr::lag(.x, 1, order_by = time_period),
+      .names = "{.col}_lag1"  # Names the new columns with a _lag1 suffix
+    )) %>%
+    ungroup()
+  
+  # Update var_dict with new lagged variables
+  for (col in lagged_cols) {
+    new_var_name <- paste0(col, "_lag1")
+    var_dict[new_var_name] <- paste0(var_dict[col], ", 1-year lag")
+  }
+  
+  ## update labels
+  interaction_term <- paste(paste0(corporatism, "_lag1"), paste0(variable, "_lag1"), sep = "*")
+  interaction_term_dict <- paste(paste0(corporatism, "_lag1"), paste0(variable, "_lag1"), sep = ":")
+  var_dict[interaction_term_dict] <- paste0(var_dict[paste0(corporatism, "_lag1")], " x ", var_dict[paste0(variable, "_lag1")])
+  
+  ## formula 
+  if(grepl("LEV2", dataset)){
+    formula <- as.formula(paste0("obs_value1 ~ ", interaction_term, " + ", paste(paste0(covariates, "_lag1"), collapse = " + "), " | iso3c + half_decade + instrument_type"))
+  } else {
+    formula <- as.formula(paste0("obs_value1 ~ ", interaction_term, " + ", paste(paste0(covariates, "_lag1"), collapse = " + "), " | iso3c + half_decade + clim_act_pol"))
+  }
+  
+  ## run model
+  me_model <- feols(formula, data = data, lean = F, 
+                    vcov = ~iso3c)
+  
+  ## split model by EU membership dummy and save as regression table 
+  robust_region <- feols(formula, 
+                         data = data, 
+                         lean = F, 
+                         fsplit = ~region23,
+                         vcov = ~iso3c)
+  ## path 
+  robust_path <- here("06 Figures and tables", "Tables", "Regressions", "Robustness",
+                      paste0(dataset, "_", interaction_term_dict, ".tex"))
+  
+  ## save as tex table
+  etable(robust_region, 
+         tex = T, 
+         replace = T, 
+         title = paste("Marginal effect of", var_dict[corporatism], "by", var_dict[variable]),
+         file = robust_path)
+  
+  ## plot
+  plot_slopes(me_model, 
+              rug = T,
+              variables = paste0(corporatism, "_lag1"), 
+              condition = paste0(variable, "_lag1")) +
+    geom_hline(yintercept = 0, linetype = "dashed") +
+    labs(title = paste("Marginal effect of", var_dict[corporatism], "by", var_dict[variable]),
+         caption = paste0("Note: The model includes country, half-decade, and instrument type fixed effects as well as controls for\n",
+                          paste(var_dict[covariates], collapse = ", "), "."),
+         x = var_dict[variable],
+         y = paste0("Marginal effect of corporatism measure (", var_dict[corporatism], ")")) +
+    theme_bw() +
+    theme(legend.position = "bottom", 
+          plot.caption = element_text(size = 7, hjust = 0),
+          plot.title = element_text(size = 11))
+  
+  ## save plot
+  ggsave(here("06 Figures and tables", "Figures", "Interaction plots", 
+              paste0("interaction_", dataset, "_", variable, "_", corporatism, ".png")), 
+         width = 9, height = 6, units = "in", dpi = 300)
+})
+
 
 ################################################
 # Regressions -- Robustness 
@@ -602,30 +689,26 @@ write_csv_arrow(exploratory_sum_df, here("06 Figures and tables", "Tables", "exp
 # Multiple imputation 
 
 
-### Include dummy for period covered by Finnegan's analysis and try to reproduce his results 
 
-## openness measures: openc, trade_co2_share, ne_trd_gnfs_zs
-
-## plots and tables for results 
+## run the same models without lagging the independent variables
+### include different lags
 ### different set of controls as robustness check?
 
 
-
-## run the same models without lagging the independent variables
-
-
-
 # different standard errors for baseline specification 
+
 
 
 # jacknife procedure (drop countries and then policy areas); produce histogram of estimates 
 
 
 
+##########################
+# Done 
+#########################
 
 # different samples (EU members, motivate by common climate policy)
-
-
+## openness measures: openc, trade_co2_share, ne_trd_gnfs_zs
 
 
 # lagged dependent variables (different lags)
@@ -643,10 +726,6 @@ write_csv_arrow(exploratory_sum_df, here("06 Figures and tables", "Tables", "exp
 
 
 
-
-
-# create variable of relative number of union conferedations vis-a-vis employers 
-## nuc_fs - nuc_fes / nuc_fs + nuc_fes
 
 
 
