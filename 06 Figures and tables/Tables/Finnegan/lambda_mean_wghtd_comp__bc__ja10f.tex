@@ -1,0 +1,40 @@
+
+\begin{table}[htbp]
+   \caption{Examining Consumer vs. producer costs}
+   \centering
+   \begin{tabular}{lcccccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{8}{c}{Consumer vs. producer costs}\\
+      Model:                                    & (1)     & (2)     & (3)     & (4)     & (5)     & (6)     & (7)          & (8)\\  
+                                                &  OLS    & OLS     & OLS     & OLS     & OLS     & OLS     & OLS          & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      bc1                                       & -0.028  & -0.035  & -0.059  & -0.064  & -0.063  & -0.065  & -0.077       & -0.089\\   
+                                                & (0.135) & (0.134) & (0.142) & (0.137) & (0.134) & (0.135) & (0.137)      & (0.132)\\   
+      Left-right dimension (Jahn)               &         & -0.001  & 0.002   & 0.002   & 0.002   & 0.002   & 0.002        & 0.002\\   
+                                                &         & (0.002) & (0.002) & (0.002) & (0.002) & (0.002) & (0.002)      & (0.002)\\   
+      bc0 $\times$ Left-right dimension (Jahn)  &         &         & -0.005  & -0.005  & -0.004  & -0.005  & -0.005$^{*}$ & -0.006$^{*}$\\   
+                                                &         &         & (0.003) & (0.003) & (0.003) & (0.003) & (0.003)      & (0.003)\\   
+      Fossil fuel production per capita         &         &         &         & 0.014   & 0.019   & 0.019   & 0.018        & 0.019\\   
+                                                &         &         &         & (0.018) & (0.016) & (0.016) & (0.013)      & (0.014)\\   
+      Real GDP growth                           &         &         &         &         & -0.009  & -0.009  & -0.006       & -0.006\\   
+                                                &         &         &         &         & (0.010) & (0.011) & (0.009)      & (0.009)\\   
+      Unemployment rate                         &         &         &         &         &         & 0.004   & 0.005        & 0.006\\   
+                                                &         &         &         &         &         & (0.004) & (0.004)      & (0.005)\\   
+      Share of >65                              &         &         &         &         &         &         & -0.017       & -0.015\\   
+                                                &         &         &         &         &         &         & (0.013)      & (0.016)\\   
+      Green vs. growth government preferences   &         &         &         &         &         &         &              & -0.002\\   
+                                                &         &         &         &         &         &         &              & (0.003)\\   
+      \emph{Fixed effects}\\
+      Country                                   & x       & x       & x       & x       & x       & x       & x            & x\\  
+      Year                                      & x       & x       & x       & x       & x       & x       & x            & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                              & 270     & 269     & 269     & 269     & 269     & 269     & 269          & 269\\  
+      R$^2$                                     & 0.945   & 0.945   & 0.946   & 0.946   & 0.947   & 0.948   & 0.949        & 0.950\\  
+      \midrule
+      \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+

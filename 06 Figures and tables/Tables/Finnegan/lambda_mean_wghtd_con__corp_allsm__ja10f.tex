@@ -1,0 +1,40 @@
+
+\begin{table}[htbp]
+   \caption{Examining Costs for consumers}
+   \centering
+   \begin{tabular}{lcccccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{8}{c}{Costs for consumers}\\
+      Model:                                                            & (1)     & (2)     & (3)     & (4)     & (5)     & (6)     & (7)     & (8)\\  
+                                                                        &  OLS    & OLS     & OLS     & OLS     & OLS     & OLS     & OLS     & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      Corporatism (all, smoothed)                                       & 0.023   & 0.023   & 0.008   & 0.022   & -0.014  & -0.037  & -0.052  & -0.040\\   
+                                                                        & (0.176) & (0.173) & (0.183) & (0.196) & (0.170) & (0.168) & (0.169) & (0.170)\\   
+      Left-right dimension (Jahn)                                       &         & 0.000   & -0.001  & -0.001  & -0.002  & -0.002  & 0.000   & -0.002\\   
+                                                                        &         & (0.002) & (0.004) & (0.004) & (0.004) & (0.004) & (0.004) & (0.004)\\   
+      Corporatism (all, smoothed) $\times$ Left-right dimension (Jahn)  &         &         & 0.002   & 0.002   & 0.003   & 0.003   & 0.001   & 0.001\\   
+                                                                        &         &         & (0.006) & (0.006) & (0.007) & (0.006) & (0.006) & (0.007)\\   
+      Fossil fuel production per capita                                 &         &         &         & 0.011   & 0.015   & 0.014   & 0.008   & 0.008\\   
+                                                                        &         &         &         & (0.024) & (0.022) & (0.023) & (0.020) & (0.020)\\   
+      Real GDP growth                                                   &         &         &         &         & -0.011  & -0.011  & -0.006  & -0.006\\   
+                                                                        &         &         &         &         & (0.011) & (0.011) & (0.010) & (0.010)\\   
+      Unemployment rate                                                 &         &         &         &         &         & -0.005  & -0.003  & -0.002\\   
+                                                                        &         &         &         &         &         & (0.007) & (0.007) & (0.008)\\   
+      Share of >65                                                      &         &         &         &         &         &         & -0.031  & -0.028\\   
+                                                                        &         &         &         &         &         &         & (0.033) & (0.032)\\   
+      Green vs. growth government preferences                           &         &         &         &         &         &         &         & -0.002\\   
+                                                                        &         &         &         &         &         &         &         & (0.003)\\   
+      \emph{Fixed effects}\\
+      Country                                                           & x       & x       & x       & x       & x       & x       & x       & x\\  
+      Year                                                              & x       & x       & x       & x       & x       & x       & x       & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                                      & 270     & 269     & 269     & 269     & 269     & 269     & 269     & 269\\  
+      R$^2$                                                             & 0.924   & 0.924   & 0.924   & 0.924   & 0.925   & 0.926   & 0.929   & 0.929\\  
+      \midrule
+      \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+

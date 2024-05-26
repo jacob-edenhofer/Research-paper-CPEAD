@@ -3,37 +3,35 @@
    \caption{Examining Costs for producers}
    \centering
    \begin{tabular}{lcccccccc}
-      \tabularnewline \midrule \midrule
+      \toprule
       Dependent Variable: & \multicolumn{8}{c}{Costs for producers}\\
-      Model:                                                   & (1)      & (2)      & (3)      & (4)      & (5)          & (6)           & (7)                    & (8)\\  
+      Model:                                                   & (1)     & (2)     & (3)     & (4)     & (5)         & (6)          & (7)            & (8)\\  
+                                                               &  OLS    & OLS     & OLS     & OLS     & OLS         & OLS          & OLS            & OLS\\  
       \midrule
       \emph{Variables}\\
-      Concertation                                             & 0.0150   & 0.0178   & 0.0890   & 0.0901   & 0.0916$^{*}$ & 0.1024$^{**}$ & 0.1140$^{**}$          & 0.1118$^{**}$\\   
-                                                               & (0.0124) & (0.0139) & (0.0528) & (0.0518) & (0.0504)     & (0.0466)      & (0.0398)               & (0.0389)\\   
-      Carbon intensity of energy supply                        &          & -0.0065  & -0.0046  & -0.0046  & -0.0046      & -0.0049       & -0.0038                & -0.0036\\   
-                                                               &          & (0.0046) & (0.0056) & (0.0056) & (0.0055)     & (0.0053)      & (0.0038)               & (0.0037)\\   
-      Concertation $\times$ Carbon intensity of energy supply  &          &          & -0.0013  & -0.0014  & -0.0014      & -0.0018$^{*}$ & -0.0021$^{***}$        & -0.0020$^{***}$\\   
-                                                               &          &          & (0.0011) & (0.0010) & (0.0010)     & (0.0009)      & (0.0007)               & (0.0007)\\   
-      Fossil fuel production per capita                        &          &          &          & -0.0047  & -0.0042      & -0.0048       & -0.0047                & -0.0066\\   
-                                                               &          &          &          & (0.0073) & (0.0075)     & (0.0069)      & (0.0083)               & (0.0090)\\   
-      Real GDP growth                                          &          &          &          &          & -0.0010      & -0.0017       & $-5.34\times 10^{-5}$  & 0.0007\\   
-                                                               &          &          &          &          & (0.0028)     & (0.0032)      & (0.0029)               & (0.0027)\\   
-      Unemployment rate                                        &          &          &          &          &              & -0.0100       & -0.0094                & -0.0081\\   
-                                                               &          &          &          &          &              & (0.0075)      & (0.0076)               & (0.0069)\\   
-      Share of >65                                             &          &          &          &          &              &               & -0.0137                & -0.0127\\   
-                                                               &          &          &          &          &              &               & (0.0236)               & (0.0231)\\   
-      Green vs. growth government preferences                  &          &          &          &          &              &               &                        & -0.0013\\   
-                                                               &          &          &          &          &              &               &                        & (0.0012)\\   
+      Concertation                                             & 0.015   & 0.018   & 0.089   & 0.090   & 0.092$^{*}$ & 0.102$^{**}$ & 0.114$^{**}$   & 0.112$^{**}$\\   
+                                                               & (0.012) & (0.014) & (0.053) & (0.052) & (0.050)     & (0.047)      & (0.040)        & (0.039)\\   
+      Carbon intensity of energy supply                        &         & -0.006  & -0.005  & -0.005  & -0.005      & -0.005       & -0.004         & -0.004\\   
+                                                               &         & (0.005) & (0.006) & (0.006) & (0.005)     & (0.005)      & (0.004)        & (0.004)\\   
+      Concertation $\times$ Carbon intensity of energy supply  &         &         & -0.001  & -0.001  & -0.001      & -0.002$^{*}$ & -0.002$^{***}$ & -0.002$^{***}$\\   
+                                                               &         &         & (0.001) & (0.001) & (0.001)     & (0.001)      & (0.001)        & (0.001)\\   
+      Fossil fuel production per capita                        &         &         &         & -0.005  & -0.004      & -0.005       & -0.005         & -0.007\\   
+                                                               &         &         &         & (0.007) & (0.007)     & (0.007)      & (0.008)        & (0.009)\\   
+      Real GDP growth                                          &         &         &         &         & -0.001      & -0.002       & 0.000          & 0.001\\   
+                                                               &         &         &         &         & (0.003)     & (0.003)      & (0.003)        & (0.003)\\   
+      Unemployment rate                                        &         &         &         &         &             & -0.010       & -0.009         & -0.008\\   
+                                                               &         &         &         &         &             & (0.008)      & (0.008)        & (0.007)\\   
+      Share of >65                                             &         &         &         &         &             &              & -0.014         & -0.013\\   
+                                                               &         &         &         &         &             &              & (0.024)        & (0.023)\\   
+      Green vs. growth government preferences                  &         &         &         &         &             &              &                & -0.001\\   
+                                                               &         &         &         &         &             &              &                & (0.001)\\   
+      \emph{Fixed effects}\\
+      Country                                                  & x       & x       & x       & x       & x           & x            & x              & x\\  
+      Year                                                     & x       & x       & x       & x       & x           & x            & x              & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                             & 269     & 269     & 269     & 269     & 269         & 269          & 269            & 269\\  
+      R$^2$                                                    & 0.833   & 0.839   & 0.841   & 0.842   & 0.842       & 0.850        & 0.854          & 0.856\\  
       \midrule
-      \emph{Fixed-effects}\\
-      Country                                                  & Yes      & Yes      & Yes      & Yes      & Yes          & Yes           & Yes                    & Yes\\  
-      Year                                                     & Yes      & Yes      & Yes      & Yes      & Yes          & Yes           & Yes                    & Yes\\  
-      \midrule
-      \emph{Fit statistics}\\
-      Observations                                             & 269      & 269      & 269      & 269      & 269          & 269           & 269                    & 269\\  
-      R$^2$                                                    & 0.83335  & 0.83949  & 0.84146  & 0.84162  & 0.84169      & 0.85041       & 0.85406                & 0.85576\\  
-      Within R$^2$                                             & 0.00618  & 0.04278  & 0.05450  & 0.05549  & 0.05589      & 0.10791       & 0.12965                & 0.13983\\  
-      \midrule \midrule
       \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
       \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
    \end{tabular}

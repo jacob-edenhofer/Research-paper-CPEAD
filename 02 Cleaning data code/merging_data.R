@@ -1,8 +1,7 @@
 
-
-#################################
-# Preliminaries 
-#################################
+################################
+# Preliminaries
+################################
 
 # load packages 
 library(tidyverse)
@@ -13,84 +12,81 @@ library(readxl)
 library(openxlsx)
 library(here)
 library(janitor)
+library(tools)
 library(arrow)
-library(furrr)
-library(WDI)
-library(modelsummary)
-library(OECD)
-library(eurostat)
-library(fixest)
-library(fwlplot)
-library(marginaleffects)
-library(kableExtra)
 library(haven)
-library(scales)
 library(patchwork)
 
 
 # import data 
-## Climate policy data
-finnegan <- read_dta(paste0(here(), "/01 Raw data/Climate policy/Long_Term_Policymaking.dta"))
-oecd <- read_csv(paste0(here(), "/01 Raw data/Climate policy/CAPMF_official.csv")) %>% clean_names()
+data_folder <- list.files(paste0(here(), "/01 Raw data"))
+## select all elements, except for Codebooks
+data_folder <- data_folder[!grepl("Codebooks", data_folder)]
 
-## Corporatism
-corporatism <- read_dta(paste0(here(), "/01 Raw data/Corporatism/corporatism_jahn/CorporatismusALL.dta"))
-corporatism_core  <- read_dta(paste0(here(), "/01 Raw data/Corporatism/corporatism_jahn/Corporatismus_core.dta"))
-ictwss <- read_csv_arrow(paste0(here(), "/01 Raw data/Corporatism/OECD-AIAS-ICTWSS-CSV_v1.1.csv"))
-
-## Moderators and controls 
-cpds <- read_dta(paste0(here(), "/01 Raw data/Controls and other/CPDS_1960-2021_Update_2023.dta"))
-trade_union <- read_csv(paste0(here(), "/01 Raw data/Controls and other/OECD_trade_union.csv"))
-collective_bar <- read_csv(paste0(here(), "/01 Raw data/Controls and other/OECD_collective_bargaining.csv"))
-co2trade15 <- read_csv(paste0(here(), "/01 Raw data/Controls and other/OECD_IO_GHG_2015.csv"))
-gva <- read_csv_arrow(paste0(here(), "/01 Raw data/Controls and other/OECD_SNA_TABLE6.csv"))
-fetzer_yotzo <- read_dta(paste0(here(), "/01 Raw data/Controls and other/election_shocks_20230924.dta"))
-WDI_data <- read_csv(paste0(here(), "/01 Raw data/Controls and other/WDI_data.csv")) 
-bmr <- read_csv(paste0(here(), "/01 Raw data/Controls and other/democracy-v4.0.csv"))
-owid_energy <- read_csv(paste0(here(), "/01 Raw data/Controls and other/owid_energy.csv"))
-owid_co2 <- read_csv(paste0(here(), "/01 Raw data/Controls and other/owid_co2.csv"))
-polcon <- read_xlsx(paste0(here(), "/01 Raw data/Controls and other/POLCON_2021_VDEM.xlsx"))
-epu_all_countries <- read_xlsx(paste0(here(), 
-                                      "/01 Raw data/Controls and other/All_Country_Data_Policy_Uncertainty.xlsx")) %>%
-  clean_names()
-kayser_comp <- read_delim(paste0(here(), "/01 Raw data/Controls and other/lprdata_distrib_augmented_2015.csv"), 
-                          delim = ";")
-### import cip data - static 
-cip_static <- list.files(paste0(here(), "/01 Raw data/Controls and other/CIP/CIP_static")) %>% 
-  map_dfr(~read_delim(paste0(here(), "/01 Raw data/Controls and other/CIP/CIP_static/", .x), 
-                      delim = ";") %>%
-            mutate(excluding_parlgov_id = as.numeric(as.character(excluding_parlgov_id)))) 
-
-### import cip data - dynamic
-cip_dynamic <- list.files(paste0(here(), "/01 Raw data/Controls and other/CIP/CIP_dynamic")) %>% 
-  map_dfr(~read_delim(paste0(here(), "/01 Raw data/Controls and other/CIP/CIP_dynamic/", .x),
-                      locale = locale(decimal_mark = ","),
-                      delim = ";") %>%
-            remove_empty(which = c("rows", "cols")) %>%
-            mutate(excluding_parlgov_id = as.numeric(as.character(excluding_parlgov_id)),
-                   polls = as.numeric(as.character(polls))))
-
-## kayser/rehmert - PSRM/LQS data
-kayser_rehmert <- readRDS(paste0(here(), "/01 Raw data/Controls and other/data_eps_kayser_rehmert.RDS"))
+## write function to import data from the folders
+import_data <- function(folder_path){
+  if(grepl("csv", folder_path)){
+    if(grepl("lprdata_", folder_path)){
+      data <- read_delim(folder_path, delim = ";") %>%
+        clean_names()
+    } else if(grepl("ICTWSS", folder_path)){
+      data <- read_csv(folder_path, na = c("-99", "-88", "Missing", "NA")) %>%
+        remove_empty(which = c("cols", "rows")) %>%
+        clean_names() 
+    } else {
+    data <- read_csv_arrow(folder_path) %>%
+      clean_names()
+    }
+  } else if(grepl("xlsx", folder_path)){
+    if(grepl("GallupAnalytics", folder_path)){
+      data <- read_xlsx(folder_path, skip = 6) %>%
+        clean_names() %>%
+        remove_empty(which = c("cols", "rows"))
+    } else {
+    data <- read_xlsx(folder_path) %>%
+      clean_names()
+    }
+  } else if(grepl("rds|RDS", folder_path)){
+    data <- readRDS(folder_path) %>%
+      clean_names()
+  } else if(grepl("dta", folder_path)){
+    data <- read_dta(folder_path) %>%
+      clean_names()
+  } else {
+    next
+  }
+}
 
 
-## gallup data 
-control_folder <- list.files(paste0(here(), "/01 Raw data/Controls and other"))
-gallup_list <- control_folder[grepl("^GallupAnalytics", control_folder)]
+# import data
+for(i in 1:length(data_folder)){
+  list_data <- list.files(paste0(here(), "/01 Raw data/", data_folder[i]), full.names = T)
+  list_data <- list_data[!grepl("CIP_dynamic", list_data)]
+  map(list_data, ~{
+    # extract file names 
+    file_name <- file_path_sans_ext(basename(.x))
+    data_name <- str_to_lower(str_replace_all(gsub("\\..*", "", file_name), "-", "_"))
+    # import data
+    import_data(.x) %>%
+      ## save this in global environment using assign() function and name it as the file name, but delete suffix (.csv, .rds, and so on)
+      assign(data_name, ., envir = globalenv())
+    })
+}
 
-gallup <- map(gallup_list,
-              ~read_xlsx(paste0(here(), "/01 Raw Data/Controls and other/", .x),
-                         skip = 6) %>%
-                clean_names() %>%
-                remove_empty(which = c("rows", "cols")) %>%
-                select(-contains("demographic")))
+
+# import kayser/rehmert cip data 
+## specify folder path 
+folder_kayser <- list.files(here("01 Raw data", "Controls and other", "CIP_dynamic"))
+## read in the data
+map_dfr(folder_kayser, ~{
+  read_delim(here("01 Raw data", "Controls and other", "CIP_dynamic", .x), delim = ";", 
+             locale = locale(decimal_mark = ",")) %>%
+    clean_names() %>%
+    mutate(excluding_parlgov_id = as.numeric(as.character(excluding_parlgov_id))) %>%
+    remove_empty(which = c("rows", "cols")) 
+}) -> kayser_cip
 
 
-gallup_merged <- gallup[[1]] %>%
-  left_join(gallup[[2]], by = c("geography", "time"),
-            suffix = c("env", "confgov")) %>%
-  left_join(gallup[[3]], by = c("geography", "time"),
-            suffix = c("confgov", "corrupt"))
 
 
 
@@ -98,27 +94,29 @@ gallup_merged <- gallup[[1]] %>%
 # Data wrangling
 #################################
 
-### To Do: prune the data more radically. Make sure that only relevant columns are kept.
-
 ## 1. CAPMF data
-oecd <- oecd %>% mutate(obs_value1 = obs_value)
-# replace zeroes with missing values 
-is.na(oecd$obs_value) <- oecd$obs_value == 0.000000
+
+## add new column
+capmf_official <- capmf_official %>% 
+  mutate(obs_value1 = ifelse(is.na(obs_value), 0.000000, obs_value))
+
+# # replace zeroes with missing values 
+# is.na(capmf_official$obs_value1) <- capmf_official$obs_value == 0.000000
 
 
 # select only meaningful columns
-for(i in names(oecd)){
-  levels <- nlevels(factor(oecd[[i]]))
-  if(levels == 1 | sum(is.na(oecd[[i]])) == nrow(oecd)){
-    oecd <<- oecd %>% select(-i)
+for(i in names(capmf_official)){
+  levels <- nlevels(factor(capmf_official[[i]]))
+  if(levels == 1 | sum(is.na(capmf_official[[i]])) == nrow(capmf_official)){
+    capmf_official <<- capmf_official %>% select(-i)
   } else{
     next
   }
 }
 
 
-# create new variables (for fixed effects)
-oecd <- oecd %>% 
+# create new variables (for fixed effects) 
+capmf_official <- capmf_official %>% 
   # delete values for European Union 
   filter(!grepl("European Union", reference_area)) %>%
   mutate(region23 = countrycode(reference_area, "country.name", "region23"),
@@ -131,83 +129,76 @@ oecd <- oecd %>%
                                  time_period >= 2010 & time_period < 2015 ~ "2010-2014",
                                  time_period >= 2015 & time_period < 2020 ~ "2015-2019",
                                  time_period >= 2020 & time_period <= 2022 ~ "2020-2022",
-                                 TRUE ~ NA))
-
+                                 TRUE ~ NA),
+         finnegan_time_dummy = ifelse(time_period %in% c(1998, 2014), 1, 0)) %>%
+  # lagged values for dependent variables 
+  group_by(ref_area, clim_act_pol, measure_2) %>%
+  mutate(obs_value1_lag1 = dplyr::lag(obs_value1, 1, order_by = time_period),
+         obs_value1_lag2 = dplyr::lag(obs_value1, 2, order_by = time_period),
+         obs_value1_lag3 = dplyr::lag(obs_value1, 3, order_by = time_period),
+         obs_value1_lag4 = dplyr::lag(obs_value1, 4, order_by = time_period)) %>%
+  ungroup() 
+    
 
 ## 2. Corporatism data
-corporatism <- corporatism %>%
+corporatismusall <- corporatismusall %>%
   mutate(iso3c = countrycode(country, "country.name", "iso3c")) %>%
   select(country, iso3c, year, everything())
 
-## same for corporatims_core
-corporatism_core <- corporatism_core %>%
+## same for corporatism_core
+corporatismus_core <- corporatismus_core %>%
   mutate(iso3c = countrycode(country, "country.name", "iso3c")) %>%
   select(country, iso3c, year, everything())
 
 ## post 90 version 
-corporatism_post90 <- corporatism %>%
+corporatism_post90 <- corporatismusall %>%
   filter(year >= 1990)
 
 ## post 90 version for corporatism_core
-corporatism_core_post90 <- corporatism_core %>%
+corporatism_core_post90 <- corporatismus_core %>%
   filter(year >= 1990)
 
 
 ## 3. WDI 
 
 # to be able to delete pre-classified groups of countries, create new iso3c identifier
-WDI_data <- WDI_data %>%
+wdi_data <- wdi_data %>%
   mutate(iso3c_new = countrycode(country, "country.name", "iso3c"))
 
-wdi_post90 <- WDI_data %>%
+wdi_post90 <- wdi_data %>%
   # restrict data to individual countries, rather than pre-classified groups of countries
   filter(year >= 1990, !is.na(iso3c))
 
-# table with variable definitions 
-wdi_indicators <- c("BG.GSR.NFSV.GD.ZS", "SP.POP.TOTL", "AG.LND.TOTL.K2",
-                    "GC.TAX.TOTL.GD.ZS", "EN.ATM.CO2E.PC", "NE.TRD.GNFS.ZS",
-                    "NV.IND.MANF.ZS", "NV.IND.TOTL.ZS", "NY.GDP.COAL.RT.ZS",
-                    "NY.GDP.FRST.RT.ZS", "NY.GDP.MINR.RT.ZS", "NY.GDP.NGAS.RT.ZS",
-                    "NY.GDP.PETR.RT.ZS", "NY.GDP.PCAP.CD", "NY.GDP.PCAP.KD",
-                    "NY.GDP.PCAP.KD.ZG", "NY.TTF.GNFS.KN", "NV.IND.TOTL.KD", "GC.TAX.INTT.RV.ZS")
-WDIcache()[[1]] %>%
-  filter(indicator %in% wdi_indicators) %>%
-  kableExtra::kable(col.names = c("Indicator code", "Name", 
-                      "Description", "Source", "Source organisation"),
-        format = "latex", longtable = T) %>%
-  kable_styling(full_width = T, repeat_header_continued = T, 
-                latex_table_env = "tabularx") %>%
-  save_kable(paste0(here(), "/06 Figures and tables/Tables/WDI_indicators.tex"))
-
 
 ## 4. BMR data
-bmr <- bmr %>%
+bmr <- democracy_v4 %>%
   mutate(iso_code = countrycode(country, "country.name", "iso3c"))
 ## The usual suspects prove somewhat difficult to assign an iso3 code to.
 bmr_post90 <- bmr %>%
   filter(year >= 1990, !is.na(iso_code), country != "GERMANY, WEST")
 
 ## 5. Polcon data 
-polcon_pruned <- polcon %>%
-  select(-grep("^(party|p1[0-5]|p[1-9]|p[1-9][0-9]|executive|prime|align|tsu|tsl|polity|leg|cyear|ccode|cnts|icrg|ctry|country_text_id)", 
-               names(polcon))) %>%
+polcon_pruned <- polcon_2021_vdem %>%
+  select(-grep("^(party|j|f|l[1-2]|p1[0-5]|p[1-9]|p[1-9][0-9]|laworder|executive|prime|align|tsu|tsl|leg|cyear|ccode|cnts|icrg|ctry|country_text_id)", 
+               names(polcon_2021_vdem))) %>%
   mutate(iso3c = countrycode(country_name, "country.name", "iso3c")) %>%
   select(country_name, iso3c, year, everything())
 
 polcon_post90 <- polcon_pruned %>%
-  filter(year >= 1990)
-
+  filter(year >= 1990) %>%
+  mutate(across(.cols = everything(), 
+                .fns = ~ifelse(.x == -88, NA, .x)))
 
 ## 6. CPDS data
-cpds <- cpds %>%
-  select(country, year, eu, emu, grep("^ud|netu|openc|gdp", names(cpds))) %>%
+cpds <- cpds_1960_2021_update_2023 %>%
+  select(country, year, eu, emu, grep("^ud|netu|openc|gdp|dis_|rae_|elderly|training", 
+                                      names(cpds_1960_2021_update_2023))) %>%
   mutate(iso3c = countrycode(country, "country.name", "iso3c")) %>%
   select(country, iso3c, year, everything())
 
 ## post 90 version
 cpds_post90 <- cpds %>%
   filter(year >= 1990) 
-
 
 
 ## 7. Finnegan data 
@@ -234,7 +225,7 @@ country <- c("1" = "Australia",
              "21" = "United States")
 
 # create new variable 
-finnegan <- finnegan %>%
+finnegan <- long_term_policymaking %>%
   mutate(country_long = factor(countryid, 
                                levels = c("1", "2",
                                           "3", "4", "5",
@@ -269,7 +260,7 @@ owid_co2_post90 <- owid_co2_pruned %>%
 
 
 ## 9. Fetzer/Yotzo data 
-fetzer_yotzo <- fetzer_yotzo %>%
+fetzer_yotzo <- election_shocks_20230924 %>%
   mutate(iso3c = countrycode(isocntry, "iso2c", "iso3c"), 
          cntry_name = countrycode(isocntry, "iso2c", "country.name.en")) %>%
   select(cntry_name, isocntry, iso3c, year, everything())
@@ -283,25 +274,25 @@ fetzer_yotzo_post90_pruned <- fetzer_yotzo_post90 %>%
 
 
 ## 10. trade_union data 
-trade_union <- trade_union %>%
-  mutate(cntry_name = countrycode(LOCATION, "iso3c", "country.name.en")) %>%
-  rename("share_employees_trade_union" = ObsValue) %>%
-  select(cntry_name, LOCATION, Time, everything())
+trade_union <- oecd_trade_union %>%
+  mutate(cntry_name = countrycode(location, "iso3c", "country.name.en")) %>%
+  rename("share_employees_trade_union" = obs_value) %>%
+  select(cntry_name, location, time, everything())
 
-trade_union %>% filter(Time >= 1990) -> trade_union_post90
+trade_union %>% filter(time >= 1990) -> trade_union_post90
 
 
 ## 11. collective_bar data (same as for trade_union data)
-collective_bar <- collective_bar %>%
-  mutate(cntry_name = countrycode(COU, "iso3c", "country.name.en")) %>%
-  rename("share_employees_collective_bar" = ObsValue) %>%
-  select(cntry_name, COU, Time, everything())
+collective_bar <- oecd_collective_bargaining %>%
+  mutate(cntry_name = countrycode(cou, "iso3c", "country.name.en")) %>%
+  rename("share_employees_collective_bar" = obs_value) %>%
+  select(cntry_name, cou, time, everything())
 
-collective_bar %>% filter(Time >= 1990) -> collective_bar_post90
+collective_bar %>% filter(time >= 1990) -> collective_bar_post90
 
 
-## 12. Kayser data 
-kayser_comp <- kayser_comp %>%
+## 12. Kayser/Linnstaedt data 
+kayser_comp <- lprdata_distrib_augmented_2015 %>%
   mutate(cntry_name = countrycode(isocode, "iso3c", "country.name.en"),
          cntry_name = ifelse(isocode == "AUL", "Australia", cntry_name)) %>%
   select(case, cnum, isocode, cntry_name, elecyr, everything())
@@ -309,25 +300,8 @@ kayser_comp <- kayser_comp %>%
 kayser_comp %>% filter(elecyr >= 1990) -> kayser_comp_post90
 
 
-## 13. coalition leverage (cip) data (pruned dynamic version)
-cip_dynamic_pruned <- cip_dynamic %>%
-  mutate(country = ifelse(is.na(country) & !is.na(germany), "germany", country),
-         iso3c = countrycode(country, "country.name.en", "iso3c")) %>%
-  select(country, year, iso3c, everything()) %>%
-  select(-germany) %>%
-  filter(year >= 1990)
-
-## take average values for all numeric variables and keep only the distinct ones; then merge
-cip_dynamic_pruned_avg <- cip_dynamic_pruned %>%
-  group_by(country, year, party_name) %>%
-  mutate(avg_polls = mean(polls, na.rm = T)) %>%
-  ungroup() %>%
-  distinct(country, year, party_name, avg_polls, .keep_all = T)
-
-### To use this, it is probably wise to use the Green party CIP. 
-
-## 14. Kayser/Rehmert wrangling 
-kayser_rehmert <- kayser_rehmert %>%
+## 13. Kayser/Rehmert wrangling 
+kayser_rehmert <- data_eps_kayser_rehmert %>%
   mutate(iso3 = countrycode(country, "country.name", "iso3c")) %>%
   select(country, iso3, year, everything())
 
@@ -361,21 +335,65 @@ kayser_rehmert <- kayser_rehmert %>%
   filter(year >= 1990)
 
 
+## 14. Kayser/Rehmert wrangling -- full dataset
+## modify germany variable 
+kayser_cip <- kayser_cip %>%
+  mutate(country = ifelse(is.na(country) & !is.na(germany), "Germany", country),
+         date = as.Date(as.character(sub("^(..)(..)(....)$", "\\1-\\2-\\3", date)), "%d-%m-%Y"),
+         iso3c = countrycode(country, "country.name.en", "iso3c")) %>%
+  select(-germany)
+
+## merge with parlgov dataset 
+kayser_cip_parlgov <- kayser_cip %>%
+  left_join(parlgov_parties, by = c("parlgov_id" = "party_id")) 
+
+## convert to annual dataset
+kayser_cip_annual <- kayser_cip_parlgov %>%
+  group_by(country, year, family_name) %>%
+  mutate(across(.cols = c(starts_with("pr_ingov"), "polls"), 
+                .fns = ~mean(.x, na.rm = TRUE),
+                .names = "{.col}_annual")) %>%
+  ungroup() %>%
+  select(-c(pr_ingov_mean, pr_ingov_lower, pr_ingov_upper, polls, date)) %>%
+  distinct(country, year, family_name, pr_ingov_mean_annual, .keep_all = TRUE) %>%
+  select(country, iso3c, year, dplyr::everything())
+
+## filter for green parties
+kayser_cip_green <- kayser_cip_annual %>%
+  filter(grepl("Green", family_name)) 
+
+
 ## 15. ICTWSS
-ictwsspost90 <- ictwss %>% filter(year > 1990)
+
+### somw wrangling
+oecd_aias_ictwss_csv_v1_pruned <- oecd_aias_ictwss_csv_v1 %>%
+  select(country, iso3c, year, tc, bc, concert, nec_fs, ed, e_dpriv, nuc_fs, tum,  
+         grep("num|ud|um|cov", names(.)))
+
+## define tc_bc_dummy 
+oecd_aias_ictwss_csv_v1_pruned <- oecd_aias_ictwss_csv_v1_pruned %>%
+  mutate(tc_mod = ifelse(tc != 0 & !is.na(tc), 1, 0), 
+         tc_bc_dummy = ifelse(tc_mod == 1 & bc != 1 & !is.na(bc), 1, 0)) %>%
+  select(country, iso3c, year, tc, tc_mod, bc, tc_bc_dummy, everything())
+
+### post 1990 version 
+ictwsspost90 <- oecd_aias_ictwss_csv_v1_pruned %>% filter(year > 1990)
 
 
 ## 16. Gallup data
-gallup_overall <- gallup_merged %>%
+gallup_merged <- gallupanalytics_export_20240515_104000 %>%
+  select(-contains("demographic")) %>%
+  left_join(gallupanalytics_export_20240515_104510 %>% select(-contains("demographic")), 
+            by = c("geography", "time")) %>%
+  left_join(gallupanalytics_export_20240515_104556 %>% select(-contains("demographic")),
+            by = c("geography", "time")) %>%
   rename("country" = geography, 
          "year" = time, 
          "happy_with_env_preserv" = satisfied, 
          "unhappy_with_env_preserv" = dissatisfied) %>%
-  mutate(iso3c = countrycode(country, "country.name.en", "iso3c"), 
+  mutate(iso3c = countrycode(country, "country.name.en", "iso3c"),
          year = as.numeric(as.character(year))) %>%
-  select(country, iso3c, year, everything()) %>%
-  arrange(year, country)
-
+  select(country, iso3c, year, everything()) 
 
 
 
@@ -383,13 +401,14 @@ gallup_overall <- gallup_merged %>%
 # Merging and saving data
 #################################
 
+# 1. CAPMF data and other 
 
 ## merge oecd with host of other data
-oecd_merged <- oecd %>%
+oecd_merged <- capmf_official %>%
   left_join(wdi_post90, by = c("iso3c" = "iso3c_new", "time_period" = "year")) %>%
-  left_join(corporatism, 
+  left_join(corporatism_post90, 
             by = c("iso3c", "time_period" = "year")) %>%
-  left_join(corporatism_core, 
+  left_join(corporatism_core_post90, 
             by = c("iso3c", "time_period" = "year")) %>%
   left_join(cpds_post90,
             by = c("iso3c", "time_period" = "year")) %>%
@@ -406,16 +425,21 @@ oecd_merged <- oecd %>%
   left_join(owid_co2_post90,
             by = c("iso3c" = "iso_code", "time_period" = "year")) %>%
   left_join(trade_union_post90,
-            by = c("iso3c" = "LOCATION", "time_period" = "Time")) %>%
+            by = c("iso3c" = "location", "time_period" = "time")) %>%
   left_join(collective_bar_post90,
-            by = c("iso3c" = "COU", "time_period" = "Time")) %>%
+            by = c("iso3c" = "cou", "time_period" = "time")) %>%
   left_join(ictwsspost90, 
             by = c("iso3c", "time_period" = "year")) %>%
   left_join(kayser_rehmert, 
             by = c("iso3c" = "iso3", "time_period" = "year")) %>%
-  left_join(gallup_overall, 
+  left_join(kayser_cip_green,
+            by = c("iso3c", "time_period" = "year")) %>%
+  left_join(gallup_merged, 
             by = c("iso3c", "time_period" = "year")) %>%
   zap_labels()
+
+## Check merge worked 
+nrow(oecd_merged) == nrow(capmf_official) ## should be TRUE
 
 ## remove some unncessary columns
 vars_to_remove <- names(oecd_merged)[grepl(".x.x|.y.y", names(oecd_merged))]
@@ -442,33 +466,93 @@ for(k in c("LEV1", "LEV2", "LEV3", "LEV4")){
 }
 
 
-## finnegan with cpds and corporatism 
+## create sector and instrument type FEs for LEV2 adoption and stringency datasets
+create_sector_and_instrument_type <- function(df) {
+  df %>% 
+    mutate(
+      sector = str_trim(str_extract(climate_actions_and_policies, "^[^-]+"), side = "both"),
+      sector = ifelse(grepl("governance|targets|Fossil fuel|RD&D|International", sector), 
+                       "Cross-sectoral and/or international", sector),
+      instrument_type = str_extract(climate_actions_and_policies, "(?<=- ).*$"),
+      instrument_type = str_replace_all(instrument_type, " instruments", ""),
+      instrument_type = ifelse(grepl("governance|targets|Fossil fuel|RD&D|International", climate_actions_and_policies),
+                               climate_actions_and_policies, instrument_type)
+    )
+}
+
+# Apply the function to the LEV2 element in both lists
+oecd_adoption_list[["LEV2"]] <- create_sector_and_instrument_type(oecd_adoption_list[["LEV2"]])
+oecd_stringency_list[["LEV2"]] <- create_sector_and_instrument_type(oecd_stringency_list[["LEV2"]])
+
+             
+# 2. finnegan with cpds and corporatism 
 finnegan_merged <- finnegan %>%
   left_join(cpds, 
             by = c("iso3c", "year")) %>%
-  left_join(corporatism, 
+  left_join(corporatismusall, 
             by = c("iso3c", "year")) %>%
-  left_join(corporatism_core,
-            by = c("iso3c", "year"))
+  left_join(corporatismus_core,
+            by = c("iso3c", "year")) %>%
+  left_join(cpds, 
+            by = c("iso3c", "year")) %>%
+  left_join(oecd_aias_ictwss_csv_v1_pruned, 
+            by = c("iso3c", "year")) %>%
+  left_join(gallup_merged, 
+            by = c("iso3c", "year")) %>%
+  left_join(kayser_cip_green,
+            by = c("iso3c", "year")) 
 
 
-## save these data 
-write_csv_arrow(oecd_merged, paste0(here(), "/03 Cleaned data/oecd_merged.csv"))
-write_parquet(oecd_merged, paste0(here(), "/03 Cleaned data/oecd_merged.parquet"))
-write_rds(oecd_merged, paste0(here(), "/03 Cleaned data/oecd_merged.rds"))
-write_csv_arrow(finnegan_merged, paste0(here(), "/03 Cleaned data/finnegan_merged.csv"))
-write_rds(finnegan_merged, paste0(here(), "/03 Cleaned data/finnegan_merged.rds"))
+# 3. save data
+
+## Finnegan data
+write_rds(finnegan_merged, paste0(here(), "/03 Cleaned data/Finnegan extended/finnegan_merged.rds"))
 
 
-### save the different levels of stringency and adoption
-map(c("LEV1", "LEV2", "LEV3", "LEV4"), ~{
-  write_csv_arrow(oecd_adoption_list[[.x]], paste0(here(), "/03 Cleaned data/oecd_adoption_", .x, ".csv"))
-  write_parquet(oecd_adoption_list[[.x]], paste0(here(), "/03 Cleaned data/oecd_adoption_", .x, ".parquet"))
-  write_rds(oecd_adoption_list[[.x]], paste0(here(), "/03 Cleaned data/oecd_adoption_", .x, ".rds"))
-  write_csv_arrow(oecd_stringency_list[[.x]], paste0(here(), "/03 Cleaned data/oecd_stringency_", .x, ".csv"))
-  write_parquet(oecd_stringency_list[[.x]], paste0(here(), "/03 Cleaned data/oecd_stringency_", .x, ".parquet"))
-  write_rds(oecd_stringency_list[[.x]], paste0(here(), "/03 Cleaned data/oecd_stringency_", .x, ".rds"))
+## CAMPF-merged data
+
+## write function for simple saving 
+save_data <- function(data, name){
+  if(grepl("adoption", name)){
+    file_path_csv <- paste0(here(), "/03 Cleaned data/OECD CAPMF/Adoption/", name, ".csv")
+    file_path_parquet <- paste0(here(), "/03 Cleaned data/OECD CAPMF/Adoption/", name, ".parquet")
+    file_path_rds <- paste0(here(), "/03 Cleaned data/OECD CAPMF/Adoption/", name, ".rds")
+  } else if(grepl("stringency", name)){
+    file_path_csv <- paste0(here(), "/03 Cleaned data/OECD CAPMF/Stringency/", name, ".csv")
+    file_path_parquet <- paste0(here(), "/03 Cleaned data/OECD CAPMF/Stringency/", name, ".parquet")
+    file_path_rds <- paste0(here(), "/03 Cleaned data/OECD CAPMF/Stringency/", name, ".rds")
+  } else {
+    file_path_csv <- paste0(here(), "/03 Cleaned data/OECD CAPMF/Overall/", name, ".csv")
+    file_path_parquet <- paste0(here(), "/03 Cleaned data/OECD CAPMF/Overall/", name, ".parquet")
+    file_path_rds <- paste0(here(), "/03 Cleaned data/OECD CAPMF/Overall/", name, ".rds")
+  }
+  # use file paths to save data
+  write_csv(data, file_path_csv)
+  write_parquet(data, file_path_parquet)
+  saveRDS(data, file_path_rds)
+}
+
+## apply function 
+save_data(oecd_merged, "oecd_merged")
+
+## save adoption and stringency data
+map(c("adoption", "stringency"), function(x){
+  if(grepl("adoption", x)){
+    map(c("LEV1", "LEV2"), function(y){
+      save_data(get(paste0("oecd_", x, "_list"))[[y]], paste0("oecd_", x, "_", y))
+    })
+  } else {
+  map(c("LEV1", "LEV2", "LEV3", "LEV4"), function(y){
+    save_data(get(paste0("oecd_", x, "_list"))[[y]], paste0("oecd_", x, "_", y))
+  })
+  }
 })
+
+
+
+
+
+
 
 
 

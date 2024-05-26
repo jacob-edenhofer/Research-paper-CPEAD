@@ -34,6 +34,7 @@ var_dict_finnegan <- c("lambda_mean_wghtd" = "Overall stringency",
                        "pr_ingov_mean_annual" = "Green party CIP",
                        "happy_with_env_preserv" = "Happiness with environmental preservation",
                        "unhappy_with_env_preserv" = "Unhappiness with environmental preservation",
+                       "ja10f" = "Left-right dimension (Jahn)",
                        "ri" = "Concertation",
                        "dis_gall.y" = "Gallgher's disproportionality index",
                        "elderly.x" = "Share of >65",
@@ -75,7 +76,7 @@ run_model <- function(formula, data, model_name) {
 
 
 # Define variable names and models
-variables <- c("openc.x", "ind_valueadd", "elect_comp", "carbon_inten1", "pr_ingov_mean_annual", "happy_with_env_preserv", "unhappy_with_env_preserv")
+variables <- c("openc.x", "ind_valueadd", "elect_comp", "carbon_inten1", "pr_ingov_mean_annual", "ja10f", "happy_with_env_preserv", "unhappy_with_env_preserv")
 dvs_v <- c("lambda_mean_wghtd", "lambda_mean_wghtd_con", "lambda_mean_wghtd_prod", "lambda_mean_wghtd_comp")
 corporatism <- c("ri", "corp_all", "corp_allsm", "corp_core", "corp_cor_esm", "bc", "tc")
 
@@ -93,7 +94,7 @@ for (var1 in corporatism) {
     for (var2 in variables) {
       formula <- as.formula(paste0(dv, "~", var1, "*", var2, " + fossfuel_prodpercap + realgdpgr.x + unemp + elderly.x + ja20f_v2 | countryid + year"))
       model_name <- paste(dv, var1, var2, sep = "__")
-      models_list[[model_name]] <- run_model(formula, data = finnegan_merged, model_name)
+      models_list[[model_name]] <- feols(fml = formula, data = finnegan_merged, lean = F)
       
       ## save regression table
       table_path <- here("06 Figures and tables", "Tables", "Finnegan", paste0(model_name, ".tex"))

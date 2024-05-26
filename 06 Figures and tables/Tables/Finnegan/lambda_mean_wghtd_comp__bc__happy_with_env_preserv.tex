@@ -3,37 +3,35 @@
    \caption{Examining Consumer vs. producer costs}
    \centering
    \begin{tabular}{lcccccccc}
-      \tabularnewline \midrule \midrule
+      \toprule
       Dependent Variable: & \multicolumn{8}{c}{Consumer vs. producer costs}\\
-      Model:                                                  & (1)      & (2)      & (3)      & (4)          & (5)          & (6)          & (7)          & (8)\\  
+      Model:                                                  & (1)     & (2)     & (3)     & (4)         & (5)         & (6)         & (7)         & (8)\\  
+                                                              &  OLS    & OLS     & OLS     & OLS         & OLS         & OLS         & OLS         & OLS\\  
       \midrule
       \emph{Variables}\\
-      bc1                                                     & -0.0276  &          &          &              &              &              &              &   \\   
-                                                              & (0.1348) &          &          &              &              &              &              &   \\   
-      Happiness with environmental preservation               &          & -0.1742  & -0.1863  & -0.2618      & -0.2617      & -0.3038      & -0.3072      & -0.3277\\   
-                                                              &          & (0.1509) & (0.3251) & (0.2380)     & (0.2370)     & (0.2421)     & (0.2505)     & (0.2911)\\   
-      bc0 $\times$ Happiness with environmental preservation  &          &          & 0.0150   & 0.1618       & 0.1505       & 0.1552       & 0.1609       & 0.1822\\   
-                                                              &          &          & (0.3714) & (0.2736)     & (0.2762)     & (0.2853)     & (0.2931)     & (0.3212)\\   
-      Fossil fuel production per capita                       &          &          &          & 0.0698$^{*}$ & 0.0683$^{*}$ & 0.0666$^{*}$ & 0.0674$^{*}$ & 0.0663$^{*}$\\   
-                                                              &          &          &          & (0.0375)     & (0.0348)     & (0.0343)     & (0.0348)     & (0.0360)\\   
-      Real GDP growth                                         &          &          &          &              & 0.0036       & 0.0044       & 0.0044       & 0.0041\\   
-                                                              &          &          &          &              & (0.0083)     & (0.0073)     & (0.0075)     & (0.0073)\\   
-      Unemployment rate                                       &          &          &          &              &              & 0.0061$^{*}$ & 0.0066$^{*}$ & 0.0068$^{*}$\\   
-                                                              &          &          &          &              &              & (0.0031)     & (0.0033)     & (0.0037)\\   
-      Share of >65                                            &          &          &          &              &              &              & 0.0087       & 0.0075\\   
-                                                              &          &          &          &              &              &              & (0.0325)     & (0.0313)\\   
-      Green vs. growth government preferences                 &          &          &          &              &              &              &              & 0.0007\\   
-                                                              &          &          &          &              &              &              &              & (0.0024)\\   
+      bc1                                                     & -0.028  &         &         &             &             &             &             &   \\   
+                                                              & (0.135) &         &         &             &             &             &             &   \\   
+      Happiness with environmental preservation               &         & -0.174  & -0.186  & -0.262      & -0.262      & -0.304      & -0.307      & -0.328\\   
+                                                              &         & (0.151) & (0.325) & (0.238)     & (0.237)     & (0.242)     & (0.250)     & (0.291)\\   
+      bc0 $\times$ Happiness with environmental preservation  &         &         & 0.015   & 0.162       & 0.150       & 0.155       & 0.161       & 0.182\\   
+                                                              &         &         & (0.371) & (0.274)     & (0.276)     & (0.285)     & (0.293)     & (0.321)\\   
+      Fossil fuel production per capita                       &         &         &         & 0.070$^{*}$ & 0.068$^{*}$ & 0.067$^{*}$ & 0.067$^{*}$ & 0.066$^{*}$\\   
+                                                              &         &         &         & (0.038)     & (0.035)     & (0.034)     & (0.035)     & (0.036)\\   
+      Real GDP growth                                         &         &         &         &             & 0.004       & 0.004       & 0.004       & 0.004\\   
+                                                              &         &         &         &             & (0.008)     & (0.007)     & (0.007)     & (0.007)\\   
+      Unemployment rate                                       &         &         &         &             &             & 0.006$^{*}$ & 0.007$^{*}$ & 0.007$^{*}$\\   
+                                                              &         &         &         &             &             & (0.003)     & (0.003)     & (0.004)\\   
+      Share of >65                                            &         &         &         &             &             &             & 0.009       & 0.008\\   
+                                                              &         &         &         &             &             &             & (0.033)     & (0.031)\\   
+      Green vs. growth government preferences                 &         &         &         &             &             &             &             & 0.001\\   
+                                                              &         &         &         &             &             &             &             & (0.002)\\   
+      \emph{Fixed effects}\\
+      Country                                                 & x       & x       & x       & x           & x           & x           & x           & x\\  
+      Year                                                    & x       & x       & x       & x           & x           & x           & x           & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                            & 270     & 63      & 63      & 63          & 63          & 63          & 63          & 63\\  
+      R$^2$                                                   & 0.945   & 0.991   & 0.991   & 0.992       & 0.992       & 0.992       & 0.992       & 0.992\\  
       \midrule
-      \emph{Fixed-effects}\\
-      Country                                                 & Yes      & Yes      & Yes      & Yes          & Yes          & Yes          & Yes          & Yes\\  
-      Year                                                    & Yes      & Yes      & Yes      & Yes          & Yes          & Yes          & Yes          & Yes\\  
-      \midrule
-      \emph{Fit statistics}\\
-      Observations                                            & 270      & 63       & 63       & 63           & 63           & 63           & 63           & 63\\  
-      R$^2$                                                   & 0.94452  & 0.99050  & 0.99050  & 0.99165      & 0.99175      & 0.99217      & 0.99218      & 0.99219\\  
-      Within R$^2$                                            & 0.00269  & 0.05212  & 0.05222  & 0.16626      & 0.17639      & 0.21810      & 0.21967      & 0.22054\\  
-      \midrule \midrule
       \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
       \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
    \end{tabular}

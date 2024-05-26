@@ -3,37 +3,35 @@
    \caption{Examining Consumer vs. producer costs}
    \centering
    \begin{tabular}{lcccccccc}
-      \tabularnewline \midrule \midrule
+      \toprule
       Dependent Variable: & \multicolumn{8}{c}{Consumer vs. producer costs}\\
-      Model:                                                             & (1)           & (2)            & (3)      & (4)          & (5)          & (6)          & (7)           & (8)\\  
+      Model:                                                             & (1)          & (2)           & (3)     & (4)         & (5)         & (6)         & (7)          & (8)\\  
+                                                                         &  OLS         & OLS           & OLS     & OLS         & OLS         & OLS         & OLS          & OLS\\  
       \midrule
       \emph{Variables}\\
-      Concertation                                                       & 0.0570$^{**}$ & 0.0272$^{***}$ & -0.0205  & -0.0488      & -0.0620      & -0.0812      & -0.0850       & -0.0927\\   
-                                                                         & (0.0242)      & (0.0063)       & (0.0695) & (0.0541)     & (0.0556)     & (0.0485)     & (0.0526)      & (0.0625)\\   
-      Unhappiness with environmental preservation                        &               & 0.1411         & 0.0113   & -0.0739      & -0.0572      & -0.0372      & -0.0507       & -0.0637\\   
-                                                                         &               & (0.1432)       & (0.1769) & (0.1416)     & (0.1658)     & (0.1665)     & (0.1687)      & (0.1727)\\   
-      Concertation $\times$ Unhappiness with environmental preservation  &               &                & 0.1277   & 0.1787       & 0.1858       & 0.2152$^{*}$ & 0.2262        & 0.2437\\   
-                                                                         &               &                & (0.1793) & (0.1368)     & (0.1401)     & (0.1189)     & (0.1318)      & (0.1478)\\   
-      Fossil fuel production per capita                                  &               &                &          & 0.0695$^{*}$ & 0.0694$^{*}$ & 0.0692$^{*}$ & 0.0706$^{*}$  & 0.0683$^{*}$\\   
-                                                                         &               &                &          & (0.0386)     & (0.0365)     & (0.0365)     & (0.0374)      & (0.0375)\\   
-      Real GDP growth                                                    &               &                &          &              & 0.0042       & 0.0060       & 0.0060        & 0.0056\\   
-                                                                         &               &                &          &              & (0.0090)     & (0.0083)     & (0.0084)      & (0.0081)\\   
-      Unemployment rate                                                  &               &                &          &              &              & 0.0069$^{*}$ & 0.0077$^{**}$ & 0.0081$^{*}$\\   
-                                                                         &               &                &          &              &              & (0.0036)     & (0.0035)      & (0.0040)\\   
-      Share of >65                                                       &               &                &          &              &              &              & 0.0152        & 0.0134\\   
-                                                                         &               &                &          &              &              &              & (0.0323)      & (0.0319)\\   
-      Green vs. growth government preferences                            &               &                &          &              &              &              &               & 0.0011\\   
-                                                                         &               &                &          &              &              &              &               & (0.0025)\\   
+      Concertation                                                       & 0.057$^{**}$ & 0.027$^{***}$ & -0.021  & -0.049      & -0.062      & -0.081      & -0.085       & -0.093\\   
+                                                                         & (0.024)      & (0.006)       & (0.070) & (0.054)     & (0.056)     & (0.049)     & (0.053)      & (0.062)\\   
+      Unhappiness with environmental preservation                        &              & 0.141         & 0.011   & -0.074      & -0.057      & -0.037      & -0.051       & -0.064\\   
+                                                                         &              & (0.143)       & (0.177) & (0.142)     & (0.166)     & (0.167)     & (0.169)      & (0.173)\\   
+      Concertation $\times$ Unhappiness with environmental preservation  &              &               & 0.128   & 0.179       & 0.186       & 0.215$^{*}$ & 0.226        & 0.244\\   
+                                                                         &              &               & (0.179) & (0.137)     & (0.140)     & (0.119)     & (0.132)      & (0.148)\\   
+      Fossil fuel production per capita                                  &              &               &         & 0.070$^{*}$ & 0.069$^{*}$ & 0.069$^{*}$ & 0.071$^{*}$  & 0.068$^{*}$\\   
+                                                                         &              &               &         & (0.039)     & (0.036)     & (0.036)     & (0.037)      & (0.037)\\   
+      Real GDP growth                                                    &              &               &         &             & 0.004       & 0.006       & 0.006        & 0.006\\   
+                                                                         &              &               &         &             & (0.009)     & (0.008)     & (0.008)      & (0.008)\\   
+      Unemployment rate                                                  &              &               &         &             &             & 0.007$^{*}$ & 0.008$^{**}$ & 0.008$^{*}$\\   
+                                                                         &              &               &         &             &             & (0.004)     & (0.004)      & (0.004)\\   
+      Share of >65                                                       &              &               &         &             &             &             & 0.015        & 0.013\\   
+                                                                         &              &               &         &             &             &             & (0.032)      & (0.032)\\   
+      Green vs. growth government preferences                            &              &               &         &             &             &             &              & 0.001\\   
+                                                                         &              &               &         &             &             &             &              & (0.002)\\   
+      \emph{Fixed effects}\\
+      Country                                                            & x            & x             & x       & x           & x           & x           & x            & x\\  
+      Year                                                               & x            & x             & x       & x           & x           & x           & x            & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                                       & 269          & 63            & 63      & 63          & 63          & 63          & 63           & 63\\  
+      R$^2$                                                              & 0.948        & 0.991         & 0.991   & 0.992       & 0.992       & 0.993       & 0.993        & 0.993\\  
       \midrule
-      \emph{Fixed-effects}\\
-      Country                                                            & Yes           & Yes            & Yes      & Yes          & Yes          & Yes          & Yes           & Yes\\  
-      Year                                                               & Yes           & Yes            & Yes      & Yes          & Yes          & Yes          & Yes           & Yes\\  
-      \midrule
-      \emph{Fit statistics}\\
-      Observations                                                       & 269           & 63             & 63       & 63           & 63           & 63           & 63            & 63\\  
-      R$^2$                                                              & 0.94817       & 0.99052        & 0.99071  & 0.99190      & 0.99201      & 0.99251      & 0.99256       & 0.99259\\  
-      Within R$^2$                                                       & 0.06459       & 0.05417        & 0.07300  & 0.19129      & 0.20268      & 0.25279      & 0.25745       & 0.26002\\  
-      \midrule \midrule
       \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
       \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
    \end{tabular}

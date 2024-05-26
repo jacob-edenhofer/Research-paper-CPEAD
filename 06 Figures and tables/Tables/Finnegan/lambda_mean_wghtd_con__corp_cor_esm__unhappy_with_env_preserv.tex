@@ -3,37 +3,35 @@
    \caption{Examining Costs for consumers}
    \centering
    \begin{tabular}{lcccccccc}
-      \tabularnewline \midrule \midrule
+      \toprule
       Dependent Variable: & \multicolumn{8}{c}{Costs for consumers}\\
-      Model:                                                                             & (1)      & (2)      & (3)            & (4)            & (5)            & (6)            & (7)            & (8)\\  
+      Model:                                                                             & (1)     & (2)     & (3)           & (4)           & (5)           & (6)           & (7)           & (8)\\  
+                                                                                         &  OLS    & OLS     & OLS           & OLS           & OLS           & OLS           & OLS           & OLS\\  
       \midrule
       \emph{Variables}\\
-      Corporatism (core, smoothed)                                                       & 0.0230   & 0.2093   & -0.0039        & -0.0077        & -0.0074        & 0.0326         & 0.0291         & 0.0364\\   
-                                                                                         & (0.1761) & (0.2657) & (0.2963)       & (0.2281)       & (0.2275)       & (0.2288)       & (0.2525)       & (0.2473)\\   
-      Unhappiness with environmental preservation                                        &          & 0.2144   & 0.1701         & 0.0875         & 0.0863         & 0.1137         & 0.1238         & 0.1180\\   
-                                                                                         &          & (0.1857) & (0.1984)       & (0.1943)       & (0.2043)       & (0.1805)       & (0.1785)       & (0.1760)\\   
-      Corporatism (core, smoothed) $\times$ Unhappiness with environmental preservation  &          &          & 0.4593$^{***}$ & 0.6340$^{***}$ & 0.6338$^{***}$ & 0.6500$^{***}$ & 0.6296$^{***}$ & 0.6292$^{***}$\\   
-                                                                                         &          &          & (0.1445)       & (0.1146)       & (0.1157)       & (0.1239)       & (0.1227)       & (0.1216)\\   
-      Fossil fuel production per capita                                                  &          &          &                & 0.1187$^{***}$ & 0.1188$^{***}$ & 0.1191$^{***}$ & 0.1141$^{***}$ & 0.1189$^{***}$\\   
-                                                                                         &          &          &                & (0.0283)       & (0.0285)       & (0.0290)       & (0.0289)       & (0.0309)\\   
-      Real GDP growth                                                                    &          &          &                &                & -0.0003        & 0.0006         & 0.0007         & 0.0015\\   
-                                                                                         &          &          &                &                & (0.0070)       & (0.0071)       & (0.0071)       & (0.0069)\\   
-      Unemployment rate                                                                  &          &          &                &                &                & 0.0048         & 0.0019         & 0.0016\\   
-                                                                                         &          &          &                &                &                & (0.0067)       & (0.0068)       & (0.0071)\\   
-      Share of >65                                                                       &          &          &                &                &                &                & -0.0503        & -0.0463\\   
-                                                                                         &          &          &                &                &                &                & (0.0422)       & (0.0452)\\   
-      Green vs. growth government preferences                                            &          &          &                &                &                &                &                & -0.0018\\   
-                                                                                         &          &          &                &                &                &                &                & (0.0026)\\   
+      Corporatism (core, smoothed)                                                       & 0.023   & 0.209   & -0.004        & -0.008        & -0.007        & 0.033         & 0.029         & 0.036\\   
+                                                                                         & (0.176) & (0.266) & (0.296)       & (0.228)       & (0.228)       & (0.229)       & (0.252)       & (0.247)\\   
+      Unhappiness with environmental preservation                                        &         & 0.214   & 0.170         & 0.087         & 0.086         & 0.114         & 0.124         & 0.118\\   
+                                                                                         &         & (0.186) & (0.198)       & (0.194)       & (0.204)       & (0.181)       & (0.178)       & (0.176)\\   
+      Corporatism (core, smoothed) $\times$ Unhappiness with environmental preservation  &         &         & 0.459$^{***}$ & 0.634$^{***}$ & 0.634$^{***}$ & 0.650$^{***}$ & 0.630$^{***}$ & 0.629$^{***}$\\   
+                                                                                         &         &         & (0.144)       & (0.115)       & (0.116)       & (0.124)       & (0.123)       & (0.122)\\   
+      Fossil fuel production per capita                                                  &         &         &               & 0.119$^{***}$ & 0.119$^{***}$ & 0.119$^{***}$ & 0.114$^{***}$ & 0.119$^{***}$\\   
+                                                                                         &         &         &               & (0.028)       & (0.028)       & (0.029)       & (0.029)       & (0.031)\\   
+      Real GDP growth                                                                    &         &         &               &               & 0.000         & 0.001         & 0.001         & 0.002\\   
+                                                                                         &         &         &               &               & (0.007)       & (0.007)       & (0.007)       & (0.007)\\   
+      Unemployment rate                                                                  &         &         &               &               &               & 0.005         & 0.002         & 0.002\\   
+                                                                                         &         &         &               &               &               & (0.007)       & (0.007)       & (0.007)\\   
+      Share of >65                                                                       &         &         &               &               &               &               & -0.050        & -0.046\\   
+                                                                                         &         &         &               &               &               &               & (0.042)       & (0.045)\\   
+      Green vs. growth government preferences                                            &         &         &               &               &               &               &               & -0.002\\   
+                                                                                         &         &         &               &               &               &               &               & (0.003)\\   
+      \emph{Fixed effects}\\
+      Country                                                                            & x       & x       & x             & x             & x             & x             & x             & x\\  
+      Year                                                                               & x       & x       & x             & x             & x             & x             & x             & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                                                       & 270     & 63      & 63            & 63            & 63            & 63            & 63            & 63\\  
+      R$^2$                                                                              & 0.924   & 0.988   & 0.990         & 0.992         & 0.992         & 0.992         & 0.992         & 0.992\\  
       \midrule
-      \emph{Fixed-effects}\\
-      Country                                                                            & Yes      & Yes      & Yes            & Yes            & Yes            & Yes            & Yes            & Yes\\  
-      Year                                                                               & Yes      & Yes      & Yes            & Yes            & Yes            & Yes            & Yes            & Yes\\  
-      \midrule
-      \emph{Fit statistics}\\
-      Observations                                                                       & 270      & 63       & 63             & 63             & 63             & 63             & 63             & 63\\  
-      R$^2$                                                                              & 0.92381  & 0.98820  & 0.98961        & 0.99168        & 0.99169        & 0.99184        & 0.99217        & 0.99222\\  
-      Within R$^2$                                                                       & 0.00036  & 0.05103  & 0.16386        & 0.33113        & 0.33115        & 0.34335        & 0.37026        & 0.37408\\  
-      \midrule \midrule
       \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
       \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
    \end{tabular}

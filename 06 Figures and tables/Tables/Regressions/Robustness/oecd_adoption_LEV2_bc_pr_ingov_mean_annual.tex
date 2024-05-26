@@ -1,0 +1,44 @@
+
+\begin{table}[htbp]
+   \caption{Marginal effect of Bipartite concertation by Green party CIP}
+   \centering
+   \begin{tabular}{lcccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{6}{c}{Stringency value modified}\\
+      region23                                                         & Full sample   & Australia and New Zealand & Eastern Europe & Northern Europe & Southern Europe & Western Europe \\   
+      Model:                                                           & (1)           & (2)                       & (3)            & (4)             & (5)             & (6)\\  
+                                                                       &  OLS          & OLS                       & OLS            & OLS             & OLS             & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      Bipartite concertation, 1-year lag                               & 0.122$^{*}$   &                           &                & 0.159$^{**}$    &                 &   \\   
+                                                                       & (0.062)       &                           &                & (0.053)         &                 &   \\   
+      Green party CIP, 1-year lag                                      & 0.187         & 3.699                     & -1.490         & 0.274           & 2.098           & 0.205\\   
+                                                                       & (0.160)       & (0.n)                     & (0.466)        & (0.247)         & (7.403)         & (0.161)\\   
+      CO2 emissions per capita, 1-year lag                             & -0.010        & -0.231                    & -0.104         & -0.004          & -0.069          & -0.122$^{***}$\\   
+                                                                       & (0.021)       & (0.n)                     & (0.106)        & (0.022)         & (0.073)         & (0.007)\\   
+      GDP per capita (constant 2015 US\$), 1-year lag                  & 0.000         & 0.000                     & 0.000          & 0.000           & 0.000           & 0.000$^{*}$\\   
+                                                                       & (0.000)       & (0.n)                     & (0.000)        & (0.000)         & (0.000)         & (0.000)\\   
+      Tax revenue (\% of GDP), 1-year lag                              & 0.011$^{**}$  & 0.021                     & 0.232$^{**}$   & 0.011$^{*}$     & 0.147           & 0.001\\   
+                                                                       & (0.005)       & (0.n)                     & (0.013)        & (0.005)         & (0.345)         & (0.018)\\   
+      Share of population >65, 1-year lag                              & -0.006        & -0.519                    & -0.343$^{**}$  & 0.002           & 0.462           & -0.021\\   
+                                                                       & (0.017)       & (0.n)                     & (0.012)        & (0.029)         & (0.167)         & (0.017)\\   
+      Gallagher index of disproportionality, 1-year lag                & -0.020$^{**}$ & 0.020                     & -0.034         & -0.001          &                 & -0.016$^{**}$\\   
+                                                                       & (0.009)       & (0.n)                     & (0.013)        & (0.020)         &                 & (0.002)\\   
+      Stringency value modified, three-year lag, 1-year lag            & 0.782$^{***}$ & 0.673                     & 0.693$^{*}$    & 0.816$^{***}$   & 0.934$^{**}$    & 0.690$^{***}$\\   
+                                                                       & (0.041)       & (0.n)                     & (0.090)        & (0.050)         & (0.212)         & (0.035)\\   
+      Bipartite concertation, 1-year lag x Green party CIP, 1-year lag & -0.591$^{**}$ &                           &                & -0.617$^{*}$    &                 & 0.463\\   
+                                                                       & (0.274)       &                           &                & (0.295)         &                 & (0.627)\\   
+      \emph{Fixed effects}\\
+      Country                                                          & x             & x                         & x              & x               & x               & x\\  
+      Half decade                                                      & x             & x                         & x              & x               & x               & x\\  
+      Instrument type                                                  & x             & x                         & x              & x               & x               & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                                     & 3,416         & 266                       & 182            & 1,750           & 140             & 1,078\\  
+      R$^2$                                                            & 0.860         & 0.815                     & 0.854          & 0.867           & 0.782           & 0.877\\  
+      \midrule
+      \multicolumn{7}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{7}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+

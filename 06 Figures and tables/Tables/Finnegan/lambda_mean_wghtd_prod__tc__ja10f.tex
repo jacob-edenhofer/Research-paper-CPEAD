@@ -1,0 +1,44 @@
+
+\begin{table}[htbp]
+   \caption{Examining Costs for producers}
+   \centering
+   \begin{tabular}{lcccccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{8}{c}{Costs for producers}\\
+      Model:                                    & (1)     & (2)     & (3)          & (4)          & (5)          & (6)          & (7)          & (8)\\  
+                                                &  OLS    & OLS     & OLS          & OLS          & OLS          & OLS          & OLS          & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      tc1                                       & 0.018   & 0.031   & 0.038        & 0.039        & 0.028        & -0.014       & -0.056       & -0.052\\   
+                                                & (0.012) & (0.025) & (0.024)      & (0.025)      & (0.024)      & (0.044)      & (0.068)      & (0.064)\\   
+      tc2                                       & -0.019  & -0.015  & -0.037$^{*}$ & -0.037$^{*}$ & -0.038$^{*}$ & -0.041$^{*}$ & -0.068       & -0.060\\   
+                                                & (0.016) & (0.023) & (0.021)      & (0.020)      & (0.020)      & (0.022)      & (0.043)      & (0.039)\\   
+      Left-right dimension (Jahn)               &         & 0.001   & -0.003       & -0.003       & -0.003       & -0.003       & -0.002       & -0.003\\   
+                                                &         & (0.003) & (0.002)      & (0.002)      & (0.002)      & (0.002)      & (0.002)      & (0.003)\\   
+      tc0 $\times$ Left-right dimension (Jahn)  &         &         & 0.001        & 0.001        & 0.001        & 0.001        & 0.001        & 0.001\\   
+                                                &         &         & (0.002)      & (0.002)      & (0.002)      & (0.003)      & (0.003)      & (0.003)\\   
+      tc1 $\times$ Left-right dimension (Jahn)  &         &         & 0.013$^{**}$ & 0.013$^{**}$ & 0.014$^{**}$ & 0.013$^{**}$ & 0.014$^{**}$ & 0.014$^{***}$\\   
+                                                &         &         & (0.005)      & (0.005)      & (0.006)      & (0.005)      & (0.005)      & (0.005)\\   
+      Fossil fuel production per capita         &         &         &              & 0.002        & 0.004        & 0.003        & 0.002        & 0.001\\   
+                                                &         &         &              & (0.008)      & (0.009)      & (0.008)      & (0.009)      & (0.009)\\   
+      Real GDP growth                           &         &         &              &              & -0.003       & -0.005       & -0.002       & -0.002\\   
+                                                &         &         &              &              & (0.004)      & (0.005)      & (0.004)      & (0.004)\\   
+      Unemployment rate                         &         &         &              &              &              & -0.008       & -0.007       & -0.007\\   
+                                                &         &         &              &              &              & (0.006)      & (0.006)      & (0.007)\\   
+      Share of >65                              &         &         &              &              &              &              & -0.020       & -0.018\\   
+                                                &         &         &              &              &              &              & (0.022)      & (0.021)\\   
+      Green vs. growth government preferences   &         &         &              &              &              &              &              & -0.001\\   
+                                                &         &         &              &              &              &              &              & (0.002)\\   
+      \emph{Fixed effects}\\
+      Country                                   & x       & x       & x            & x            & x            & x            & x            & x\\  
+      Year                                      & x       & x       & x            & x            & x            & x            & x            & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                              & 270     & 269     & 269          & 269          & 269          & 269          & 269          & 269\\  
+      R$^2$                                     & 0.830   & 0.834   & 0.853        & 0.853        & 0.854        & 0.860        & 0.868        & 0.868\\  
+      \midrule
+      \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+
