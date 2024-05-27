@@ -1,24 +1,26 @@
 
+
+
 ################################
 # Preliminaries
 ################################
 
 # Load packages
 library(tidyverse)  # includes dplyr, ggplot2, tidyr, readr, purrr, tibble, stringr, forcats
-library(readxl)
+library(readxl)     # For reading Excel files
+library(scales)    # For formatting numbers and dates
 library(arrow)      # Efficient data reading and writing
 library(janitor)    # For clean_names()
 library(here)       # For constructing paths
 library(kableExtra) # For enhanced table output
 library(patchwork)  # For combining plots
-library(modelsummary) # For model output
-library(marginaleffects) # For marginal effects plots
 library(haven)     # For reading Stata files
 
 # Set up path
 data_folder <- list.files(file.path(here("03 Cleaned data", "OECD CAPMF")), full.names = TRUE)
 
 # import data
+oecd_overall <- readRDS(paste0(data_folder[grepl("Overall", data_folder)], "/oecd_merged.rds"))
 oecd_adoption1 <- readRDS(paste0(data_folder[grepl("Adopt", data_folder)], "/oecd_adoption_LEV1.rds"))
 oecd_adoption2 <- readRDS(paste0(data_folder[grepl("Adopt", data_folder)], "/oecd_adoption_LEV2.rds"))
 oecd_stringency1 <- readRDS(paste0(data_folder[grepl("Stringency", data_folder)], "/oecd_stringency_LEV1.rds"))
@@ -28,196 +30,6 @@ oecd_stringency4 <- readRDS(paste0(data_folder[grepl("Stringency", data_folder)]
 
 
 
-################################
-# Descriptive figures
-################################
-
-
-
-## level and growth rate of overall adoption 
-adoption_plot1 <- oecd_adoption1 %>%
-  group_by(time_period) %>%
-  summarise(sum_adopted = sum(obs_value1, na.rm = T)) %>% 
-  mutate(growth_rate = (sum_adopted/dplyr::lag(sum_adopted, 1) - 1)*100) %>%
-  ungroup() %>%
-  pivot_longer(cols = c(sum_adopted, growth_rate), 
-               names_to = "indicator", values_to = "value") %>%
-  ggplot(aes(x = time_period, y = value)) +
-  geom_line(colour = "red", linetype = "dashed") +
-  geom_rect(aes(xmin = 1998, xmax = 2014, ymin = -Inf, ymax = Inf), fill = "grey", alpha = 0.02) +
-  geom_smooth(method = "loess", se = F, span = 0.5) +
-  scale_x_continuous("", breaks = seq(1990, 2020, 5)) +
-  facet_wrap(~indicator, 
-             labeller = labeller(indicator = c("sum_adopted" = "Sum of adopted policies",
-                                               "growth_rate" = "Annual growth of adopted policies (%)")),
-             scales = "free_y") +
-  labs(y = "") +
-  theme_bw() +
-  theme_bw() +
-  theme(legend.position = "bottom",
-        axis.text.x = element_text(size = 8),
-        axis.title.x = element_text(size = 9),
-        axis.title.y = element_text(size = 9),
-        strip.background = element_blank(),
-        strip.text = element_text(size = 9))
-
-
-## level and growth rate of overall stringency 
-stringency1_plot <- oecd_stringency1 %>%
-  group_by(time_period) %>%
-  summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>%
-  mutate(lag_value = lag(mean_stringency, 1),
-         lag_value = ifelse(lag_value == 0 & mean_stringency != 0, NA, lag_value),
-         growth_rate = (mean_stringency/lag_value - 1)*100) %>% 
-  pivot_longer(cols = c(mean_stringency, growth_rate), 
-               names_to = "indicator", values_to = "value") %>% 
-  ggplot(aes(x = time_period, y = value)) +
-  geom_line(colour = "red", linetype = "dashed") +
-  geom_rect(aes(xmin = 1998, xmax = 2014, ymin = -Inf, ymax = Inf), fill = "grey", alpha = 0.02) +
-  geom_smooth(method = "loess", se = F, span = 0.5) +
-  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
-  expand_limits(y = 0) +
-  facet_wrap(~indicator, 
-             labeller = labeller(indicator = c("mean_stringency" = "Mean stringency",
-                                               "growth_rate" = "Annual stringency growth (%)")),
-             scales = "free_y") +
-  labs(y = "") +
-  theme_bw() +
-  theme(legend.position = "bottom",
-        axis.text.x = element_text(size = 8),
-        axis.title.x = element_text(size = 9),
-        axis.title.y = element_text(size = 9),
-        strip.background = element_blank(),
-        strip.text = element_text(size = 9))
-
-
-## patch together 
-patched_plot <- adoption_plot1 + stringency1_plot + 
-  plot_layout(ncol = 1) +
-  plot_annotation(title = "Climate policy adoption and stringency, in levels and growth rates, 1990 - 2022", 
-                  theme = theme(plot.title = element_text(size = 13, hjust = 0.5)))
-
-## save plot
-ggsave(filename = here("06 Figures and tables", "Figures", "adoption_stringency.png"), 
-       plot = patched_plot,
-       width = 9, height = 6, units = "in", dpi = 300)
-
-
-## plot adoption and stringency of cross-sectoral policies 
-
-# adoption of cross-sectoral policies over time 
-cross_adopt <- oecd_adoption2 %>% 
-  filter(grepl("^LEV2_CROSS_", clim_act_pol)) %>%
-  group_by(time_period, climate_actions_and_policies) %>%
-  summarise(sum_adopted = sum(obs_value1, na.rm = T)) %>%
-  ungroup()
-
-
-# stringency of cross-sectoral policies over time
-cross_str <- oecd_stringency2 %>% 
-  filter(grepl("^LEV2_CROSS_", clim_act_pol)) %>%
-  group_by(time_period, climate_actions_and_policies) %>%
-  summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>%
-  ungroup()
-
-
-## bind together 
-cross_merged <- bind_cols(cross_adopt, cross_str) %>%
-  clean_names() %>%
-  select(-c(time_period_4, climate_actions_and_policies_5)) %>%
-  rename(time_period = time_period_1, 
-         climate_actions_and_policies = climate_actions_and_policies_2)
-
-### pivot long
-cross_merged_long <- cross_merged %>%
-  pivot_longer(cols = c(sum_adopted, mean_stringency), 
-               names_to = "indicator", values_to = "value") 
-
-
-## plot
-cross_merged_long %>%
-  ggplot(aes(x = time_period, y = value,
-             colour = climate_actions_and_policies)) +
-  geom_line(alpha = 0.3) +
-  geom_smooth(method = "loess", se = F, span = 0.6) +
-  scale_colour_brewer("", palette = "Set2") +
-  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
-  facet_grid(indicator~climate_actions_and_policies, 
-             scales = "free_y",
-             labeller = labeller(indicator = c("mean_stringency" = "Mean stringency", 
-                                              "sum_adopted" = "Sum of adopted policies"))) +
-  # expand_limits(y = c(0, 8)) +
-  labs(y = "Value",
-       title = "Adoption and mean stringency of cross-sectoral climate policies, 1990 - 2022") +
-  theme_bw() +
-  theme(legend.position = "bottom",
-        axis.text.x = element_text(size = 8),
-        axis.title.x = element_text(size = 9),
-        axis.title.y = element_text(size = 9),
-        plot.title = element_text(hjust = 0.5, size = 13),
-        strip.background = element_blank(),
-        strip.text = element_text(size = 9))
-
-## save plot 
-ggsave(filename = here("06 Figures and tables", "Figures", "cross_sectoral_adoption_stringency.png"), 
-       plot = last_plot(),
-       width = 9, height = 6, units = "in", dpi = 300)
-
-
-
-
-## plot adoption and stringency by sector and instrument type 
-adopt_sectr_inst <- oecd_adoption2 %>%
-  filter(grepl("^LEV2_SEC_", clim_act_pol)) %>%
-  mutate(sector = str_extract(climate_actions_and_policies, "\\w+"),
-         instrument_type = as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*"))) %>% 
-  group_by(time_period, sector, instrument_type) %>%
-  summarise(sum_adopted = sum(obs_value1, na.rm = T)) %>% 
-  ungroup()
-
-
-string_sectr_inst <- oecd_stringency2 %>%
-  filter(grepl("^LEV2_SEC_", clim_act_pol)) %>%
-  mutate(sector = str_extract(climate_actions_and_policies, "\\w+"),
-         instrument_type = as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*"))) %>% 
-  group_by(time_period, sector, instrument_type) %>%
-  summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>%
-  ungroup()
-
-merged <- bind_cols(adopt_sectr_inst, string_sectr_inst) %>%
-  clean_names() %>%
-  select(-c(time_period_5, sector_6, instrument_type_7)) %>%
-  rename(time_period = time_period_1, sector = sector_2, instrument_type = instrument_type_3)
-
-merged_long <- merged %>%
-  pivot_longer(cols = c(sum_adopted, mean_stringency), names_to = "variable", values_to = "value") 
-
-## plot 
-merged_long %>%
-  ggplot(aes(x = time_period, y = value, colour = instrument_type)) +
-  geom_line(linetype = "dashed") +
-  geom_smooth(method = "loess", se = F, span = 0.5) +
-  scale_colour_brewer("", palette = "Set1") +
-  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
-  facet_grid(variable~sector, 
-             scales = "free_y",
-             labeller = labeller(variable = c("mean_stringency" = "Mean stringency", 
-                                              "sum_adopted" = "Sum of adopted policies"))) +
-  labs(y = "Value", 
-       title = "Adoption and stringency by sector and instrument type, 1990 - 2022") +
-  theme_bw() +
-  theme(legend.position = "bottom",
-        axis.text.x = element_text(size = 8),
-        axis.title.x = element_text(size = 9),
-        axis.title.y = element_text(size = 9),
-        plot.title = element_text(hjust = 0.5, size = 13),
-        strip.background = element_blank(),
-        strip.text = element_text(size = 9))
-
-## save plot 
-ggsave(filename = here("06 Figures and tables", "Figures", "adoption_stringency_sectr_inst.png"), 
-       plot = last_plot(),
-       width = 9, height = 6, units = "in", dpi = 300)
 
 
 
