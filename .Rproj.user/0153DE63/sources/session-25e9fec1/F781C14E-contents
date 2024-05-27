@@ -1,0 +1,52 @@
+
+
+adopt_sectr_inst <- oecd_adoption2 %>%
+  filter(grepl("^LEV2_SEC_", clim_act_pol)) %>%
+  mutate(sector = str_extract(climate_actions_and_policies, "\\w+"),
+         instrument_type = as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*"))) %>% 
+  group_by(time_period, sector, instrument_type) %>%
+  summarise(sum_adopted = sum(obs_value1, na.rm = T)) %>% 
+  ungroup()
+
+
+string_sectr_inst <- oecd_stringency2 %>%
+  filter(grepl("^LEV2_SEC_", clim_act_pol)) %>%
+  mutate(sector = str_extract(climate_actions_and_policies, "\\w+"),
+         instrument_type = as.character(str_extract_all(climate_actions_and_policies, "(?<= - ).*"))) %>% 
+  group_by(time_period, sector, instrument_type) %>%
+  summarise(mean_stringency = mean(obs_value1, na.rm = T)) %>%
+  ungroup()
+
+merged <- bind_cols(adopt_sectr_inst, string_sectr_inst) %>%
+  clean_names() %>%
+  select(-c(time_period_5, sector_6, instrument_type_7)) %>%
+  rename(time_period = time_period_1, sector = sector_2, instrument_type = instrument_type_3)
+
+merged_long <- merged %>%
+  pivot_longer(cols = c(sum_adopted, mean_stringency), names_to = "variable", values_to = "value") 
+
+
+## plot 
+merged_long %>%
+  ggplot(aes(x = time_period, y = value, colour = instrument_type)) +
+  geom_line(linetype = "dashed") +
+  geom_smooth(method = "loess", se = F, span = 0.5) +
+  scale_colour_brewer("", palette = "Set1") +
+  scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
+  facet_grid(variable~sector, 
+             scales = "free_y") +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(size = 8),
+        axis.title.x = element_text(size = 9),
+        axis.title.y = element_text(size = 9),
+        strip.background = element_blank(),
+        strip.text = element_text(size = 9))
+
+
+
+
+
+
+
+
