@@ -526,13 +526,23 @@ save_data <- function(data, name){
     file_path_parquet <- paste0(here(), "/03 Cleaned data/OECD CAPMF/Overall/", name, ".parquet")
     file_path_rds <- paste0(here(), "/03 Cleaned data/OECD CAPMF/Overall/", name, ".rds")
   }
-  # use file paths to save data
-  write_csv(data, file_path_csv)
+  
+  # Save CSV only if data size is less than 100 MB
+  data_size <- object.size(data)
+  size_limit <- 104857600  # 100 MB in bytes
+  
+  if (data_size < size_limit) {
+    write_csv(data, file_path_csv)
+  } else {
+    cat("CSV not saved for", name, "- file exceeds 100MB\n")
+  }
+  
+  # Save other formats without size check
   write_parquet(data, file_path_parquet)
   saveRDS(data, file_path_rds)
 }
 
-## apply function 
+## apply function to merged data
 save_data(oecd_merged, "oecd_merged")
 
 ## save adoption and stringency data
