@@ -33,7 +33,6 @@ oecd_stringency4 <- readRDS(paste0(data_folder[grepl("Stringency", data_folder)]
 ################################
 
 
-
 ## Figure 1 ##
 
 ### adoption data 
@@ -84,7 +83,7 @@ corp_all1 %>%
   scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
   expand_limits(y = 0) +
   labs(y = "", 
-       title = "Adoption and stringency of policies by corporatism in OECD countries, 1990 - 2018") +
+       title = "Adoption and stringency of climate policies by corporatism grouping, 1990 - 2018") +
   theme_bw() +
   theme(legend.text = element_text(size = 10),
         axis.title = element_text(size = 9),
@@ -96,6 +95,86 @@ corp_all1 %>%
 ## save plot 
 ggsave(here("06 Figures and tables", "Figures", "corp_all_climate.png"), 
        width = 9, height = 6, dpi = 300)
+
+
+###########################
+# Appendix - tables
+##########################
+
+
+## Table A1 ##
+
+corp_adopt1_1 <- oecd_adoption1 %>%
+  group_by(ref_area, time_period) %>%
+  mutate(obs_value1_cy = mean(obs_value1, na.rm = T)) %>%
+  ungroup() %>%
+  distinct(ref_area, time_period, obs_value1_cy, .keep_all = T) %>%
+  select(-c(clim_act_pol, climate_actions_and_policies)) %>%
+  filter(!ref_area %in% c("USA", "BRA"), 
+         !is.na(reference_area), 
+         !is.na(corp_all)) %>%
+  group_by(time_period) %>%
+  mutate(median_corp_all = median(corp_all, na.rm = T)) %>%
+  ungroup() %>%
+  ungroup() %>%
+  mutate(corp_all_group = ifelse(corp_all > median_corp_all, "Above median", "Below median"))
+
+
+adopt_balance_df <- corp_adopt1_1 %>%
+  select("Number of adopted policies" = obs_value1_cy, 
+         corp_all_group, 
+         "Manufacturing value added (% of GDP)" = nv_ind_manf_zs, 
+         "Industry value added (% of GDP)" = nv_ind_totl_zs, 
+         "CO2 emissions per capita" = co2_per_capita, 
+         "Fossil share electricity" = fossil_share_elec, 
+         "Fossil share energy" = fossil_share_energy,
+         "Trade CO2 share" = trade_co2_share, 
+         "Openness of economy" = openc, 
+         "Gallagher's disproportionality index" = dis_gall) %>%
+  modelsummary::datasummary_balance(~corp_all_group, 
+                                    dinm_statistic = "p.value", output = "dataframe",
+                                    data = .)
+
+### do the same for stringency
+corp_str1_1 <- oecd_stringency1 %>%
+  group_by(ref_area, time_period) %>%
+  mutate(obs_value1_cy = mean(obs_value1, na.rm = T)) %>%
+  ungroup() %>%
+  distinct(ref_area, time_period, obs_value1_cy, .keep_all = T) %>%
+  select(-c(clim_act_pol, climate_actions_and_policies)) %>%
+  filter(!ref_area %in% c("USA", "BRA"), 
+         !is.na(reference_area), 
+         !is.na(corp_all)) %>%
+  group_by(time_period) %>%
+  mutate(median_corp_all = median(corp_all, na.rm = T)) %>%
+  ungroup() %>%
+  mutate(corp_all_group = ifelse(corp_all > median_corp_all, "Above median", "Below median"))
+
+
+str_balance_df <- corp_str1_1 %>%
+  select("Stringency" = obs_value1_cy, 
+         corp_all_group) %>%
+  modelsummary::datasummary_balance(~corp_all_group, 
+                                    dinm_statistic = "p.value", output = "dataframe",
+                                    data = .)
+
+## merge into one dataframe
+balance_df <- bind_rows(adopt_balance_df, str_balance_df) 
+
+
+### use kableExtra to create a table
+balance_df %>%
+  kable(format = "latex", 
+        escape = T, 
+        booktabs = T,
+        caption = "Balance table for Figure \ref{fig:intro-motivation-figure} by corporatism grouping",
+        label = "appendix-balance-table-motivation",
+        col.names = c("Variable", "Mean", "Std.Dev.", "Mean", "Std.Dev", "Diff in means", "p.value")) %>%
+  kable_styling(latex_options = c("hold_position", "scale_down")) %>%
+  # row_spec(0, bold = T) %>% ## for making column names bold
+  add_header_above(c(" ", "Above median" = 2, "Below median" = 2, " ", " ")) %>%
+  add_header_above(c(" ", "Corporatism score" = 4, " ", " ")) %>%
+  save_kable(here("06 Figures and tables", "Tables", "balance_table_motivation.tex"))
 
 
 ###########################
@@ -114,7 +193,7 @@ adoption_plot1 <- oecd_adoption1 %>%
                names_to = "indicator", values_to = "value") %>%
   ggplot(aes(x = time_period, y = value)) +
   geom_line(colour = "red", linetype = "dashed") +
-  geom_rect(aes(xmin = 1998, xmax = 2014, ymin = -Inf, ymax = Inf), fill = "grey", alpha = 0.02) +
+  geom_rect(aes(xmin = 1995, xmax = 2009, ymin = -Inf, ymax = Inf), fill = "grey", alpha = 0.02) +
   geom_smooth(method = "loess", se = F, span = 0.5) +
   scale_x_continuous("", breaks = seq(1990, 2020, 5)) +
   facet_wrap(~indicator, 
@@ -143,7 +222,7 @@ stringency1_plot <- oecd_stringency1 %>%
                names_to = "indicator", values_to = "value") %>% 
   ggplot(aes(x = time_period, y = value)) +
   geom_line(colour = "red", linetype = "dashed") +
-  geom_rect(aes(xmin = 1998, xmax = 2014, ymin = -Inf, ymax = Inf), fill = "grey", alpha = 0.02) +
+  geom_rect(aes(xmin = 1995, xmax = 2009, ymin = -Inf, ymax = Inf), fill = "grey", alpha = 0.02) +
   geom_smooth(method = "loess", se = F, span = 0.5) +
   scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
   expand_limits(y = 0) +
@@ -269,8 +348,8 @@ cross_merged_long <- cross_merged %>%
 cross_merged_long %>%
   ggplot(aes(x = time_period, y = value,
              colour = climate_actions_and_policies)) +
-  geom_line(alpha = 0.3) +
-  geom_smooth(method = "loess", se = F, span = 0.6) +
+  geom_line(linewidth = 1) +
+  # geom_smooth(method = "loess", se = F, span = 0.6) +
   scale_colour_brewer("", palette = "Set2") +
   scale_x_continuous("Year", breaks = seq(1990, 2020, 5)) +
   facet_grid(indicator~climate_actions_and_policies, 

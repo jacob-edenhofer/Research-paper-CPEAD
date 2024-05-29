@@ -228,7 +228,7 @@ var_dict <- c(
   "reshuffle_shock" = "Reshuffle shock",
   "lpr" = "Loss probability",
   "lprsq" = "Loss probability squared",
-  "openc" = "Openness to trade",
+  "openc" = "Openness of economy",
   "nomgdpgr" = "Nominal GDP growth",
   "realgdpgr" = "Real GDP growth",
   "eu" = "EU membership",

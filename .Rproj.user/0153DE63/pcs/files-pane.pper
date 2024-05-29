@@ -1,6 +1,10 @@
 {
-    "path": "~/Comparative_Political_Economy_of_Advanced_Democracies/Research-paper-CPEAD/04 Analysis code",
+    "path": "~/Comparative_Political_Economy_of_Advanced_Democracies/Research-paper-CPEAD/06 Figures and tables/Tables",
     "sortOrder": [
+        {
+            "columnIndex": 2,
+            "ascending": true
+        },
         {
             "columnIndex": 3,
             "ascending": false
@@ -8,10 +12,6 @@
         {
             "columnIndex": 4,
             "ascending": false
-        },
-        {
-            "columnIndex": 2,
-            "ascending": true
         }
     ]
 }
