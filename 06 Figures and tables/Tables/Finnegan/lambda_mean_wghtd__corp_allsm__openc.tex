@@ -1,0 +1,40 @@
+
+\begin{table}[htbp]
+   \caption{Examining Overall stringency}
+   \centering
+   \begin{tabular}{lcccccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{8}{c}{Overall stringency}\\
+      Model:                                                  & (1)     & (2)     & (3)     & (4)     & (5)     & (6)     & (7)     & (8)\\  
+                                                              &  OLS    & OLS     & OLS     & OLS     & OLS     & OLS     & OLS     & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      Corporatism (all, smoothed)                             & 0.009   & 0.017   & -0.228  & -0.234  & -0.227  & -0.270  & -0.316  & -0.280\\   
+                                                              & (0.131) & (0.133) & (0.298) & (0.352) & (0.348) & (0.362) & (0.367) & (0.360)\\   
+      Openness to trade                                       &         & 0.001   & 0.000   & 0.000   & 0.001   & 0.001   & 0.001   & 0.001\\   
+                                                              &         & (0.002) & (0.003) & (0.003) & (0.003) & (0.003) & (0.003) & (0.003)\\   
+      Corporatism (all, smoothed) $\times$ Openness to trade  &         &         & 0.003   & 0.003   & 0.002   & 0.003   & 0.003   & 0.002\\   
+                                                              &         &         & (0.003) & (0.003) & (0.003) & (0.003) & (0.003) & (0.003)\\   
+      Fossil fuel production per capita                       &         &         &         & -0.001  & 0.002   & -0.001  & -0.004  & -0.004\\   
+                                                              &         &         &         & (0.024) & (0.024) & (0.025) & (0.022) & (0.022)\\   
+      Real GDP growth                                         &         &         &         &         & -0.006  & -0.007  & -0.003  & -0.003\\   
+                                                              &         &         &         &         & (0.006) & (0.006) & (0.005) & (0.005)\\   
+      Unemployment rate                                       &         &         &         &         &         & -0.008  & -0.006  & -0.005\\   
+                                                              &         &         &         &         &         & (0.007) & (0.007) & (0.007)\\   
+      Share of >65                                            &         &         &         &         &         &         & -0.030  & -0.030\\   
+                                                              &         &         &         &         &         &         & (0.027) & (0.026)\\   
+      Green vs. growth government preferences                 &         &         &         &         &         &         &         & -0.001\\   
+                                                              &         &         &         &         &         &         &         & (0.001)\\   
+      \emph{Fixed effects}\\
+      Country                                                 & x       & x       & x       & x       & x       & x       & x       & x\\  
+      Year                                                    & x       & x       & x       & x       & x       & x       & x       & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                            & 270     & 270     & 270     & 269     & 269     & 269     & 269     & 269\\  
+      R$^2$                                                   & 0.910   & 0.911   & 0.912   & 0.913   & 0.914   & 0.915   & 0.920   & 0.921\\  
+      \midrule
+      \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+

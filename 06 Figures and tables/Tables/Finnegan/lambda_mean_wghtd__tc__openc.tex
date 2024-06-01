@@ -1,0 +1,46 @@
+
+\begin{table}[htbp]
+   \caption{Examining Overall stringency}
+   \centering
+   \begin{tabular}{lcccccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{8}{c}{Overall stringency}\\
+      Model:                                  & (1)           & (2)          & (3)     & (4)     & (5)     & (6)     & (7)     & (8)\\  
+                                              &  OLS          & OLS          & OLS     & OLS     & OLS     & OLS     & OLS     & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      tc1                                     & 0.070$^{**}$  & 0.068$^{**}$ & -0.180  & -0.152  & -0.136  & -0.217  & -0.338  & -0.260\\   
+                                              & (0.026)       & (0.028)      & (0.386) & (0.373) & (0.395) & (0.432) & (0.484) & (0.471)\\   
+      tc2                                     & -0.057$^{**}$ & -0.051$^{*}$ & -0.114  & -0.127  & -0.136  & -0.112  & -0.146  & -0.139\\   
+                                              & (0.023)       & (0.028)      & (0.218) & (0.213) & (0.215) & (0.219) & (0.204) & (0.201)\\   
+      Openness to trade                       &               & 0.001        & 0.001   & 0.001   & 0.002   & 0.002   & 0.002   & 0.002\\   
+                                              &               & (0.002)      & (0.003) & (0.003) & (0.003) & (0.003) & (0.003) & (0.003)\\   
+      tc0 $\times$ Openness to trade          &               &              & 0.000   & -0.001  & -0.001  & -0.001  & -0.001  & -0.001\\   
+                                              &               &              & (0.003) & (0.003) & (0.003) & (0.003) & (0.003) & (0.003)\\   
+      tc1 $\times$ Openness to trade          &               &              & 0.002   & 0.001   & 0.001   & 0.001   & 0.001   & 0.001\\   
+                                              &               &              & (0.003) & (0.003) & (0.003) & (0.003) & (0.004) & (0.004)\\   
+      tc2 $\times$ Openness to trade          &               &              & 0.001   &         &         &         &         &   \\   
+                                              &               &              & (0.001) &         &         &         &         &   \\   
+      Fossil fuel production per capita       &               &              &         & 0.010   & 0.012   & 0.011   & 0.010   & 0.008\\   
+                                              &               &              &         & (0.016) & (0.016) & (0.016) & (0.013) & (0.013)\\   
+      Real GDP growth                         &               &              &         &         & -0.006  & -0.006  & -0.003  & -0.002\\   
+                                              &               &              &         &         & (0.007) & (0.007) & (0.006) & (0.006)\\   
+      Unemployment rate                       &               &              &         &         &         & -0.006  & -0.005  & -0.004\\   
+                                              &               &              &         &         &         & (0.007) & (0.008) & (0.007)\\   
+      Share of >65                            &               &              &         &         &         &         & -0.032  & -0.031\\   
+                                              &               &              &         &         &         &         & (0.029) & (0.029)\\   
+      Green vs. growth government preferences &               &              &         &         &         &         &         & -0.001\\   
+                                              &               &              &         &         &         &         &         & (0.002)\\   
+      \emph{Fixed effects}\\
+      Country                                 & x             & x            & x       & x       & x       & x       & x       & x\\  
+      Year                                    & x             & x            & x       & x       & x       & x       & x       & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                            & 270           & 270          & 270     & 269     & 269     & 269     & 269     & 269\\  
+      R$^2$                                   & 0.912         & 0.912        & 0.913   & 0.913   & 0.914   & 0.915   & 0.920   & 0.920\\  
+      \midrule
+      \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+

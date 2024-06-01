@@ -3,37 +3,35 @@
    \caption{Examining Costs for producers}
    \centering
    \begin{tabular}{lcccccccc}
-      \tabularnewline \midrule \midrule
+      \toprule
       Dependent Variable: & \multicolumn{8}{c}{Costs for producers}\\
-      Model:                                                             & (1)      & (2)      & (3)      & (4)      & (5)      & (6)      & (7)      & (8)\\  
+      Model:                                                             & (1)     & (2)     & (3)     & (4)     & (5)     & (6)     & (7)     & (8)\\  
+                                                                         &  OLS    & OLS     & OLS     & OLS     & OLS     & OLS     & OLS     & OLS\\  
       \midrule
       \emph{Variables}\\
-      Corporatism (core, smoothed)                                       & -0.0288  & -0.0186  & -0.0260  & -0.0330  & -0.0370  & -0.0794  & -0.0879  & -0.0812\\   
-                                                                         & (0.0572) & (0.0563) & (0.0536) & (0.0546) & (0.0495) & (0.0482) & (0.0537) & (0.0546)\\   
-      Left-right dimension (Jahn)                                        &          & 0.0011   & 0.0008   & 0.0009   & 0.0008   & 0.0008   & 0.0016   & 0.0008\\   
-                                                                         &          & (0.0027) & (0.0027) & (0.0028) & (0.0031) & (0.0028) & (0.0023) & (0.0029)\\   
-      Corporatism (core, smoothed) $\times$ Left-right dimension (Jahn)  &          &          & 0.0010   & 0.0008   & 0.0009   & 0.0006   & -0.0004  & -0.0006\\   
-                                                                         &          &          & (0.0041) & (0.0042) & (0.0045) & (0.0041) & (0.0039) & (0.0040)\\   
-      Fossil fuel production per capita                                  &          &          &          & -0.0053  & -0.0048  & -0.0078  & -0.0109  & -0.0108\\   
-                                                                         &          &          &          & (0.0114) & (0.0122) & (0.0132) & (0.0139) & (0.0138)\\   
-      Real GDP growth                                                    &          &          &          &          & -0.0012  & -0.0021  & 0.0006   & 0.0009\\   
-                                                                         &          &          &          &          & (0.0042) & (0.0044) & (0.0029) & (0.0030)\\   
-      Unemployment rate                                                  &          &          &          &          &          & -0.0092  & -0.0083  & -0.0076\\   
-                                                                         &          &          &          &          &          & (0.0064) & (0.0064) & (0.0069)\\   
-      Share of >65                                                       &          &          &          &          &          &          & -0.0168  & -0.0154\\   
-                                                                         &          &          &          &          &          &          & (0.0259) & (0.0238)\\   
-      Green vs. growth government preferences                            &          &          &          &          &          &          &          & -0.0011\\   
-                                                                         &          &          &          &          &          &          &          & (0.0017)\\   
+      Corporatism (core, smoothed)                                       & -0.029  & -0.019  & -0.026  & -0.033  & -0.037  & -0.079  & -0.088  & -0.081\\   
+                                                                         & (0.057) & (0.056) & (0.054) & (0.055) & (0.050) & (0.048) & (0.054) & (0.055)\\   
+      Left-right dimension (Jahn)                                        &         & 0.001   & 0.001   & 0.001   & 0.001   & 0.001   & 0.002   & 0.001\\   
+                                                                         &         & (0.003) & (0.003) & (0.003) & (0.003) & (0.003) & (0.002) & (0.003)\\   
+      Corporatism (core, smoothed) $\times$ Left-right dimension (Jahn)  &         &         & 0.001   & 0.001   & 0.001   & 0.001   & 0.000   & -0.001\\   
+                                                                         &         &         & (0.004) & (0.004) & (0.004) & (0.004) & (0.004) & (0.004)\\   
+      Fossil fuel production per capita                                  &         &         &         & -0.005  & -0.005  & -0.008  & -0.011  & -0.011\\   
+                                                                         &         &         &         & (0.011) & (0.012) & (0.013) & (0.014) & (0.014)\\   
+      Real GDP growth                                                    &         &         &         &         & -0.001  & -0.002  & 0.001   & 0.001\\   
+                                                                         &         &         &         &         & (0.004) & (0.004) & (0.003) & (0.003)\\   
+      Unemployment rate                                                  &         &         &         &         &         & -0.009  & -0.008  & -0.008\\   
+                                                                         &         &         &         &         &         & (0.006) & (0.006) & (0.007)\\   
+      Share of >65                                                       &         &         &         &         &         &         & -0.017  & -0.015\\   
+                                                                         &         &         &         &         &         &         & (0.026) & (0.024)\\   
+      Green vs. growth government preferences                            &         &         &         &         &         &         &         & -0.001\\   
+                                                                         &         &         &         &         &         &         &         & (0.002)\\   
+      \emph{Fixed effects}\\
+      Country                                                            & x       & x       & x       & x       & x       & x       & x       & x\\  
+      Year                                                               & x       & x       & x       & x       & x       & x       & x       & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                                       & 270     & 269     & 269     & 269     & 269     & 269     & 269     & 269\\  
+      R$^2$                                                              & 0.829   & 0.834   & 0.834   & 0.834   & 0.834   & 0.842   & 0.847   & 0.848\\  
       \midrule
-      \emph{Fixed-effects}\\
-      Country                                                            & Yes      & Yes      & Yes      & Yes      & Yes      & Yes      & Yes      & Yes\\  
-      Year                                                               & Yes      & Yes      & Yes      & Yes      & Yes      & Yes      & Yes      & Yes\\  
-      \midrule
-      \emph{Fit statistics}\\
-      Observations                                                       & 270      & 269      & 269      & 269      & 269      & 269      & 269      & 269\\  
-      R$^2$                                                              & 0.82925  & 0.83360  & 0.83380  & 0.83398  & 0.83407  & 0.84167  & 0.84711  & 0.84789\\  
-      Within R$^2$                                                       & 0.00148  & 0.00763  & 0.00885  & 0.00994  & 0.01047  & 0.05576  & 0.08819  & 0.09284\\  
-      \midrule \midrule
       \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
       \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
    \end{tabular}

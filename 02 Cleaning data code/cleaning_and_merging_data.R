@@ -493,14 +493,14 @@ finnegan_merged <- finnegan %>%
             by = c("iso3c", "year")) %>%
   left_join(corporatismus_core,
             by = c("iso3c", "year")) %>%
-  left_join(cpds, 
-            by = c("iso3c", "year")) %>%
   left_join(oecd_aias_ictwss_csv_v1_pruned, 
             by = c("iso3c", "year")) %>%
   left_join(gallup_merged, 
             by = c("iso3c", "year")) %>%
   left_join(kayser_cip_green,
-            by = c("iso3c", "year")) 
+            by = c("iso3c", "year")) %>%
+  left_join(owid_co2_post90,
+            by = c("iso3c" = "iso_code", "year")) 
 
 
 # 3. save data

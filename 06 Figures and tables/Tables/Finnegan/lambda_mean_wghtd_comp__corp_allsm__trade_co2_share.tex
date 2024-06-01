@@ -1,0 +1,40 @@
+
+\begin{table}[htbp]
+   \caption{Examining Consumer vs. producer costs}
+   \centering
+   \begin{tabular}{lcccccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{8}{c}{Consumer vs. producer costs}\\
+      Model:                                                & (1)     & (2)     & (3)         & (4)         & (5)          & (6)          & (7)          & (8)\\  
+                                                            &  OLS    & OLS     & OLS         & OLS         & OLS          & OLS          & OLS          & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      Corporatism (all, smoothed)                           & 0.052   & 0.075   & 0.139       & 0.205       & 0.183        & 0.195        & 0.171        & 0.174$^{*}$\\   
+                                                            & (0.146) & (0.157) & (0.141)     & (0.141)     & (0.125)      & (0.132)      & (0.102)      & (0.098)\\   
+      Trade CO2 share                                       &         & 0.001   & 0.002$^{*}$ & 0.003$^{*}$ & 0.003$^{*}$  & 0.003$^{*}$  & 0.002        & 0.002\\   
+                                                            &         & (0.001) & (0.001)     & (0.001)     & (0.001)      & (0.001)      & (0.001)      & (0.001)\\   
+      Corporatism (all, smoothed) $\times$ Trade CO2 share  &         &         & -0.002      & -0.003      & -0.003       & -0.003       & -0.003       & -0.003\\   
+                                                            &         &         & (0.002)     & (0.002)     & (0.002)      & (0.002)      & (0.003)      & (0.003)\\   
+      Fossil fuel production per capita                     &         &         &             & 0.027$^{*}$ & 0.029$^{**}$ & 0.029$^{**}$ & 0.027$^{**}$ & 0.027$^{**}$\\   
+                                                            &         &         &             & (0.014)     & (0.013)      & (0.013)      & (0.012)      & (0.011)\\   
+      Real GDP growth                                       &         &         &             &             & -0.007       & -0.007       & -0.006       & -0.006\\   
+                                                            &         &         &             &             & (0.011)      & (0.010)      & (0.010)      & (0.010)\\   
+      Unemployment rate                                     &         &         &             &             &              & 0.003        & 0.004        & 0.004\\   
+                                                            &         &         &             &             &              & (0.004)      & (0.005)      & (0.005)\\   
+      Share of >65                                          &         &         &             &             &              &              & -0.011       & -0.010\\   
+                                                            &         &         &             &             &              &              & (0.015)      & (0.016)\\   
+      Green vs. growth government preferences               &         &         &             &             &              &              &              & 0.000\\   
+                                                            &         &         &             &             &              &              &              & (0.002)\\   
+      \emph{Fixed effects}\\
+      Country                                               & x       & x       & x           & x           & x            & x            & x            & x\\  
+      Year                                                  & x       & x       & x           & x           & x            & x            & x            & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                          & 270     & 270     & 270         & 269         & 269          & 269          & 269          & 269\\  
+      R$^2$                                                 & 0.945   & 0.946   & 0.947       & 0.948       & 0.949        & 0.949        & 0.950        & 0.950\\  
+      \midrule
+      \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+

@@ -1,0 +1,40 @@
+
+\begin{table}[htbp]
+   \caption{Examining Costs for producers}
+   \centering
+   \begin{tabular}{lcccccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{8}{c}{Costs for producers}\\
+      Model:                                  & (1)     & (2)     & (3)         & (4)          & (5)         & (6)          & (7)          & (8)\\  
+                                              &  OLS    & OLS     & OLS         & OLS          & OLS         & OLS          & OLS          & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      bc1                                     & 0.010   & -0.001  & -0.159      & -0.157       & -0.161      & -0.193       & -0.146       & -0.147\\   
+                                              & (0.034) & (0.030) & (0.118)     & (0.120)      & (0.125)     & (0.132)      & (0.095)      & (0.110)\\   
+      Openness to trade                       &         & 0.001   & 0.002$^{*}$ & 0.002$^{**}$ & 0.003$^{*}$ & 0.003$^{**}$ & 0.003$^{**}$ & 0.003$^{**}$\\   
+                                              &         & (0.001) & (0.001)     & (0.001)      & (0.001)     & (0.001)      & (0.001)      & (0.001)\\   
+      bc0 $\times$ Openness to trade          &         &         & -0.002      & -0.002       & -0.002      & -0.002       & -0.002       & -0.001\\   
+                                              &         &         & (0.002)     & (0.002)      & (0.002)     & (0.002)      & (0.001)      & (0.001)\\   
+      Fossil fuel production per capita       &         &         &             & -0.002       & -0.001      & -0.001       & -0.001       & -0.003\\   
+                                              &         &         &             & (0.006)      & (0.005)     & (0.005)      & (0.007)      & (0.008)\\   
+      Real GDP growth                         &         &         &             &              & -0.002      & -0.003       & -0.001       & 0.000\\   
+                                              &         &         &             &              & (0.003)     & (0.004)      & (0.003)      & (0.003)\\   
+      Unemployment rate                       &         &         &             &              &             & -0.009       & -0.008       & -0.007\\   
+                                              &         &         &             &              &             & (0.007)      & (0.007)      & (0.006)\\   
+      Share of >65                            &         &         &             &              &             &              & -0.014       & -0.013\\   
+                                              &         &         &             &              &             &              & (0.026)      & (0.025)\\   
+      Green vs. growth government preferences &         &         &             &              &             &              &              & -0.002\\   
+                                              &         &         &             &              &             &              &              & (0.001)\\   
+      \emph{Fixed effects}\\
+      Country                                 & x       & x       & x           & x            & x           & x            & x            & x\\  
+      Year                                    & x       & x       & x           & x            & x           & x            & x            & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                            & 270     & 270     & 270         & 269          & 269         & 269          & 269          & 269\\  
+      R$^2$                                   & 0.829   & 0.831   & 0.833       & 0.837        & 0.837       & 0.846        & 0.849        & 0.852\\  
+      \midrule
+      \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+
