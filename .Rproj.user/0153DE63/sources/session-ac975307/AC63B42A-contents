@@ -1,0 +1,34 @@
+
+\begin{table}[htbp]
+   \caption{Model for Consumer vs. producer costs}
+   \centering
+   \begin{tabular}{lcccc}
+      \tabularnewline \midrule \midrule
+      Dependent Variable: & \multicolumn{4}{c}{Consumer vs. producer costs}\\
+      Model:                                  & (1)           & (2)           & (3)           & (4)\\  
+      \midrule
+      \emph{Variables}\\
+      Concertation                            & 0.0570$^{**}$ & 0.0556$^{**}$ & 0.0554$^{**}$ & 0.0561$^{**}$\\   
+                                              & (0.0242)      & (0.0217)      & (0.0222)      & (0.0205)\\   
+      Real GDP growth                         &               & -0.0081       & -0.0086       & -0.0084\\   
+                                              &               & (0.0076)      & (0.0075)      & (0.0076)\\   
+      Fossil fuel production per capita       &               &               & 0.0112        & 0.0107\\   
+                                              &               &               & (0.0151)      & (0.0141)\\   
+      Green vs. growth government preferences &               &               &               & -0.0003\\   
+                                              &               &               &               & (0.0017)\\   
+      \midrule
+      \emph{Fixed-effects}\\
+      Country                                 & Yes           & Yes           & Yes           & Yes\\  
+      Year                                    & Yes           & Yes           & Yes           & Yes\\  
+      \midrule
+      \emph{Fit statistics}\\
+      Observations                            & 269           & 269           & 269           & 269\\  
+      R$^2$                                   & 0.94817       & 0.94927       & 0.94949       & 0.94952\\  
+      Within R$^2$                            & 0.06459       & 0.08447       & 0.08855       & 0.08910\\  
+      \midrule \midrule
+      \multicolumn{5}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{5}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+

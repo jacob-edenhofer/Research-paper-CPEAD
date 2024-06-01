@@ -3,35 +3,37 @@
    \caption{Examining Costs for producers}
    \centering
    \begin{tabular}{lcccccccc}
-      \toprule
+      \tabularnewline \midrule \midrule
       Dependent Variable: & \multicolumn{8}{c}{Costs for producers}\\
-      Model:                                       & (1)     & (2)     & (3)         & (4)         & (5)     & (6)         & (7)     & (8)\\  
-                                                   &  OLS    & OLS     & OLS         & OLS         & OLS     & OLS         & OLS     & OLS\\  
+      Model:                                       & (1)      & (2)      & (3)          & (4)          & (5)      & (6)                   & (7)      & (8)\\  
       \midrule
       \emph{Variables}\\
-      Corporatism (core)                           & 0.011   & 0.021   & -0.006      & -0.007      & -0.007  & 0.038       & 0.038   & 0.033\\   
-                                                   & (0.023) & (0.019) & (0.027)     & (0.028)     & (0.028) & (0.021)     & (0.023) & (0.026)\\   
-      Green party CIP                              &         & -0.116  & -0.330      & -0.341      & -0.319  & -0.231      & -0.235  & -0.282\\   
-                                                   &         & (0.119) & (0.193)     & (0.196)     & (0.207) & (0.189)     & (0.177) & (0.200)\\   
-      Corporatism (core) $\times$ Green party CIP  &         &         & 0.385$^{*}$ & 0.398$^{*}$ & 0.369   & 0.133       & 0.125   & 0.146\\   
-                                                   &         &         & (0.196)     & (0.197)     & (0.200) & (0.126)     & (0.166) & (0.185)\\   
-      Fossil fuel production per capita            &         &         &             & -0.011      & -0.011  & -0.014      & -0.015  & -0.014\\   
-                                                   &         &         &             & (0.014)     & (0.014) & (0.015)     & (0.015) & (0.018)\\   
-      Real GDP growth                              &         &         &             &             & 0.002   & 0.000       & 0.000   & 0.000\\   
-                                                   &         &         &             &             & (0.003) & (0.002)     & (0.003) & (0.004)\\   
-      Unemployment rate                            &         &         &             &             &         & 0.009$^{*}$ & 0.010   & 0.009\\   
-                                                   &         &         &             &             &         & (0.005)     & (0.005) & (0.005)\\   
-      Share of >65                                 &         &         &             &             &         &             & -0.001  & -0.005\\   
-                                                   &         &         &             &             &         &             & (0.009) & (0.008)\\   
-      Green vs. growth government preferences      &         &         &             &             &         &             &         & 0.001\\   
-                                                   &         &         &             &             &         &             &         & (0.001)\\   
-      \emph{Fixed effects}\\
-      Country                                      & x       & x       & x           & x           & x       & x           & x       & x\\  
-      Year                                         & x       & x       & x           & x           & x       & x           & x       & x\\  
-      \midrule \emph{Fit statistics}\\
-      Observations                                 & 270     & 97      & 97          & 97          & 97      & 97          & 97      & 97\\  
-      R$^2$                                        & 0.829   & 0.926   & 0.927       & 0.928       & 0.929   & 0.934       & 0.934   & 0.935\\  
+      Corporatism (core)                           & 0.0112   & 0.0210   & -0.0062      & -0.0074      & -0.0071  & 0.0379                & 0.0384   & 0.0327\\   
+                                                   & (0.0231) & (0.0187) & (0.0274)     & (0.0277)     & (0.0280) & (0.0211)              & (0.0232) & (0.0259)\\   
+      Green party CIP                              &          & -0.1161  & -0.3301      & -0.3409      & -0.3192  & -0.2313               & -0.2345  & -0.2816\\   
+                                                   &          & (0.1189) & (0.1934)     & (0.1960)     & (0.2065) & (0.1895)              & (0.1775) & (0.1996)\\   
+      Corporatism (core) $\times$ Green party CIP  &          &          & 0.3852$^{*}$ & 0.3978$^{*}$ & 0.3686   & 0.1329                & 0.1254   & 0.1461\\   
+                                                   &          &          & (0.1959)     & (0.1973)     & (0.1997) & (0.1262)              & (0.1664) & (0.1847)\\   
+      Fossil fuel production per capita            &          &          &              & -0.0106      & -0.0112  & -0.0139               & -0.0145  & -0.0137\\   
+                                                   &          &          &              & (0.0135)     & (0.0140) & (0.0150)              & (0.0147) & (0.0177)\\   
+      Real GDP growth                              &          &          &              &              & 0.0016   & $5.92\times 10^{-5}$  & 0.0003   & -0.0002\\   
+                                                   &          &          &              &              & (0.0031) & (0.0024)              & (0.0032) & (0.0039)\\   
+      Unemployment rate                            &          &          &              &              &          & 0.0094$^{*}$          & 0.0096   & 0.0087\\   
+                                                   &          &          &              &              &          & (0.0049)              & (0.0052) & (0.0052)\\   
+      Share of >65                                 &          &          &              &              &          &                       & -0.0015  & -0.0046\\   
+                                                   &          &          &              &              &          &                       & (0.0086) & (0.0082)\\   
+      Green vs. growth government preferences      &          &          &              &              &          &                       &          & 0.0008\\   
+                                                   &          &          &              &              &          &                       &          & (0.0014)\\   
       \midrule
+      \emph{Fixed-effects}\\
+      Country                                      & Yes      & Yes      & Yes          & Yes          & Yes      & Yes                   & Yes      & Yes\\  
+      Year                                         & Yes      & Yes      & Yes          & Yes          & Yes      & Yes                   & Yes      & Yes\\  
+      \midrule
+      \emph{Fit statistics}\\
+      Observations                                 & 270      & 97       & 97           & 97           & 97       & 97                    & 97       & 97\\  
+      R$^2$                                        & 0.82907  & 0.92555  & 0.92746      & 0.92844      & 0.92867  & 0.93419               & 0.93422  & 0.93514\\  
+      Within R$^2$                                 & 0.00042  & 0.05027  & 0.07460      & 0.08716      & 0.09002  & 0.16048               & 0.16089  & 0.17260\\  
+      \midrule \midrule
       \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
       \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
    \end{tabular}

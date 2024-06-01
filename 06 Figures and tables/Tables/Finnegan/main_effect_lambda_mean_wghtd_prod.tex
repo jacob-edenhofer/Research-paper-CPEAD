@@ -1,0 +1,32 @@
+
+\begin{table}[htbp]
+   \caption{Model for Costs for producers}
+   \centering
+   \begin{tabular}{lcccc}
+      \toprule
+      Dependent Variable: & \multicolumn{4}{c}{Costs for producers}\\
+      Model:                                  & (1)     & (2)     & (3)     & (4)\\  
+                                              &  OLS    & OLS     & OLS     & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      Concertation                            & 0.015   & 0.015   & 0.015   & 0.020\\   
+                                              & (0.012) & (0.013) & (0.012) & (0.012)\\   
+      Real GDP growth                         &         & 0.000   & 0.000   & 0.001\\   
+                                              &         & (0.003) & (0.003) & (0.002)\\   
+      Fossil fuel production per capita       &         &         & -0.002  & -0.006\\   
+                                              &         &         & (0.008) & (0.009)\\   
+      Green vs. growth government preferences &         &         &         & -0.002\\   
+                                              &         &         &         & (0.002)\\   
+      \emph{Fixed effects}\\
+      Country                                 & x       & x       & x       & x\\  
+      Year                                    & x       & x       & x       & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                            & 269     & 269     & 269     & 269\\  
+      R$^2$                                   & 0.833   & 0.833   & 0.833   & 0.840\\  
+      \midrule
+      \multicolumn{5}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{5}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
+
+

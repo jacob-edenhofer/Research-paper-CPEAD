@@ -3,35 +3,37 @@
    \caption{Examining Costs for producers}
    \centering
    \begin{tabular}{lcccccccc}
-      \toprule
+      \tabularnewline \midrule \midrule
       Dependent Variable: & \multicolumn{8}{c}{Costs for producers}\\
-      Model:                                    & (1)     & (2)     & (3)     & (4)     & (5)     & (6)     & (7)     & (8)\\  
-                                                &  OLS    & OLS     & OLS     & OLS     & OLS     & OLS     & OLS     & OLS\\  
+      Model:                                    & (1)      & (2)      & (3)      & (4)      & (5)      & (6)      & (7)      & (8)\\  
       \midrule
       \emph{Variables}\\
-      bc1                                       & 0.010   & 0.018   & 0.042   & 0.045   & 0.045   & 0.049   & 0.039   & 0.033\\   
-                                                & (0.034) & (0.030) & (0.032) & (0.033) & (0.033) & (0.035) & (0.041) & (0.047)\\   
-      Left-right dimension (Jahn)               &         & 0.001   & -0.002  & -0.002  & -0.002  & -0.003  & -0.003  & -0.003\\   
-                                                &         & (0.003) & (0.002) & (0.002) & (0.002) & (0.002) & (0.002) & (0.002)\\   
-      bc0 $\times$ Left-right dimension (Jahn)  &         &         & 0.005   & 0.005   & 0.005   & 0.006   & 0.006   & 0.006\\   
-                                                &         &         & (0.003) & (0.003) & (0.003) & (0.004) & (0.004) & (0.005)\\   
-      Fossil fuel production per capita         &         &         &         & -0.008  & -0.007  & -0.008  & -0.009  & -0.008\\   
-                                                &         &         &         & (0.010) & (0.010) & (0.011) & (0.013) & (0.013)\\   
-      Real GDP growth                           &         &         &         &         & -0.001  & -0.002  & 0.001   & 0.001\\   
-                                                &         &         &         &         & (0.004) & (0.004) & (0.003) & (0.003)\\   
-      Unemployment rate                         &         &         &         &         &         & -0.009  & -0.008  & -0.008\\   
-                                                &         &         &         &         &         & (0.007) & (0.007) & (0.007)\\   
-      Share of >65                              &         &         &         &         &         &         & -0.015  & -0.014\\   
-                                                &         &         &         &         &         &         & (0.026) & (0.024)\\   
-      Green vs. growth government preferences   &         &         &         &         &         &         &         & -0.001\\   
-                                                &         &         &         &         &         &         &         & (0.002)\\   
-      \emph{Fixed effects}\\
-      Country                                   & x       & x       & x       & x       & x       & x       & x       & x\\  
-      Year                                      & x       & x       & x       & x       & x       & x       & x       & x\\  
-      \midrule \emph{Fit statistics}\\
-      Observations                              & 270     & 269     & 269     & 269     & 269     & 269     & 269     & 269\\  
-      R$^2$                                     & 0.829   & 0.834   & 0.837   & 0.837   & 0.837   & 0.845   & 0.849   & 0.850\\  
+      bc1                                       & 0.0098   & 0.0182   & 0.0417   & 0.0448   & 0.0449   & 0.0493   & 0.0387   & 0.0333\\   
+                                                & (0.0339) & (0.0299) & (0.0321) & (0.0331) & (0.0330) & (0.0349) & (0.0405) & (0.0468)\\   
+      Left-right dimension (Jahn)               &          & 0.0013   & -0.0023  & -0.0023  & -0.0024  & -0.0033  & -0.0029  & -0.0032\\   
+                                                &          & (0.0027) & (0.0019) & (0.0018) & (0.0019) & (0.0024) & (0.0022) & (0.0024)\\   
+      bc0 $\times$ Left-right dimension (Jahn)  &          &          & 0.0045   & 0.0048   & 0.0049   & 0.0059   & 0.0058   & 0.0055\\   
+                                                &          &          & (0.0030) & (0.0031) & (0.0031) & (0.0038) & (0.0041) & (0.0046)\\   
+      Fossil fuel production per capita         &          &          &          & -0.0077  & -0.0072  & -0.0079  & -0.0085  & -0.0082\\   
+                                                &          &          &          & (0.0101) & (0.0105) & (0.0106) & (0.0125) & (0.0126)\\   
+      Real GDP growth                           &          &          &          &          & -0.0011  & -0.0017  & 0.0006   & 0.0008\\   
+                                                &          &          &          &          & (0.0036) & (0.0038) & (0.0027) & (0.0028)\\   
+      Unemployment rate                         &          &          &          &          &          & -0.0091  & -0.0081  & -0.0076\\   
+                                                &          &          &          &          &          & (0.0068) & (0.0067) & (0.0074)\\   
+      Share of >65                              &          &          &          &          &          &          & -0.0152  & -0.0143\\   
+                                                &          &          &          &          &          &          & (0.0265) & (0.0245)\\   
+      Green vs. growth government preferences   &          &          &          &          &          &          &          & -0.0008\\   
+                                                &          &          &          &          &          &          &          & (0.0020)\\   
       \midrule
+      \emph{Fixed-effects}\\
+      Country                                   & Yes      & Yes      & Yes      & Yes      & Yes      & Yes      & Yes      & Yes\\  
+      Year                                      & Yes      & Yes      & Yes      & Yes      & Yes      & Yes      & Yes      & Yes\\  
+      \midrule
+      \emph{Fit statistics}\\
+      Observations                              & 270      & 269      & 269      & 269      & 269      & 269      & 269      & 269\\  
+      R$^2$                                     & 0.82907  & 0.83376  & 0.83650  & 0.83693  & 0.83701  & 0.84491  & 0.84947  & 0.84982\\  
+      Within R$^2$                              & 0.00045  & 0.00860  & 0.02494  & 0.02751  & 0.02797  & 0.07508  & 0.10228  & 0.10440\\  
+      \midrule \midrule
       \multicolumn{9}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
       \multicolumn{9}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
    \end{tabular}
