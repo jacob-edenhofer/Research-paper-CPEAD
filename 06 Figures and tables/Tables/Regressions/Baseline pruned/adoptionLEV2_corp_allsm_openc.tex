@@ -1,36 +1,37 @@
 
-\begingroup
-\centering
-\begin{tabular}{lccccccc}
-   \toprule
-   Dependent Variable: & \multicolumn{7}{c}{Stringency value modified}\\
-   Model:                                                              & (1)            & (2)           & (3)          & (4)          & (5)           & (6)           & (7)\\  
-                                                                       &  OLS           & OLS           & OLS          & OLS          & OLS           & OLS           & OLS\\  
-   \midrule
-   \emph{Variables}\\
-   Corporatism (all), sm, 1-year lag                                   & 0.151$^{*}$    & 0.127$^{*}$   & 0.118        & 0.120        & 0.118         & 0.116         & 0.147$^{**}$\\   
-                                                                       & (0.076)        & (0.073)       & (0.075)      & (0.080)      & (0.077)       & (0.076)       & (0.066)\\   
-   Openness of economy, 1-year lag                                     & 0.001          & 0.001         & 0.001        & 0.001        & 0.001         & 0.001         & 0.001$^{*}$\\   
-                                                                       & (0.001)        & (0.001)       & (0.001)      & (0.001)      & (0.001)       & (0.001)       & (0.000)\\   
-   Corporatism (all), sm, 1-year lag x Openness of economy, 1-year lag & -0.001$^{***}$ & -0.001$^{**}$ & -0.001$^{*}$ & -0.001$^{*}$ & -0.001$^{**}$ & -0.001$^{**}$ & -0.001$^{**}$\\   
-                                                                       & (0.000)        & (0.001)       & (0.001)      & (0.001)      & (0.001)       & (0.001)       & (0.000)\\   
-   CO2 per capita                                                      &                & X             & X            & X            & X             & X             & X\\  
-   GDP per capita                                                      &                &               & X            & X            & X             & X             & X\\  
-   Total tax revenues as \% of GDP                                     &                &               &              & X            & X             & X             & X\\  
-   Share of elderly population                                         &                &               &              &              & X             & X             & X\\  
-   Gallagher disproportionality index                                  &                &               &              &              &               & X             & X\\  
-   Lagged dependent variable                                           &                &               &              &              &               &               & X\\  
-   \emph{Fixed effects}\\
-   Country                                                             & x              & x             & x            & x            & x             & x             & x\\  
-   Half decade                                                         & x              & x             & x            & x            & x             & x             & x\\  
-   Instrument type                                                     & x              & x             & x            & x            & x             & x             & x\\  
-   \midrule \emph{Fit statistics}\\
-   Observations                                                        & 13,412         & 13,412        & 13,258       & 12,278       & 12,264        & 12,264        & 11,382\\  
-   R$^2$                                                               & 0.512          & 0.513         & 0.511        & 0.513        & 0.514         & 0.514         & 0.602\\  
-   \midrule
-   \multicolumn{8}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
-   \multicolumn{8}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
-\end{tabular}
-\par\endgroup
+\begin{table}[htbp]
+   \caption{Marginal effect of Corporatism (all), sm by Openness of economy}
+   \centering
+   \begin{tabular}{lccccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{7}{c}{Stringency value modified}\\
+      Model:                                                              & (1)            & (2)           & (3)          & (4)          & (5)           & (6)           & (7)\\  
+                                                                          &  OLS           & OLS           & OLS          & OLS          & OLS           & OLS           & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      Corporatism (all), sm, 1-year lag                                   & 0.151$^{*}$    & 0.127$^{*}$   & 0.118        & 0.120        & 0.118         & 0.116         & 0.147$^{**}$\\   
+                                                                          & (0.076)        & (0.073)       & (0.075)      & (0.080)      & (0.077)       & (0.076)       & (0.066)\\   
+      Openness of economy, 1-year lag                                     & 0.001          & 0.001         & 0.001        & 0.001        & 0.001         & 0.001         & 0.001$^{*}$\\   
+                                                                          & (0.001)        & (0.001)       & (0.001)      & (0.001)      & (0.001)       & (0.001)       & (0.000)\\   
+      Corporatism (all), sm, 1-year lag x Openness of economy, 1-year lag & -0.001$^{***}$ & -0.001$^{**}$ & -0.001$^{*}$ & -0.001$^{*}$ & -0.001$^{**}$ & -0.001$^{**}$ & -0.001$^{**}$\\   
+                                                                          & (0.000)        & (0.001)       & (0.001)      & (0.001)      & (0.001)       & (0.001)       & (0.000)\\   
+      CO2 p.c.                                                            &                & X             & X            & X            & X             & X             & X\\  
+      GDP p.c.                                                            &                &               & X            & X            & X             & X             & X\\  
+      Total tax revenues as \% of GDP                                     &                &               &              & X            & X             & X             & X\\  
+      Share of elderly population                                         &                &               &              &              & X             & X             & X\\  
+      Gallagher disproportionality index                                  &                &               &              &              &               & X             & X\\  
+      Lagged dependent variable                                           &                &               &              &              &               &               & X\\  
+      \emph{Fixed effects}\\
+      Country                                                             & x              & x             & x            & x            & x             & x             & x\\  
+      Half decade                                                         & x              & x             & x            & x            & x             & x             & x\\  
+      Instrument type                                                     & x              & x             & x            & x            & x             & x             & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                                        & 13,412         & 13,412        & 13,258       & 12,278       & 12,264        & 12,264        & 11,382\\  
+      R$^2$                                                               & 0.512          & 0.513         & 0.511        & 0.513        & 0.514         & 0.514         & 0.602\\  
+      \midrule
+      \multicolumn{8}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{8}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
 
 

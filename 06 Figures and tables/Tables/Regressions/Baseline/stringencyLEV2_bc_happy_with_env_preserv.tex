@@ -1,42 +1,43 @@
 
-\begingroup
-\centering
-\begin{tabular}{lccccccc}
-   \toprule
-   Dependent Variable: & \multicolumn{7}{c}{Stringency value modified}\\
-   Model:                                                                                     & (1)         & (2)         & (3)           & (4)           & (5)           & (6)           & (7)\\  
-                                                                                              &  OLS        & OLS         & OLS           & OLS           & OLS           & OLS           & OLS\\  
-   \midrule
-   \emph{Variables}\\
-   Bipartite concertation, 1-year lag                                                         & -0.605      & -0.578      & -0.623$^{*}$  & -0.692$^{*}$  & -0.694$^{**}$ & -0.663$^{**}$ & -0.870$^{***}$\\   
-                                                                                              & (0.384)     & (0.353)     & (0.363)       & (0.387)       & (0.292)       & (0.300)       & (0.294)\\   
-   Happiness with environmental preservation, 1-year lag                                      & -0.212      & -0.203      & -0.167        & -0.269        & -0.454        & -0.438        & -0.888$^{**}$\\   
-                                                                                              & (0.428)     & (0.421)     & (0.445)       & (0.450)       & (0.508)       & (0.514)       & (0.395)\\   
-   Bipartite concertation, 1-year lag x Happiness with environmental preservation, 1-year lag & 1.350$^{*}$ & 1.315$^{*}$ & 1.352$^{*}$   & 1.410$^{*}$   & 1.285$^{**}$  & 1.230$^{**}$  & 1.574$^{**}$\\   
-                                                                                              & (0.690)     & (0.650)     & (0.668)       & (0.706)       & (0.575)       & (0.589)       & (0.600)\\   
-   CO2 emissions per capita, 1-year lag                                                       &             & -0.030      & -0.047        & -0.043        & -0.027        & -0.025        & 0.018\\   
-                                                                                              &             & (0.064)     & (0.068)       & (0.070)       & (0.066)       & (0.064)       & (0.035)\\   
-   GDP per capita (constant 2015 US\$), 1-year lag                                            &             &             & 0.000$^{***}$ & 0.000$^{***}$ & 0.000$^{*}$   & 0.000$^{*}$   & 0.000$^{**}$\\   
-                                                                                              &             &             & (0.000)       & (0.000)       & (0.000)       & (0.000)       & (0.000)\\   
-   Tax revenue (\% of GDP), 1-year lag                                                        &             &             &               & 0.028         & -0.001        & -0.001        & 0.021$^{*}$\\   
-                                                                                              &             &             &               & (0.025)       & (0.022)       & (0.022)       & (0.012)\\   
-   Share of population >65, 1-year lag                                                        &             &             &               &               & 0.290$^{***}$ & 0.293$^{***}$ & 0.063\\   
-                                                                                              &             &             &               &               & (0.068)       & (0.068)       & (0.046)\\   
-   Gallagher index of disproportionality, 1-year lag                                          &             &             &               &               &               & -0.010        & -0.003\\   
-                                                                                              &             &             &               &               &               & (0.014)       & (0.007)\\   
-   Stringency value modified, three-year lag, 1-year lag                                      &             &             &               &               &               &               & 0.702$^{***}$\\   
-                                                                                              &             &             &               &               &               &               & (0.027)\\   
-   \emph{Fixed effects}\\
-   Country                                                                                    & x           & x           & x             & x             & x             & x             & x\\  
-   Half decade                                                                                & x           & x           & x             & x             & x             & x             & x\\  
-   Instrument type                                                                            & x           & x           & x             & x             & x             & x             & x\\  
-   \midrule \emph{Fit statistics}\\
-   Observations                                                                               & 6,692       & 6,692       & 6,692         & 6,356         & 5,236         & 5,236         & 5,236\\  
-   R$^2$                                                                                      & 0.536       & 0.536       & 0.537         & 0.533         & 0.547         & 0.547         & 0.721\\  
-   \midrule
-   \multicolumn{8}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
-   \multicolumn{8}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
-\end{tabular}
-\par\endgroup
+\begin{table}[htbp]
+   \caption{Marginal effect of Bipartite concertation by Happiness with environmental preservation}
+   \centering
+   \begin{tabular}{lccccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{7}{c}{Stringency value modified}\\
+      Model:                                                                                     & (1)         & (2)         & (3)           & (4)           & (5)           & (6)           & (7)\\  
+                                                                                                 &  OLS        & OLS         & OLS           & OLS           & OLS           & OLS           & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      Bipartite concertation, 1-year lag                                                         & -0.605      & -0.578      & -0.623$^{*}$  & -0.692$^{*}$  & -0.694$^{**}$ & -0.663$^{**}$ & -0.870$^{***}$\\   
+                                                                                                 & (0.384)     & (0.353)     & (0.363)       & (0.387)       & (0.292)       & (0.300)       & (0.294)\\   
+      Happiness with environmental preservation, 1-year lag                                      & -0.212      & -0.203      & -0.167        & -0.269        & -0.454        & -0.438        & -0.888$^{**}$\\   
+                                                                                                 & (0.428)     & (0.421)     & (0.445)       & (0.450)       & (0.508)       & (0.514)       & (0.395)\\   
+      Bipartite concertation, 1-year lag x Happiness with environmental preservation, 1-year lag & 1.350$^{*}$ & 1.315$^{*}$ & 1.352$^{*}$   & 1.410$^{*}$   & 1.285$^{**}$  & 1.230$^{**}$  & 1.574$^{**}$\\   
+                                                                                                 & (0.690)     & (0.650)     & (0.668)       & (0.706)       & (0.575)       & (0.589)       & (0.600)\\   
+      CO2 emissions p.c., 1-year lag                                                             &             & -0.030      & -0.047        & -0.043        & -0.027        & -0.025        & 0.018\\   
+                                                                                                 &             & (0.064)     & (0.068)       & (0.070)       & (0.066)       & (0.064)       & (0.035)\\   
+      GDP p.c. (constant 2015 USD), 1-year lag                                                   &             &             & 0.000$^{***}$ & 0.000$^{***}$ & 0.000$^{*}$   & 0.000$^{*}$   & 0.000$^{**}$\\   
+                                                                                                 &             &             & (0.000)       & (0.000)       & (0.000)       & (0.000)       & (0.000)\\   
+      Tax revenue (\% of GDP), 1-year lag                                                        &             &             &               & 0.028         & -0.001        & -0.001        & 0.021$^{*}$\\   
+                                                                                                 &             &             &               & (0.025)       & (0.022)       & (0.022)       & (0.012)\\   
+      Share of population >65, 1-year lag                                                        &             &             &               &               & 0.290$^{***}$ & 0.293$^{***}$ & 0.063\\   
+                                                                                                 &             &             &               &               & (0.068)       & (0.068)       & (0.046)\\   
+      Gallagher index of disproportionality, 1-year lag                                          &             &             &               &               &               & -0.010        & -0.003\\   
+                                                                                                 &             &             &               &               &               & (0.014)       & (0.007)\\   
+      Stringency value modified, three-year lag, 1-year lag                                      &             &             &               &               &               &               & 0.702$^{***}$\\   
+                                                                                                 &             &             &               &               &               &               & (0.027)\\   
+      \emph{Fixed effects}\\
+      Country                                                                                    & x           & x           & x             & x             & x             & x             & x\\  
+      Half decade                                                                                & x           & x           & x             & x             & x             & x             & x\\  
+      Instrument type                                                                            & x           & x           & x             & x             & x             & x             & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                                                               & 6,692       & 6,692       & 6,692         & 6,356         & 5,236         & 5,236         & 5,236\\  
+      R$^2$                                                                                      & 0.536       & 0.536       & 0.537         & 0.533         & 0.547         & 0.547         & 0.721\\  
+      \midrule
+      \multicolumn{8}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{8}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
 
 

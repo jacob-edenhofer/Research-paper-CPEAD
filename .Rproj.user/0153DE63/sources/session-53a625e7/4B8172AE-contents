@@ -1,0 +1,42 @@
+
+\begingroup
+\centering
+\begin{tabular}{lccccccc}
+   \toprule
+   Dependent Variable: & \multicolumn{7}{c}{Stringency value modified}\\
+   Model:                                                                 & (1)           & (2)           & (3)           & (4)           & (5)           & (6)           & (7)\\  
+                                                                          &  OLS          & OLS           & OLS           & OLS           & OLS           & OLS           & OLS\\  
+   \midrule
+   \emph{Variables}\\
+   Bipartite concertation, 1-year lag                                     & 0.278$^{***}$ & 0.195$^{***}$ & 0.152$^{*}$   & 0.013         & 0.223$^{***}$ & 0.222$^{***}$ & 0.215$^{***}$\\   
+                                                                          & (0.046)       & (0.044)       & (0.071)       & (0.131)       & (0.023)       & (0.025)       & (0.047)\\   
+   Green party CIP (Net), 1-year lag                                      & -0.292        & -0.257        & -0.198        & -0.247        & 0.105         & 0.102         & -0.255\\   
+                                                                          & (0.426)       & (0.376)       & (0.360)       & (0.362)       & (0.268)       & (0.270)       & (0.419)\\   
+   Bipartite concertation, 1-year lag x Green party CIP (Net), 1-year lag & -0.992$^{**}$ & -0.963$^{**}$ & -1.078$^{**}$ & -1.007$^{*}$  & -0.927$^{*}$  & -0.925$^{*}$  & -0.632\\   
+                                                                          & (0.409)       & (0.378)       & (0.443)       & (0.448)       & (0.474)       & (0.474)       & (0.417)\\   
+   CO2 emissions per capita, 1-year lag                                   &               & -0.064$^{**}$ & -0.079$^{**}$ & -0.087$^{**}$ & -0.071$^{**}$ & -0.071$^{**}$ & -0.021\\   
+                                                                          &               & (0.025)       & (0.031)       & (0.030)       & (0.021)       & (0.021)       & (0.019)\\   
+   GDP per capita (constant 2015 US\$), 1-year lag                        &               &               & 0.000$^{**}$  & 0.000$^{***}$ & 0.000$^{***}$ & 0.000$^{***}$ & 0.000$^{***}$\\   
+                                                                          &               &               & (0.000)       & (0.000)       & (0.000)       & (0.000)       & (0.000)\\   
+   Tax revenue (\% of GDP), 1-year lag                                    &               &               &               & 0.024         & 0.017         & 0.017         & -0.007\\   
+                                                                          &               &               &               & (0.014)       & (0.010)       & (0.010)       & (0.008)\\   
+   Share of population >65, 1-year lag                                    &               &               &               &               & 0.181$^{***}$ & 0.180$^{***}$ & 0.068$^{***}$\\   
+                                                                          &               &               &               &               & (0.031)       & (0.034)       & (0.020)\\   
+   Gallagher index of disproportionality, 1-year lag                      &               &               &               &               &               & -0.001        & -0.017$^{**}$\\   
+                                                                          &               &               &               &               &               & (0.007)       & (0.007)\\   
+   Stringency value modified, three-year lag, 1-year lag                  &               &               &               &               &               &               & 0.716$^{***}$\\   
+                                                                          &               &               &               &               &               &               & (0.023)\\   
+   \emph{Fixed effects}\\
+   Country                                                                & x             & x             & x             & x             & x             & x             & x\\  
+   Half decade                                                            & x             & x             & x             & x             & x             & x             & x\\  
+   Instrument type                                                        & x             & x             & x             & x             & x             & x             & x\\  
+   \midrule \emph{Fit statistics}\\
+   Observations                                                           & 3,108         & 3,108         & 3,108         & 3,108         & 3,108         & 3,108         & 2,940\\  
+   R$^2$                                                                  & 0.626         & 0.627         & 0.628         & 0.628         & 0.631         & 0.631         & 0.778\\  
+   \midrule
+   \multicolumn{8}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+   \multicolumn{8}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+
+

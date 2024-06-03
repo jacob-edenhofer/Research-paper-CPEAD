@@ -1,36 +1,37 @@
 
-\begingroup
-\centering
-\begin{tabular}{lccccccc}
-   \toprule
-   Dependent Variable: & \multicolumn{7}{c}{Stringency value modified}\\
-   Model:                                                           & (1)           & (2)          & (3)           & (4)     & (5)           & (6)           & (7)\\  
-                                                                    &  OLS          & OLS          & OLS           & OLS     & OLS           & OLS           & OLS\\  
-   \midrule
-   \emph{Variables}\\
-   Bipartite concertation, 1-year lag                               & 0.313$^{**}$  & 0.268$^{**}$ & 0.202         & 0.170   & 0.022         & 0.022         & -0.043\\   
-                                                                    & (0.136)       & (0.117)      & (0.154)       & (0.158) & (0.149)       & (0.148)       & (0.113)\\   
-   Trade CO2 share, 1-year lag                                      & -0.001        & -0.001$^{*}$ & -0.002$^{**}$ & -0.001  & -0.002$^{**}$ & -0.002$^{**}$ & -0.001\\   
-                                                                    & (0.001)       & (0.001)      & (0.001)       & (0.001) & (0.001)       & (0.001)       & (0.000)\\   
-   Bipartite concertation, 1-year lag x Trade CO2 share, 1-year lag & 0.006$^{***}$ & 0.005$^{**}$ & 0.005$^{**}$  & 0.004   & 0.007$^{**}$  & 0.007$^{**}$  & 0.003$^{**}$\\   
-                                                                    & (0.002)       & (0.002)      & (0.002)       & (0.003) & (0.003)       & (0.003)       & (0.001)\\   
-   CO2 per capita                                                   &               & X            & X             & X       & X             & X             & X\\  
-   GDP per capita                                                   &               &              & X             & X       & X             & X             & X\\  
-   Total tax revenues as \% of GDP                                  &               &              &               & X       & X             & X             & X\\  
-   Share of elderly population                                      &               &              &               &         & X             & X             & X\\  
-   Gallagher disproportionality index                               &               &              &               &         &               & X             & X\\  
-   Lagged dependent variable                                        &               &              &               &         &               &               & X\\  
-   \emph{Fixed effects}\\
-   Country                                                          & x             & x            & x             & x       & x             & x             & x\\  
-   Half decade                                                      & x             & x            & x             & x       & x             & x             & x\\  
-   Type of climate action/measure                                   & x             & x            & x             & x       & x             & x             & x\\  
-   \midrule \emph{Fit statistics}\\
-   Observations                                                     & 4,014         & 4,014        & 3,942         & 3,540   & 2,634         & 2,634         & 2,502\\  
-   R$^2$                                                            & 0.774         & 0.776        & 0.779         & 0.783   & 0.800         & 0.800         & 0.893\\  
-   \midrule
-   \multicolumn{8}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
-   \multicolumn{8}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
-\end{tabular}
-\par\endgroup
+\begin{table}[htbp]
+   \caption{Marginal effect of Bipartite concertation by Trade CO2 share}
+   \centering
+   \begin{tabular}{lccccccc}
+      \toprule
+      Dependent Variable: & \multicolumn{7}{c}{Stringency value modified}\\
+      Model:                                                           & (1)           & (2)          & (3)           & (4)     & (5)           & (6)           & (7)\\  
+                                                                       &  OLS          & OLS          & OLS           & OLS     & OLS           & OLS           & OLS\\  
+      \midrule
+      \emph{Variables}\\
+      Bipartite concertation, 1-year lag                               & 0.313$^{**}$  & 0.268$^{**}$ & 0.202         & 0.170   & 0.022         & 0.022         & -0.043\\   
+                                                                       & (0.136)       & (0.117)      & (0.154)       & (0.158) & (0.149)       & (0.148)       & (0.113)\\   
+      Trade CO2 share, 1-year lag                                      & -0.001        & -0.001$^{*}$ & -0.002$^{**}$ & -0.001  & -0.002$^{**}$ & -0.002$^{**}$ & -0.001\\   
+                                                                       & (0.001)       & (0.001)      & (0.001)       & (0.001) & (0.001)       & (0.001)       & (0.000)\\   
+      Bipartite concertation, 1-year lag x Trade CO2 share, 1-year lag & 0.006$^{***}$ & 0.005$^{**}$ & 0.005$^{**}$  & 0.004   & 0.007$^{**}$  & 0.007$^{**}$  & 0.003$^{**}$\\   
+                                                                       & (0.002)       & (0.002)      & (0.002)       & (0.003) & (0.003)       & (0.003)       & (0.001)\\   
+      CO2 p.c.                                                         &               & X            & X             & X       & X             & X             & X\\  
+      GDP p.c.                                                         &               &              & X             & X       & X             & X             & X\\  
+      Total tax revenues as \% of GDP                                  &               &              &               & X       & X             & X             & X\\  
+      Share of elderly population                                      &               &              &               &         & X             & X             & X\\  
+      Gallagher disproportionality index                               &               &              &               &         &               & X             & X\\  
+      Lagged dependent variable                                        &               &              &               &         &               &               & X\\  
+      \emph{Fixed effects}\\
+      Country                                                          & x             & x            & x             & x       & x             & x             & x\\  
+      Half decade                                                      & x             & x            & x             & x       & x             & x             & x\\  
+      Type of climate action/measure                                   & x             & x            & x             & x       & x             & x             & x\\  
+      \midrule \emph{Fit statistics}\\
+      Observations                                                     & 4,014         & 4,014        & 3,942         & 3,540   & 2,634         & 2,634         & 2,502\\  
+      R$^2$                                                            & 0.774         & 0.776        & 0.779         & 0.783   & 0.800         & 0.800         & 0.893\\  
+      \midrule
+      \multicolumn{8}{l}{\emph{Clustered (Country) standard-errors in parentheses}}\\
+      \multicolumn{8}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+   \end{tabular}
+\end{table}
 
 
