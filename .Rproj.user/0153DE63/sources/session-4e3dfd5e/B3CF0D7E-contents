@@ -382,14 +382,14 @@ for(h in unique(lev4_stringency$sector)){
 
 
 
-### plot number of climate advisory bodies over time 
+### create data frame for plotting number of climate advisory bodies over time 
 cg <- oecd_adoption2 %>%
   filter(grepl("governance", climate_actions_and_policies), 
          !grepl("stringency", measure_2)) %>%
   mutate(continent = countrycode(reference_area, "country.name.en", "continent")) 
 
 
-
+## plot number of climate advisory bodies by continent
 cg %>%
   filter(time_period >= 2000) %>%
   group_by(time_period, continent) %>%
