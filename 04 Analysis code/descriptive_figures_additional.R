@@ -8,6 +8,7 @@
 # Load packages
 library(tidyverse)  # includes dplyr, ggplot2, tidyr, readr, purrr, tibble, stringr, forcats
 library(readxl)     # For reading Excel files
+library(countrycode) # For converting country names to codes
 library(scales)    # For formatting numbers and dates
 library(arrow)      # Efficient data reading and writing
 library(janitor)    # For clean_names()
@@ -27,11 +28,6 @@ oecd_stringency1 <- readRDS(paste0(data_folder[grepl("Stringency", data_folder)]
 oecd_stringency2 <- readRDS(paste0(data_folder[grepl("Stringency", data_folder)], "/oecd_stringency_LEV2.rds"))
 oecd_stringency3 <- readRDS(paste0(data_folder[grepl("Stringency", data_folder)], "/oecd_stringency_LEV3.rds"))
 oecd_stringency4 <- readRDS(paste0(data_folder[grepl("Stringency", data_folder)], "/oecd_stringency_LEV4.rds"))
-
-
-
-
-
 
 
 ################################
@@ -386,8 +382,8 @@ for(h in unique(lev4_stringency$sector)){
 cg <- oecd_adoption2 %>%
   filter(grepl("governance", climate_actions_and_policies), 
          !grepl("stringency", measure_2)) %>%
-  mutate(continent = countrycode(reference_area, "country.name.en", "continent")) 
-
+  mutate(continent = countrycode(reference_area, "country.name.en", "continent"),
+         continent = fct_relevel(continent, "Oceania", "Africa", "Asia", "Americas", "Europe"))  
 
 ## plot number of climate advisory bodies by continent
 cg %>%
@@ -401,7 +397,7 @@ cg %>%
   ggplot(aes(x = time_period)) +
   geom_col(aes(y = no_cgs, fill = continent)) +
   geom_text(aes(y = total_cgs, label = total_cgs), vjust = -0.5, size = 3) +
-  scale_fill_viridis_d(direction = -1) +
+  scale_fill_viridis_d(direction = -1, option = "cividis") +
   labs(x = "Year", y = "Number of climate advisory bodies", 
        title = "Number of climate advisory bodies by continent, 2000 - 2022",
        fill = "") +
