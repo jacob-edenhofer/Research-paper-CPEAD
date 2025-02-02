@@ -86,9 +86,8 @@ map_dfr(folder_kayser, ~{
     remove_empty(which = c("rows", "cols")) 
 }) -> kayser_cip
 
-
-
-
+## save data
+# write_csv(kayser_cip, here("01 Raw data", "Controls and other", "cip_dynamic_all.csv"))
 
 #################################
 # Data wrangling
