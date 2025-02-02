@@ -61,7 +61,7 @@ loaded via a namespace (and not attached):
 
 ## Contact
 
-For any additional information or enquiries, please [email](mailto:jacob.edenhofer@some.ox.ac.uk) me.
+For any additional information or enquiries, please [email](mailto:jacob.edenhofer@nuffield.ox.ac.uk) me.
 
 
 
